@@ -76,7 +76,7 @@
     </p>
   <p class="article-time">
     <time datetime="2014-07-07T12:29:31.000Z" itemprop="datePublished">Jul 7 2014</time>
-    Updated:<time datetime="2014-07-07T12:40:00.000Z" itemprop="dateModified">Jul 7 2014</time>
+    Updated:<time datetime="2014-07-21T03:52:53.000Z" itemprop="dateModified">Jul 20 2014</time>
     
   </p>
 </header>
@@ -108,13 +108,13 @@
 <h1 id="2-输出格式">2.输出格式</h1>
 <p>首先，我们来讲讲输出格式。 在设计API并决定输出数据格式的时候最重要的一点是了解使用你API提供的输出数据的用户。</p>
 <p>或许对于一个遗产系统来说JSON解析并不好实现而用XML更适合些，又或许把输出的数据存在CSV格式中更利于把数据导入表单中。不管你选择那种方式，想想你的用户和他们需要如何利用这些数据都是极为重要的。</p>
-<p>你也可以考虑添加对多种输出格式的支持。实现这种方式的最好方法是查看request中的Accept header并且依据用户请求中的mime-type进行response。这种方式非常赞，因为这种方法是语义化的并且利用了HTTP协议自带的特性。下面有个相关例子：<br><img src="http://scotch.io/wp-content/uploads/2014/04/webapi.jpg" alt=""></p>
+<p>你也可以考虑添加对多种输出格式的支持。实现这种方式的最好方法是查看request中的Accept header并且依据用户请求中的mime-type进行response。这种方式非常赞，因为这种方法是语义化的并且利用了HTTP协议自带的特性。下面有个相关例子：<br><img src="http://kelunblog-image.qiniudn.com/restful-api-1.png" alt=""></p>
 <p>支持多种输出格式在很多时候都不是必须的。如果在选择输出格式时你感到犹豫和疑惑，我会建议你选择JSON格式，因为它很简洁并且易于阅读。永远要记住的一点是如果Accept header没有设置或者设置的是不被支持的类型时，一定要选择一个默认的response类型。</p>
 <h1 id="3-版本控制">3.版本控制</h1>
 <p>这是一个很重要却很容易被忽视的因素。作为一个API的提供者，最重要的一项任务是确保你的API永远不会发生破坏性的改变(breaking changes)。如果开始发生破坏性的改变会使依赖你服务的开发者十分沮丧。</p>
 <p>但是不要担心！版本控制解决了这个问题。你有很多方式去管理API的版本。 例如：WePay uses an Api-Version header, 和Twilio uses a similar approach putting the version date in the URL.</p>
 <p>我最喜欢的方式是简单的利用vX URL后缀,Github和其他很多网站也用的是同样的方法。这种方法让你可以简单的部署新版本的API(例如: /v2), 并且可以直接从浏览器中获得不同版本的API。</p>
-<p>这里有一个例子：</p>
+<p>这里有一个例子：<br><img src="http://kelunblog-image.qiniudn.com/restful-api-2.png" alt=""></p>
 <h1 id="4-URL结构">4.URL结构</h1>
 <p>URL结构是整个令人感到疑惑的API设计中最重要的一部分。花些时间定义正确的终端名称会使你的API更容易被理解和预测。</p>
 <p>URLs应该简短并且具有描述性同时应该利用路径结构的天然顺序。同样重要的是要与多元化相一致 - 如果返回单一结果则保持单数， 如果返回多个结果则保持复数。</p>
@@ -134,7 +134,7 @@
 <h1 id="7-异常处理">7.异常处理</h1>
 <p>最后需要关注的一件事情就是异常处理。在你的API中会有很多不同种类的异常需要你处理，其中包括权限异常(你没有权限删除店铺信息)，有效性异常(请指定一个店铺名称)，未找发现异常，甚至是内部服务异常。</p>
 <p>你应该永远在你的request中返回一个语义化的HTTP状态码。例如，没有任何异常返回200 OK，权限异常返回403 Forbidden, 认证异常返回422 Unprocessable Entity。(<a href="http://httpstatus.es" target="_blank" rel="external">http://httpstatus.es</a> 有很多可读的状态码)。</p>
-<p>作为状态码的补充，你应该永远返回更加详细的错误信息去描述究竟发生了什么。我最喜欢的方式是简单的返回一个error的key并且把错误信息当做value。<br>例如:</p>
+<p>作为状态码的补充，你应该永远返回更加详细的错误信息去描述究竟发生了什么。我最喜欢的方式是简单的返回一个error的key并且把错误信息当做value。<br>例如:<br><img src="http://kelunblog-image.qiniudn.com/restful-api-3.png" alt=""></p>
 <h1 id="8-总结">8.总结</h1>
 <p>有很多种不同方式设计API，这最终取决于你自己的偏好。我这些年自己设计过很多不同用途的API,这些仅仅是我最喜欢的实践方法。最后，选择自己喜欢的并抛弃自己痛恨的方法。</p>
 <p>我很乐意探讨API设计，你可以联系我@MathiasHansen.</p>
