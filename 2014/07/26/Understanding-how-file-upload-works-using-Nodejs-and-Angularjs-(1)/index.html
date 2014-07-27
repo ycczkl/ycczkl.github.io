@@ -1,0 +1,324 @@
+
+ <!DOCTYPE HTML>
+<html lang="English | Chinese">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Kelun | Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Kelun Zhang">
+    
+    <meta name="description" content="title: ‘Understanding how file upload works using Node.js and Angular.js (1)’date: 2014-07-26 20:30:39categories: blog
+tags:[angular, node, file-uploa">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Kelun | Blog" title="Kelun | Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Kelun | Blog">Kelun | Blog</a></h1>
+				<h2 class="blog-motto">A code monkey with a simple dream</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:kelunblog.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/07/26/Understanding-how-file-upload-works-using-Nodejs-and-Angularjs-(1)/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://kelunblog.com" title="Kelun Zhang">Kelun Zhang</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2014-07-27T00:34:44.000Z" itemprop="datePublished">Jul 26 2014</time>
+    Updated:<time datetime="2014-07-27T00:34:43.000Z" itemprop="dateModified">Jul 26 2014</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags:[angular,_node,_file-upload]"><span class="toc-number">1.</span> <span class="toc-text">tags:[angular, node, file-upload]</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#Understanding_how_file_upload_works_using_Node-js_and_Angular-js_(1)"><span class="toc-number"></span> <span class="toc-text">Understanding how file upload works using Node.js and Angular.js (1)</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Important_things_with_input_tag"><span class="toc-number">1.</span> <span class="toc-text">Important things with input tag</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Enctype_options"><span class="toc-number">1.1.</span> <span class="toc-text">1.Enctype options</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example:"><span class="toc-number">1.1.1.</span> <span class="toc-text">Example:</span></a></li></ol>
+		</div>
+		
+		<p>title: ‘Understanding how file upload works using Node.js and Angular.js (1)’<br>date: 2014-07-26 20:30:39<br>categories: blog</p>
+<h2 id="tags:[angular,_node,_file-upload]">tags:[angular, node, file-upload]</h2>
+<h1 id="Understanding_how_file_upload_works_using_Node-js_and_Angular-js_(1)">Understanding how file upload works using Node.js and Angular.js (1)</h1>
+<p><img src="http://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" alt=""></p>
+<blockquote>
+<p>In this blog I will mainly talk about how to upload files use Html and Node.js. First, I will talk about the enctype option and compare the difference between the different options. I will post a second blog mainly focus on angular.js.</p>
+</blockquote>
+<h2 id="Important_things_with_input_tag">Important things with input tag</h2>
+<h3 id="1-Enctype_options">1.Enctype options</h3>
+<p>Enctype have three options: application/x-www-form-urlencoded(defult), multipart/form-data, text/plain.</p>
+<ul>
+<li><p>application/x-www-form-urlencoded: Default. Input control names and values are URL encoded. The name is separated from the value by ‘=’ and name/value pairs are separated from each other by ‘&amp;’.<strong>(key-value pairs)</strong></p>
+</li>
+<li><p>multipart/form-data: Used for submitting forms that contain files, non-ASCII data, and binary data.<strong>(image/files)</strong>. </p>
+<ul>
+<li><a href="https://github.com/expressjs/multer" target="_blank" rel="external">Use multer in backend to get multipart/formdata. Usually image/files</a></li>
+<li><a href="http://blog.csdn.net/xiaojianpitt/article/details/6856536" target="_blank" rel="external">Multipart/form-data POST文件上传详解</a></li>
+<li><a href="http://blog.csdn.net/five3/article/details/7181521" target="_blank" rel="external">HTTP协议之multipart/form-data请求分析</a></li>
+</ul>
+</li>
+<li><p>text/plain: Obsolete. No encoding, for browser compatibility only.<br><strong>Express use bodypaser which only accept three content types:<br>1.application/json<br>2.application/x-www-form-urlencoded<br>3.multipart/form-data</strong></p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/17793344/empty-req-body-receiving-text-plain-post-request-to-node-js" target="_blank" rel="external">Empty req.body receiving text/plain POST request to node.js</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="Example:">Example:</h4>
+<p><strong>HTML:</strong></p>
+<pre><code>&lt;form <span class="keyword">method</span>=<span class="string">"post"</span> action=<span class="string">"/api/upload"</span>&gt;
+    input:&lt;input <span class="class"><span class="keyword">type</span>=</span><span class="string">"text"</span> name=<span class="string">"input"</span>/&gt;
+    &lt;button <span class="class"><span class="keyword">type</span>=</span><span class="string">"submmit"</span> <span class="keyword">class</span>=<span class="string">"btn"</span>&gt;upload&lt;/button&gt;
+&lt;/form&gt;
+</code></pre><p><strong>Node.js:</strong></p>
+<pre><code><span class="pi">'use strict'</span>;
+
+<span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'lodash'</span>);
+    exports.index = <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> {</span>
+    console.log(req.get(<span class="string">'Content-Type'</span>));
+    console.log(req.body);    
+};
+</code></pre><p>After we submmit the text we can get the input data from backend:</p>
+<pre><code>GET /api/things <span class="number">304</span> <span class="number">5</span>ms
+application/x<span class="attribute">-www</span><span class="attribute">-form</span><span class="attribute">-urlencoded</span>
+{ input: <span class="string">'123'</span> }
+</code></pre><p><strong>If we want to submit a form we must include name in input tag.</strong> All elements used to collect data in a form have a “name” attribute (name=””). That is the name of the variable that is assigned the value of the data collected by each input, select or textarea element.</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://kelunblog.com/2014/07/26/Understanding-how-file-upload-works-using-Nodejs-and-Angularjs-(1)/" data-title="Kelun | Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2014/07/07/DESIGN/"  title="RESTful API 设计">
+ <strong>NEXT:</strong><br/> 
+ <span>RESTful API 设计
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags:[angular,_node,_file-upload]"><span class="toc-number">1.</span> <span class="toc-text">tags:[angular, node, file-upload]</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#Understanding_how_file_upload_works_using_Node-js_and_Angular-js_(1)"><span class="toc-number"></span> <span class="toc-text">Understanding how file upload works using Node.js and Angular.js (1)</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Important_things_with_input_tag"><span class="toc-number">1.</span> <span class="toc-text">Important things with input tag</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Enctype_options"><span class="toc-number">1.1.</span> <span class="toc-text">1.Enctype options</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example:"><span class="toc-number">1.1.1.</span> <span class="toc-text">Example:</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2014 
+		
+		<a href="http://kelunblog.com" target="_blank" title="Kelun Zhang">Kelun Zhang</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
