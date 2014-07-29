@@ -1,0 +1,395 @@
+
+ <!DOCTYPE HTML>
+<html lang="English | Chinese">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>How to build angular directives | Kelun | Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Kelun Zhang">
+    
+    <meta name="description" content="How to build angular directives
+How directives are born
+When the DOM is done loading and the AngularJS process starts booting up, the first process th">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Kelun | Blog" title="Kelun | Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Kelun | Blog">Kelun | Blog</a></h1>
+				<h2 class="blog-motto">A code monkey with a simple dream</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:kelunblog.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/07/28/How-to-build-angular-directives/" title="How to build angular directives" itemprop="url">How to build angular directives</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://kelunblog.com" title="Kelun Zhang">Kelun Zhang</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2014-07-29T02:26:37.000Z" itemprop="datePublished">Jul 28 2014</time>
+    Updated:<time datetime="2014-07-29T02:27:33.000Z" itemprop="dateModified">Jul 28 2014</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#How_to_build_angular_directives"><span class="toc-number">1.</span> <span class="toc-text">How to build angular directives</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#How_directives_are_born"><span class="toc-number">1.1.</span> <span class="toc-text">How directives are born</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Build_our_own_directive"><span class="toc-number">1.2.</span> <span class="toc-text">Build our own directive</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Matching_Directives"><span class="toc-number">1.2.1.</span> <span class="toc-text">Matching Directives</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Restrict_option"><span class="toc-number">1.2.2.</span> <span class="toc-text">Restrict option</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TemplateUrl"><span class="toc-number">1.2.3.</span> <span class="toc-text">TemplateUrl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Require"><span class="toc-number">1.2.4.</span> <span class="toc-text">Require</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scope"><span class="toc-number">1.2.5.</span> <span class="toc-text">Scope</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Controller_option"><span class="toc-number">1.2.6.</span> <span class="toc-text">Controller option</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Transclude"><span class="toc-number">1.2.7.</span> <span class="toc-text">Transclude</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Replace"><span class="toc-number">1.2.8.</span> <span class="toc-text">Replace</span></a></li></ol>
+		</div>
+		
+		<h1 id="How_to_build_angular_directives">How to build angular directives</h1>
+<h2 id="How_directives_are_born">How directives are born</h2>
+<p>When the DOM is done loading and the AngularJS process starts booting up, the first process that happens is the HTML is parsed by the browser as a DOM tree. This tree is then parsed using AngularJS’s $compile() method. $compile runs through the DOM tree and looks for directive declarations for the different DOM elements. Once all directive declarations are found for each DOM element and sorted (by priority, which we’ll get into shortly), the directive’s compile function is run and is expected to return a link() function. The $compile() function will return a linking function that wraps all of the containing DOM element’s directives’ linking functions.</p>
+<p>Finally, the linking function is invoked with the containing scope that attaches all of the associated directives to that scope. This is where we’ll do most of the work when building directives, as this is where we can register listeners, set up watches, and add functionality. The result of this process is why the live data-binding exists between the scope and the DOM tree. </p>
+<p>We’ll use the compile function to both manipulate the DOM before it’s rendered and return a link function (that will handle the linking for us). This also is the place to put any methods that need to be shared around with all of the instances of this directive.</p>
+<p>We’ll use the link function to <strong>register all listeners on a specific DOM element</strong> (that’s cloned from the template) and set up our bindings to the page.</p>
+<h2 id="Build_our_own_directive">Build our own directive</h2>
+<h3 id="Matching_Directives">Matching Directives</h3>
+<p>The normalization process is as follows:</p>
+<ul>
+<li><p>Strip x- and data- from the front of the element/attributes.</p>
+</li>
+<li><p>Convert the :, -, or _-delimited name to camelCase.</p>
+</li>
+</ul>
+<p>Here are some equivalent examples of elements that match <strong>ngBind</strong>:</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-controller</span>=<span class="value">"Controller"</span>&gt;</span>
+    Hello <span class="tag">&lt;<span class="title">input</span> <span class="attribute">ng-model</span>=<span class="value">'name'</span>&gt;</span> <span class="tag">&lt;<span class="title">hr</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">ng-bind</span>=<span class="value">"name"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">ng:bind</span>=<span class="value">"name"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">ng_bind</span>=<span class="value">"name"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">data-ng-bind</span>=<span class="value">"name"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">x-ng-bind</span>=<span class="value">"name"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>    
+</code></pre><h3 id="Restrict_option">Restrict option</h3>
+<p>he restrict option is used to specify how a directive can be invoked on the page.</p>
+<pre><code>'A' - <span class="tag">&lt;<span class="title">span</span> <span class="attribute">ng-sparkline</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> //Attribute
+'E' - <span class="tag">&lt;<span class="title">ng-sparkline</span>&gt;</span><span class="tag">&lt;/<span class="title">ng-sparkline</span>&gt;</span> //Element
+'C' - <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"ng-sparkline"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> //Class
+'M' - <span class="comment">&lt;!-- directive: ng-sparkline --&gt;</span> //Comment
+</code></pre><p>The restrict option can specify multiple options, as well. If you want to support more than one as an element or an attribute, simply make sure all are specified in the restrict keyword:</p>
+<pre><code><span class="attribute">restrict</span>: <span class="string">'EA'</span>
+</code></pre><h3 id="TemplateUrl">TemplateUrl</h3>
+<p>If you prefer to load a template over ajax, you can specify the templateUrl option, which will use ajax to pull the template.</p>
+<pre><code><span class="attribute">templateUrl</span>: <span class="string">'templates/ng-sparkline-template.html'        </span>
+</code></pre><h3 id="Require">Require</h3>
+<p>When a directive uses this option, $compile will throw an error unless the specified controller is found. The ^ prefix means that this directive searches for the controller on its parents (without the ^ prefix, the directive would look for the controller on just its own element).    </p>
+<pre><code>^ <span class="subst">--</span> Look for the controller <span class="keyword">on</span> <span class="keyword">parent</span> elements, <span class="literal">not</span> just <span class="keyword">on</span> the <span class="built_in">local</span> scope
+
+<span class="subst">?</span> <span class="subst">--</span> Don<span class="string">'t raise an error if the controller isn'</span>t found
+</code></pre><p>Use this option can <a href="https://docs.angularjs.org/guide/directive" target="_blank" rel="external">Creating directive that communicate</a></p>
+<h3 id="Scope">Scope</h3>
+<p>There are 3 types of binding options which are defined as prefixes in the scope property. The prefix is followed by the attribute name of HTML element. These types are as follows</p>
+<ol>
+<li>Text Binding (Prefix: @). Usually text</li>
+<li>One-way Binding (Prefix: &amp;). Usually function(Defined as functions).</li>
+<li>Two-way Binding (Prefix: =)</li>
+</ol>
+<p>Example:</p>
+<p><strong>HTML:</strong>    </p>
+<pre><code><span class="subst">&lt;</span>learn<span class="attribute">-directive</span> ng<span class="attribute">-model</span><span class="subst">=</span><span class="string">"city"</span> form<span class="attribute">-name</span><span class="subst">=</span><span class="string">"haha"</span> obj<span class="attribute">-in</span><span class="attribute">-controller</span><span class="subst">=</span><span class="string">"someObj"</span><span class="subst">&gt;&lt;</span>/learn<span class="attribute">-directive</span><span class="subst">&gt;</span>
+</code></pre><p><strong>Template:</strong></p>
+<pre><code><span class="tag">&lt;<span class="title">div</span>&gt;</span>this is the learnDirective directive<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="tag">&lt;<span class="title">h4</span>&gt;</span><span class="tag">&lt;/<span class="title">h4</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span> //data binding
+</code></pre><p><strong>Directive:</strong></p>
+<pre><code><span class="pi">'use strict'</span>;
+
+angular.module(<span class="string">'testApp'</span>)
+    .directive(<span class="string">'learnDirective'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">return</span> {
+            templateUrl: <span class="string">'app/learnDirective/learnDirective.html'</span>,
+            restrict: <span class="string">'EA'</span>,
+            scope:{
+                ngModel: <span class="string">'='</span>,
+                formName: <span class="string">'@'</span>,
+                obj: <span class="string">'&amp;objInController'</span>
+            },
+            link: <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attrs)</span> {</span>
+                console.log(scope.obj()); <span class="comment">//return the obj which defined in controller</span>
+            }
+        };
+    });        
+</code></pre><h3 id="Controller_option">Controller option</h3>
+<p>In a directive, when we set the controller option we are creating a controller for the directive. This controller is instantiated before the pre-linking phase. </p>
+<p>We are defining a controller function in our directive, so we don’t need to define either of these functions, but it is important to note that <strong>we cannot do DOM manipulations in our controller function</strong>.</p>
+<p>Example:</p>
+<pre><code><span class="pi">'use strict'</span>;
+
+angular.module(<span class="string">'testApp'</span>)
+    .directive(<span class="string">'learnDirective'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+
+        <span class="keyword">return</span> {
+            templateUrl: <span class="string">'app/learnDirective/learnDirective.html'</span>,
+            restrict: <span class="string">'EA'</span>,
+            scope:{
+                ngModel: <span class="string">'='</span>,
+                formName: <span class="string">'@'</span>,
+                obj: <span class="string">'&amp;objInController'</span>
+            },
+            controller: [<span class="string">'$scope'</span>, <span class="string">'$http'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope, $http)</span> {</span>
+                <span class="keyword">var</span> url = <span class="string">"http://api.openweathermap.org/data/2.5/weather?q=Beijing"</span>;
+                $scope.getTemp = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+                    $http({
+                        method: <span class="string">'get'</span>,
+                        url: url
+                    }).success(<span class="function"><span class="keyword">function</span><span class="params">(data)</span> {</span>
+                        $scope.weather = data.weather;
+                    });
+                };
+            }],
+            link: <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attrs)</span> {</span>
+                scope.getTemp();
+                scope.$watch(<span class="string">'weather'</span>, <span class="function"><span class="keyword">function</span><span class="params">(newValue)</span>{</span>
+                      <span class="keyword">if</span>(newValue) {
+                          console.log(newValue[<span class="number">0</span>]);
+                      }
+                })
+            }
+        };
+    });
+</code></pre><p>we’ll need to create a $watch on the weather object. Because we are fetching the weather data asynchronously, we cannot simply write the method expecting the data to be populated for us when the linking function runs. No matter, AngularJS makes this incredibly easy with the built-in function $watch.</p>
+<h3 id="Transclude">Transclude</h3>
+<p>Basicly this option allow you to inbed html code in your directive. There is a very good example: <a href="http://stackoverflow.com/questions/15296284/how-to-understand-the-transclude-of-directive-defination" target="_blank" rel="external">How to understand the <code>transclude</code> of directive defination?</a> </p>
+<h3 id="Replace">Replace</h3>
+<p>Replace the directive tag. <a href="http://stackoverflow.com/questions/22497706/angular-directive-replace-true" target="_blank" rel="external">replace option in angular.js</a>       </p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://kelunblog.com/2014/07/28/How-to-build-angular-directives/" data-title="How to build angular directives | Kelun | Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2014/07/26/Understanding-how-file-upload-works-using-Nodejs-and-Angularjs-(1)/"  title="File upload with node.js and angular">
+ <strong>NEXT:</strong><br/> 
+ <span>File upload with node.js and angular
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#How_to_build_angular_directives"><span class="toc-number">1.</span> <span class="toc-text">How to build angular directives</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#How_directives_are_born"><span class="toc-number">1.1.</span> <span class="toc-text">How directives are born</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Build_our_own_directive"><span class="toc-number">1.2.</span> <span class="toc-text">Build our own directive</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Matching_Directives"><span class="toc-number">1.2.1.</span> <span class="toc-text">Matching Directives</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Restrict_option"><span class="toc-number">1.2.2.</span> <span class="toc-text">Restrict option</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TemplateUrl"><span class="toc-number">1.2.3.</span> <span class="toc-text">TemplateUrl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Require"><span class="toc-number">1.2.4.</span> <span class="toc-text">Require</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scope"><span class="toc-number">1.2.5.</span> <span class="toc-text">Scope</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Controller_option"><span class="toc-number">1.2.6.</span> <span class="toc-text">Controller option</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Transclude"><span class="toc-number">1.2.7.</span> <span class="toc-text">Transclude</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Replace"><span class="toc-number">1.2.8.</span> <span class="toc-text">Replace</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2014 
+		
+		<a href="http://kelunblog.com" target="_blank" title="Kelun Zhang">Kelun Zhang</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
