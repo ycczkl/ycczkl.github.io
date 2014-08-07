@@ -1,93 +1,66 @@
-
- <!DOCTYPE HTML>
-<html lang="English | Chinese">
+<!DOCTYPE HTML>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   
-    <title>How to build angular directives | Kelun | Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
-    
-    <meta name="author" content="Kelun Zhang">
-    
-    <meta name="description" content="How directives are born
-When the DOM is done loading and the AngularJS process starts booting up, the first process that happens is the HTML is parsed">
-    
-    
-    
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/pacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <title>How to build angular directives | Kelun | Blog</title>
+  <meta name="author" content="Kelun Zhang">
+  
+  <meta name="description" content="This is my bolg, welcome">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="How to build angular directives"/>
+  <meta property="og:site_name" content="Kelun | Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Kelun | Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
 </head>
 
-  <body>
-    <header>
-      <div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.svg" alt="Kelun | Blog" title="Kelun | Blog"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="Kelun | Blog">Kelun | Blog</a></h1>
-				<h2 class="blog-motto">A code monkey with a simple dream</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-					<li>
-					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:kelunblog.com">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Kelun | Blog</a></h1>
+  <h2><a href="/">A code monkey with a simple dream</a></h2>
 </div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-07-29T02:26:37.000Z"><a href="/2014/07/28/How-to-build-angular-directives/">Jul 28 2014</a></time>
+      
+      
+  
+    <h1 class="title">How to build angular directives</h1>
+  
 
     </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2014/07/28/How-to-build-angular-directives/" title="How to build angular directives" itemprop="url">How to build angular directives</a>
-  </h1>
-  <p class="article-author">By
-    
-      <a href="http://kelunblog.com" title="Kelun Zhang">Kelun Zhang</a>
-    </p>
-  <p class="article-time">
-    <time datetime="2014-07-29T02:26:37.000Z" itemprop="datePublished">Jul 28 2014</time>
-    Updated:<time datetime="2014-07-30T21:23:59.000Z" itemprop="dateModified">Jul 30 2014</time>
-    
-  </p>
-</header>
-	<div class="article-content">
-		
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#How_directives_are_born"><span class="toc-number">1.</span> <span class="toc-text">How directives are born</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Build_our_own_directive"><span class="toc-number">2.</span> <span class="toc-text">Build our own directive</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Matching_Directives"><span class="toc-number">2.1.</span> <span class="toc-text">Matching Directives</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Restrict_option"><span class="toc-number">2.2.</span> <span class="toc-text">Restrict option</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TemplateUrl"><span class="toc-number">2.3.</span> <span class="toc-text">TemplateUrl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Require"><span class="toc-number">2.4.</span> <span class="toc-text">Require</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scope"><span class="toc-number">2.5.</span> <span class="toc-text">Scope</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Controller_option"><span class="toc-number">2.6.</span> <span class="toc-text">Controller option</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Transclude"><span class="toc-number">2.7.</span> <span class="toc-text">Transclude</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Replace"><span class="toc-number">2.8.</span> <span class="toc-text">Replace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Difference_between_the_‘controller’,_‘link’_and_‘compile’_functions_when_defining_an_angular-js_directive"><span class="toc-number">2.9.</span> <span class="toc-text">Difference between the ‘controller’, ‘link’ and ‘compile’ functions when defining an angular.js directive</span></a></li></ol>
-		</div>
-		
-		<h2 id="How_directives_are_born">How directives are born</h2>
+    <div class="entry">
+      
+        <h2 id="How_directives_are_born">How directives are born</h2>
 <p>When the DOM is done loading and the AngularJS process starts booting up, the first process that happens is the HTML is parsed by the browser as a DOM tree. This tree is then parsed using AngularJS’s $compile() method. $compile runs through the DOM tree and looks for directive declarations for the different DOM elements. Once all directive declarations are found for each DOM element and sorted (by priority, which we’ll get into shortly), the directive’s compile function is run and is expected to return a link() function. The $compile() function will return a linking function that wraps all of the containing DOM element’s directives’ linking functions.</p>
 <p>Finally, the linking function is invoked with the containing scope that attaches all of the associated directives to that scope. This is where we’ll do most of the work when building directives, as this is where we can register listeners, set up watches, and add functionality. The result of this process is why the live data-binding exists between the scope and the DOM tree. </p>
 <p>We’ll use the compile function to both manipulate the DOM before it’s rendered and return a link function (that will handle the linking for us). This also is the place to put any methods that need to be shared around with all of the instances of this directive.</p>
@@ -206,201 +179,93 @@ angular.module(<span class="string">'testApp'</span>)
 <p>link function - normally use for registering DOM listeners (i.e., $watch expressions on the scope) as well as updating the DOM (i.e., manipulation of iElement = individual instance element). It is executed after the template has been cloned — e.g., inside an <code>&lt;li ng-repeat...&gt;</code>, the link function is executed after the <code>&lt;li&gt;</code> template (tElement) has been cloned (into an iElement) for that particular <code>&lt;li&gt;</code> element. A $watch allows a directive to be notified of scope property changes (a scope is associated with each instance), which allows the directive to render an updated instance value to the DOM.</p>
 <p>controller function - must be used when another directive needs to interact with this directive. E.g., on the AngularJS home page, the pane directive needs to add itself to the scope maintained by the tabs directive, hence the tabs directive needs to define a controller method (think API) that the pane directive can access/call. </p>
 <p>For a more in-depth explanation of the tabs and pane directives, and why the tabs directive creates a function on its controller using this (rather than on $scope), please see <a href="http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers/14168699#14168699" target="_blank" rel="external">this vs $scope in AngularJS controllers.</a></p>
-  
-	</div>
-		<footer class="article-footer clearfix">
 
-
-
-
-<div class="article-share" id="share">
-
-  <div data-url="http://kelunblog.com/2014/07/28/How-to-build-angular-directives/" data-title="How to build angular directives | Kelun | Blog" data-tsina="null" class="share clearfix">
-  </div>
-
-</div>
-</footer>   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2014/08/01/Github总结/" title="Github总结">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  Github总结</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/2014/07/26/Understanding-how-file-upload-works-using-Nodejs-and-Angularjs-(1)/"  title="File upload with node.js and angular">
- <strong>NEXT:</strong><br/> 
- <span>File upload with node.js and angular
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#How_directives_are_born"><span class="toc-number">1.</span> <span class="toc-text">How directives are born</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Build_our_own_directive"><span class="toc-number">2.</span> <span class="toc-text">Build our own directive</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Matching_Directives"><span class="toc-number">2.1.</span> <span class="toc-text">Matching Directives</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Restrict_option"><span class="toc-number">2.2.</span> <span class="toc-text">Restrict option</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TemplateUrl"><span class="toc-number">2.3.</span> <span class="toc-text">TemplateUrl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Require"><span class="toc-number">2.4.</span> <span class="toc-text">Require</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scope"><span class="toc-number">2.5.</span> <span class="toc-text">Scope</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Controller_option"><span class="toc-number">2.6.</span> <span class="toc-text">Controller option</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Transclude"><span class="toc-number">2.7.</span> <span class="toc-text">Transclude</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Replace"><span class="toc-number">2.8.</span> <span class="toc-text">Replace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Difference_between_the_‘controller’,_‘link’_and_‘compile’_functions_when_defining_an_angular-js_directive"><span class="toc-number">2.9.</span> <span class="toc-text">Difference between the ‘controller’, ‘link’ and ‘compile’ functions when defining an angular.js directive</span></a></li></ol>
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
-<aside class="clearfix">
-
-  
-
-  
-
-  <div class="rsspart">
-	<a href="null" target="_blank" title="rss">RSS</a>
-</div>
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<div class="social-font" class="clearfix">
-		
-		
-		
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2014 
-		
-		<a href="http://kelunblog.com" target="_blank" title="Kelun Zhang">Kelun Zhang</a>
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.1.0.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
       
-      $('#toc.toc-aside').css('display', 'none');
+    </div>
+    <footer>
+      
         
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-});
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 </script>
 
+<div class="fb-comments" data-href="http://kelunblog.com/2014/07/28/How-to-build-angular-directives/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:kelunblog.com">
+  </form>
+</div>
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 Kelun Zhang
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  };
-});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
 </script>
 
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina');
-  var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
-  });
-});     
-</script>
-
-
-
-
-
-
-  </body>
+</body>
 </html>

@@ -1,94 +1,66 @@
-
- <!DOCTYPE HTML>
-<html lang="English | Chinese">
+<!DOCTYPE HTML>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   
-    <title>File upload with node.js and angular | Kelun | Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
-    
-    <meta name="author" content="Kelun Zhang">
-    
-    <meta name="description" content="Understanding how file upload works using Node.js and Angular.js (1)
+  <title>File upload with node.js and angular | Kelun | Blog</title>
+  <meta name="author" content="Kelun Zhang">
+  
+  <meta name="description" content="This is my bolg, welcome">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-In this blog I will mainly talk about how to upload files use Html and Node.js. ">
-    
-    
-    
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/pacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <meta property="og:title" content="File upload with node.js and angular"/>
+  <meta property="og:site_name" content="Kelun | Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Kelun | Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
 </head>
 
-  <body>
-    <header>
-      <div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.svg" alt="Kelun | Blog" title="Kelun | Blog"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="Kelun | Blog">Kelun | Blog</a></h1>
-				<h2 class="blog-motto">A code monkey with a simple dream</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-					<li>
-					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:kelunblog.com">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Kelun | Blog</a></h1>
+  <h2><a href="/">A code monkey with a simple dream</a></h2>
 </div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-07-27T00:30:39.000Z"><a href="/2014/07/26/Understanding-how-file-upload-works-using-Nodejs-and-Angularjs-(1)/">Jul 26 2014</a></time>
+      
+      
+  
+    <h1 class="title">File upload with node.js and angular</h1>
+  
 
     </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2014/07/26/Understanding-how-file-upload-works-using-Nodejs-and-Angularjs-(1)/" title="File upload with node.js and angular" itemprop="url">File upload with node.js and angular</a>
-  </h1>
-  <p class="article-author">By
-    
-      <a href="http://kelunblog.com" title="Kelun Zhang">Kelun Zhang</a>
-    </p>
-  <p class="article-time">
-    <time datetime="2014-07-27T00:30:39.000Z" itemprop="datePublished">Jul 26 2014</time>
-    Updated:<time datetime="2014-07-28T03:39:33.000Z" itemprop="dateModified">Jul 27 2014</time>
-    
-  </p>
-</header>
-	<div class="article-content">
-		
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Understanding_how_file_upload_works_using_Node-js_and_Angular-js_(1)"><span class="toc-number">1.</span> <span class="toc-text">Understanding how file upload works using Node.js and Angular.js (1)</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Important_things_with_input_tag"><span class="toc-number">1.1.</span> <span class="toc-text">Important things with input tag</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Enctype_options"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.Enctype options</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example:"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">Example:</span></a></li></ol>
-		</div>
-		
-		<p><img src="http://oceanwavelabs.com/assets/plugins/parallax-slider/img/angular-and-html5.png" alt=""></p>
+    <div class="entry">
+      
+        <p><img src="http://oceanwavelabs.com/assets/plugins/parallax-slider/img/angular-and-html5.png" alt=""></p>
 <h1 id="Understanding_how_file_upload_works_using_Node-js_and_Angular-js_(1)">Understanding how file upload works using Node.js and Angular.js (1)</h1>
 <blockquote>
 <p>In this blog I will mainly talk about how to upload files use Html and Node.js. First, I will talk about the enctype option and compare the difference between the different options. I will post a second blog mainly focus on angular.js.</p>
@@ -131,201 +103,93 @@ In this blog I will mainly talk about how to upload files use Html and Node.js. 
 application/x<span class="attribute">-www</span><span class="attribute">-form</span><span class="attribute">-urlencoded</span>
 { input: <span class="string">'123'</span> }
 </code></pre><p><strong>If we want to submit a form we must include name in input tag.</strong> All elements used to collect data in a form have a “name” attribute (name=””). That is the name of the variable that is assigned the value of the data collected by each input, select or textarea element.</p>
-  
-	</div>
-		<footer class="article-footer clearfix">
 
-
-
-
-<div class="article-share" id="share">
-
-  <div data-url="http://kelunblog.com/2014/07/26/Understanding-how-file-upload-works-using-Nodejs-and-Angularjs-(1)/" data-title="File upload with node.js and angular | Kelun | Blog" data-tsina="null" class="share clearfix">
-  </div>
-
-</div>
-</footer>   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2014/07/28/How-to-build-angular-directives/" title="How to build angular directives">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  How to build angular directives</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/2014/07/07/DESIGN/"  title="RESTful API 设计">
- <strong>NEXT:</strong><br/> 
- <span>RESTful API 设计
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Understanding_how_file_upload_works_using_Node-js_and_Angular-js_(1)"><span class="toc-number">1.</span> <span class="toc-text">Understanding how file upload works using Node.js and Angular.js (1)</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Important_things_with_input_tag"><span class="toc-number">1.1.</span> <span class="toc-text">Important things with input tag</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Enctype_options"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.Enctype options</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example:"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">Example:</span></a></li></ol>
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
-<aside class="clearfix">
-
-  
-
-  
-
-  <div class="rsspart">
-	<a href="null" target="_blank" title="rss">RSS</a>
-</div>
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<div class="social-font" class="clearfix">
-		
-		
-		
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2014 
-		
-		<a href="http://kelunblog.com" target="_blank" title="Kelun Zhang">Kelun Zhang</a>
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.1.0.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
       
-      $('#toc.toc-aside').css('display', 'none');
+    </div>
+    <footer>
+      
         
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-});
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 </script>
 
+<div class="fb-comments" data-href="http://kelunblog.com/2014/07/26/Understanding-how-file-upload-works-using-Nodejs-and-Angularjs-(1)/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:kelunblog.com">
+  </form>
+</div>
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 Kelun Zhang
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  };
-});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
 </script>
 
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina');
-  var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
-  });
-});     
-</script>
-
-
-
-
-
-
-  </body>
+</body>
 </html>
