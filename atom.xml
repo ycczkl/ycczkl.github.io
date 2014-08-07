@@ -1,84 +1,127 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Kelun | Blog]]></title>
+  <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://kelunblog.com/"/>
+  <updated>2014-08-07T21:21:24.839Z</updated>
+  <id>http://kelunblog.com/</id>
   
-  <title>Archives: 2014/7 | Kelun | Blog</title>
-  <meta name="author" content="Kelun Zhang">
+  <author>
+    <name><![CDATA[Kelun Zhang]]></name>
+    <email><![CDATA[ycczkl@gmail.com]]></email>
+  </author>
   
-  <meta name="description" content="This is my bolg, welcome">
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <entry>
+    <title><![CDATA[Global variable in javascript]]></title>
+    <link href="http://kelunblog.com/2014/08/04/Global-variable-in-javascript/"/>
+    <id>http://kelunblog.com/2014/08/04/Global-variable-in-javascript/</id>
+    <published>2014-08-04T14:38:30.000Z</published>
+    <updated>2014-08-07T19:47:21.000Z</updated>
+    <content type="html"><![CDATA[<p>This blog mainly talk about how global variable works in Javascript.</p>
+<h1 id="1-_Two_same_way_to_assign_global_variable-">1. Two same way to assign global variable.</h1>
+<h2 id="The_most_comman_way-">The most comman way.</h2>
+<pre><code><span class="keyword">var</span> myvar = <span class="number">5</span>;
+<span class="function"><span class="keyword">function</span> <span class="title">myFunction</span><span class="params">()</span>
+       <span class="title">alert</span><span class="params">(myvar)</span>;</span> <span class="comment">// 5</span>
+}
+</code></pre><h2 id="Use_window_object">Use window object</h2>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">setValue</span><span class="params">()</span>
+{</span>
+    window.myValue = <span class="string">"test"</span>;
+}
 
-  
-  <meta property="og:site_name" content="Kelun | Blog"/>
+<span class="function"><span class="keyword">function</span> <span class="title">getValue</span><span class="params">()</span>
+{</span>
+    alert(window.myValue); <span class="comment">// "test" (assuming     setValue has run)</span>
+}    
+</code></pre><p>when a global variable is set, it’s added to the window object.</p>
+<pre><code><span class="keyword">var</span> myValue;
+<span class="function"><span class="keyword">function</span> <span class="title">setValue</span><span class="params">()</span>
+{</span>
+    myValue = <span class="string">"test"</span>;
+}
 
-  
-    <meta property="og:image" content="undefined"/>
-  
-
-  <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Kelun | Blog" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-53633801-1']);
-  
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-</head>
-
-
-<body>
-  <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">Kelun | Blog</a></h1>
-  <h2><a href="/">A code monkey with a simple dream</a></h2>
-</div>
-<nav id="main-nav" class="alignright">
-  <ul>
+<span class="function"><span class="keyword">function</span> <span class="title">getValue</span><span class="params">()</span>
+{</span>
+    alert(window.myValue); <span class="comment">// yup, it's "test"</span>
+}
+</code></pre><h1 id="2-_A_safer_way_to_assign_global_variable-">2. A safer way to assign global variable.</h1>
+<pre><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> <span class="comment">// Begin scoping function</span>
+    <span class="keyword">var</span> yourGlobalVariable; <span class="comment">// Global to your code, invisible outside the scoping function</span>
+    <span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> {</span>
+        <span class="comment">// ...</span>
+    }
+})();         <span class="comment">// End scoping function</span>
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre>]]></content>
     
-      <li><a href="/">Home</a></li>
     
-      <li><a href="/archives">Archives</a></li>
+      <category term="global variable" scheme="http://kelunblog.com/tags/global-variable/"/>
     
-  </ul>
-  <div class="clearfix"></div>
-</nav>
-<div class="clearfix"></div></header>
-  <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2014/7</h2>
-
-
+      <category term="javascript" scheme="http://kelunblog.com/categories/javascript/"/>
+    
+  </entry>
   
-    <article class="post">
+  <entry>
+    <title><![CDATA[Github总结]]></title>
+    <link href="http://kelunblog.com/2014/08/01/Github%E6%80%BB%E7%BB%93/"/>
+    <id>http://kelunblog.com/2014/08/01/Github总结/</id>
+    <published>2014-08-01T23:50:14.000Z</published>
+    <updated>2014-08-07T19:46:48.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="Gitgub_总结">Gitgub 总结</h1>
+<h2 id="1-远程仓库相关命令">1.远程仓库相关命令</h2>
+<ul>
+<li>检出仓库：$ git clone git://github.com/jquery/jquery.git</li>
+<li>查看远程仓库：$ git remote -v</li>
+<li>添加远程仓库：$ git remote add [name] [url]</li>
+<li>删除远程仓库：$ git remote rm [name]</li>
+<li>修改远程仓库：$ git remote set-url —push [name] [newUrl]</li>
+<li>拉取远程仓库：$ git pull [remoteName] [localBranchName]</li>
+<li><p>推送远程仓库：$ git push [remoteName] [localBranchName]</p>
+<p>如果想把本地的某个分支test提交到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫test的分支，如下：</p>
+<ul>
+<li>$ git push origin test:master         // 提交本地test分支作为远程的master分支</li>
+<li>$ git push origin test:test           // 提交本地test分支作为远程的test分支</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-_分支(branch)操作相关命令">2. 分支(branch)操作相关命令</h2>
+<ul>
+<li>查看本地分支：$ git branch</li>
+<li>查看远程分支：$ git branch -r （如果还是看不到就先 git fetch origin 先）</li>
+<li>创建本地分支：$ git branch [name] ——注意新分支创建后不会自动切换为当前分支</li>
+<li>切换分支：$ git checkout [name]</li>
+<li>创建新分支并立即切换到新分支：$ git checkout -b [name]</li>
+<li>直接检出远程分支：$ git checkout -b [name] [remoteName] (如：git checkout -b myNewBranch origin/dragon)</li>
+<li>删除分支：$ git branch -d [name] —— -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项</li>
+<li>合并分支：$ git merge [name] ——将名称为[name]的分支与当前分支合并</li>
+<li>合并最后的2个提交：$ git rebase -i HEAD~2 —— 数字2按需修改即可（如果需提交到远端$ git push -f origin master 慎用！）</li>
+<li>创建远程分支(本地分支push到远程)：$ git push origin [name]</li>
+<li><p>删除远程分支：$ git push origin :heads/[name] 或 $ git push origin :[name] </p>
+</li>
+<li><p>创建空的分支：(执行命令之前记得先提交你当前分支的修改，否则会被强制删干净没得后悔)<br>$ git symbolic-ref HEAD refs/heads/[name]<br>$ rm .git/index<br>$ git clean -fdx    </p>
+</li>
+</ul>
+]]></content>
+    
+    
+      <category term="github" scheme="http://kelunblog.com/tags/github/"/>
+    
+      <category term="github" scheme="http://kelunblog.com/categories/github/"/>
+    
+  </entry>
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-07-29T02:26:37.000Z"><a href="/2014/07/28/How-to-build-angular-directives/">Jul 28 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/07/28/How-to-build-angular-directives/">How to build angular directives</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="How_directives_are_born">How directives are born</h2>
+  <entry>
+    <title><![CDATA[How to build angular directives]]></title>
+    <link href="http://kelunblog.com/2014/07/28/How-to-build-angular-directives/"/>
+    <id>http://kelunblog.com/2014/07/28/How-to-build-angular-directives/</id>
+    <published>2014-07-29T02:26:37.000Z</published>
+    <updated>2014-08-07T19:45:39.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="How_directives_are_born">How directives are born</h2>
 <p>When the DOM is done loading and the AngularJS process starts booting up, the first process that happens is the HTML is parsed by the browser as a DOM tree. This tree is then parsed using AngularJS’s $compile() method. $compile runs through the DOM tree and looks for directive declarations for the different DOM elements. Once all directive declarations are found for each DOM element and sorted (by priority, which we’ll get into shortly), the directive’s compile function is run and is expected to return a link() function. The $compile() function will return a linking function that wraps all of the containing DOM element’s directives’ linking functions.</p>
 <p>Finally, the linking function is invoked with the containing scope that attaches all of the associated directives to that scope. This is where we’ll do most of the work when building directives, as this is where we can register listeners, set up watches, and add functionality. The result of this process is why the live data-binding exists between the scope and the DOM tree. </p>
 <p>We’ll use the compile function to both manipulate the DOM before it’s rendered and return a link function (that will handle the linking for us). This also is the place to put any methods that need to be shared around with all of the instances of this directive.</p>
@@ -197,39 +240,24 @@ angular.module(<span class="string">'testApp'</span>)
 <p>link function - normally use for registering DOM listeners (i.e., $watch expressions on the scope) as well as updating the DOM (i.e., manipulation of iElement = individual instance element). It is executed after the template has been cloned — e.g., inside an <code>&lt;li ng-repeat...&gt;</code>, the link function is executed after the <code>&lt;li&gt;</code> template (tElement) has been cloned (into an iElement) for that particular <code>&lt;li&gt;</code> element. A $watch allows a directive to be notified of scope property changes (a scope is associated with each instance), which allows the directive to render an updated instance value to the DOM.</p>
 <p>controller function - must be used when another directive needs to interact with this directive. E.g., on the AngularJS home page, the pane directive needs to add itself to the scope maintained by the tabs directive, hence the tabs directive needs to define a controller method (think API) that the pane directive can access/call. </p>
 <p>For a more in-depth explanation of the tabs and pane directives, and why the tabs directive creates a function on its controller using this (rather than on $scope), please see <a href="http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers/14168699#14168699" target="_blank" rel="external">this vs $scope in AngularJS controllers.</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
+]]></content>
+    
+    
+      <category term="directive" scheme="http://kelunblog.com/tags/directive/"/>
+    
+      <category term="angular" scheme="http://kelunblog.com/tags/angular/"/>
+    
+      <category term="Angular.js" scheme="http://kelunblog.com/categories/Angularjs/"/>
+    
+  </entry>
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-07-27T00:30:39.000Z"><a href="/2014/07/26/Understanding-how-file-upload-works-using-Nodejs-and-Angularjs-(1)/">Jul 26 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/07/26/Understanding-how-file-upload-works-using-Nodejs-and-Angularjs-(1)/">File upload with node.js and angular</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><img src="http://oceanwavelabs.com/assets/plugins/parallax-slider/img/angular-and-html5.png" alt=""></p>
+  <entry>
+    <title><![CDATA[File upload with node.js and angular]]></title>
+    <link href="http://kelunblog.com/2014/07/26/Understanding-how-file-upload-works-using-Nodejs-and-Angularjs-(1)/"/>
+    <id>http://kelunblog.com/2014/07/26/Understanding-how-file-upload-works-using-Nodejs-and-Angularjs-(1)/</id>
+    <published>2014-07-27T00:30:39.000Z</published>
+    <updated>2014-08-07T19:46:23.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://oceanwavelabs.com/assets/plugins/parallax-slider/img/angular-and-html5.png" alt=""></p>
 <h1 id="Understanding_how_file_upload_works_using_Node-js_and_Angular-js_(1)">Understanding how file upload works using Node.js and Angular.js (1)</h1>
 <blockquote>
 <p>In this blog I will mainly talk about how to upload files use Html and Node.js. First, I will talk about the enctype option and compare the difference between the different options. I will post a second blog mainly focus on angular.js.</p>
@@ -272,39 +300,26 @@ angular.module(<span class="string">'testApp'</span>)
 application/x<span class="attribute">-www</span><span class="attribute">-form</span><span class="attribute">-urlencoded</span>
 { input: <span class="string">'123'</span> }
 </code></pre><p><strong>If we want to submit a form we must include name in input tag.</strong> All elements used to collect data in a form have a “name” attribute (name=””). That is the name of the variable that is assigned the value of the data collected by each input, select or textarea element.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
+]]></content>
+    
+    
+      <category term="node" scheme="http://kelunblog.com/tags/node/"/>
+    
+      <category term="angular" scheme="http://kelunblog.com/tags/angular/"/>
+    
+      <category term="file upload" scheme="http://kelunblog.com/tags/file-upload/"/>
+    
+      <category term="Angular.js" scheme="http://kelunblog.com/categories/Angularjs/"/>
+    
+  </entry>
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-07-07T12:29:31.000Z"><a href="/2014/07/07/DESIGN/">Jul 7 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/07/07/DESIGN/">RESTful API 设计</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><img src="http://scotch.io/wp-content/uploads/2014/04/webapi.jpg" alt=""></p>
+  <entry>
+    <title><![CDATA[RESTful API 设计]]></title>
+    <link href="http://kelunblog.com/2014/07/07/DESIGN/"/>
+    <id>http://kelunblog.com/2014/07/07/DESIGN/</id>
+    <published>2014-07-07T12:29:31.000Z</published>
+    <updated>2014-08-07T19:42:47.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://scotch.io/wp-content/uploads/2014/04/webapi.jpg" alt=""></p>
 <h1 id="1-简介">1.简介</h1>
 <p>现在所有人都在对外提供API。 其中最流行的几个是Facebook, Twitter, Github, Strip, 并且这个名单还在增长。</p>
 <p>很多时候你需要为你的网站实现API， 可能你需要向你设计的手机APP提供数据， 又或许你只是想把你的网站的一些数据封装好，并且让其他程序员能轻松得到并利用这些数据去实现一些非常酷的产品。</p>
@@ -354,123 +369,52 @@ application/x<span class="attribute">-www</span><span class="attribute">-form</s
 <h1 id="8-总结">8.总结</h1>
 <p>有很多种不同方式设计API，这最终取决于你自己的偏好。我这些年自己设计过很多不同用途的API,这些仅仅是我最喜欢的实践方法。最后，选择自己喜欢的并抛弃自己痛恨的方法。</p>
 <p>我很乐意探讨API设计，你可以联系我@MathiasHansen.</p>
+]]></content>
+    
+    
+      <category term="rest" scheme="http://kelunblog.com/tags/rest/"/>
+    
+      <category term="api" scheme="http://kelunblog.com/tags/api/"/>
+    
+      <category term="RESTful" scheme="http://kelunblog.com/categories/RESTful/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <link href="http://kelunblog.com/2014/06/28/hello-world/"/>
+    <id>http://kelunblog.com/2014/06/28/hello-world/</id>
+    <published>2014-06-28T18:30:03.000Z</published>
+    <updated>2014-06-28T18:30:03.000Z</updated>
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/tommy351/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2>
+<h3 id="Create_a_new_post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ hexo new <span class="string">"My New Post"</span>
+</pre></td></tr></table></figure>
 
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ hexo server
+</pre></td></tr></table></figure>
 
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ hexo generate
+</pre></td></tr></table></figure>
 
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ hexo deploy
+</pre></td></tr></table></figure>
 
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    
+  </entry>
   
-
-  <nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
-</div></div>
-    <aside id="sidebar" class="alignright">
-  <div class="search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
-    <input type="hidden" name="q" value="site:kelunblog.com">
-  </form>
-</div>
-
-  
-<div class="widget tag">
-  <h3 class="title">Categories</h3>
-  <ul class="entry">
-  
-    <li><a href="/categories/Angularjs/">Angular.js</a><small>2</small></li>
-  
-    <li><a href="/categories/RESTful/">RESTful</a><small>1</small></li>
-  
-    <li><a href="/categories/github/">github</a><small>1</small></li>
-  
-    <li><a href="/categories/javascript/">javascript</a><small>1</small></li>
-  
-  </ul>
-</div>
-
-
-  
-<div class="widget tag">
-  <h3 class="title">Tags</h3>
-  <ul class="entry">
-  
-    <li><a href="/tags/angular/">angular</a><small>2</small></li>
-  
-    <li><a href="/tags/api/">api</a><small>1</small></li>
-  
-    <li><a href="/tags/directive/">directive</a><small>1</small></li>
-  
-    <li><a href="/tags/file-upload/">file upload</a><small>1</small></li>
-  
-    <li><a href="/tags/github/">github</a><small>1</small></li>
-  
-    <li><a href="/tags/global-variable/">global variable</a><small>1</small></li>
-  
-    <li><a href="/tags/node/">node</a><small>1</small></li>
-  
-    <li><a href="/tags/rest/">rest</a><small>1</small></li>
-  
-  </ul>
-</div>
-
-</aside>
-    <div class="clearfix"></div>
-  </div>
-  <footer id="footer" class="inner"><div class="alignleft">
-  
-  &copy; 2014 Kelun Zhang
-  
-</div>
-<div class="clearfix"></div></footer>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-53633801-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-
-<script type="text/javascript">
-var disqus_shortname = 'kelunblog';
-
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
-</script>
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
-</script>
-
-</body>
-</html>
+</feed>
