@@ -85,7 +85,7 @@
   <span class="keyword">var</span> canFly = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; }; <span class="comment">//function expression</span>
   window.isDeadly = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; }; <span class="comment">//assign function to object</span>
 </code></pre><h1 id="2-Does_the_order_of_function_definition_matter?">2.Does the order of function definition matter?</h1>
-<p>It doesn’t matter! Lokk at the code below:</p>
+<p>It doesn’t matter! Look at the code below:</p>
 <pre><code><span class="keyword">var</span> canFly = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; }; 
 window.isDeadly = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; }; 
 isNimble() &amp;&amp; canFly() &amp;&amp; isDeadly(); <span class="comment">//true</span>
