@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-08-13T00:53:16.914Z</updated>
+  <updated>2014-08-13T00:54:02.010Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -19,10 +19,11 @@
     <link href="http://kelunblog.com/2014/08/12/Everything-about-javascript-function/"/>
     <id>http://kelunblog.com/2014/08/12/Everything-about-javascript-function/</id>
     <published>2014-08-13T00:47:52.000Z</published>
-    <updated>2014-08-13T00:53:10.000Z</updated>
+    <updated>2014-08-13T00:53:57.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-Three_ways_to_define_function">1.Three ways to define function</h1>
-<pre><code>  <span class="function"><span class="keyword">function</span> <span class="title">isNimble</span><span class="params">()</span></span>{ <span class="keyword">return</span> <span class="keyword">true</span>; }; //<span class="function"><span class="keyword">function</span> <span class="title">definition</span><span class="params">(declaration)</span></span>&lt;hexoescape&gt;<span class="number">0</span>&lt;/hexoescape&gt;
-  window.isDeadly = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{ <span class="keyword">return</span> <span class="keyword">true</span>; }; //assign <span class="function"><span class="keyword">function</span> <span class="title">to</span> <span class="title">object</span>```</span>
+<pre><code>  <span class="function"><span class="keyword">function</span> <span class="title">isNimble</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; }; <span class="comment">//function definition(declaration)</span>
+  <span class="keyword">var</span> canFly = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; }; <span class="comment">//function expression</span>
+  window.isDeadly = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; }; <span class="comment">//assign function to object</span>
 </code></pre><h1 id="2-Does_the_order_of_function_definition_matter?">2.Does the order of function definition matter?</h1>
 <p>It doesn’t matter! Lokk at the code below:</p>
 <pre><code><span class="keyword">var</span> canFly = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; }; 
