@@ -70,6 +70,74 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-08-13T00:47:52.000Z"><a href="/2014/08/12/Everything-about-javascript-function/">Aug 12 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/08/12/Everything-about-javascript-function/">Everything about javascript function</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="1-Three_ways_to_define_function">1.Three ways to define function</h1>
+<ol>
+<li><figure class="highlight function"><figcaption><span>isNimble(){ return true; };</span><a href="//function">definition(declaration)```</a></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>2.
+</pre></td></tr></table></figure>var canFly = function(){ return true; }; //function expression<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>3.
+</pre></td></tr></table></figure>window.isDeadly = function(){ return true; }; //assign function to object```</li>
+</ol>
+<h1 id="2-Does_the_order_of_function_definition_matter?">2.Does the order of function definition matter?</h1>
+<p>It doesn’t matter! Lokk at the code below:</p>
+<pre><code><span class="keyword">var</span> canFly = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; }; 
+window.isDeadly = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; }; 
+isNimble() &amp;&amp; canFly() &amp;&amp; isDeadly(); <span class="comment">//true</span>
+<span class="function"><span class="keyword">function</span> <span class="title">isNimble</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; } 
+</code></pre><h1 id="3-Where_can_assignments_be_accessed?">3.Where can assignments be accessed?</h1>
+<p>The order is matter!</p>
+<pre><code><span class="keyword">typeof</span> canFly == <span class="string">"undefined"</span>; <span class="comment">//true</span>
+<span class="keyword">typeof</span> isDeadly == <span class="string">"undefined"</span>;  <span class="comment">//true</span>
+<span class="keyword">var</span> canFly = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; }; 
+window.isDeadly = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; };
+</code></pre><h1 id="4-Functions_be_defined_below_return_statements">4.Functions be defined below return statements</h1>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">stealthCheck</span><span class="params">()</span>{</span> 
+  stealth(); 
+
+  <span class="keyword">return</span> stealth(); 
+
+  <span class="function"><span class="keyword">function</span> <span class="title">stealth</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; } 
+} 
+
+stealthCheck(); <span class="comment">//true</span>
+</code></pre><h1 id="5-What_is_the_name_of_a_function?">5.What is the name of a function?</h1>
+<pre><code><span class="keyword">var</span> ninja = <span class="function"><span class="keyword">function</span> <span class="title">myNinja</span><span class="params">()</span> {</span>
+    <span class="keyword">return</span> ninja === myNinja; 
+};
+console.log(ninja()); <span class="comment">//True. This function is named two things - at once!</span>
+console.log(<span class="keyword">typeof</span> myNinja === <span class="string">"undefined"</span>); <span class="comment">//True. Because myNinja isn't defined outside of the function."</span>
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-08-04T14:38:30.000Z"><a href="/2014/08/04/Global-variable-in-javascript/">Aug 4 2014</a></time>
       
       
@@ -159,7 +227,7 @@
   
     <li><a href="/categories/github/">github</a><small>1</small></li>
   
-    <li><a href="/categories/javascript/">javascript</a><small>1</small></li>
+    <li><a href="/categories/javascript/">javascript</a><small>2</small></li>
   
   </ul>
 </div>
@@ -181,6 +249,8 @@
     <li><a href="/tags/github/">github</a><small>1</small></li>
   
     <li><a href="/tags/global-variable/">global variable</a><small>1</small></li>
+  
+    <li><a href="/tags/javascript-function/">javascript function</a><small>1</small></li>
   
     <li><a href="/tags/node/">node</a><small>1</small></li>
   
