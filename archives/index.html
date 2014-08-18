@@ -70,6 +70,75 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-08-18T02:03:00.000Z"><a href="/2014/08/17/Everything-about-Javascript-function(2)-Function-and-Object/">Aug 17 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/08/17/Everything-about-Javascript-function(2)-Function-and-Object/">Everything about Javascript function(2): Function and Object</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="1-Functions_and_Objects_are_similar">1.Functions and Objects are similar</h1>
+<pre><code><span class="keyword">var</span> obj = {};
+<span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>};
+obj.prop = <span class="string">"some value"</span>;
+fn.prop = <span class="string">"some value"</span>;
+console.log(obj.prop === fn.prop); <span class="comment">//true</span>
+</code></pre><h1 id="2-How_“this”_worked_in_function_and_object?">2.How “this” worked in function and object?</h1>
+<pre><code><span class="reserved">function</span> katana(){
+    <span class="keyword">this</span>.isSharp = <span class="literal">true</span>;
+}
+katana();
+<span class="built_in">console</span>.log(isSharp); <span class="regexp">//</span> <span class="literal">true</span>. Defined <span class="keyword">in</span> <span class="built_in">global</span> object (<span class="built_in">window</span> object)
+
+
+<span class="reserved">var</span> shuriken = {
+    <span class="attribute">toss</span>: <span class="reserved">function</span>(){
+        <span class="keyword">this</span>.isSharp = <span class="literal">true</span>;
+    }
+};
+shuriken.toss();
+<span class="built_in">console</span>.log(shuriken.isSharp); <span class="regexp">//</span>ture. Denfined <span class="keyword">in</span> object
+</code></pre><h1 id="3-_Call()_and_apply()_function">3. Call() and apply() function</h1>
+<h2 id="First_thing_first:_How_call()_work?">First thing first: How call() work?</h2>
+<p>From the book <code>Javascript: the definittive guide</code> there is an example of call(): To pass two numbers to the function f() and invoke it as if it were a method of thr object o, you can use the code like this :</p>
+<pre><code>f.<span class="operator"><span class="keyword">call</span>(o, <span class="number">1</span>, <span class="number">2</span>);</span>
+</code></pre><p>This is similar to the following lines of code:</p>
+<pre><code>o<span class="preprocessor">.m</span> = f<span class="comment">;</span>
+o<span class="preprocessor">.m</span>(<span class="number">1</span>, <span class="number">2</span>)<span class="comment">;</span>
+delete o<span class="preprocessor">.m</span><span class="comment">;    </span>
+</code></pre><p>Let’s see another example:</p>
+<pre><code><span class="reserved">function</span> add(a, b){
+    <span class="keyword">return</span> a + b;
+}
+
+<span class="built_in">console</span>.log( add.call(<span class="keyword">this</span>, <span class="number">1</span>, <span class="number">2</span>) == <span class="number">3</span>); <span class="regexp">//</span><span class="literal">true</span> .call() takes individual arguments
+
+<span class="built_in">console</span>.log( add.apply(<span class="keyword">this</span>, [<span class="number">1</span>, <span class="number">2</span>]) == <span class="number">3</span>); <span class="regexp">//</span><span class="literal">true</span> .apply() takes an array <span class="keyword">of</span> arguments 
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-08-13T00:47:52.000Z"><a href="/2014/08/12/Everything-about-javascript-function(1)/">Aug 12 2014</a></time>
       
       
@@ -655,7 +724,7 @@ application/x<span class="attribute">-www</span><span class="attribute">-form</s
   
     <li><a href="/categories/github/">github</a><small>1</small></li>
   
-    <li><a href="/categories/javascript/">javascript</a><small>2</small></li>
+    <li><a href="/categories/javascript/">javascript</a><small>3</small></li>
   
   </ul>
 </div>
