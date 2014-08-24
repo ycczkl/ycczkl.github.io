@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-08-20T02:58:57.955Z</updated>
+  <updated>2014-08-24T03:42:06.224Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -13,6 +13,30 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Everything about javascript function(4) - Flexible Arguments]]></title>
+    <link href="http://kelunblog.com/2014/08/23/Everything-about-javascript-function(4)---Flexible-Arguments/"/>
+    <id>http://kelunblog.com/2014/08/23/Everything-about-javascript-function(4)---Flexible-Arguments/</id>
+    <published>2014-08-24T03:21:42.000Z</published>
+    <updated>2014-08-24T03:38:52.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="Using_a_variable_number_of_arguments_to_our_advantage-">Using a variable number of arguments to our advantage.</h1>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">flat</span><span class="params">(root)</span> {</span>
+    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) {
+        <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> <span class="built_in">arguments</span>[i]) {
+            root[key] = <span class="built_in">arguments</span>[i][key];
+        }
+    }
+    <span class="keyword">return</span> root;
+}
+
+console.log(flat({<span class="string">'zkl'</span>:<span class="string">'great'</span>}, {<span class="string">'others'</span>: <span class="string">'?'</span>})); <span class="comment">//{ zkl: 'great', others: '?' }</span>
+</code></pre>]]></content>
+    
+    
+      <category term="javascript" scheme="http://kelunblog.com/categories/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Everything about javascript function(3): Instantiation]]></title>
