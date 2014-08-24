@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-08-24T03:42:06.224Z</updated>
+  <updated>2014-08-24T03:42:38.574Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <link href="http://kelunblog.com/2014/08/23/Everything-about-javascript-function(4)---Flexible-Arguments/"/>
     <id>http://kelunblog.com/2014/08/23/Everything-about-javascript-function(4)---Flexible-Arguments/</id>
     <published>2014-08-24T03:21:42.000Z</published>
-    <updated>2014-08-24T03:38:52.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="Using_a_variable_number_of_arguments_to_our_advantage-">Using a variable number of arguments to our advantage.</h1>
+    <updated>2014-08-24T03:42:33.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="1-Using_a_variable_number_of_arguments_to_our_advantage-">1.Using a variable number of arguments to our advantage.</h1>
 <pre><code><span class="function"><span class="keyword">function</span> <span class="title">flat</span><span class="params">(root)</span> {</span>
     <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) {
         <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> <span class="built_in">arguments</span>[i]) {
