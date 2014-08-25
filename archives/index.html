@@ -70,6 +70,57 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-08-25T23:20:09.000Z"><a href="/2014/08/25/Everything-about-javascript(5)---Temporary-Scope-/">Aug 25 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/08/25/Everything-about-javascript(5)---Temporary-Scope-/">Everything about javascript(5) - Temporary Scope </a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="1-_Self-executing,_temporary,_function">1. Self-executing, temporary, function</h1>
+<p>We can’t access the variable inside a self-executing function.</p>
+<pre><code>(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">var</span> count = <span class="number">0</span>;
+
+    <span class="keyword">var</span> timer = setInterval(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">if</span> (count &lt; <span class="number">5</span>) {
+            console.log(<span class="string">"Timer call: "</span>, count);
+            count++;
+        } <span class="keyword">else</span> {
+            console.log(count == <span class="number">5</span>); <span class="comment">//true. Count came via a closure, accessed each step.</span>
+            console.log(<span class="keyword">typeof</span> timer); <span class="comment">//object. The timer reference is also via a closure.</span>
+            clearInterval(timer);
+        }
+    }, <span class="number">100</span>);
+})();
+
+console.log(<span class="keyword">typeof</span> count); <span class="comment">//undefined. count doesn't exist outside the wrapper</span>
+console.log(<span class="keyword">typeof</span> timer); <span class="comment">//undefined. neither does timer</span>
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-08-24T03:21:42.000Z"><a href="/2014/08/23/Everything-about-javascript-function(4)---Flexible-Arguments/">Aug 23 2014</a></time>
       
       
@@ -819,67 +870,11 @@ application/x<span class="attribute">-www</span><span class="attribute">-form</s
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-06-28T18:30:03.000Z"><a href="/2014/06/28/hello-world/">Jun 28 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/06/28/hello-world/">Hello World</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/tommy351/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ hexo new <span class="string">"My New Post"</span>
-</pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ hexo server
-</pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ hexo generate
-</pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ hexo deploy
-</pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
+  
+    <a href="/archives/page/2/" class="alignright next">Next</a>
   
   <div class="clearfix"></div>
 </nav>
