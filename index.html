@@ -76,7 +76,7 @@
     </header>
     <div class="entry">
       
-        <h1 id="1-_Self-executing,_temporary,_function">1. Self-executing, temporary, function</h1>
+        <h1 id="1-_Isolate_scope:_Self-executing_function">1. Isolate scope: Self-executing function</h1>
 <p>We can’t access the variable inside a self-executing function.</p>
 <pre><code>(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
     <span class="keyword">var</span> count = <span class="number">0</span>;
@@ -95,6 +95,31 @@
 
 console.log(<span class="keyword">typeof</span> count); <span class="comment">//undefined. count doesn't exist outside the wrapper</span>
 console.log(<span class="keyword">typeof</span> timer); <span class="comment">//undefined. neither does timer</span>
+</code></pre><p>We can use this feature to wrap a libary:</p>
+<pre><code>var myLib = (<span class="keyword">function</span>(){ 
+  <span class="keyword">function</span> myLib(){ 
+    // Initialize 
+  } 
+
+  // <span class="keyword">...</span> 
+
+  <span class="keyword">return</span> myLib; 
+})(); 
+</code></pre><h1 id="2-_Use_self-executing_function_inside_a_loop">2. Use self-executing function inside a loop</h1>
+<p>A for loop is one of the most frequently used statements in programming languages, and setTimeout() is often used in Javascript to delay the execution of a function. Together they could mean unexpected results if we didn’t fully understand how they work.</p>
+<pre><code><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) {
+    setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> console.log(i); },     <span class="number">1000</span>*i);     <span class="comment">// 6 6 6 6 6</span>
+}
+</code></pre><p>The above code seems like the obvious answer. We put console.log(i) within an anonymous function inside a setTimeout() function, and set each setTimeout() to be delayed 1 to 5 seconds (1000 x 1, 1000 x 2…) respectively. However, as soon as we run that codes, we know something is wrong. The numbers are each outputting to console 1 second after another consecutively, but they are all 6s. So we now have 6 6 6 6 6 as the end result.</p>
+<p>The problem resides in the variable i we’re passing into setTimeout(). In this case, we’re simply passing the reference to the variable i, and not the actual value at the moment inside each loop. Therefore, by the time the setTimeout() function is executed (after 1, 2, 3, 4, and 5 seconds in this case), the for statement has already been executed and incremented i to the final value of 6.</p>
+<p>To properly address this issue and achieve our intended behavior, we need to pass into setTimeout() the actual value of i at the moment of each loop execution in the for statement. We can use another anonymous function as a wrapper to help accomplish that:</p>
+<pre><code><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">5</span>; i++) {
+    (<span class="function"><span class="keyword">function</span><span class="params">(index)</span>{</span>
+        setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+            console.log(index); <span class="comment">//0,1,2,3,4,5</span>
+        }, i * <span class="number">1000</span>);
+    })(i);
+}           
 </code></pre>
       
     </div>
