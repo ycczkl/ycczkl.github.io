@@ -70,6 +70,79 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-08-26T23:35:08.000Z"><a href="/2014/08/26/Everything-about-Javascript-function(6)---Function-Prototype/">Aug 26 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/08/26/Everything-about-Javascript-function(6)---Function-Prototype/">Everything about Javascript function(6) - Function Prototype</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="1-_Adding_a_prototyped_method_to_a_function">1. Adding a prototyped method to a function</h1>
+<pre><code><span class="reserved">function</span> Ninja(){}
+
+Ninja.prototype.swingSword = <span class="reserved">function</span>(){
+    <span class="keyword">return</span> <span class="literal">true</span>;
+};
+
+<span class="reserved">var</span> ninjaA = Ninja();
+<span class="built_in">console</span>.log( !ninjaA) <span class="regexp">//</span>True. Is <span class="literal">undefined</span>, <span class="keyword">not</span> an instance <span class="keyword">of</span> Ninja.
+
+<span class="reserved">var</span> ninjaB = <span class="keyword">new</span> Ninja();
+<span class="built_in">console</span>.log( ninjaB.swingSword()); <span class="regexp">//</span>True. Method exists <span class="keyword">and</span> <span class="keyword">is</span> callable.
+</code></pre><h1 id="2-_Properties_added_in_the_constructor_(or_later)_override_prototyped_properties-">2. Properties added in the constructor (or later) override prototyped properties.</h1>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span>{</span>
+    <span class="keyword">this</span>.swingSword = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+        <span class="keyword">return</span> <span class="literal">true</span>;
+    };
+}
+
+<span class="comment">// Should return false, but will be overridden</span>
+Ninja.prototype.swingSword = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">return</span> <span class="literal">false</span>;
+};
+
+<span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
+console.log( ninja.swingSword()); <span class="comment">//Calling the instance method, not the prototype method.</span>
+</code></pre><h1 id="3-_The_chainable_method_must_return_this-">3. The chainable method must return this.</h1>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span> {</span>
+    <span class="keyword">this</span>.swung = <span class="literal">true</span>;
+}
+
+<span class="keyword">var</span> ninjaA = <span class="keyword">new</span> Ninja();
+<span class="keyword">var</span> ninjaB = <span class="keyword">new</span> Ninja();
+
+Ninja.prototype.swing = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">this</span>.swung = <span class="literal">false</span>;
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+};
+
+console.log(!ninjaA.swing().swung); <span class="comment">//True. Verify that the swing method exists and returns an instance.;</span>
+console.log(!ninjaB.swing().swung); <span class="comment">//True. and that it works on all Ninja instances.        </span>
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-08-25T23:20:09.000Z"><a href="/2014/08/25/Everything-about-javascript(5)---Temporary-Scope-/">Aug 25 2014</a></time>
       
       
@@ -547,7 +620,7 @@ console.log(<span class="keyword">typeof</span> myNinja === <span class="string"
   
     <li><a href="/categories/github/">github</a><small>1</small></li>
   
-    <li><a href="/categories/javascript/">javascript</a><small>6</small></li>
+    <li><a href="/categories/javascript/">javascript</a><small>7</small></li>
   
   </ul>
 </div>

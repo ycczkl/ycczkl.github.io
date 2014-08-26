@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Github总结 | Kelun | Blog</title>
+  <title>Everything about Javascript function(6) - Function Prototype | Kelun | Blog</title>
   <meta name="author" content="Kelun Zhang">
   
   <meta name="description" content="This is my bolg, welcome">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Github总结"/>
+  <meta property="og:title" content="Everything about Javascript function(6) - Function Prototype"/>
   <meta property="og:site_name" content="Kelun | Blog"/>
 
   
@@ -65,51 +65,58 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-01T23:50:14.000Z"><a href="/2014/08/01/Github总结/">Aug 1 2014</a></time>
+        <time datetime="2014-08-26T23:35:08.000Z"><a href="/2014/08/26/Everything-about-Javascript-function(6)---Function-Prototype/">Aug 26 2014</a></time>
       
       
   
-    <h1 class="title">Github总结</h1>
+    <h1 class="title">Everything about Javascript function(6) - Function Prototype</h1>
   
 
     </header>
     <div class="entry">
       
-        <h1 id="Gitgub_总结">Gitgub 总结</h1>
-<h2 id="1-远程仓库相关命令">1.远程仓库相关命令</h2>
-<ul>
-<li>检出仓库：$ git clone git://github.com/jquery/jquery.git</li>
-<li>查看远程仓库：$ git remote -v</li>
-<li>添加远程仓库：$ git remote add [name] [url]</li>
-<li>删除远程仓库：$ git remote rm [name]</li>
-<li>修改远程仓库：$ git remote set-url —push [name] [newUrl]</li>
-<li>拉取远程仓库：$ git pull [remoteName] [localBranchName]</li>
-<li><p>推送远程仓库：$ git push [remoteName] [localBranchName]</p>
-<p>如果想把本地的某个分支test提交到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫test的分支，如下：</p>
-<ul>
-<li>$ git push origin test:master         // 提交本地test分支作为远程的master分支</li>
-<li>$ git push origin test:test           // 提交本地test分支作为远程的test分支</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-_分支(branch)操作相关命令">2. 分支(branch)操作相关命令</h2>
-<ul>
-<li>查看本地分支：$ git branch</li>
-<li>查看远程分支：$ git branch -r （如果还是看不到就先 git fetch origin 先）</li>
-<li>创建本地分支：$ git branch [name] ——注意新分支创建后不会自动切换为当前分支</li>
-<li>切换分支：$ git checkout [name]</li>
-<li>创建新分支并立即切换到新分支：$ git checkout -b [name]</li>
-<li>直接检出远程分支：$ git checkout -b [name] [remoteName] (如：git checkout -b myNewBranch origin/dragon)</li>
-<li>删除分支：$ git branch -d [name] —— -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项</li>
-<li>合并分支：$ git merge [name] ——将名称为[name]的分支与当前分支合并</li>
-<li>合并最后的2个提交：$ git rebase -i HEAD~2 —— 数字2按需修改即可（如果需提交到远端$ git push -f origin master 慎用！）</li>
-<li>创建远程分支(本地分支push到远程)：$ git push origin [name]</li>
-<li><p>删除远程分支：$ git push origin :heads/[name] 或 $ git push origin :[name] </p>
-</li>
-<li><p>创建空的分支：(执行命令之前记得先提交你当前分支的修改，否则会被强制删干净没得后悔)<br>$ git symbolic-ref HEAD refs/heads/[name]<br>$ rm .git/index<br>$ git clean -fdx    </p>
-</li>
-</ul>
+        <h1 id="1-_Adding_a_prototyped_method_to_a_function">1. Adding a prototyped method to a function</h1>
+<pre><code><span class="reserved">function</span> Ninja(){}
 
+Ninja.prototype.swingSword = <span class="reserved">function</span>(){
+    <span class="keyword">return</span> <span class="literal">true</span>;
+};
+
+<span class="reserved">var</span> ninjaA = Ninja();
+<span class="built_in">console</span>.log( !ninjaA) <span class="regexp">//</span>True. Is <span class="literal">undefined</span>, <span class="keyword">not</span> an instance <span class="keyword">of</span> Ninja.
+
+<span class="reserved">var</span> ninjaB = <span class="keyword">new</span> Ninja();
+<span class="built_in">console</span>.log( ninjaB.swingSword()); <span class="regexp">//</span>True. Method exists <span class="keyword">and</span> <span class="keyword">is</span> callable.
+</code></pre><h1 id="2-_Properties_added_in_the_constructor_(or_later)_override_prototyped_properties-">2. Properties added in the constructor (or later) override prototyped properties.</h1>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span>{</span>
+    <span class="keyword">this</span>.swingSword = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+        <span class="keyword">return</span> <span class="literal">true</span>;
+    };
+}
+
+<span class="comment">// Should return false, but will be overridden</span>
+Ninja.prototype.swingSword = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">return</span> <span class="literal">false</span>;
+};
+
+<span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
+console.log( ninja.swingSword()); <span class="comment">//Calling the instance method, not the prototype method.</span>
+</code></pre><h1 id="3-_The_chainable_method_must_return_this-">3. The chainable method must return this.</h1>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span> {</span>
+    <span class="keyword">this</span>.swung = <span class="literal">true</span>;
+}
+
+<span class="keyword">var</span> ninjaA = <span class="keyword">new</span> Ninja();
+<span class="keyword">var</span> ninjaB = <span class="keyword">new</span> Ninja();
+
+Ninja.prototype.swing = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">this</span>.swung = <span class="literal">false</span>;
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+};
+
+console.log(!ninjaA.swing().swung); <span class="comment">//True. Verify that the swing method exists and returns an instance.;</span>
+console.log(!ninjaB.swing().swung); <span class="comment">//True. and that it works on all Ninja instances.        </span>
+</code></pre>
       
     </div>
     <footer>
@@ -117,15 +124,10 @@
         
   
   <div class="categories">
-    <a href="/categories/github/">github</a>
+    <a href="/categories/javascript/">javascript</a>
   </div>
 
         
-  
-  <div class="tags">
-    <a href="/tags/github/">github</a>
-  </div>
-
         
   <div class="addthis addthis_toolbox addthis_default_style">
     
