@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-08-26T22:58:46.726Z</updated>
+  <updated>2014-08-26T22:59:41.043Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://kelunblog.com/2014/08/25/Everything-about-javascript(5)---Temporary-Scope-/"/>
     <id>http://kelunblog.com/2014/08/25/Everything-about-javascript(5)---Temporary-Scope-/</id>
     <published>2014-08-25T23:20:09.000Z</published>
-    <updated>2014-08-26T22:55:16.000Z</updated>
+    <updated>2014-08-26T22:59:35.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-_Isolate_scope:_Self-executing_function">1. Isolate scope: Self-executing function</h1>
 <p>We can’t access the variable inside a self-executing function.</p>
 <pre><code>(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
@@ -66,6 +66,8 @@ console.log(<span class="keyword">typeof</span> timer); <span class="comment">//
 }           
 </code></pre>]]></content>
     
+    
+      <category term="javascript" scheme="http://kelunblog.com/categories/javascript/"/>
     
   </entry>
   
