@@ -74,7 +74,7 @@
       
       
   
-    <h1 class="title"><a href="/2014/08/26/Everything-about-Javascript-function(6)---Function-Prototype/">Everything about Javascript function(6) - Function Prototype</a></h1>
+    <h1 class="title"><a href="/2014/08/26/Everything-about-Javascript-function(6)---Function-Prototype/">Everything about Javascript function(6) - Function Prototype and the instance type</a></h1>
   
 
     </header>
@@ -120,7 +120,21 @@ Ninja.prototype.swing = <span class="function"><span class="keyword">function</s
 };
 
 console.log(!ninjaA.swing().swung); <span class="comment">//True. Verify that the swing method exists and returns an instance.;</span>
-console.log(!ninjaB.swing().swung); <span class="comment">//True. and that it works on all Ninja instances.        </span>
+console.log(!ninjaB.swing().swung); <span class="comment">//True. and that it works on all Ninja instances. </span>
+</code></pre><h1 id="4-_Examining_the_basic_of_an_object">4. Examining the basic of an object</h1>
+<p><code>typeof, instanceof, .constructor() is three important method to examing an object.</code></p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span>{</span>};
+
+<span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
+
+console.log(<span class="keyword">typeof</span> ninja, ninja <span class="keyword">instanceof</span> Ninja, ninja.constructor == Ninja);<span class="comment">// object, true ,true</span>
+</code></pre><h1 id="5-_Use_constructor_to_build_other_instances-">5. Use constructor to build other instances.</h1>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span>{</span>};
+
+<span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
+<span class="keyword">var</span> ninjaB = <span class="keyword">new</span> ninja.constructor();
+
+console.log(ninjaB <span class="keyword">instanceof</span> Ninja);<span class="comment">// true</span>
 </code></pre>
       
     </div>
