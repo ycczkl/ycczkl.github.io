@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-08-27T00:25:12.836Z</updated>
+  <updated>2014-08-28T01:06:32.304Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -13,6 +13,34 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Everything about Javascript function(7) - Inheritance]]></title>
+    <link href="http://kelunblog.com/2014/08/26/Everything-about-Javascript-function(7)---Inheritance/"/>
+    <id>http://kelunblog.com/2014/08/26/Everything-about-Javascript-function(7)---Inheritance/</id>
+    <published>2014-08-27T02:19:21.000Z</published>
+    <updated>2014-08-27T14:53:50.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="1-_How_prototype_inheritance_works?">1. How prototype inheritance works?</h1>
+<p>We usually write constanted varibal in function, write object function use prototype.</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">()</span> {</span>
+    <span class="keyword">this</span>.name = <span class="number">24</span>;
+}
+Person.prototype.dance = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>};
+
+<span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span> {</span>}
+Ninja.prototype = <span class="keyword">new</span> Person();
+
+<span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
+console.log(ninja.name, <span class="keyword">typeof</span> ninja.dance); <span class="comment">//24, function</span>
+console.log(ninja <span class="keyword">instanceof</span> Person); <span class="comment">//true</span>
+console.log(ninja <span class="keyword">instanceof</span> Ninja); <span class="comment">//true</span>
+console.log(ninja <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span>
+</code></pre>]]></content>
+    
+    
+      <category term="javascript" scheme="http://kelunblog.com/categories/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Everything about Javascript function(6) - Function Prototype and the instance type]]></title>
