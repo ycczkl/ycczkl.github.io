@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-08-28T21:34:23.868Z</updated>
+  <updated>2014-08-28T22:00:23.443Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -13,6 +13,67 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Everything about javascript function(8) - Function length]]></title>
+    <link href="http://kelunblog.com/2014/08/28/Everything-about-javascript-function(8)---Function-length/"/>
+    <id>http://kelunblog.com/2014/08/28/Everything-about-javascript-function(8)---Function-length/</id>
+    <published>2014-08-28T21:42:11.000Z</published>
+    <updated>2014-08-28T22:00:15.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="1-_How_does_a_function’s_length_property_work?">1. How does a function’s length property work?</h1>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">makeNinja</span>(<span class="title">name</span>){}             </span>
+<span class="function"><span class="keyword">function</span> <span class="title">makeSamurai</span>(<span class="title">name</span>, <span class="title">rank</span>){} </span>
+console.<span class="built_in">log</span>(makeNinja.<span class="built_in">length</span>)<span class="comment"> //1</span>
+console.<span class="built_in">log</span>(makeSamurai.<span class="built_in">length</span>)<span class="comment"> //2</span>
+</code></pre><h1 id="2-_We_can_use_it_to_implement_method_overloading-">2. We can use it to implement method overloading.</h1>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">addMethod</span><span class="params">(object, name, fn)</span>{</span>
+    <span class="comment">// Save a reference to the old method</span>
+    <span class="keyword">var</span> old = object[ name ];
+
+    <span class="comment">// Overwrite the method with our new one</span>
+    object[ name ] = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+        <span class="comment">// Check the number of incoming arguments,</span>
+        <span class="comment">// compared to our overloaded function</span>
+        <span class="keyword">if</span> ( fn.length == <span class="built_in">arguments</span>.length )
+        <span class="comment">// If there was a match, run the function</span>
+            <span class="keyword">return</span> fn.apply( <span class="keyword">this</span>, <span class="built_in">arguments</span> );
+
+        <span class="comment">// Otherwise, fallback to the old method</span>
+        <span class="keyword">else</span> <span class="keyword">if</span> ( <span class="keyword">typeof</span> old === <span class="string">"function"</span> )
+            <span class="keyword">return</span> old.apply( <span class="keyword">this</span>, <span class="built_in">arguments</span> );
+    };
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">Ninjas</span><span class="params">()</span>{</span>
+    <span class="keyword">var</span> ninjas = [ <span class="string">"Dean Edwards"</span>, <span class="string">"Sam Stephenson"</span>, <span class="string">"Alex Russell"</span> ];
+    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+        <span class="keyword">return</span> ninjas;
+    });
+    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">(name)</span>{</span>
+        <span class="keyword">var</span> ret = [];
+        <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; ninjas.length; i++ )
+            <span class="keyword">if</span> ( ninjas[i].indexOf(name) == <span class="number">0</span> )
+                ret.push( ninjas[i] );
+        <span class="keyword">return</span> ret;
+    });
+    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">(first, last)</span>{</span>
+        <span class="keyword">var</span> ret = [];
+        <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; ninjas.length; i++ )
+            <span class="keyword">if</span> ( ninjas[i] == (first + <span class="string">" "</span> + last) )
+                ret.push( ninjas[i] );
+        <span class="keyword">return</span> ret;
+    });
+}
+
+<span class="keyword">var</span> ninjas = <span class="keyword">new</span> Ninjas();
+console.log( ninjas.find().length == <span class="number">3</span>); <span class="comment">//true. Finds all ninjas</span>
+console.log( ninjas.find(<span class="string">"Sam"</span>).length == <span class="number">1</span>); <span class="comment">//true. Finds ninjas by first name</span>
+console.log( ninjas.find(<span class="string">"Dean"</span>, <span class="string">"Edwards"</span>).length == <span class="number">1</span>); <span class="comment">//true.Finds ninjas by first and last name</span>
+console.log( ninjas.find(<span class="string">"Alex"</span>, <span class="string">"X"</span>, <span class="string">"Russell"</span>) == <span class="literal">null</span>); <span class="comment">//true. Does nothing    </span>
+</code></pre>]]></content>
+    
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Everything about Javascript function(7) - Inheritance]]></title>
