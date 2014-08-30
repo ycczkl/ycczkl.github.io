@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-08-28T22:01:18.231Z</updated>
+  <updated>2014-08-30T02:05:39.342Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://kelunblog.com/2014/08/28/Everything-about-javascript-function(8)---Function-length/"/>
     <id>http://kelunblog.com/2014/08/28/Everything-about-javascript-function(8)---Function-length/</id>
     <published>2014-08-28T21:42:11.000Z</published>
-    <updated>2014-08-28T22:01:13.000Z</updated>
+    <updated>2014-08-30T02:05:32.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-_How_does_a_function’s_length_property_work?">1. How does a function’s length property work?</h1>
 <pre><code><span class="function"><span class="keyword">function</span> <span class="title">makeNinja</span>(<span class="title">name</span>){}             </span>
 <span class="function"><span class="keyword">function</span> <span class="title">makeSamurai</span>(<span class="title">name</span>, <span class="title">rank</span>){} </span>
@@ -72,6 +72,8 @@ console.log( ninjas.find(<span class="string">"Dean"</span>, <span class="string
 console.log( ninjas.find(<span class="string">"Alex"</span>, <span class="string">"X"</span>, <span class="string">"Russell"</span>) == <span class="literal">null</span>); <span class="comment">//true. Does nothing    </span>
 </code></pre>]]></content>
     
+    
+      <category term="javascript" scheme="http://kelunblog.com/categories/javascript/"/>
     
   </entry>
   
