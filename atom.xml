@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-08-30T02:05:39.342Z</updated>
+  <updated>2014-08-31T03:05:33.334Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -13,6 +13,34 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[]]></title>
+    <link href="http://kelunblog.com/2014/08/30/Some-notes-about-Kali-linux/"/>
+    <id>http://kelunblog.com/2014/08/30/Some-notes-about-Kali-linux/</id>
+    <published>2014-08-31T02:13:24.000Z</published>
+    <updated>2014-08-31T02:13:23.000Z</updated>
+    <content type="html"><![CDATA[<p>title: ‘Some notes about Kali linux’<br>date: 2014-08-30 22:05:00<br>categories:</p>
+<ul>
+<li>Hacking<br>tags:kali, linux</li>
+</ul>
+<hr>
+<h1 id="1-_Some_basic_commands">1. Some basic commands</h1>
+<ul>
+<li>List all the available interfaces for your machine: <figure class="highlight ifconfig"><figcaption><span>-a```</span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>- Turn up (<span class="function_start"><span class="keyword">on</span></span>) <span class="keyword">the</span> desired network interface:
+</pre></td></tr></table></figure>ifconfig eth0 up 192.168.1.23<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="deletion">- Assign an IP address through DHCP:</span>
+</pre></td></tr></table></figure>dhclient<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>- Reboot <span class="operator">the</span> machine <span class="keyword">using</span> <span class="operator">the</span> <span class="command"><span class="keyword">command</span> <span class="title">line</span> <span class="title">interface</span>:</span>
+</pre></td></tr></table></figure>reboot<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>- Poweroff <span class="operator">the</span> machine <span class="keyword">using</span> <span class="operator">the</span> <span class="command"><span class="keyword">command</span> <span class="title">line</span> <span class="title">interface</span>:</span>
+</pre></td></tr></table></figure>poweroff```</li>
+</ul>
+]]></content>
+    
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Everything about javascript function(8) - Function length]]></title>

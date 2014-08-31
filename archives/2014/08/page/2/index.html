@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Page 2 | Archives: 2014/8 | Kelun | Blog</title>
+  <meta name="author" content="Kelun Zhang">
+  
+  <meta name="description" content="This is my bolg, welcome">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Kelun | Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Kelun | Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-53633801-1']);
+  
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Kelun | Blog</a></h1>
+  <h2><a href="/">A code monkey with a simple dream</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/atom.xml">Rss</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2014/8</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-08-01T23:50:14.000Z"><a href="/2014/08/01/Github总结/">Aug 1 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/08/01/Github总结/">Github总结</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="Gitgub_总结">Gitgub 总结</h1>
+<h2 id="1-远程仓库相关命令">1.远程仓库相关命令</h2>
+<ul>
+<li>检出仓库：$ git clone git://github.com/jquery/jquery.git</li>
+<li>查看远程仓库：$ git remote -v</li>
+<li>添加远程仓库：$ git remote add [name] [url]</li>
+<li>删除远程仓库：$ git remote rm [name]</li>
+<li>修改远程仓库：$ git remote set-url —push [name] [newUrl]</li>
+<li>拉取远程仓库：$ git pull [remoteName] [localBranchName]</li>
+<li><p>推送远程仓库：$ git push [remoteName] [localBranchName]</p>
+<p>如果想把本地的某个分支test提交到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫test的分支，如下：</p>
+<ul>
+<li>$ git push origin test:master         // 提交本地test分支作为远程的master分支</li>
+<li>$ git push origin test:test           // 提交本地test分支作为远程的test分支</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-_分支(branch)操作相关命令">2. 分支(branch)操作相关命令</h2>
+<ul>
+<li>查看本地分支：$ git branch</li>
+<li>查看远程分支：$ git branch -r （如果还是看不到就先 git fetch origin 先）</li>
+<li>创建本地分支：$ git branch [name] ——注意新分支创建后不会自动切换为当前分支</li>
+<li>切换分支：$ git checkout [name]</li>
+<li>创建新分支并立即切换到新分支：$ git checkout -b [name]</li>
+<li>直接检出远程分支：$ git checkout -b [name] [remoteName] (如：git checkout -b myNewBranch origin/dragon)</li>
+<li>删除分支：$ git branch -d [name] —— -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项</li>
+<li>合并分支：$ git merge [name] ——将名称为[name]的分支与当前分支合并</li>
+<li>合并最后的2个提交：$ git rebase -i HEAD~2 —— 数字2按需修改即可（如果需提交到远端$ git push -f origin master 慎用！）</li>
+<li>创建远程分支(本地分支push到远程)：$ git push origin [name]</li>
+<li><p>删除远程分支：$ git push origin :heads/[name] 或 $ git push origin :[name] </p>
+</li>
+<li><p>创建空的分支：(执行命令之前记得先提交你当前分支的修改，否则会被强制删干净没得后悔)<br>$ git symbolic-ref HEAD refs/heads/[name]<br>$ rm .git/index<br>$ git clean -fdx    </p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+    <a href="/archives/2014/08/" class="alignleft prev">Prev</a>
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:kelunblog.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Angularjs/">Angular.js</a><small>2</small></li>
+  
+    <li><a href="/categories/RESTful/">RESTful</a><small>1</small></li>
+  
+    <li><a href="/categories/github/">github</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/">javascript</a><small>9</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/angular/">angular</a><small>2</small></li>
+  
+    <li><a href="/tags/api/">api</a><small>1</small></li>
+  
+    <li><a href="/tags/directive/">directive</a><small>1</small></li>
+  
+    <li><a href="/tags/file-upload/">file upload</a><small>1</small></li>
+  
+    <li><a href="/tags/github/">github</a><small>1</small></li>
+  
+    <li><a href="/tags/global-variable/">global variable</a><small>1</small></li>
+  
+    <li><a href="/tags/javascript-function/">javascript function</a><small>1</small></li>
+  
+    <li><a href="/tags/node/">node</a><small>1</small></li>
+  
+    <li><a href="/tags/rest/">rest</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 Kelun Zhang
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53633801-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'kelunblog';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
