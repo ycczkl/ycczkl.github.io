@@ -70,6 +70,75 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-08-04T14:38:30.000Z"><a href="/2014/08/04/Global-variable-in-javascript/">Aug 4 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/08/04/Global-variable-in-javascript/">Global variable in javascript</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>This blog mainly talk about how global variable works in Javascript.</p>
+<h1 id="1-_Two_same_way_to_assign_global_variable-">1. Two same way to assign global variable.</h1>
+<h2 id="The_most_comman_way-">The most comman way.</h2>
+<pre><code><span class="keyword">var</span> myvar = <span class="number">5</span>;
+<span class="function"><span class="keyword">function</span> <span class="title">myFunction</span><span class="params">()</span>
+       <span class="title">alert</span><span class="params">(myvar)</span>;</span> <span class="comment">// 5</span>
+}
+</code></pre><h2 id="Use_window_object">Use window object</h2>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">setValue</span><span class="params">()</span>
+{</span>
+    window.myValue = <span class="string">"test"</span>;
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">getValue</span><span class="params">()</span>
+{</span>
+    alert(window.myValue); <span class="comment">// "test" (assuming     setValue has run)</span>
+}    
+</code></pre><p>when a global variable is set, it’s added to the window object.</p>
+<pre><code><span class="keyword">var</span> myValue;
+<span class="function"><span class="keyword">function</span> <span class="title">setValue</span><span class="params">()</span>
+{</span>
+    myValue = <span class="string">"test"</span>;
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">getValue</span><span class="params">()</span>
+{</span>
+    alert(window.myValue); <span class="comment">// yup, it's "test"</span>
+}
+</code></pre><h1 id="2-_A_safer_way_to_assign_global_variable-">2. A safer way to assign global variable.</h1>
+<pre><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> <span class="comment">// Begin scoping function</span>
+    <span class="keyword">var</span> yourGlobalVariable; <span class="comment">// Global to your code, invisible outside the scoping function</span>
+    <span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> {</span>
+        <span class="comment">// ...</span>
+    }
+})();         <span class="comment">// End scoping function</span>
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-08-01T23:50:14.000Z"><a href="/2014/08/01/Github总结/">Aug 1 2014</a></time>
       
       
@@ -154,7 +223,7 @@
   
     <li><a href="/categories/Angularjs/">Angular.js</a><small>2</small></li>
   
-    <li><a href="/categories/Hacking/">Hacking</a><small>1</small></li>
+    <li><a href="/categories/Hacking/">Hacking</a><small>2</small></li>
   
     <li><a href="/categories/RESTful/">RESTful</a><small>1</small></li>
   
@@ -170,6 +239,8 @@
 <div class="widget tag">
   <h3 class="title">Tags</h3>
   <ul class="entry">
+  
+    <li><a href="/tags/Kali/">Kali</a><small>1</small></li>
   
     <li><a href="/tags/angular/">angular</a><small>2</small></li>
   
@@ -190,6 +261,8 @@
     <li><a href="/tags/linux/">linux</a><small>1</small></li>
   
     <li><a href="/tags/node/">node</a><small>1</small></li>
+  
+    <li><a href="/tags/penetration-testing/">penetration testing</a><small>2</small></li>
   
     <li><a href="/tags/rest/">rest</a><small>1</small></li>
   

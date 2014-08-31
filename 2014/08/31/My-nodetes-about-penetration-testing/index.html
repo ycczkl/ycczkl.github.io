@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Github总结 | Kelun | Blog</title>
+  <title>My nodetes about penetration testing | Kelun | Blog</title>
   <meta name="author" content="Kelun Zhang">
   
   <meta name="description" content="This is my bolg, welcome">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Github总结"/>
+  <meta property="og:title" content="My nodetes about penetration testing"/>
   <meta property="og:site_name" content="Kelun | Blog"/>
 
   
@@ -65,50 +65,37 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-01T23:50:14.000Z"><a href="/2014/08/01/Github总结/">Aug 1 2014</a></time>
+        <time datetime="2014-08-31T21:08:48.000Z"><a href="/2014/08/31/My-nodetes-about-penetration-testing/">Aug 31 2014</a></time>
       
       
   
-    <h1 class="title">Github总结</h1>
+    <h1 class="title">My nodetes about penetration testing</h1>
   
 
     </header>
     <div class="entry">
       
-        <h1 id="Gitgub_总结">Gitgub 总结</h1>
-<h2 id="1-远程仓库相关命令">1.远程仓库相关命令</h2>
+        <h1 id="1-Reconnaissance">1.Reconnaissance</h1>
+<ol>
+<li><p>Website copier: HTTrack is a free utility that creates an identical, offline copy of the target website. The copied website will include all the pages, links, pictures, and code from the original website; however, it will reside on your local computer. Utilizing a website-copying tool like HTTrack allows us to explore and thor- oughly mine the website “offline” without having to spend additional time traipsing around on the company’s web server.<br>How to install : <code>apt-get install httrack</code> <code>httrack</code></p>
+</li>
+<li><p>Google hacking: </p>
 <ul>
-<li>检出仓库：$ git clone git://github.com/jquery/jquery.git</li>
-<li>查看远程仓库：$ git remote -v</li>
-<li>添加远程仓库：$ git remote add [name] [url]</li>
-<li>删除远程仓库：$ git remote rm [name]</li>
-<li>修改远程仓库：$ git remote set-url —push [name] [newUrl]</li>
-<li>拉取远程仓库：$ git pull [remoteName] [localBranchName]</li>
-<li><p>推送远程仓库：$ git push [remoteName] [localBranchName]</p>
-<p>如果想把本地的某个分支test提交到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫test的分支，如下：</p>
-<ul>
-<li>$ git push origin test:master         // 提交本地test分支作为远程的master分支</li>
-<li>$ git push origin test:test           // 提交本地test分支作为远程的test分支</li>
+<li>Serch in specified website:<code>site:domain term to search</code></li>
+<li>Search key words in title: <code>allintitle:</code> <code>intitle:</code></li>
+<li>Search for sites that contain specific words in the URL: <code>inurl:</code></li>
+<li>Search website in cache:<code>cache:</code></li>
+<li>Search for certain filetype like .doc, xlsx, ppt, txt:<code>filetype:pdf</code></li>
+<li>Combine multiple directives into the same search:<code>site:dsu.edu filetype:pptx</code></li>
 </ul>
 </li>
-</ul>
-<h2 id="2-_分支(branch)操作相关命令">2. 分支(branch)操作相关命令</h2>
-<ul>
-<li>查看本地分支：$ git branch</li>
-<li>查看远程分支：$ git branch -r （如果还是看不到就先 git fetch origin 先）</li>
-<li>创建本地分支：$ git branch [name] ——注意新分支创建后不会自动切换为当前分支</li>
-<li>切换分支：$ git checkout [name]</li>
-<li>创建新分支并立即切换到新分支：$ git checkout -b [name]</li>
-<li>直接检出远程分支：$ git checkout -b [name] [remoteName] (如：git checkout -b myNewBranch origin/dragon)</li>
-<li>删除分支：$ git branch -d [name] —— -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项</li>
-<li>合并分支：$ git merge [name] ——将名称为[name]的分支与当前分支合并</li>
-<li>合并最后的2个提交：$ git rebase -i HEAD~2 —— 数字2按需修改即可（如果需提交到远端$ git push -f origin master 慎用！）</li>
-<li>创建远程分支(本地分支push到远程)：$ git push origin [name]</li>
-<li><p>删除远程分支：$ git push origin :heads/[name] 或 $ git push origin :[name] </p>
+<li><p>The harvester: This tool allows us to quickly and accurately catalog both e-mail<br>addresses and subdomains that are directly related to our target.<code>theharvester -d &lt;domain&gt; -b google</code></p>
 </li>
-<li><p>创建空的分支：(执行命令之前记得先提交你当前分支的修改，否则会被强制删干净没得后悔)<br>$ git symbolic-ref HEAD refs/heads/[name]<br>$ rm .git/index<br>$ git clean -fdx    </p>
+<li><p>whois: The Whois service allows us to access specific information about our target including the IP addresses or host names of the company’s Domain Name Systems (DNS) servers and contact information which usually contains an address and a phone number.<code>whois target_domain</code></p>
 </li>
-</ul>
+<li><p>host: Oftentimes, our reconnaissance efforts will result in host names rather than IP addresses. When this occurs, we can use the “host” tool to perform a translation for us. <code>host target_hostname</code> <code>host ip_adress</code>    </p>
+</li>
+</ol>
 
       
     </div>
@@ -117,13 +104,13 @@
         
   
   <div class="categories">
-    <a href="/categories/github/">github</a>
+    <a href="/categories/Hacking/">Hacking</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/github/">github</a>
+    <a href="/tags/Kali/">Kali</a>, <a href="/tags/penetration-testing/">penetration testing</a>
   </div>
 
         
