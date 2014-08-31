@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>file upload | Kelun | Blog</title>
+  <title>Hacking | Kelun | Blog</title>
   <meta name="author" content="Kelun Zhang">
   
   <meta name="description" content="This is my bolg, welcome">
@@ -60,7 +60,7 @@
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">file upload</h2>
+<h2 class="archive-title category">Hacking</h2>
 
 
   
@@ -70,59 +70,28 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-07-27T00:30:39.000Z"><a href="/2014/07/26/Understanding-how-file-upload-works-using-Nodejs-and-Angularjs-(1)/">Jul 26 2014</a></time>
+        <time datetime="2014-08-31T02:05:00.000Z"><a href="/2014/08/30/Some-notes-about-Kali-linux/">Aug 30 2014</a></time>
       
       
   
-    <h1 class="title"><a href="/2014/07/26/Understanding-how-file-upload-works-using-Nodejs-and-Angularjs-(1)/">File upload with node.js and angular</a></h1>
+    <h1 class="title"><a href="/2014/08/30/Some-notes-about-Kali-linux/">Some notes about Kali linux</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p><img src="http://oceanwavelabs.com/assets/plugins/parallax-slider/img/angular-and-html5.png" alt=""></p>
-<h1 id="Understanding_how_file_upload_works_using_Node-js_and_Angular-js_(1)">Understanding how file upload works using Node.js and Angular.js (1)</h1>
-<blockquote>
-<p>In this blog I will mainly talk about how to upload files use Html and Node.js. First, I will talk about the enctype option and compare the difference between the different options. I will post a second blog mainly focus on angular.js.</p>
-</blockquote>
-<h2 id="Important_things_with_input_tag">Important things with input tag</h2>
-<h3 id="1-Enctype_options">1.Enctype options</h3>
-<p>Enctype have three options: application/x-www-form-urlencoded(defult), multipart/form-data, text/plain.</p>
+        <h1 id="1-_Some_basic_commands">1. Some basic commands</h1>
 <ul>
-<li><p>application/x-www-form-urlencoded: Default. Input control names and values are URL encoded. The name is separated from the value by ‘=’ and name/value pairs are separated from each other by ‘&amp;’.<strong>(key-value pairs)</strong></p>
-</li>
-<li><p>multipart/form-data: Used for submitting forms that contain files, non-ASCII data, and binary data.<strong>(image/files)</strong>. </p>
-<ul>
-<li><a href="https://github.com/expressjs/multer" target="_blank" rel="external">Use multer in backend to get multipart/formdata. Usually image/files</a></li>
-<li><a href="http://blog.csdn.net/xiaojianpitt/article/details/6856536" target="_blank" rel="external">Multipart/form-data POST文件上传详解</a></li>
-<li><a href="http://blog.csdn.net/five3/article/details/7181521" target="_blank" rel="external">HTTP协议之multipart/form-data请求分析</a></li>
+<li>List all the available interfaces for your machine:  <figure class="highlight ifconfig"><figcaption><span>-a```</span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>- Turn up (<span class="function_start"><span class="keyword">on</span></span>) <span class="keyword">the</span> desired network interface:
+</pre></td></tr></table></figure>ifconfig eth0 up 192.168.1.23<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="deletion">- Assign an IP address through DHCP:</span>
+</pre></td></tr></table></figure>dhclient<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>- Reboot <span class="operator">the</span> machine <span class="keyword">using</span> <span class="operator">the</span> <span class="command"><span class="keyword">command</span> <span class="title">line</span> <span class="title">interface</span>:</span>
+</pre></td></tr></table></figure>reboot<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>- Poweroff <span class="operator">the</span> machine <span class="keyword">using</span> <span class="operator">the</span> <span class="command"><span class="keyword">command</span> <span class="title">line</span> <span class="title">interface</span>:</span>
+</pre></td></tr></table></figure>poweroff```</li>
 </ul>
-</li>
-<li><p>text/plain: Obsolete. No encoding, for browser compatibility only.<br><strong>Express use bodypaser which only accept three content types:<br>1.application/json<br>2.application/x-www-form-urlencoded<br>3.multipart/form-data</strong></p>
-<ul>
-<li><a href="http://stackoverflow.com/questions/17793344/empty-req-body-receiving-text-plain-post-request-to-node-js" target="_blank" rel="external">Empty req.body receiving text/plain POST request to node.js</a></li>
-</ul>
-</li>
-</ul>
-<h4 id="Example:">Example:</h4>
-<p><strong>HTML:</strong></p>
-<pre><code>&lt;form <span class="keyword">method</span>=<span class="string">"post"</span> action=<span class="string">"/api/upload"</span>&gt;
-    input:&lt;input <span class="class"><span class="keyword">type</span>=</span><span class="string">"text"</span> name=<span class="string">"input"</span>/&gt;
-    &lt;button <span class="class"><span class="keyword">type</span>=</span><span class="string">"submit"</span> <span class="keyword">class</span>=<span class="string">"btn"</span>&gt;upload&lt;/button&gt;
-&lt;/form&gt;
-</code></pre><p><strong>Node.js:</strong></p>
-<pre><code><span class="pi">'use strict'</span>;
-
-<span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'lodash'</span>);
-    exports.index = <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> {</span>
-    console.log(req.get(<span class="string">'Content-Type'</span>));
-    console.log(req.body);    
-};
-</code></pre><p>After we submmit the text we can get the input data from backend:</p>
-<pre><code>GET /api/things <span class="number">304</span> <span class="number">5</span>ms
-application/x<span class="attribute">-www</span><span class="attribute">-form</span><span class="attribute">-urlencoded</span>
-{ input: <span class="string">'123'</span> }
-</code></pre><p><strong>If we want to submit a form we must include name in input tag.</strong> All elements used to collect data in a form have a “name” attribute (name=””). That is the name of the variable that is assigned the value of the data collected by each input, select or textarea element.</p>
 
       
     </div>
