@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-08-31T23:15:14.773Z</updated>
+  <updated>2014-09-01T18:33:52.827Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://kelunblog.com/2014/08/31/My-nodetes-about-penetration-testing/"/>
     <id>http://kelunblog.com/2014/08/31/My-nodetes-about-penetration-testing/</id>
     <published>2014-08-31T21:08:48.000Z</published>
-    <updated>2014-08-31T23:15:10.000Z</updated>
+    <updated>2014-09-01T16:18:26.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-Reconnaissance">1.Reconnaissance</h1>
 <ol>
 <li><p><strong>Website copier</strong>: HTTrack is a free utility that creates an identical, offline copy of the target website. The copied website will include all the pages, links, pictures, and code from the original website; however, it will reside on your local computer. Utilizing a website-copying tool like HTTrack allows us to explore and thor- oughly mine the website “offline” without having to spend additional time traipsing around on the company’s web server.<br>How to install : <code>apt-get install httrack</code> <code>httrack</code></p>
@@ -38,7 +38,13 @@
 </li>
 <li><p><strong>whois</strong>: The Whois service allows us to access specific information about our target including the IP addresses or host names of the company’s Domain Name Systems (DNS) servers and contact information which usually contains an address and a phone number.<code>whois target_domain</code></p>
 </li>
-<li><p><strong>host</strong>: Oftentimes, our reconnaissance efforts will result in host names rather than IP addresses. When this occurs, we can use the “host” tool to perform a translation for us. <code>host target_hostname</code> <code>host ip_adress</code>    </p>
+<li><p><strong>host</strong>: Oftentimes, our reconnaissance efforts will result in host names rather than IP addresses. When this occurs, we can use the “host” tool to perform a translation for us. <code>host target_hostname</code> <code>host ip_adress</code>   </p>
+</li>
+<li><p><strong>Extracting information from DNS</strong></p>
+<ul>
+<li>nslookup: nslookup is a tool that can be used to query DNS servers and potentially obtain records about the various hosts of which it is aware.</li>
+<li>dig: </li>
+</ul>
 </li>
 </ol>
 ]]></content>
