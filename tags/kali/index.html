@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Kali | Kelun | Blog</title>
+  <title>kali | Kelun | Blog</title>
   <meta name="author" content="Kelun Zhang">
   
   <meta name="description" content="This is my bolg, welcome">
@@ -60,7 +60,7 @@
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">Kali</h2>
+<h2 class="archive-title tag">kali</h2>
 
 
   
@@ -70,43 +70,24 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-31T21:08:48.000Z"><a href="/2014/08/31/My-nodetes-about-penetration-testing/">Aug 31 2014</a></time>
+        <time datetime="2014-08-31T02:05:00.000Z"><a href="/2014/08/30/Some-notes-about-Kali-linux/">Aug 30 2014</a></time>
       
       
   
-    <h1 class="title"><a href="/2014/08/31/My-nodetes-about-penetration-testing/">My nodetes about penetration testing</a></h1>
+    <h1 class="title"><a href="/2014/08/30/Some-notes-about-Kali-linux/">Some notes about Kali linux</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h1 id="1-Reconnaissance">1.Reconnaissance</h1>
-<ol>
-<li><p><strong>Website copier</strong>: HTTrack is a free utility that creates an identical, offline copy of the target website. The copied website will include all the pages, links, pictures, and code from the original website; however, it will reside on your local computer. Utilizing a website-copying tool like HTTrack allows us to explore and thor- oughly mine the website “offline” without having to spend additional time traipsing around on the company’s web server.<br>How to install : <code>apt-get install httrack</code> <code>httrack</code></p>
-</li>
-<li><p><strong>Google hacking</strong>: </p>
+        <h1 id="1-_Some_basic_linux_commands">1. Some basic linux commands</h1>
 <ul>
-<li>Serch in specified website:<code>site:domain term to search</code></li>
-<li>Search key words in title: <code>allintitle:</code> <code>intitle:</code></li>
-<li>Search for sites that contain specific words in the URL: <code>inurl:</code></li>
-<li>Search website in cache:<code>cache:</code></li>
-<li>Search for certain filetype like .doc, xlsx, ppt, txt:<code>filetype:pdf</code></li>
-<li>Combine multiple directives into the same search:<code>site:dsu.edu filetype:pptx</code></li>
+<li>List all the available interfaces for your machine: <code>ifconfig -a</code></li>
+<li>Turn up (on) the desired network interface: <code>ifconfig eth0 up 192.168.1.23</code></li>
+<li>Assign an IP address through DHCP:<code>dhclient</code></li>
+<li>Reboot the machine using the command line interface: <code>reboot</code></li>
+<li>Poweroff the machine using the command line interface: <code>poweroff</code></li>
 </ul>
-</li>
-<li><p><strong>The harvester</strong>: This tool allows us to quickly and accurately catalog both e-mail<br>addresses and subdomains that are directly related to our target.<code>theharvester -d &lt;domain&gt; -b google</code></p>
-</li>
-<li><p><strong>whois</strong>: The Whois service allows us to access specific information about our target including the IP addresses or host names of the company’s Domain Name Systems (DNS) servers and contact information which usually contains an address and a phone number.<code>whois target_domain</code></p>
-</li>
-<li><p><strong>host</strong>: Oftentimes, our reconnaissance efforts will result in host names rather than IP addresses. When this occurs, we can use the “host” tool to perform a translation for us. <code>host target_hostname</code> <code>host ip_adress</code>   </p>
-</li>
-<li><p><strong>Extracting information from DNS</strong></p>
-<ul>
-<li>nslookup: nslookup is a tool that can be used to query DNS servers and potentially obtain records about the various hosts of which it is aware.</li>
-<li>dig: </li>
-</ul>
-</li>
-</ol>
 
       
     </div>
