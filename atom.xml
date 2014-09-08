@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-09-04T21:22:25.728Z</updated>
+  <updated>2014-09-08T01:38:23.761Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -13,6 +13,209 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Some basic notes about php & mysql]]></title>
+    <link href="http://kelunblog.com/2014/09/07/Some-basic-notes-about-php-&-mysql/"/>
+    <id>http://kelunblog.com/2014/09/07/Some-basic-notes-about-php-&-mysql/</id>
+    <published>2014-09-08T01:32:43.000Z</published>
+    <updated>2014-09-08T01:38:17.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="apache:">apache:</h1>
+<pre><code><span class="built_in">sudo</span> apachectl start
+<span class="built_in">sudo</span> apachectl stop
+<span class="built_in">sudo</span> apachectl restart
+</code></pre><h1 id="php:">php:</h1>
+<ol>
+<li><p>urlencode($varable) vs rawurlencode</p>
+<ul>
+<li><p>rawurlencode the path:</p>
+<ul>
+<li>Path is the part before the “?”</li>
+<li>Spaces must be encoded as %20</li>
+</ul>
+</li>
+<li><p>url encode the query string</p>
+<ul>
+<li>Query string is the part after the “?”        + space are better encoded as “+”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>htmlspecialchars(), htmlentities()</p>
+<ul>
+<li>Reserved words in html: “&lt;”, “&gt;”, “&amp;”, “</li>
+<li>use htmlspecialchars() to render this reserved words.</li>
+<li>render some special characters use htmlentities()</li>
+</ul>
+</li>
+<li><p>include(), require()    [when error, halt the execution]</p>
+</li>
+<li><p>header($string) 必须写在html之前    </p>
+<ul>
+<li><p>header(“Location: login.php”); //used as redirect to new page.</p>
+<figure class="highlight <?php"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>		header(<span class="string">"Location: basic.html"</span>);
+		<span class="keyword">exit</span>; <span class="comment">//Prevent render html files</span>
+	    <span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>    
+
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="Mysql">Mysql</h1>
+<ol>
+<li><p>basic command:</p>
+<ul>
+<li><p>login:</p>
+<pre><code>  mysql <span class="attribute">-u</span> root <span class="attribute">-p</span>
+</code></pre></li>
+<li><p>Show database:</p>
+<pre><code>  <span class="operator"><span class="keyword">SHOW</span> DATABASES;</span>            
+</code></pre></li>
+<li><p>Creat database:</p>
+<pre><code>  <span class="operator"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> &lt;name&gt;;</span>
+</code></pre></li>
+<li><p>Use database:</p>
+<pre><code>  USE <span class="tag">&lt;<span class="title">name</span>&gt;</span>
+</code></pre></li>
+<li><p>Drop database:</p>
+<pre><code>  <span class="operator"><span class="keyword">DROP</span> <span class="keyword">DATABASE</span> &lt;name&gt;    </span>
+</code></pre></li>
+<li><p>Creat new dabase user </p>
+<pre><code>  <span class="operator"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> db_name.*
+  <span class="keyword">TO</span> <span class="string">'username'</span>@<span class="string">'localhost'</span>
+  IDENTIFIED <span class="keyword">BY</span> <span class="string">'password'</span>;</span>
+
+  <span class="operator"><span class="keyword">SHOW</span> GRANTS <span class="keyword">FOR</span> <span class="string">'username'</span>@<span class="string">'localhost'</span>;</span>
+</code></pre></li>
+<li><p>TABLE:</p>
+<ul>
+<li>subject:<ul>
+<li>id</li>
+<li>menu_name</li>
+<li>position</li>
+<li>visible</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>SHOW tables:</p>
+<pre><code>  <span class="operator"><span class="keyword">SHOW</span> TABLES;</span>
+</code></pre></li>
+<li><p>Creat tables:</p>
+<pre><code>  <span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> subjects (   id <span class="keyword">INT</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,    menu_name <span class="keyword">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,   position <span class="keyword">INT</span>(<span class="number">3</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>, visible TINYINT(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,   <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>(id));</span>
+</code></pre></li>
+<li><p>Show columns:</p>
+<p>  SHOW COLUMNS FROM table_name;</p>
+</li>
+<li><p>crud</p>
+<ul>
+<li><p>Creat: SQL INSERT</p>
+<pre><code>  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span> (column1, column2, column3)
+  <span class="keyword">VALUES</span> (val1, val2 ,val3);</span>
+</code></pre></li>
+<li><p>Read:SQL SELECT</p>
+<pre><code>  <span class="operator"><span class="keyword">SELECT</span> *
+  <span class="keyword">FROM</span> <span class="keyword">table</span>
+  <span class="keyword">WHERE</span> column1 = <span class="string">'some text'</span>
+  <span class="keyword">ORDER</span> <span class="keyword">BY</span> column1 <span class="keyword">ASC</span>;</span>
+</code></pre></li>
+<li><p>Update</p>
+<pre><code>  <span class="operator"><span class="keyword">UPDATE</span> <span class="keyword">table</span>
+  <span class="keyword">SET</span> column1 = <span class="string">'some_text'</span>
+  <span class="keyword">WHERE</span> id = <span class="number">1</span>;</span>
+</code></pre></li>
+<li><p>Delete    </p>
+<pre><code>  <span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="keyword">table</span>
+  <span class="keyword">WHERE</span> id = <span class="number">1</span>;</span>      
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="PHP_&amp;_Mysql">PHP &amp; Mysql</h1>
+<ol>
+<li><p>Creat database connection</p>
+<pre><code> <span class="variable">$dbhost</span> = <span class="string">"127.0.0.1"</span>;
+ <span class="variable">$dbuser</span> = <span class="string">"widght_cms"</span>;
+ <span class="variable">$dbpass</span> = <span class="string">"chuangfu1314"</span>;
+ <span class="variable">$dbname</span> = <span class="string">"widget_corp"</span>;
+ <span class="variable">$connection</span> = mysqli_connect(<span class="variable">$dbhost</span>, <span class="variable">$dbuser</span>, <span class="variable">$dbpass</span>, <span class="variable">$dbname</span>);    
+ <span class="keyword">if</span>(mysqli_connect_errno()) {
+ <span class="keyword">die</span>(<span class="string">"Database connection faild: "</span> . 
+     mysqli_connect_error() . 
+     <span class="string">" ("</span> . mysqli_connect_errno() . <span class="string">")"</span>);
+ }
+</code></pre></li>
+<li><p>database query</p>
+<ul>
+<li><p>Read data:</p>
+<pre><code>  <span class="variable">$query</span> = <span class="string">"SELECT * FROM subjects"</span>;
+  <span class="variable">$result</span> = mysqli_query(<span class="variable">$connection</span>, <span class="variable">$query</span>);
+  <span class="keyword">if</span>(!<span class="variable">$result</span>) {
+      <span class="keyword">die</span>(<span class="string">"database query failed."</span>);
+  }
+</code></pre></li>
+<li><p>Creat data(return true or false):                                </p>
+<pre><code>  <span class="variable">$query</span> = <span class="string">"INSERT INTO subjects ( mean_name, position, visible) VALUES ({<span class="variable">$menu_name</span>},{<span class="variable">$position</span>},{<span class="variable">$visible</span>})"</span>
+  <span class="variable">$result</span> = mysqli_query(<span class="variable">$connection</span>, <span class="variable">$query</span>);
+</code></pre></li>
+</ul>
+</li>
+<li><p>Use returned data</p>
+<pre><code> <span class="keyword">while</span>(<span class="variable">$row</span> = mysqli_fetch_assoc(<span class="variable">$result</span>)) {
+     var_dump(<span class="variable">$row</span>);
+     <span class="built_in">echo</span> <span class="string">"&lt;hr /&gt;"</span>;
+ }
+</code></pre></li>
+<li><p>Release returned data</p>
+<pre><code> mysqli_free_result(<span class="variable">$result</span>);
+</code></pre></li>
+<li><p>close database</p>
+<pre><code> mysqli_close(<span class="variable">$connection</span>);        
+</code></pre></li>
+</ol>
+<h1 id="Interview_questions">Interview questions</h1>
+<ol>
+<li><p>How the result set of Mysql be handled in PHP?</p>
+<p> The result set can be handled using mysql_fetch_array, mysql_fetch_assoc, mysql_fetch_object or mysql_fetch_row.</p>
+</li>
+<li><p>How is it possible to know the number of rows returned in result set?</p>
+<p> The function mysql_num_rows() returns the number of rows in a result set.</p>
+</li>
+<li><p>What is the difference between     mysql_fetch_object() and mysql_fetch_array()?</p>
+<p> The mysql_fetch_object() function collects the first single matching record where mysql_fetch_array() collects all matching records from the table in an array.</p>
+</li>
+<li><p>How a constant is defined in a PHP script?</p>
+<p> The define() directive lets us defining a constant as follows:</p>
+<pre><code> <span class="class"><span class="keyword">define</span> </span>(“ACONSTANT”, <span class="number">123</span>);    
+</code></pre></li>
+<li><p>How can you pass a variable by reference?</p>
+<p> To be able to pass a variable by reference, we use an ampersand in front of it, as follows $var1 = &amp;$var2    </p>
+</li>
+<li><p>Will a comparison of an integer 12 and a string “13″ work in PHP?</p>
+<p> “13″ and 12 can be compared in PHP since it casts everything to the integer type.    </p>
+</li>
+<li><p>What does $GLOBALS means?</p>
+<p> $GLOBALS is associative array including references to all variables which are currently defined in the global scope of the script.                    </p>
+</li>
+</ol>
+]]></content>
+    
+    
+      <category term="PHP" scheme="http://kelunblog.com/tags/PHP/"/>
+    
+      <category term="Mysql" scheme="http://kelunblog.com/tags/Mysql/"/>
+    
+      <category term="apache" scheme="http://kelunblog.com/tags/apache/"/>
+    
+      <category term="LAMP" scheme="http://kelunblog.com/categories/LAMP/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[My nodetes about penetration testing]]></title>
