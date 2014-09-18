@@ -70,6 +70,66 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-09-18T22:52:06.000Z"><a href="/2014/09/18/Javascript-tricks/">Sep 18 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/09/18/Javascript-tricks/">Javascript tricks</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="Javascript_tricks">Javascript tricks</h1>
+<ol>
+<li><p>Based on your brower you can use:          </p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	document.documentElement
+</pre></td></tr></table></figure><br> or<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	document.body
+</pre></td></tr></table></figure><br> to select the body or html element. You can also write code like this:<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	<span class="keyword">var</span> root = <span class="regexp">/firefox|	tridenti.test(navigator.userAgent) ? document.documentElement : document.body</span>
+</pre></td></tr></table></figure>
+</li>
+<li><p>Gets or sets the number of pixels that the content of an element is scrolled upward.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	root.scrollTop;
+</pre></td></tr></table></figure>
+</li>
+<li><p>Get text rectangle object    </p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	rectObject = object.getBoundingClientRect();
+</pre></td></tr></table></figure>
+</li>
+<li><p>Get full height of the browser and get the height of the viewpoint.</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>	root.scrollHeight; <span class="comment">//full height of browser</span>
+	window.innerHeight; <span class="comment">//The height of the view point</span>
+</pre></td></tr></table></figure>    </li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-08-28T21:42:11.000Z"><a href="/2014/08/28/Everything-about-javascript-function(8)---Function-length/">Aug 28 2014</a></time>
       
       
@@ -831,7 +891,7 @@ console.log(<span class="keyword">typeof</span> myNinja === <span class="string"
   
     <li><a href="/categories/github/">github</a><small>1</small></li>
   
-    <li><a href="/categories/javascript/">javascript</a><small>9</small></li>
+    <li><a href="/categories/javascript/">javascript</a><small>10</small></li>
   
   </ul>
 </div>

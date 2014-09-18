@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Global variable in javascript | Kelun | Blog</title>
+  <title>Javascript tricks | Kelun | Blog</title>
   <meta name="author" content="Kelun Zhang">
   
   <meta name="description" content="This is my bolg, welcome">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Global variable in javascript"/>
+  <meta property="og:title" content="Javascript tricks"/>
   <meta property="og:site_name" content="Kelun | Blog"/>
 
   
@@ -65,54 +65,45 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-04T14:38:30.000Z"><a href="/2014/08/04/Global-variable-in-javascript/">Aug 4 2014</a></time>
+        <time datetime="2014-09-18T22:52:06.000Z"><a href="/2014/09/18/Javascript-tricks/">Sep 18 2014</a></time>
       
       
   
-    <h1 class="title">Global variable in javascript</h1>
+    <h1 class="title">Javascript tricks</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>This blog mainly talk about how global variable works in Javascript.</p>
-<h1 id="1-_Two_same_way_to_assign_global_variable-">1. Two same way to assign global variable.</h1>
-<h2 id="The_most_comman_way-">The most comman way.</h2>
-<pre><code><span class="keyword">var</span> myvar = <span class="number">5</span>;
-<span class="function"><span class="keyword">function</span> <span class="title">myFunction</span><span class="params">()</span>
-       <span class="title">alert</span><span class="params">(myvar)</span>;</span> <span class="comment">// 5</span>
-}
-</code></pre><h2 id="Use_window_object">Use window object</h2>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">setValue</span><span class="params">()</span>
-{</span>
-    window.myValue = <span class="string">"test"</span>;
-}
+        <h1 id="Javascript_tricks">Javascript tricks</h1>
+<ol>
+<li><p>Based on your brower you can use:          </p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	document.documentElement
+</pre></td></tr></table></figure><br> or<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	document.body
+</pre></td></tr></table></figure><br> to select the body or html element. You can also write code like this:<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	<span class="keyword">var</span> root = <span class="regexp">/firefox|	tridenti.test(navigator.userAgent) ? document.documentElement : document.body</span>
+</pre></td></tr></table></figure>
+</li>
+<li><p>Gets or sets the number of pixels that the content of an element is scrolled upward.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	root.scrollTop;
+</pre></td></tr></table></figure>
+</li>
+<li><p>Get text rectangle object    </p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	rectObject = object.getBoundingClientRect();
+</pre></td></tr></table></figure>
+</li>
+<li><p>Get full height of the browser and get the height of the viewpoint.</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>	root.scrollHeight; <span class="comment">//full height of browser</span>
+	window.innerHeight; <span class="comment">//The height of the view point</span>
+</pre></td></tr></table></figure>    </li>
+</ol>
 
-<span class="function"><span class="keyword">function</span> <span class="title">getValue</span><span class="params">()</span>
-{</span>
-    alert(window.myValue); <span class="comment">// "test" (assuming     setValue has run)</span>
-}    
-</code></pre><p>when a global variable is set, it’s added to the window object.</p>
-<pre><code><span class="keyword">var</span> myValue;
-<span class="function"><span class="keyword">function</span> <span class="title">setValue</span><span class="params">()</span>
-{</span>
-    myValue = <span class="string">"test"</span>;
-}
-
-<span class="function"><span class="keyword">function</span> <span class="title">getValue</span><span class="params">()</span>
-{</span>
-    alert(window.myValue); <span class="comment">// yup, it's "test"</span>
-}
-</code></pre><h1 id="2-_A_safer_way_to_assign_global_variable-">2. A safer way to assign global variable.</h1>
-<pre><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
-(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> <span class="comment">// Begin scoping function</span>
-    <span class="keyword">var</span> yourGlobalVariable; <span class="comment">// Global to your code, invisible outside the scoping function</span>
-    <span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> {</span>
-        <span class="comment">// ...</span>
-    }
-})();         <span class="comment">// End scoping function</span>
-</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-</code></pre>
       
     </div>
     <footer>
@@ -124,11 +115,6 @@
   </div>
 
         
-  
-  <div class="tags">
-    <a href="/tags/global-variable/">global variable</a>
-  </div>
-
         
   <div class="addthis addthis_toolbox addthis_default_style">
     

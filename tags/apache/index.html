@@ -88,14 +88,12 @@
 <ol>
 <li><p>urlencode($varable) vs rawurlencode</p>
 <ul>
-<li><p>rawurlencode the path:</p>
-<ul>
+<li>rawurlencode the path:<ul>
 <li>Path is the part before the “?”</li>
-<li>Spaces must be encoded as %20</li>
+<li>Spaces must be encoded as %20        </li>
 </ul>
 </li>
-<li><p>url encode the query string</p>
-<ul>
+<li>url encode the query string<ul>
 <li>Query string is the part after the “?”        + space are better encoded as “+”</li>
 </ul>
 </li>
@@ -164,6 +162,9 @@
 </li>
 <li><p>SHOW tables:</p>
 <pre><code>  <span class="operator"><span class="keyword">SHOW</span> TABLES;</span>
+</code></pre></li>
+<li><p>Show database schema:</p>
+<pre><code>  <span class="operator"><span class="keyword">SHOW</span> COLUMNS <span class="keyword">FROM</span> &lt;<span class="keyword">table</span> name&gt;            </span>
 </code></pre></li>
 <li><p>Creat tables:</p>
 <pre><code>  <span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> subjects (   id <span class="keyword">INT</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,    menu_name <span class="keyword">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,   position <span class="keyword">INT</span>(<span class="number">3</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>, visible TINYINT(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,   <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>(id));</span>
@@ -310,7 +311,7 @@
   
     <li><a href="/categories/github/">github</a><small>1</small></li>
   
-    <li><a href="/categories/javascript/">javascript</a><small>9</small></li>
+    <li><a href="/categories/javascript/">javascript</a><small>10</small></li>
   
   </ul>
 </div>

@@ -70,6 +70,66 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-09-18T22:52:06.000Z"><a href="/2014/09/18/Javascript-tricks/">Sep 18 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/09/18/Javascript-tricks/">Javascript tricks</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="Javascript_tricks">Javascript tricks</h1>
+<ol>
+<li><p>Based on your brower you can use:          </p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	document.documentElement
+</pre></td></tr></table></figure><br> or<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	document.body
+</pre></td></tr></table></figure><br> to select the body or html element. You can also write code like this:<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	<span class="keyword">var</span> root = <span class="regexp">/firefox|	tridenti.test(navigator.userAgent) ? document.documentElement : document.body</span>
+</pre></td></tr></table></figure>
+</li>
+<li><p>Gets or sets the number of pixels that the content of an element is scrolled upward.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	root.scrollTop;
+</pre></td></tr></table></figure>
+</li>
+<li><p>Get text rectangle object    </p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>	rectObject = object.getBoundingClientRect();
+</pre></td></tr></table></figure>
+</li>
+<li><p>Get full height of the browser and get the height of the viewpoint.</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>	root.scrollHeight; <span class="comment">//full height of browser</span>
+	window.innerHeight; <span class="comment">//The height of the view point</span>
+</pre></td></tr></table></figure>    </li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-09-08T01:32:43.000Z"><a href="/2014/09/07/Some-basic-notes-about-php-&-mysql/">Sep 7 2014</a></time>
       
       
@@ -88,14 +148,12 @@
 <ol>
 <li><p>urlencode($varable) vs rawurlencode</p>
 <ul>
-<li><p>rawurlencode the path:</p>
-<ul>
+<li>rawurlencode the path:<ul>
 <li>Path is the part before the “?”</li>
-<li>Spaces must be encoded as %20</li>
+<li>Spaces must be encoded as %20        </li>
 </ul>
 </li>
-<li><p>url encode the query string</p>
-<ul>
+<li>url encode the query string<ul>
 <li>Query string is the part after the “?”        + space are better encoded as “+”</li>
 </ul>
 </li>
@@ -164,6 +222,9 @@
 </li>
 <li><p>SHOW tables:</p>
 <pre><code>  <span class="operator"><span class="keyword">SHOW</span> TABLES;</span>
+</code></pre></li>
+<li><p>Show database schema:</p>
+<pre><code>  <span class="operator"><span class="keyword">SHOW</span> COLUMNS <span class="keyword">FROM</span> &lt;<span class="keyword">table</span> name&gt;            </span>
 </code></pre></li>
 <li><p>Creat tables:</p>
 <pre><code>  <span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> subjects (   id <span class="keyword">INT</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,    menu_name <span class="keyword">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,   position <span class="keyword">INT</span>(<span class="number">3</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>, visible TINYINT(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,   <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>(id));</span>
@@ -310,7 +371,7 @@
   
     <li><a href="/categories/github/">github</a><small>1</small></li>
   
-    <li><a href="/categories/javascript/">javascript</a><small>9</small></li>
+    <li><a href="/categories/javascript/">javascript</a><small>10</small></li>
   
   </ul>
 </div>
