@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-09-18T22:53:11.573Z</updated>
+  <updated>2014-09-18T22:54:44.806Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -19,16 +19,19 @@
     <link href="http://kelunblog.com/2014/09/18/Javascript-tricks/"/>
     <id>http://kelunblog.com/2014/09/18/Javascript-tricks/</id>
     <published>2014-09-18T22:52:06.000Z</published>
-    <updated>2014-09-18T22:53:03.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="Javascript_tricks">Javascript tricks</h1>
+    <updated>2014-09-18T22:54:37.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="Some_basic_javascript_tricks">Some basic javascript tricks</h1>
 <ol>
 <li><p>Based on your brower you can use:          </p>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>	document.documentElement
-</pre></td></tr></table></figure><br> or<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure>
+
+<p> or</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>	document.body
 </pre></td></tr></table></figure><br> to select the body or html element. You can also write code like this:<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>	<span class="keyword">var</span> root = <span class="regexp">/firefox|	tridenti.test(navigator.userAgent) ? document.documentElement : document.body</span>
+</pre></td><td class="code"><pre>	<span class="keyword">var</span> root = <span class="regexp">/firefox|tridenti.test(navigator.userAgent) ? document.documentElement : document.body</span>
 </pre></td></tr></table></figure>
 </li>
 <li><p>Gets or sets the number of pixels that the content of an element is scrolled upward.</p>
