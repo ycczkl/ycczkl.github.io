@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-09-18T22:54:44.806Z</updated>
+  <updated>2014-09-23T03:32:17.348Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://kelunblog.com/2014/09/18/Javascript-tricks/"/>
     <id>http://kelunblog.com/2014/09/18/Javascript-tricks/</id>
     <published>2014-09-18T22:52:06.000Z</published>
-    <updated>2014-09-18T22:54:37.000Z</updated>
+    <updated>2014-09-18T22:54:48.000Z</updated>
     <content type="html"><![CDATA[<h1 id="Some_basic_javascript_tricks">Some basic javascript tricks</h1>
 <ol>
 <li><p>Based on your brower you can use:          </p>
