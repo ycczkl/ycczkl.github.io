@@ -66,6 +66,38 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-09-27T03:56:13.000Z"><a href="/2014/09/26/Intro-to-Nodejs/">Sep 26 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/09/26/Intro-to-Nodejs/">Intro to Node.js</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-09-18T22:52:06.000Z"><a href="/2014/09/18/Javascript-tricks/">Sep 18 2014</a></time>
       
       
@@ -868,96 +900,6 @@ console.log(sortArguments(<span class="number">1</span>, <span class="number">1<
 }
 
 console.log(multiMax(<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">21</span>,<span class="number">32</span>,<span class="number">654</span>,<span class="number">432</span>));    
-</code></pre>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-08-20T02:58:13.000Z"><a href="/2014/08/19/Everything-about-javascript-function(3)-Instantiation/">Aug 19 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/08/19/Everything-about-javascript-function(3)-Instantiation/">Everything about javascript function(3): Instantiation</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="1-What_does_the_new_operator_do">1.What does the new operator do</h1>
-<p>Very good resoure:<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="external">MDN:new operator</a></p>
-<p>The new operator creates an instance of a user-defined object type or of one of the built-in object types that has a constructor function.</p>
-<pre><code><span class="reserved">function</span> Ninja() {
-    <span class="keyword">this</span>.name = <span class="string">'haha'</span>;
-}
-
-<span class="reserved">var</span> ninja = Ninja();
-<span class="built_in">console</span>.log(!ninja); <span class="regexp">//</span><span class="literal">true</span>. Is <span class="literal">undefined</span>, <span class="keyword">not</span> an instance <span class="keyword">of</span> Ninja.
-
-<span class="reserved">var</span> ninja2 = <span class="keyword">new</span> Ninja();
-<span class="built_in">console</span>.log(!ninja2); <span class="regexp">//</span><span class="literal">false</span>. ninja2 <span class="keyword">is</span> an instance <span class="keyword">of</span> Ninja
-</code></pre><h1 id="2-How_‘this’_worked_in_function?">2.How ‘this’ worked in function?</h1>
-<p>For more detail describtion: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="external">MDN: this</a></p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span>{</span>
-    <span class="keyword">this</span>.swung = <span class="literal">false</span>;
-
-    <span class="comment">// Should return true</span>
-    <span class="keyword">this</span>.swingSword = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-        <span class="keyword">this</span>.swung = !<span class="keyword">this</span>.swung; <span class="comment">//Use the property of closure</span>
-        <span class="keyword">return</span> <span class="keyword">this</span>.swung;
-    };
-}
-
-<span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
-console.log( ninja.swingSword()); <span class="comment">//True. Calling the instance method.</span>
-console.log( ninja.swung); <span class="comment">//True. The ninja has swung the sword.</span>
-
-<span class="keyword">var</span> ninjaB = <span class="keyword">new</span> Ninja();
-console.log( !ninjaB.swung); <span class="comment">//True. Make sure that the ninja has not swung his sword.</span>
-</code></pre><h1 id="3-What_will_happen_if_we_forget_to_use_new_operator?">3.What will happen if we forget to use new operator?</h1>
-<pre><code><span class="reserved">function</span> User(first, last) {
-    <span class="keyword">this</span>.name = first + <span class="string">' '</span> + last;
-}
-<span class="reserved">var</span> name = <span class="string">'zkl'</span>;
-<span class="reserved">var</span> user = User(<span class="string">"John"</span>, <span class="string">"snow"</span>); <span class="regexp">//</span>This <span class="reserved">function</span> will be called <span class="keyword">when</span> assign it to a variable
-<span class="built_in">console</span>.log(<span class="keyword">typeof</span> user); <span class="regexp">//</span><span class="literal">undefined</span>
-<span class="built_in">console</span>.log(<span class="built_in">window</span>.name, name); <span class="regexp">//</span>John snow John snow. The name variable <span class="keyword">is</span> accidentally overridden.   
-</code></pre><p>We need to prevent this happend, but how? Let’s see the code below:</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">User</span><span class="params">(first, last)</span>{</span> 
-  <span class="keyword">if</span> ( !(<span class="keyword">this</span> <span class="keyword">instanceof</span> User) ) 
-       <span class="keyword">return</span> <span class="keyword">new</span> User(first, last); 
-
-  <span class="keyword">this</span>.name = first + <span class="string">" "</span> + last; 
-} 
-
-<span class="keyword">var</span> name = <span class="string">"Resig"</span>; 
-<span class="keyword">var</span> user = User(<span class="string">"John"</span>, name);
-</code></pre><p>We can also use arguments.callee:</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">User</span><span class="params">(first, last)</span>{</span> 
-  <span class="keyword">if</span> ( !(<span class="keyword">this</span> <span class="keyword">instanceof</span> <span class="built_in">arguments</span>.callee) ) 
-    <span class="keyword">return</span> <span class="keyword">new</span> User(first, last); 
-
-  <span class="keyword">this</span>.name = first + <span class="string">" "</span> + last; 
-} 
-
-<span class="keyword">var</span> name = <span class="string">"Resig"</span>; 
-<span class="keyword">var</span> user = User(<span class="string">"John"</span>, name);          
 </code></pre>
       
     </div>
