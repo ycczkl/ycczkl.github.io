@@ -75,7 +75,24 @@
     </header>
     <div class="entry">
       
-        
+        <h2 id="1-_process">1. process</h2>
+<p>The process object is a global object and can be accessed from anywhere.</p>
+<ul>
+<li><p><strong>process.argv</strong>: An array containing the command line arguments. The first element will be ‘node’, the second element will be the name of the JavaScript file. The next elements will be any additional command line arguments.`</p>
+<pre><code>  <span class="comment">// print process.argv</span>
+  process.argv.<span class="keyword">forEach</span>(<span class="function"><span class="keyword">function</span><span class="params">(val, index, array)</span> {</span>
+    console.log(index + <span class="string">': '</span> + val);
+  });
+</code></pre><p>This will generate:</p>
+<pre><code>  $ node <span class="built_in">process</span>-<span class="number">2.</span>js <span class="constant">one</span> <span class="constant">two</span>=<span class="constant">three</span> <span class="constant">four</span>
+  <span class="number">0</span>: node
+  <span class="number">1</span>: /Users/mjr/work/node/<span class="built_in">process</span>-<span class="number">2.</span>js
+  <span class="number">2</span>: <span class="constant">one</span>
+  <span class="number">3</span>: <span class="constant">two</span>=<span class="constant">three</span>
+  <span class="number">4</span>: <span class="constant">four</span>
+</code></pre></li>
+</ul>
+
       
     </div>
     <footer>
