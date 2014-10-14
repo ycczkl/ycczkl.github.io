@@ -97,6 +97,24 @@
   <span class="number">4</span>: <span class="constant">four</span>
 </code></pre></li>
 </ul>
+<h2 id="2-_I/O">2. I/O</h2>
+<ul>
+<li><p>Synchronous I/O opertion: To perform a filesystem operation we need to use fs module from the Node core library. To load this kind of module, or any other “global” module, use the following incantation:</p>
+<pre><code>  <span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)
+</code></pre><p>Now you have the full fs module available in a variable named fs.<br>All synchronous (or blocking) filesystem methods in the fs module end with ‘Sync’. To read a file, you’ll need to use </p>
+<pre><code>  fs.readFileSync('/path/<span class="keyword">to</span>/<span class="keyword">file</span>') 
+</code></pre><p>This method will return a Buffer object containing the complete contents of the file.<br>Buffer objects are Node’s way of efficiently representing arbitrary arrays of data, whether it be ascii, binary or some other format. Buffer objects can be converted to strings by simply calling the toString() method on them. e.g. </p>
+<pre><code><span class="attribute">  var str </span>=<span class="string"> buf.toString().</span>
+</code></pre><p>An example of basic sync I\O operation: read a file and count the lines:</p>
+<pre><code>  <span class="reserved">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);
+
+  <span class="reserved">var</span> buffer = fs.readFileSync(process.argv[<span class="number">2</span>]);
+  <span class="reserved">var</span> str = buffer.toString();
+  <span class="reserved">var</span> arr = str.split(<span class="string">'\n'</span>);
+
+  <span class="built_in">console</span>.log(arr.length - <span class="number">1</span>);        
+</code></pre></li>
+</ul>
 
       
     </div>
