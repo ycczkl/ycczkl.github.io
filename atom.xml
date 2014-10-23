@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-10-23T20:16:17.795Z</updated>
+  <updated>2014-10-23T20:18:15.041Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -15,14 +15,12 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[]]></title>
+    <title><![CDATA[JavaScript Style Guide]]></title>
     <link href="http://kelunblog.com/2014/10/23/JavaScript-Style-Guide/"/>
     <id>http://kelunblog.com/2014/10/23/JavaScript-Style-Guide/</id>
-    <published>2014-10-23T20:16:10.000Z</published>
-    <updated>2014-10-23T20:16:10.000Z</updated>
-    <content type="html"><![CDATA[<p>title: ‘JavaScript Style Guide’<br>date: 2014-10-23 16:15:32</p>
-<h2 id="tags:javascript">tags:javascript</h2>
-<p>JavaScript Style Guide</p>
+    <published>2014-10-23T20:15:32.000Z</published>
+    <updated>2014-10-23T20:18:08.000Z</updated>
+    <content type="html"><![CDATA[<p>JavaScript Style Guide</p>
 <h2 id="Objects">Objects</h2>
 <ul>
 <li><p>Use the literal syntax for object creation.</p>
@@ -1179,6 +1177,10 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
 </ul>
 ]]></content>
     
+    
+      <category term="javascript style" scheme="http://kelunblog.com/tags/javascript-style/"/>
+    
+      <category term="javascript" scheme="http://kelunblog.com/categories/javascript/"/>
     
   </entry>
   
