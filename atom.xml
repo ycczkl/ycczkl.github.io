@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-10-23T20:18:15.041Z</updated>
+  <updated>2014-10-23T20:18:51.478Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -19,9 +19,8 @@
     <link href="http://kelunblog.com/2014/10/23/JavaScript-Style-Guide/"/>
     <id>http://kelunblog.com/2014/10/23/JavaScript-Style-Guide/</id>
     <published>2014-10-23T20:15:32.000Z</published>
-    <updated>2014-10-23T20:18:08.000Z</updated>
-    <content type="html"><![CDATA[<p>JavaScript Style Guide</p>
-<h2 id="Objects">Objects</h2>
+    <updated>2014-10-23T20:18:45.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="Objects">Objects</h2>
 <ul>
 <li><p>Use the literal syntax for object creation.</p>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
