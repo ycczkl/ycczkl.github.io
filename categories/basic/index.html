@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014/6 | Kelun | Blog</title>
+  <title>basic | Kelun | Blog</title>
   <meta name="author" content="Kelun Zhang">
   
   <meta name="description" content="This is my bolg, welcome">
@@ -60,7 +60,7 @@
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2014/6</h2>
+<h2 class="archive-title category">basic</h2>
 
 
   
@@ -70,42 +70,18 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-06-28T18:30:03.000Z"><a href="/2014/06/28/hello-world/">Jun 28 2014</a></time>
+        <time datetime="2014-11-12T20:38:50.000Z"><a href="/2014/11/12/What-is-base-64-encoding-used-for/">Nov 12 2014</a></time>
       
       
   
-    <h1 class="title"><a href="/2014/06/28/hello-world/">Hello World</a></h1>
+    <h1 class="title"><a href="/2014/11/12/What-is-base-64-encoding-used-for/">What is base 64 encoding used for?</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/tommy351/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ hexo new <span class="string">"My New Post"</span>
-</pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ hexo server
-</pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ hexo generate
-</pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ hexo deploy
-</pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>When you have some binary data that you want to ship across a network, you generally don’t do it by just streaming the bits and bytes over the wire in a raw format. Why? because some media are made for streaming text. You never know — <strong>some protocols may interpret your binary data as control characters (like a modem), or your binary data could be screwed up because the underlying protocol might think that you’ve entered a special character combination (like how FTP translates line endings)</strong>.</p>
+<p>So to get around this, people encode the binary data into characters. Base64 is one of these types of encodings. <strong>Why 64? Because you can generally rely on the same 64 characters being present in many character sets, and you can be reasonably confident that your data’s going to end up on the other side of the wire uncorrupted.</strong></p>
 
       
     </div>

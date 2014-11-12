@@ -70,6 +70,40 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-11-12T20:38:50.000Z"><a href="/2014/11/12/What-is-base-64-encoding-used-for/">Nov 12 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/11/12/What-is-base-64-encoding-used-for/">What is base 64 encoding used for?</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>When you have some binary data that you want to ship across a network, you generally don’t do it by just streaming the bits and bytes over the wire in a raw format. Why? because some media are made for streaming text. You never know — <strong>some protocols may interpret your binary data as control characters (like a modem), or your binary data could be screwed up because the underlying protocol might think that you’ve entered a special character combination (like how FTP translates line endings)</strong>.</p>
+<p>So to get around this, people encode the binary data into characters. Base64 is one of these types of encodings. <strong>Why 64? Because you can generally rely on the same 64 characters being present in many character sets, and you can be reasonably confident that your data’s going to end up on the other side of the wire uncorrupted.</strong></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-10-23T20:15:32.000Z"><a href="/2014/10/23/JavaScript-Style-Guide/">Oct 23 2014</a></time>
       
       
@@ -1976,82 +2010,6 @@ console.log(ninjaB <span class="keyword">instanceof</span> Ninja);<span class="c
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-08-25T23:20:09.000Z"><a href="/2014/08/25/Everything-about-javascript(5)---Temporary-Scope-/">Aug 25 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/08/25/Everything-about-javascript(5)---Temporary-Scope-/">Everything about javascript(5) - Temporary Scope </a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="1-_Isolate_scope:_Self-executing_function">1. Isolate scope: Self-executing function</h1>
-<p>We can’t access the variable inside a self-executing function.</p>
-<pre><code>(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-    <span class="keyword">var</span> count = <span class="number">0</span>;
-
-    <span class="keyword">var</span> timer = setInterval(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-        <span class="keyword">if</span> (count &lt; <span class="number">5</span>) {
-            console.log(<span class="string">"Timer call: "</span>, count);
-            count++;
-        } <span class="keyword">else</span> {
-            console.log(count == <span class="number">5</span>); <span class="comment">//true. Count came via a closure, accessed each step.</span>
-            console.log(<span class="keyword">typeof</span> timer); <span class="comment">//object. The timer reference is also via a closure.</span>
-            clearInterval(timer);
-        }
-    }, <span class="number">100</span>);
-})();
-
-console.log(<span class="keyword">typeof</span> count); <span class="comment">//undefined. count doesn't exist outside the wrapper</span>
-console.log(<span class="keyword">typeof</span> timer); <span class="comment">//undefined. neither does timer</span>
-</code></pre><p>We can use this feature to wrap a libary:</p>
-<pre><code>var myLib = (<span class="keyword">function</span>(){ 
-  <span class="keyword">function</span> myLib(){ 
-    // Initialize 
-  } 
-
-  // <span class="keyword">...</span> 
-
-  <span class="keyword">return</span> myLib; 
-})(); 
-</code></pre><h1 id="2-_Use_self-executing_function_inside_a_loop">2. Use self-executing function inside a loop</h1>
-<p>A for loop is one of the most frequently used statements in programming languages, and setTimeout() is often used in Javascript to delay the execution of a function. Together they could mean unexpected results if we didn’t fully understand how they work.</p>
-<pre><code><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) {
-    setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> console.log(i); },     <span class="number">1000</span>*i);     <span class="comment">// 6 6 6 6 6</span>
-}
-</code></pre><p>The above code seems like the obvious answer. We put console.log(i) within an anonymous function inside a setTimeout() function, and set each setTimeout() to be delayed 1 to 5 seconds (1000 x 1, 1000 x 2…) respectively. However, as soon as we run that codes, we know something is wrong. The numbers are each outputting to console 1 second after another consecutively, but they are all 6s. So we now have 6 6 6 6 6 as the end result.</p>
-<p>The problem resides in the variable i we’re passing into setTimeout(). In this case, we’re simply passing the reference to the variable i, and not the actual value at the moment inside each loop. Therefore, by the time the setTimeout() function is executed (after 1, 2, 3, 4, and 5 seconds in this case), the for statement has already been executed and incremented i to the final value of 6.</p>
-<p>To properly address this issue and achieve our intended behavior, we need to pass into setTimeout() the actual value of i at the moment of each loop execution in the for statement. We can use another anonymous function as a wrapper to help accomplish that:</p>
-<pre><code><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">5</span>; i++) {
-    (<span class="function"><span class="keyword">function</span><span class="params">(index)</span>{</span>
-        setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-            console.log(index); <span class="comment">//0,1,2,3,4,5</span>
-        }, i * <span class="number">1000</span>);
-    })(i);
-}           
-</code></pre>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -2082,6 +2040,8 @@ console.log(<span class="keyword">typeof</span> timer); <span class="comment">//
   
     <li><a href="/categories/RESTful/">RESTful</a><small>1</small></li>
   
+    <li><a href="/categories/basic/">basic</a><small>1</small></li>
+  
     <li><a href="/categories/github/">github</a><small>1</small></li>
   
     <li><a href="/categories/javascript/">javascript</a><small>11</small></li>
@@ -2106,6 +2066,8 @@ console.log(<span class="keyword">typeof</span> timer); <span class="comment">//
     <li><a href="/tags/apache/">apache</a><small>1</small></li>
   
     <li><a href="/tags/api/">api</a><small>1</small></li>
+  
+    <li><a href="/tags/base64/">base64</a><small>1</small></li>
   
     <li><a href="/tags/directive/">directive</a><small>1</small></li>
   
