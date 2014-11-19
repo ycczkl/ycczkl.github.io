@@ -66,6 +66,88 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-07-07T12:29:31.000Z"><a href="/2014/07/07/DESIGN/">Jul 7 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/07/DESIGN/">RESTful API 设计</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><img src="http://scotch.io/wp-content/uploads/2014/04/webapi.jpg" alt=""></p>
+<h1 id="1-简介">1.简介</h1>
+<p>现在所有人都在对外提供API。 其中最流行的几个是Facebook, Twitter, Github, Strip, 并且这个名单还在增长。</p>
+<p>很多时候你需要为你的网站实现API， 可能你需要向你设计的手机APP提供数据， 又或许你只是想把你的网站的一些数据封装好，并且让其他程序员能轻松得到并利用这些数据去实现一些非常酷的产品。</p>
+<p>但是API究竟是什么？API不过是一个花哨词语用来描述程序(或网站)以相关格式传输易被机器理解的数据的一种方法。 这种交换数据的方法与普通网站所采用的方法相矛盾， 我们设计网站时所交换的数据是容易被人理解的。如果我们要实现一个网站，前端需要用到HTML和CSS，但是对于实现API来说，我们需要JSON或者XML。</p>
+<p>本文在介绍完RESTful相关术语之后会重点讲解如何设计API。 REST的含义基本上就是一些设计API的规则， 利用这些规则我们设计的API就变得可预测并且很容易理解和使用。</p>
+<p>这些方法包括:</p>
+<ul>
+<li><p>无状态设计: 数据永远不会储存在会话中(每一个请求都包含了所有被服务器或者客户端所需要的数据)。</p>
+</li>
+<li><p>自我描述信息:在理想的情况下，你应该可以用很少的时间阅读文档并理解requests和responses。</p>
+</li>
+<li><p>语义化，语义化，语义化: API应该存在一种关于HTTP协议的特性，这种特性可以用来提高输入输出的语义化状态。(比如: HTTP Verbs, HTTP Status Code and HTTP Authentication)。</p>
+</li>
+</ul>
+<p>在设计RESTful API的时候一个最难得抉择是找到一个让你的API足够简单，简单到可以直接在浏览器里测试同时又尽量遵守这些设计规则的平衡点。</p>
+<p>现在我们已经了解了这些规则，让我们看些实现这些规则的例子。</p>
+<h1 id="2-输出格式">2.输出格式</h1>
+<p>首先，我们来讲讲输出格式。 在设计API并决定输出数据格式的时候最重要的一点是了解使用你API提供的输出数据的用户。</p>
+<p>或许对于一个遗产系统来说JSON解析并不好实现而用XML更适合些，又或许把输出的数据存在CSV格式中更利于把数据导入表单中。不管你选择那种方式，想想你的用户和他们需要如何利用这些数据都是极为重要的。</p>
+<p>你也可以考虑添加对多种输出格式的支持。实现这种方式的最好方法是查看request中的Accept header并且依据用户请求中的mime-type进行response。这种方式非常赞，因为这种方法是语义化的并且利用了HTTP协议自带的特性。下面有个相关例子：<br><img src="http://kelunblog-image.qiniudn.com/restful-api-1.png" alt=""></p>
+<p>支持多种输出格式在很多时候都不是必须的。如果在选择输出格式时你感到犹豫和疑惑，我会建议你选择JSON格式，因为它很简洁并且易于阅读。永远要记住的一点是如果Accept header没有设置或者设置的是不被支持的类型时，一定要选择一个默认的response类型。</p>
+<h1 id="3-版本控制">3.版本控制</h1>
+<p>这是一个很重要却很容易被忽视的因素。作为一个API的提供者，最重要的一项任务是确保你的API永远不会发生破坏性的改变(breaking changes)。如果开始发生破坏性的改变会使依赖你服务的开发者十分沮丧。</p>
+<p>但是不要担心！版本控制解决了这个问题。你有很多方式去管理API的版本。 例如：WePay uses an Api-Version header, 和Twilio uses a similar approach putting the version date in the URL.</p>
+<p>我最喜欢的方式是简单的利用vX URL后缀,Github和其他很多网站也用的是同样的方法。这种方法让你可以简单的部署新版本的API(例如: /v2), 并且可以直接从浏览器中获得不同版本的API。</p>
+<p>这里有一个例子：<br><img src="http://kelunblog-image.qiniudn.com/restful-api-2.png" alt=""></p>
+<h1 id="4-URL结构">4.URL结构</h1>
+<p>URL结构是整个令人感到疑惑的API设计中最重要的一部分。花些时间定义正确的终端名称会使你的API更容易被理解和预测。</p>
+<p>URLs应该简短并且具有描述性同时应该利用路径结构的天然顺序。同样重要的是要与多元化相一致 - 如果返回单一结果则保持单数， 如果返回多个结果则保持复数。</p>
+<p>如果你与objects打交道，那么仅仅把object id保留在URL中，把其他的所有东西放在请求字符串中。</p>
+<p>让我们拿寻找店铺信息的API作为例子。这里有几个可能的终端：</p>
+<p>/v1/store/1234 – 返回id为1234的店铺<br>/v1/store/1234/report – 返回id为1234的店铺的报告<br>/v1/stores – 返回所有店铺信息<br>/v1/stores/near?lat=12.34&amp;lon=-12.34 – 寻找给定地址附近的所有店铺<br>/v1/categories – 返回所有店铺分类<br>如果你想对objects进行修改，HTTP verbs是你的朋友。下面列出了verbs表单和它们的含义：</p>
+<p>HTTP Verb<br>描述<br>GET<br>这是最常用的verb, 它用来获取数据。 例如. GET /v1/store/1234<br>PUT<br>PUT requests 经常用于更新和替换object 例如. PUT /v1/store/1234<br>POST<br>用于创建新的object, 例如. POST /v1/store<br>DELETE<br>用于删除object, 例如. DELETE /v1/store/1234</p>
+<h1 id="5-认证">5.认证</h1>
+<p>有三种方法可以进行认证。</p>
+<p>如果你的API是以用户为基础的认证，那么OAuth是一个非常好的方式。第一眼看上去这种方式似乎非常令人疑惑，但是还是先让我们好好了解下它吧。这是一个被广泛使用，证明，安全的解决方案。这个方案被几乎所有的主要API提供者使用，并经过了很好地测试。</p>
+<p>如果你仅仅需要密码去保护你的API，那么HTTP Basic Authentication是一个很好并且语义化的方法。</p>
+<p>唯一的一个问题是如果你想提供一个API key或者其他不同形式的单字符串认证方式。有些人会建议在HTTP Basic Authentication中把API Keys同时作为用户名和密码，或者把密码设置为空。但我觉得这是一个非常混乱的设计方式。</p>
+<p>在这种情况下，我会建议仅仅简单的把API Key加到请求字符串后面，例如：api.geocod.io/v1/geocode?q=42370 Bob Hope Drive, Rancho Mirage CA&amp;api_key=YOUR_API_KEY<br>不要为自己徒增烦恼而把API Key加入到header中或者其他的花哨方法。把API Key看做请求字符串的参数的方法可以让用户直接在浏览器中测试API而不需要用其他的复杂的测试方法。</p>
+<h1 id="6-时间戳">6.时间戳</h1>
+<p>一个常见的API设计陷阱是你要确保你得到的时间戳正好是开始的时候。不要使用Unix Timestamps，因为它不支持时区并且不具备可读性。</p>
+<p>一个被广泛接受的时间戳标准是ISO-8601。它易于阅读，分析，并且支持时区。</p>
+<h1 id="7-异常处理">7.异常处理</h1>
+<p>最后需要关注的一件事情就是异常处理。在你的API中会有很多不同种类的异常需要你处理，其中包括权限异常(你没有权限删除店铺信息)，有效性异常(请指定一个店铺名称)，未找发现异常，甚至是内部服务异常。</p>
+<p>你应该永远在你的request中返回一个语义化的HTTP状态码。例如，没有任何异常返回200 OK，权限异常返回403 Forbidden, 认证异常返回422 Unprocessable Entity。(<a href="http://httpstatus.es" target="_blank" rel="external">http://httpstatus.es</a> 有很多可读的状态码)。</p>
+<p>作为状态码的补充，你应该永远返回更加详细的错误信息去描述究竟发生了什么。我最喜欢的方式是简单的返回一个error的key并且把错误信息当做value。<br>例如:<br><img src="http://kelunblog-image.qiniudn.com/restful-api-3.png" alt=""></p>
+<h1 id="8-总结">8.总结</h1>
+<p>有很多种不同方式设计API，这最终取决于你自己的偏好。我这些年自己设计过很多不同用途的API,这些仅仅是我最喜欢的实践方法。最后，选择自己喜欢的并抛弃自己痛恨的方法。</p>
+<p>我很乐意探讨API设计，你可以联系我@MathiasHansen.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-06-28T18:30:03.000Z"><a href="/2014/06/28/hello-world/">Jun 28 2014</a></time>
       
       
@@ -153,6 +235,8 @@
   
     <li><a href="/categories/javascript/">javascript</a><small>11</small></li>
   
+    <li><a href="/categories/linux/">linux</a><small>1</small></li>
+  
   </ul>
 </div>
 
@@ -197,6 +281,8 @@
     <li><a href="/tags/penetration-testing/">penetration testing</a><small>2</small></li>
   
     <li><a href="/tags/rest/">rest</a><small>1</small></li>
+  
+    <li><a href="/tags/sockets/">sockets</a><small>1</small></li>
   
   </ul>
 </div>

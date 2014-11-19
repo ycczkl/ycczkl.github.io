@@ -66,6 +66,79 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-11-19T15:12:34.000Z"><a href="/2014/11/19/Understanding-Sockets/">Nov 19 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/11/19/Understanding-Sockets/">Understanding Sockets</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Understanding Sockets</p>
+<ol>
+<li><p>The client server model</p>
+<ul>
+<li>The steps involved in establishing a socket on the client side are as follows:<ol>
+<li>Create a socket with the socket() system call</li>
+<li>Connect the socket to the address of the server using the connect() system call</li>
+<li>Send and receive data. There are a number of ways to do this, but the simplest is to use the read() and write() system calls.        </li>
+</ol>
+</li>
+<li>The steps involved in establishing a socket on the server side are as follows:<ol>
+<li>Create a socket with the socket() system call</li>
+<li>Bind the socket to an address using the bind() system call. For a server socket on the Internet, an address consists of a port number on the host machine.</li>
+<li>Listen for connections with the listen() system call</li>
+<li>Accept a connection with the accept() system call. This call typically blocks until a client connects with the server.</li>
+<li>Send and receive data</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Socket types</p>
+<p> When a socket is created, the program as to specify the address domain and the socket type.    </p>
+<ul>
+<li>Domain:<ol>
+<li>unix domain（local file system）</li>
+<li>Internet domain(IP + port number)</li>
+</ol>
+</li>
+<li>Socket type:<ol>
+<li>Stream sockets(TCP):Stream sockets treat communications as a continuous stream of characters</li>
+<li>Datagram sockets(UDP):datagram sockets have to read entire messages at once</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Best tutorial for sockets</p>
+<ul>
+<li><a href="http://www.linuxhowtos.org/C_C++/socket.htm" target="_blank" rel="external">http://www.linuxhowtos.org/C_C++/socket.htm</a>        </li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-11-12T20:38:50.000Z"><a href="/2014/11/12/What-is-base-64-encoding-used-for/">Nov 12 2014</a></time>
       
       
@@ -1919,93 +1992,6 @@ superman.fly.call(child); <span class="comment">//My name is child            </
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-08-26T23:35:08.000Z"><a href="/2014/08/26/Everything-about-Javascript-function(6)---Function-Prototype/">Aug 26 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/08/26/Everything-about-Javascript-function(6)---Function-Prototype/">Everything about Javascript function(6) - Function Prototype and the instance type</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="1-_Adding_a_prototyped_method_to_a_function">1. Adding a prototyped method to a function</h1>
-<pre><code><span class="reserved">function</span> Ninja(){}
-
-Ninja.prototype.swingSword = <span class="reserved">function</span>(){
-    <span class="keyword">return</span> <span class="literal">true</span>;
-};
-
-<span class="reserved">var</span> ninjaA = Ninja();
-<span class="built_in">console</span>.log( !ninjaA) <span class="regexp">//</span>True. Is <span class="literal">undefined</span>, <span class="keyword">not</span> an instance <span class="keyword">of</span> Ninja.
-
-<span class="reserved">var</span> ninjaB = <span class="keyword">new</span> Ninja();
-<span class="built_in">console</span>.log( ninjaB.swingSword()); <span class="regexp">//</span>True. Method exists <span class="keyword">and</span> <span class="keyword">is</span> callable.
-</code></pre><h1 id="2-_Properties_added_in_the_constructor_(or_later)_override_prototyped_properties-">2. Properties added in the constructor (or later) override prototyped properties.</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span>{</span>
-    <span class="keyword">this</span>.swingSword = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-        <span class="keyword">return</span> <span class="literal">true</span>;
-    };
-}
-
-<span class="comment">// Should return false, but will be overridden</span>
-Ninja.prototype.swingSword = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-    <span class="keyword">return</span> <span class="literal">false</span>;
-};
-
-<span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
-console.log( ninja.swingSword()); <span class="comment">//Calling the instance method, not the prototype method.</span>
-</code></pre><h1 id="3-_The_chainable_method_must_return_this-">3. The chainable method must return this.</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span> {</span>
-    <span class="keyword">this</span>.swung = <span class="literal">true</span>;
-}
-
-<span class="keyword">var</span> ninjaA = <span class="keyword">new</span> Ninja();
-<span class="keyword">var</span> ninjaB = <span class="keyword">new</span> Ninja();
-
-Ninja.prototype.swing = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-    <span class="keyword">this</span>.swung = <span class="literal">false</span>;
-    <span class="keyword">return</span> <span class="keyword">this</span>;
-};
-
-console.log(!ninjaA.swing().swung); <span class="comment">//True. Verify that the swing method exists and returns an instance.;</span>
-console.log(!ninjaB.swing().swung); <span class="comment">//True. and that it works on all Ninja instances. </span>
-</code></pre><h1 id="4-_Examining_the_basic_of_an_object">4. Examining the basic of an object</h1>
-<p><code>typeof, instanceof, .constructor() is three important method to examing an object.</code></p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span>{</span>};
-
-<span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
-
-console.log(<span class="keyword">typeof</span> ninja, ninja <span class="keyword">instanceof</span> Ninja, ninja.constructor == Ninja);<span class="comment">// object, true ,true</span>
-</code></pre><h1 id="5-_Use_constructor_to_build_other_instances-">5. Use constructor to build other instances.</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span>{</span>};
-
-<span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
-<span class="keyword">var</span> ninjaB = <span class="keyword">new</span> ninja.constructor();
-
-console.log(ninjaB <span class="keyword">instanceof</span> Ninja);<span class="comment">// true</span>
-</code></pre>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -2040,6 +2026,8 @@ console.log(ninjaB <span class="keyword">instanceof</span> Ninja);<span class="c
     <li><a href="/categories/github/">github</a><small>1</small></li>
   
     <li><a href="/categories/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/categories/linux/">linux</a><small>1</small></li>
   
   </ul>
 </div>
@@ -2085,6 +2073,8 @@ console.log(ninjaB <span class="keyword">instanceof</span> Ninja);<span class="c
     <li><a href="/tags/penetration-testing/">penetration testing</a><small>2</small></li>
   
     <li><a href="/tags/rest/">rest</a><small>1</small></li>
+  
+    <li><a href="/tags/sockets/">sockets</a><small>1</small></li>
   
   </ul>
 </div>
