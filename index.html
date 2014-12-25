@@ -66,7 +66,164 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-11-19T15:12:34.000Z"><a href="/2014/11/19/Understanding-Sockets/">Nov 19 2014</a></time>
+        <time datetime="2014-12-25T11:09:12.000Z"><a href="/2014/12/25/Learning-lo-dashjs(1)/">Dec 25 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/12/25/Learning-lo-dashjs(1)/">Learning lo-dash.js</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="code"><pre><span class="comment">/**
+   * Creates an array with all falsey values of `array` removed. The values
+   * `false`, `null`, `0`, `""`, `undefined` and `NaN` are all falsey.
+   *
+   * @static
+   * @memberOf _
+   * @category Arrays
+   * @param {Array} array The array to compact.
+   * @returns {Array} Returns a new filtered array.
+   * @example
+   *
+   * _.compact([0, 1, false, 2, '', 3]);
+   * // =&gt; [1, 2, 3]
+   */</span>
+  <span class="function"><span class="keyword">function</span> <span class="title">compact</span><span class="params">(array)</span> {</span>
+    <span class="keyword">var</span> index = -<span class="number">1</span>,
+        length = array ? array.length : <span class="number">0</span>,
+        result = [];
+
+    <span class="keyword">while</span> (++index &lt; length) {
+      <span class="keyword">var</span> value = array[index];
+      <span class="keyword">if</span> (value) {
+        result.push(value);
+      }
+    }
+    <span class="keyword">return</span> result;
+  }
+</pre></td></tr></table></figure>  
+
+<ol>
+<li>First we need to know if the input is an array. The code below <figure class="highlight length"><figcaption><span>= array ? array.length : 0``` detect if the input is not an array, than the length is set to 0 or undefined.</span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>
+<span class="number">2.</span> <span class="keyword">If</span> the input <span class="keyword">is</span> <span class="keyword">not</span> an <span class="keyword">array</span> <span class="keyword">or</span> <span class="keyword">is</span> an empty <span class="keyword">array</span>, this <span class="keyword">function</span> will <span class="keyword">return</span> an empty <span class="keyword">array</span>.
+
+<span class="number">3.</span> <span class="keyword">If</span> the input <span class="keyword">is</span> an unempty <span class="keyword">array</span>, than iterate the <span class="keyword">array</span> <span class="keyword">and</span> <span class="keyword">use</span> this code
+</pre></td></tr></table></figure>if (value){result.push(value);}<code>`` to put all unfalsey value into an empty array.</code>false<code>,</code>null<code>,</code>0<code>,</code>“”<code>,</code>undefined<code>and</code>NaN` are all falsey.</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-12-13T21:35:58.000Z"><a href="/2014/12/14/hello-world/">Dec 14 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/12/14/hello-world/">Hello World</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/tommy351/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2>
+<h3 id="Create_a_new_post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ hexo new <span class="string">"My New Post"</span>
+</pre></td></tr></table></figure>
+
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ hexo server
+</pre></td></tr></table></figure>
+
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ hexo generate
+</pre></td></tr></table></figure>
+
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ hexo deploy
+</pre></td></tr></table></figure>
+
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-11-19T02:12:34.000Z"><a href="/2014/11/19/Understanding-Sockets/">Nov 19 2014</a></time>
       
       
   
@@ -139,7 +296,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-11-12T20:38:50.000Z"><a href="/2014/11/12/What-is-base-64-encoding-used-for/">Nov 12 2014</a></time>
+        <time datetime="2014-11-12T07:38:50.000Z"><a href="/2014/11/12/What-is-base-64-encoding-used-for/">Nov 12 2014</a></time>
       
       
   
@@ -173,7 +330,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-10-23T20:15:32.000Z"><a href="/2014/10/23/JavaScript-Style-Guide/">Oct 23 2014</a></time>
+        <time datetime="2014-10-23T08:15:32.000Z"><a href="/2014/10/23/JavaScript-Style-Guide/">Oct 23 2014</a></time>
       
       
   
@@ -1359,7 +1516,7 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-09-27T03:56:13.000Z"><a href="/2014/09/26/Intro-to-Nodejs/">Sep 26 2014</a></time>
+        <time datetime="2014-09-26T15:56:13.000Z"><a href="/2014/09/26/Intro-to-Nodejs/">Sep 26 2014</a></time>
       
       
   
@@ -1426,7 +1583,7 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-09-18T22:52:06.000Z"><a href="/2014/09/18/Javascript-tricks/">Sep 18 2014</a></time>
+        <time datetime="2014-09-18T10:52:06.000Z"><a href="/2014/09/18/Javascript-tricks/">Sep 18 2014</a></time>
       
       
   
@@ -1489,7 +1646,7 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-09-08T01:32:43.000Z"><a href="/2014/09/07/Some-basic-notes-about-php-&-mysql/">Sep 7 2014</a></time>
+        <time datetime="2014-09-07T13:32:43.000Z"><a href="/2014/09/07/Some-basic-notes-about-php-&-mysql/">Sep 7 2014</a></time>
       
       
   
@@ -1706,7 +1863,7 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-31T21:08:48.000Z"><a href="/2014/08/31/My-nodetes-about-penetration-testing/">Aug 31 2014</a></time>
+        <time datetime="2014-08-31T09:08:48.000Z"><a href="/2014/08/31/My-nodetes-about-penetration-testing/">Aug 31 2014</a></time>
       
       
   
@@ -1765,7 +1922,7 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-31T02:05:00.000Z"><a href="/2014/08/30/Some-notes-about-Kali-linux/">Aug 30 2014</a></time>
+        <time datetime="2014-08-30T14:05:00.000Z"><a href="/2014/08/30/Some-notes-about-Kali-linux/">Aug 30 2014</a></time>
       
       
   
@@ -1784,199 +1941,6 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
 <li>Poweroff the machine using the command line interface: <code>poweroff</code></li>
 </ul>
 
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-08-28T21:42:11.000Z"><a href="/2014/08/28/Everything-about-javascript-function(8)---Function-length/">Aug 28 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/08/28/Everything-about-javascript-function(8)---Function-length/">Everything about javascript function(8) - Function length</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="1-_How_does_a_function’s_length_property_work?">1. How does a function’s length property work?</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">makeNinja</span>(<span class="title">name</span>){}             </span>
-<span class="function"><span class="keyword">function</span> <span class="title">makeSamurai</span>(<span class="title">name</span>, <span class="title">rank</span>){} </span>
-console.<span class="built_in">log</span>(makeNinja.<span class="built_in">length</span>)<span class="comment"> //1</span>
-console.<span class="built_in">log</span>(makeSamurai.<span class="built_in">length</span>)<span class="comment"> //2</span>
-</code></pre><h1 id="2-_Use_it_to_implement_method_overloading-">2. Use it to implement method overloading.</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">addMethod</span><span class="params">(object, name, fn)</span>{</span>
-    <span class="comment">// Save a reference to the old method</span>
-    <span class="keyword">var</span> old = object[ name ];
-
-    <span class="comment">// Overwrite the method with our new one</span>
-    object[ name ] = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-        <span class="comment">// Check the number of incoming arguments,</span>
-        <span class="comment">// compared to our overloaded function</span>
-        <span class="keyword">if</span> ( fn.length == <span class="built_in">arguments</span>.length )
-        <span class="comment">// If there was a match, run the function</span>
-            <span class="keyword">return</span> fn.apply( <span class="keyword">this</span>, <span class="built_in">arguments</span> );
-
-        <span class="comment">// Otherwise, fallback to the old method</span>
-        <span class="keyword">else</span> <span class="keyword">if</span> ( <span class="keyword">typeof</span> old === <span class="string">"function"</span> )
-            <span class="keyword">return</span> old.apply( <span class="keyword">this</span>, <span class="built_in">arguments</span> );
-    };
-}
-
-<span class="function"><span class="keyword">function</span> <span class="title">Ninjas</span><span class="params">()</span>{</span>
-    <span class="keyword">var</span> ninjas = [ <span class="string">"Dean Edwards"</span>, <span class="string">"Sam Stephenson"</span>, <span class="string">"Alex Russell"</span> ];
-    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-        <span class="keyword">return</span> ninjas;
-    });
-    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">(name)</span>{</span>
-        <span class="keyword">var</span> ret = [];
-        <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; ninjas.length; i++ )
-            <span class="keyword">if</span> ( ninjas[i].indexOf(name) == <span class="number">0</span> )
-                ret.push( ninjas[i] );
-        <span class="keyword">return</span> ret;
-    });
-    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">(first, last)</span>{</span>
-        <span class="keyword">var</span> ret = [];
-        <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; ninjas.length; i++ )
-            <span class="keyword">if</span> ( ninjas[i] == (first + <span class="string">" "</span> + last) )
-                ret.push( ninjas[i] );
-        <span class="keyword">return</span> ret;
-    });
-}
-
-<span class="keyword">var</span> ninjas = <span class="keyword">new</span> Ninjas();
-console.log( ninjas.find().length == <span class="number">3</span>); <span class="comment">//true. Finds all ninjas</span>
-console.log( ninjas.find(<span class="string">"Sam"</span>).length == <span class="number">1</span>); <span class="comment">//true. Finds ninjas by first name</span>
-console.log( ninjas.find(<span class="string">"Dean"</span>, <span class="string">"Edwards"</span>).length == <span class="number">1</span>); <span class="comment">//true.Finds ninjas by first and last name</span>
-console.log( ninjas.find(<span class="string">"Alex"</span>, <span class="string">"X"</span>, <span class="string">"Russell"</span>) == <span class="literal">null</span>); <span class="comment">//true. Does nothing    </span>
-</code></pre>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-08-27T02:19:21.000Z"><a href="/2014/08/26/Everything-about-Javascript-function(7)---Inheritance/">Aug 26 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/08/26/Everything-about-Javascript-function(7)---Inheritance/">Everything about Javascript function(7) - Inheritance</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="1-_How_prototype_inheritance_works?">1. How prototype inheritance works?</h1>
-<p>We usually write constanted varibal in function, write object function use prototype.</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">()</span> {</span>
-    <span class="keyword">this</span>.name = <span class="number">24</span>;
-}
-Person.prototype.dance = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>};
-
-<span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span> {</span>}
-Ninja.prototype = <span class="keyword">new</span> Person();
-
-<span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
-console.log(ninja.name, <span class="keyword">typeof</span> ninja.dance); <span class="comment">//24, function</span>
-console.log(ninja <span class="keyword">instanceof</span> Person); <span class="comment">//true</span>
-console.log(ninja <span class="keyword">instanceof</span> Ninja); <span class="comment">//true</span>
-console.log(ninja <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span>
-</code></pre><h1 id="2-_What_happens_when_we_try_to_bind_an_object’s_method_to_a_click_handler?">2. What happens when we try to bind an object’s method to a click handler?</h1>
-<pre><code>var Button = {
-  click: function(){
-    this<span class="preprocessor">.clicked</span> = true<span class="comment">;</span>
-  }
-}<span class="comment">;</span>
-
-var elem = document<span class="preprocessor">.createElement</span>(<span class="string">"li"</span>)<span class="comment">;</span>
-elem<span class="preprocessor">.innerHTML</span> = <span class="string">"Click me!"</span><span class="comment">;</span>
-elem<span class="preprocessor">.onclick</span> = Button<span class="preprocessor">.click</span><span class="comment">; //elem copy the function so that when method called elem it's self is the 'this'.</span>
-document<span class="preprocessor">.getElementById</span>(<span class="string">"results"</span>)<span class="preprocessor">.appendChild</span>(elem)<span class="comment">;</span>
-
-elem<span class="preprocessor">.onclick</span>()<span class="comment">;    </span>
-console<span class="preprocessor">.log</span>(elem<span class="preprocessor">.clicked</span>)<span class="comment">; //true. The clicked property was accidentally set on the element.</span>
-</code></pre><p>We can use apply() to set clicked = true in Button object.</p>
-<pre><code><span class="keyword">var</span> Button = {
-  click: <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-    <span class="keyword">this</span>.clicked = <span class="literal">true</span>;
-  }
-};
-
-<span class="keyword">var</span> elem = document.createElement(<span class="string">"li"</span>);
-elem.innerHTML = <span class="string">"Click me!"</span>;
-elem.onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span><span class="keyword">return</span> Button.click.apply(Button)}; <span class="comment">//When method called this will point to Button.</span>
-document.getElementById(<span class="string">"results"</span>).appendChild(elem);
-
-elem.onclick();    
-console.log(elem.clicked); <span class="comment">//Undefined</span>
-</code></pre><h1 id="3-_Add_a_method_to_all_functions_to_allow_context_enforcement-">3. Add a method to all functions to allow context enforcement.</h1>
-<pre><code>Function<span class="preprocessor">.prototype</span><span class="preprocessor">.bind</span> = function() {
-    var fn = this,
-        object = Array<span class="preprocessor">.prototype</span><span class="preprocessor">.slice</span><span class="preprocessor">.apply</span>(arguments)<span class="preprocessor">.shift</span>()<span class="comment">;</span>
-    return fn<span class="preprocessor">.call</span>(object, arguments)<span class="comment">;</span>
-}<span class="comment">;</span>
-var Button = {
-    click: function(){
-        this<span class="preprocessor">.clicked</span> = true<span class="comment">;</span>
-    }
-}<span class="comment">;</span>
-
-var elem = document<span class="preprocessor">.createElement</span>(<span class="string">"li"</span>)<span class="comment">;</span>
-elem<span class="preprocessor">.innerHTML</span> = <span class="string">"Click me!"</span><span class="comment">;</span>
-elem<span class="preprocessor">.onclick</span> = Button<span class="preprocessor">.click</span><span class="preprocessor">.bind</span>(Button)<span class="comment">; </span>
-document<span class="preprocessor">.getElementById</span>(<span class="string">"results"</span>)<span class="preprocessor">.appendChild</span>(elem)<span class="comment">;</span>
-
-elem<span class="preprocessor">.click</span>()<span class="comment">;</span>
-
-console<span class="preprocessor">.log</span>(elem<span class="preprocessor">.clicked</span>, Button<span class="preprocessor">.clicked</span>)<span class="comment">; //Undefined, true</span>
-</code></pre><h1 id="4-_When_to_use_apply()_or_call()?">4. When to use apply() or call()?</h1>
-<p>We can assume we have two object superman and child. superman has a fly method which child not. If child wants to use the fly method but also don’t want to write the code then child can use call() to use the method defined in superman.</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Superman</span><span class="params">()</span> {</span>
-    <span class="keyword">this</span>.name = <span class="string">'superman'</span>;
-}
-Superman.prototype.fly = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    console.log(<span class="string">'My name is '</span> + <span class="keyword">this</span>.name);
-};
-<span class="keyword">var</span> superman = <span class="keyword">new</span> Superman();
-console.log(superman.name); <span class="comment">//superman</span>
-superman.fly(); <span class="comment">//My name is superman</span>
-
-<span class="keyword">var</span> child = {
-    name: <span class="string">'child'</span>
-};
-superman.fly.call(child); <span class="comment">//My name is child            </span>
-</code></pre>
       
     </div>
     <footer>
