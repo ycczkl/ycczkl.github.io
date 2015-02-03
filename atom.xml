@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2014-12-25T11:30:25.502Z</updated>
+  <updated>2015-02-03T02:29:55.304Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -13,6 +13,75 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[如何恶心钓鱼网站？]]></title>
+    <link href="http://kelunblog.com/2015/02/03/%E5%A6%82%E4%BD%95%E6%81%B6%E5%BF%83%E9%92%93%E9%B1%BC%E7%BD%91%E7%AB%99%EF%BC%9F/"/>
+    <id>http://kelunblog.com/2015/02/03/如何恶心钓鱼网站？/</id>
+    <published>2015-02-03T02:24:54.000Z</published>
+    <updated>2015-02-03T02:29:41.000Z</updated>
+    <content type="html"><![CDATA[<p>今儿群里有人被盗号了，这次闲来无事第一次分析了下钓鱼网站<a href="http://www.xhagri.gov.cn/15.htm?M0Zpp" target="_blank" rel="external">链接</a>的代码。<br><img src="https://dn-cnode.qbox.me/FkjHaheOvyk_a0DdcdNe-H-1DTTW" alt="服务器地址"><br>whois一下发现服务器在HK。再看看里面代码发现也就是最最简单的表单提交：<br> <img src="https://dn-cnode.qbox.me/Fj7EKudx3aMgKn01bZojxGvi6Bts" alt="表单提交部分的代码"><br> 于是我就想恶心恶心这帮人，顺手写了个机器人注入僵尸用户。。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="code"><pre><span class="keyword">var</span> rest = <span class="built_in">require</span>(<span class="string">'restler'</span>);
+<span class="keyword">var</span> generatePassword = <span class="built_in">require</span>(<span class="string">'password-generator'</span>);
+
+<span class="keyword">var</span> minutes = <span class="number">0.05</span>,
+  the_interval = minutes * <span class="number">60</span> * <span class="number">1000</span>;
+
+setInterval(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  <span class="keyword">var</span> id = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="built_in">Math</span>.pow(<span class="number">10</span>, <span class="number">8</span>));
+  <span class="keyword">var</span> pw = generatePassword(getRandomInt(<span class="number">6</span>, <span class="number">15</span>), <span class="literal">false</span>);
+  rest.post(<span class="string">'http://xn--a-oda8n.ifcru.org/admin/api.php'</span>, {
+    query: {
+      user: <span class="string">'M0Zpp'</span>
+    },
+    data: {
+      username: id,
+      password: pw
+    },
+  }).on(<span class="string">'complete'</span>, <span class="function"><span class="keyword">function</span><span class="params">(data, response)</span> {</span>
+    <span class="keyword">if</span> (response.statusCode == <span class="number">200</span>) {
+      console.log(<span class="string">'success'</span>);
+    }
+  });
+}, the_interval);
+
+<span class="function"><span class="keyword">function</span> <span class="title">getRandomInt</span><span class="params">(min, max)</span> {</span>
+  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min)) + min;
+}
+</pre></td></tr></table></figure>
+
+<p>第一次写这种东西的代码，水平有限哈。。大家有没有神马更好的恶心人得办法？ 欢迎一起讨论！<br>PS: 目前已经五进程攻击一个晚上了，服务器IP还没换，估计快了~</p>
+]]></content>
+    
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Learning lo-dash.js]]></title>
@@ -2303,55 +2372,6 @@ console.log(<span class="keyword">typeof</span> myNinja === <span class="string"
       <category term="global variable" scheme="http://kelunblog.com/tags/global-variable/"/>
     
       <category term="javascript" scheme="http://kelunblog.com/categories/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Github总结]]></title>
-    <link href="http://kelunblog.com/2014/08/01/Github%E6%80%BB%E7%BB%93/"/>
-    <id>http://kelunblog.com/2014/08/01/Github总结/</id>
-    <published>2014-08-01T11:50:14.000Z</published>
-    <updated>2014-08-07T19:46:48.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="Gitgub_总结">Gitgub 总结</h1>
-<h2 id="1-远程仓库相关命令">1.远程仓库相关命令</h2>
-<ul>
-<li>检出仓库：$ git clone git://github.com/jquery/jquery.git</li>
-<li>查看远程仓库：$ git remote -v</li>
-<li>添加远程仓库：$ git remote add [name] [url]</li>
-<li>删除远程仓库：$ git remote rm [name]</li>
-<li>修改远程仓库：$ git remote set-url —push [name] [newUrl]</li>
-<li>拉取远程仓库：$ git pull [remoteName] [localBranchName]</li>
-<li><p>推送远程仓库：$ git push [remoteName] [localBranchName]</p>
-<p>如果想把本地的某个分支test提交到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫test的分支，如下：</p>
-<ul>
-<li>$ git push origin test:master         // 提交本地test分支作为远程的master分支</li>
-<li>$ git push origin test:test           // 提交本地test分支作为远程的test分支</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-_分支(branch)操作相关命令">2. 分支(branch)操作相关命令</h2>
-<ul>
-<li>查看本地分支：$ git branch</li>
-<li>查看远程分支：$ git branch -r （如果还是看不到就先 git fetch origin 先）</li>
-<li>创建本地分支：$ git branch [name] ——注意新分支创建后不会自动切换为当前分支</li>
-<li>切换分支：$ git checkout [name]</li>
-<li>创建新分支并立即切换到新分支：$ git checkout -b [name]</li>
-<li>直接检出远程分支：$ git checkout -b [name] [remoteName] (如：git checkout -b myNewBranch origin/dragon)</li>
-<li>删除分支：$ git branch -d [name] —— -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项</li>
-<li>合并分支：$ git merge [name] ——将名称为[name]的分支与当前分支合并</li>
-<li>合并最后的2个提交：$ git rebase -i HEAD~2 —— 数字2按需修改即可（如果需提交到远端$ git push -f origin master 慎用！）</li>
-<li>创建远程分支(本地分支push到远程)：$ git push origin [name]</li>
-<li><p>删除远程分支：$ git push origin :heads/[name] 或 $ git push origin :[name] </p>
-</li>
-<li><p>创建空的分支：(执行命令之前记得先提交你当前分支的修改，否则会被强制删干净没得后悔)<br>$ git symbolic-ref HEAD refs/heads/[name]<br>$ rm .git/index<br>$ git clean -fdx    </p>
-</li>
-</ul>
-]]></content>
-    
-    
-      <category term="github" scheme="http://kelunblog.com/tags/github/"/>
-    
-      <category term="github" scheme="http://kelunblog.com/categories/github/"/>
     
   </entry>
   
