@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A code monkey with a simple dream]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://kelunblog.com/"/>
-  <updated>2015-02-03T02:29:55.304Z</updated>
+  <updated>2015-02-22T23:12:23.955Z</updated>
   <id>http://kelunblog.com/</id>
   
   <author>
@@ -18,7 +18,7 @@
     <title><![CDATA[如何恶心钓鱼网站？]]></title>
     <link href="http://kelunblog.com/2015/02/03/%E5%A6%82%E4%BD%95%E6%81%B6%E5%BF%83%E9%92%93%E9%B1%BC%E7%BD%91%E7%AB%99%EF%BC%9F/"/>
     <id>http://kelunblog.com/2015/02/03/如何恶心钓鱼网站？/</id>
-    <published>2015-02-03T02:24:54.000Z</published>
+    <published>2015-02-03T15:24:54.000Z</published>
     <updated>2015-02-03T02:29:41.000Z</updated>
     <content type="html"><![CDATA[<p>今儿群里有人被盗号了，这次闲来无事第一次分析了下钓鱼网站<a href="http://www.xhagri.gov.cn/15.htm?M0Zpp" target="_blank" rel="external">链接</a>的代码。<br><img src="https://dn-cnode.qbox.me/FkjHaheOvyk_a0DdcdNe-H-1DTTW" alt="服务器地址"><br>whois一下发现服务器在HK。再看看里面代码发现也就是最最简单的表单提交：<br> <img src="https://dn-cnode.qbox.me/Fj7EKudx3aMgKn01bZojxGvi6Bts" alt="表单提交部分的代码"><br> 于是我就想恶心恶心这帮人，顺手写了个机器人注入僵尸用户。。</p>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
@@ -87,7 +87,7 @@ setInterval(<span class="function"><span class="keyword">function</span><span cl
     <title><![CDATA[Learning lo-dash.js]]></title>
     <link href="http://kelunblog.com/2014/12/25/Learning-lo-dashjs(1)/"/>
     <id>http://kelunblog.com/2014/12/25/Learning-lo-dashjs(1)/</id>
-    <published>2014-12-25T11:09:12.000Z</published>
+    <published>2014-12-26T00:09:12.000Z</published>
     <updated>2014-12-25T11:30:03.000Z</updated>
     <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -162,47 +162,10 @@ setInterval(<span class="function"><span class="keyword">function</span><span cl
   </entry>
   
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <link href="http://kelunblog.com/2014/12/14/hello-world/"/>
-    <id>http://kelunblog.com/2014/12/14/hello-world/</id>
-    <published>2014-12-13T21:35:58.000Z</published>
-    <updated>2014-06-28T18:30:03.000Z</updated>
-    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/tommy351/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ hexo new <span class="string">"My New Post"</span>
-</pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ hexo server
-</pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ hexo generate
-</pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ hexo deploy
-</pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[Understanding Sockets]]></title>
     <link href="http://kelunblog.com/2014/11/19/Understanding-Sockets/"/>
     <id>http://kelunblog.com/2014/11/19/Understanding-Sockets/</id>
-    <published>2014-11-19T02:12:34.000Z</published>
+    <published>2014-11-19T15:12:34.000Z</published>
     <updated>2014-11-19T15:13:25.000Z</updated>
     <content type="html"><![CDATA[<p>Understanding Sockets</p>
 <ol>
@@ -258,7 +221,7 @@ setInterval(<span class="function"><span class="keyword">function</span><span cl
     <title><![CDATA[What is base 64 encoding used for?]]></title>
     <link href="http://kelunblog.com/2014/11/12/What-is-base-64-encoding-used-for/"/>
     <id>http://kelunblog.com/2014/11/12/What-is-base-64-encoding-used-for/</id>
-    <published>2014-11-12T07:38:50.000Z</published>
+    <published>2014-11-12T20:38:50.000Z</published>
     <updated>2014-11-12T20:43:47.000Z</updated>
     <content type="html"><![CDATA[<p>When you have some binary data that you want to ship across a network, you generally don’t do it by just streaming the bits and bytes over the wire in a raw format. Why? because some media are made for streaming text. You never know — <strong>some protocols may interpret your binary data as control characters (like a modem), or your binary data could be screwed up because the underlying protocol might think that you’ve entered a special character combination (like how FTP translates line endings)</strong>.</p>
 <p>So to get around this, people encode the binary data into characters. Base64 is one of these types of encodings. <strong>Why 64? Because you can generally rely on the same 64 characters being present in many character sets, and you can be reasonably confident that your data’s going to end up on the other side of the wire uncorrupted.</strong></p>
@@ -275,7 +238,7 @@ setInterval(<span class="function"><span class="keyword">function</span><span cl
     <title><![CDATA[JavaScript Style Guide]]></title>
     <link href="http://kelunblog.com/2014/10/23/JavaScript-Style-Guide/"/>
     <id>http://kelunblog.com/2014/10/23/JavaScript-Style-Guide/</id>
-    <published>2014-10-23T08:15:32.000Z</published>
+    <published>2014-10-23T20:15:32.000Z</published>
     <updated>2014-10-23T20:18:45.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Objects">Objects</h2>
 <ul>
@@ -1444,7 +1407,7 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
     <title><![CDATA[Intro to Node.js]]></title>
     <link href="http://kelunblog.com/2014/09/26/Intro-to-Nodejs/"/>
     <id>http://kelunblog.com/2014/09/26/Intro-to-Nodejs/</id>
-    <published>2014-09-26T15:56:13.000Z</published>
+    <published>2014-09-27T03:56:13.000Z</published>
     <updated>2014-10-14T01:11:24.000Z</updated>
     <content type="html"><![CDATA[<h2 id="1-_process">1. process</h2>
 <p>The process object is a global object and can be accessed from anywhere.</p>
@@ -1490,7 +1453,7 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
     <title><![CDATA[Javascript tricks]]></title>
     <link href="http://kelunblog.com/2014/09/18/Javascript-tricks/"/>
     <id>http://kelunblog.com/2014/09/18/Javascript-tricks/</id>
-    <published>2014-09-18T10:52:06.000Z</published>
+    <published>2014-09-18T22:52:06.000Z</published>
     <updated>2014-09-18T22:54:48.000Z</updated>
     <content type="html"><![CDATA[<h1 id="Some_basic_javascript_tricks">Some basic javascript tricks</h1>
 <ol>
@@ -1534,7 +1497,7 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
     <title><![CDATA[Some basic notes about php & mysql]]></title>
     <link href="http://kelunblog.com/2014/09/07/Some-basic-notes-about-php-&-mysql/"/>
     <id>http://kelunblog.com/2014/09/07/Some-basic-notes-about-php-&-mysql/</id>
-    <published>2014-09-07T13:32:43.000Z</published>
+    <published>2014-09-08T01:32:43.000Z</published>
     <updated>2014-09-15T21:42:29.000Z</updated>
     <content type="html"><![CDATA[<h1 id="apache:">apache:</h1>
 <pre><code><span class="built_in">sudo</span> apachectl start
@@ -1738,7 +1701,7 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
     <title><![CDATA[My notes about penetration testing]]></title>
     <link href="http://kelunblog.com/2014/08/31/My-nodetes-about-penetration-testing/"/>
     <id>http://kelunblog.com/2014/08/31/My-nodetes-about-penetration-testing/</id>
-    <published>2014-08-31T09:08:48.000Z</published>
+    <published>2014-08-31T21:08:48.000Z</published>
     <updated>2014-10-21T15:38:25.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-Reconnaissance">1.Reconnaissance</h1>
 <ol>
@@ -1782,7 +1745,7 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
     <title><![CDATA[Some notes about Kali linux]]></title>
     <link href="http://kelunblog.com/2014/08/30/Some-notes-about-Kali-linux/"/>
     <id>http://kelunblog.com/2014/08/30/Some-notes-about-Kali-linux/</id>
-    <published>2014-08-30T14:05:00.000Z</published>
+    <published>2014-08-31T02:05:00.000Z</published>
     <updated>2014-08-31T21:09:53.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-_Some_basic_linux_commands">1. Some basic linux commands</h1>
 <ul>
@@ -1809,7 +1772,7 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
     <title><![CDATA[Everything about javascript function(8) - Function length]]></title>
     <link href="http://kelunblog.com/2014/08/28/Everything-about-javascript-function(8)---Function-length/"/>
     <id>http://kelunblog.com/2014/08/28/Everything-about-javascript-function(8)---Function-length/</id>
-    <published>2014-08-28T09:42:11.000Z</published>
+    <published>2014-08-28T21:42:11.000Z</published>
     <updated>2014-08-30T02:05:32.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-_How_does_a_function’s_length_property_work?">1. How does a function’s length property work?</h1>
 <pre><code><span class="function"><span class="keyword">function</span> <span class="title">makeNinja</span>(<span class="title">name</span>){}             </span>
@@ -1872,7 +1835,7 @@ console.log( ninjas.find(<span class="string">"Alex"</span>, <span class="string
     <title><![CDATA[Everything about Javascript function(7) - Inheritance]]></title>
     <link href="http://kelunblog.com/2014/08/26/Everything-about-Javascript-function(7)---Inheritance/"/>
     <id>http://kelunblog.com/2014/08/26/Everything-about-Javascript-function(7)---Inheritance/</id>
-    <published>2014-08-26T14:19:21.000Z</published>
+    <published>2014-08-27T02:19:21.000Z</published>
     <updated>2014-08-28T21:34:15.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-_How_prototype_inheritance_works?">1. How prototype inheritance works?</h1>
 <p>We usually write constanted varibal in function, write object function use prototype.</p>
@@ -1964,7 +1927,7 @@ superman.fly.call(child); <span class="comment">//My name is child            </
     <title><![CDATA[Everything about Javascript function(6) - Function Prototype and the instance type]]></title>
     <link href="http://kelunblog.com/2014/08/26/Everything-about-Javascript-function(6)---Function-Prototype/"/>
     <id>http://kelunblog.com/2014/08/26/Everything-about-Javascript-function(6)---Function-Prototype/</id>
-    <published>2014-08-26T11:35:08.000Z</published>
+    <published>2014-08-26T23:35:08.000Z</published>
     <updated>2014-08-27T00:06:51.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-_Adding_a_prototyped_method_to_a_function">1. Adding a prototyped method to a function</h1>
 <pre><code><span class="reserved">function</span> Ninja(){}
@@ -2032,7 +1995,7 @@ console.log(ninjaB <span class="keyword">instanceof</span> Ninja);<span class="c
     <title><![CDATA[Everything about javascript(5) - Temporary Scope ]]></title>
     <link href="http://kelunblog.com/2014/08/25/Everything-about-javascript(5)---Temporary-Scope-/"/>
     <id>http://kelunblog.com/2014/08/25/Everything-about-javascript(5)---Temporary-Scope-/</id>
-    <published>2014-08-25T11:20:09.000Z</published>
+    <published>2014-08-25T23:20:09.000Z</published>
     <updated>2014-08-26T22:59:35.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-_Isolate_scope:_Self-executing_function">1. Isolate scope: Self-executing function</h1>
 <p>We can’t access the variable inside a self-executing function.</p>
@@ -2089,7 +2052,7 @@ console.log(<span class="keyword">typeof</span> timer); <span class="comment">//
     <title><![CDATA[Everything about javascript function(4) - Flexible Arguments]]></title>
     <link href="http://kelunblog.com/2014/08/23/Everything-about-javascript-function(4)---Flexible-Arguments/"/>
     <id>http://kelunblog.com/2014/08/23/Everything-about-javascript-function(4)---Flexible-Arguments/</id>
-    <published>2014-08-23T15:21:42.000Z</published>
+    <published>2014-08-24T03:21:42.000Z</published>
     <updated>2014-08-25T01:18:43.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-_Using_a_variable_number_of_arguments_to_our_advantage-">1. Using a variable number of arguments to our advantage.</h1>
 <pre><code><span class="function"><span class="keyword">function</span> <span class="title">flat</span><span class="params">(root)</span> {</span>
@@ -2159,7 +2122,7 @@ console.log(multiMax(<span class="number">1</span>,<span class="number">2</span>
     <title><![CDATA[Everything about javascript function(3): Instantiation]]></title>
     <link href="http://kelunblog.com/2014/08/19/Everything-about-javascript-function(3)-Instantiation/"/>
     <id>http://kelunblog.com/2014/08/19/Everything-about-javascript-function(3)-Instantiation/</id>
-    <published>2014-08-19T14:58:13.000Z</published>
+    <published>2014-08-20T02:58:13.000Z</published>
     <updated>2014-08-20T02:58:48.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-What_does_the_new_operator_do">1.What does the new operator do</h1>
 <p>Very good resoure:<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="external">MDN:new operator</a></p>
@@ -2230,7 +2193,7 @@ console.log( !ninjaB.swung); <span class="comment">//True. Make sure that the ni
     <title><![CDATA[Everything about Javascript function(2): Function and Object]]></title>
     <link href="http://kelunblog.com/2014/08/17/Everything-about-Javascript-function(2)-Function-and-Object/"/>
     <id>http://kelunblog.com/2014/08/17/Everything-about-Javascript-function(2)-Function-and-Object/</id>
-    <published>2014-08-17T14:03:00.000Z</published>
+    <published>2014-08-18T02:03:00.000Z</published>
     <updated>2014-08-18T02:03:59.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-Functions_and_Objects_are_similar">1.Functions and Objects are similar</h1>
 <pre><code><span class="keyword">var</span> obj = {};
@@ -2280,7 +2243,7 @@ delete o<span class="preprocessor">.m</span><span class="comment">;    </span>
     <title><![CDATA[Everything about javascript function(1)]]></title>
     <link href="http://kelunblog.com/2014/08/12/Everything-about-javascript-function(1)/"/>
     <id>http://kelunblog.com/2014/08/12/Everything-about-javascript-function(1)/</id>
-    <published>2014-08-12T12:47:52.000Z</published>
+    <published>2014-08-13T00:47:52.000Z</published>
     <updated>2014-08-13T15:03:40.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-Three_ways_to_define_function">1.Three ways to define function</h1>
 <pre><code>  <span class="function"><span class="keyword">function</span> <span class="title">isNimble</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="literal">true</span>; }; <span class="comment">//function definition(declaration)</span>
@@ -2327,7 +2290,7 @@ console.log(<span class="keyword">typeof</span> myNinja === <span class="string"
     <title><![CDATA[Global variable in javascript]]></title>
     <link href="http://kelunblog.com/2014/08/04/Global-variable-in-javascript/"/>
     <id>http://kelunblog.com/2014/08/04/Global-variable-in-javascript/</id>
-    <published>2014-08-04T02:38:30.000Z</published>
+    <published>2014-08-04T14:38:30.000Z</published>
     <updated>2014-08-07T19:47:21.000Z</updated>
     <content type="html"><![CDATA[<p>This blog mainly talk about how global variable works in Javascript.</p>
 <h1 id="1-_Two_same_way_to_assign_global_variable-">1. Two same way to assign global variable.</h1>
@@ -2372,6 +2335,55 @@ console.log(<span class="keyword">typeof</span> myNinja === <span class="string"
       <category term="global variable" scheme="http://kelunblog.com/tags/global-variable/"/>
     
       <category term="javascript" scheme="http://kelunblog.com/categories/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Github总结]]></title>
+    <link href="http://kelunblog.com/2014/08/01/Github%E6%80%BB%E7%BB%93/"/>
+    <id>http://kelunblog.com/2014/08/01/Github总结/</id>
+    <published>2014-08-01T23:50:14.000Z</published>
+    <updated>2014-08-07T19:46:48.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="Gitgub_总结">Gitgub 总结</h1>
+<h2 id="1-远程仓库相关命令">1.远程仓库相关命令</h2>
+<ul>
+<li>检出仓库：$ git clone git://github.com/jquery/jquery.git</li>
+<li>查看远程仓库：$ git remote -v</li>
+<li>添加远程仓库：$ git remote add [name] [url]</li>
+<li>删除远程仓库：$ git remote rm [name]</li>
+<li>修改远程仓库：$ git remote set-url —push [name] [newUrl]</li>
+<li>拉取远程仓库：$ git pull [remoteName] [localBranchName]</li>
+<li><p>推送远程仓库：$ git push [remoteName] [localBranchName]</p>
+<p>如果想把本地的某个分支test提交到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫test的分支，如下：</p>
+<ul>
+<li>$ git push origin test:master         // 提交本地test分支作为远程的master分支</li>
+<li>$ git push origin test:test           // 提交本地test分支作为远程的test分支</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-_分支(branch)操作相关命令">2. 分支(branch)操作相关命令</h2>
+<ul>
+<li>查看本地分支：$ git branch</li>
+<li>查看远程分支：$ git branch -r （如果还是看不到就先 git fetch origin 先）</li>
+<li>创建本地分支：$ git branch [name] ——注意新分支创建后不会自动切换为当前分支</li>
+<li>切换分支：$ git checkout [name]</li>
+<li>创建新分支并立即切换到新分支：$ git checkout -b [name]</li>
+<li>直接检出远程分支：$ git checkout -b [name] [remoteName] (如：git checkout -b myNewBranch origin/dragon)</li>
+<li>删除分支：$ git branch -d [name] —— -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项</li>
+<li>合并分支：$ git merge [name] ——将名称为[name]的分支与当前分支合并</li>
+<li>合并最后的2个提交：$ git rebase -i HEAD~2 —— 数字2按需修改即可（如果需提交到远端$ git push -f origin master 慎用！）</li>
+<li>创建远程分支(本地分支push到远程)：$ git push origin [name]</li>
+<li><p>删除远程分支：$ git push origin :heads/[name] 或 $ git push origin :[name] </p>
+</li>
+<li><p>创建空的分支：(执行命令之前记得先提交你当前分支的修改，否则会被强制删干净没得后悔)<br>$ git symbolic-ref HEAD refs/heads/[name]<br>$ rm .git/index<br>$ git clean -fdx    </p>
+</li>
+</ul>
+]]></content>
+    
+    
+      <category term="github" scheme="http://kelunblog.com/tags/github/"/>
+    
+      <category term="github" scheme="http://kelunblog.com/categories/github/"/>
     
   </entry>
   

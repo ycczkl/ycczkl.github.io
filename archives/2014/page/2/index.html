@@ -70,89 +70,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-28T09:42:11.000Z"><a href="/2014/08/28/Everything-about-javascript-function(8)---Function-length/">Aug 28 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/08/28/Everything-about-javascript-function(8)---Function-length/">Everything about javascript function(8) - Function length</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="1-_How_does_a_function’s_length_property_work?">1. How does a function’s length property work?</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">makeNinja</span>(<span class="title">name</span>){}             </span>
-<span class="function"><span class="keyword">function</span> <span class="title">makeSamurai</span>(<span class="title">name</span>, <span class="title">rank</span>){} </span>
-console.<span class="built_in">log</span>(makeNinja.<span class="built_in">length</span>)<span class="comment"> //1</span>
-console.<span class="built_in">log</span>(makeSamurai.<span class="built_in">length</span>)<span class="comment"> //2</span>
-</code></pre><h1 id="2-_Use_it_to_implement_method_overloading-">2. Use it to implement method overloading.</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">addMethod</span><span class="params">(object, name, fn)</span>{</span>
-    <span class="comment">// Save a reference to the old method</span>
-    <span class="keyword">var</span> old = object[ name ];
-
-    <span class="comment">// Overwrite the method with our new one</span>
-    object[ name ] = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-        <span class="comment">// Check the number of incoming arguments,</span>
-        <span class="comment">// compared to our overloaded function</span>
-        <span class="keyword">if</span> ( fn.length == <span class="built_in">arguments</span>.length )
-        <span class="comment">// If there was a match, run the function</span>
-            <span class="keyword">return</span> fn.apply( <span class="keyword">this</span>, <span class="built_in">arguments</span> );
-
-        <span class="comment">// Otherwise, fallback to the old method</span>
-        <span class="keyword">else</span> <span class="keyword">if</span> ( <span class="keyword">typeof</span> old === <span class="string">"function"</span> )
-            <span class="keyword">return</span> old.apply( <span class="keyword">this</span>, <span class="built_in">arguments</span> );
-    };
-}
-
-<span class="function"><span class="keyword">function</span> <span class="title">Ninjas</span><span class="params">()</span>{</span>
-    <span class="keyword">var</span> ninjas = [ <span class="string">"Dean Edwards"</span>, <span class="string">"Sam Stephenson"</span>, <span class="string">"Alex Russell"</span> ];
-    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-        <span class="keyword">return</span> ninjas;
-    });
-    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">(name)</span>{</span>
-        <span class="keyword">var</span> ret = [];
-        <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; ninjas.length; i++ )
-            <span class="keyword">if</span> ( ninjas[i].indexOf(name) == <span class="number">0</span> )
-                ret.push( ninjas[i] );
-        <span class="keyword">return</span> ret;
-    });
-    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">(first, last)</span>{</span>
-        <span class="keyword">var</span> ret = [];
-        <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; ninjas.length; i++ )
-            <span class="keyword">if</span> ( ninjas[i] == (first + <span class="string">" "</span> + last) )
-                ret.push( ninjas[i] );
-        <span class="keyword">return</span> ret;
-    });
-}
-
-<span class="keyword">var</span> ninjas = <span class="keyword">new</span> Ninjas();
-console.log( ninjas.find().length == <span class="number">3</span>); <span class="comment">//true. Finds all ninjas</span>
-console.log( ninjas.find(<span class="string">"Sam"</span>).length == <span class="number">1</span>); <span class="comment">//true. Finds ninjas by first name</span>
-console.log( ninjas.find(<span class="string">"Dean"</span>, <span class="string">"Edwards"</span>).length == <span class="number">1</span>); <span class="comment">//true.Finds ninjas by first and last name</span>
-console.log( ninjas.find(<span class="string">"Alex"</span>, <span class="string">"X"</span>, <span class="string">"Russell"</span>) == <span class="literal">null</span>); <span class="comment">//true. Does nothing    </span>
-</code></pre>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-08-26T14:19:21.000Z"><a href="/2014/08/26/Everything-about-Javascript-function(7)---Inheritance/">Aug 26 2014</a></time>
+        <time datetime="2014-08-27T02:19:21.000Z"><a href="/2014/08/26/Everything-about-Javascript-function(7)---Inheritance/">Aug 26 2014</a></time>
       
       
   
@@ -263,7 +181,7 @@ superman.fly.call(child); <span class="comment">//My name is child            </
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-26T11:35:08.000Z"><a href="/2014/08/26/Everything-about-Javascript-function(6)---Function-Prototype/">Aug 26 2014</a></time>
+        <time datetime="2014-08-26T23:35:08.000Z"><a href="/2014/08/26/Everything-about-Javascript-function(6)---Function-Prototype/">Aug 26 2014</a></time>
       
       
   
@@ -350,7 +268,7 @@ console.log(ninjaB <span class="keyword">instanceof</span> Ninja);<span class="c
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-25T11:20:09.000Z"><a href="/2014/08/25/Everything-about-javascript(5)---Temporary-Scope-/">Aug 25 2014</a></time>
+        <time datetime="2014-08-25T23:20:09.000Z"><a href="/2014/08/25/Everything-about-javascript(5)---Temporary-Scope-/">Aug 25 2014</a></time>
       
       
   
@@ -426,7 +344,7 @@ console.log(<span class="keyword">typeof</span> timer); <span class="comment">//
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-23T15:21:42.000Z"><a href="/2014/08/23/Everything-about-javascript-function(4)---Flexible-Arguments/">Aug 23 2014</a></time>
+        <time datetime="2014-08-24T03:21:42.000Z"><a href="/2014/08/23/Everything-about-javascript-function(4)---Flexible-Arguments/">Aug 23 2014</a></time>
       
       
   
@@ -515,7 +433,7 @@ console.log(multiMax(<span class="number">1</span>,<span class="number">2</span>
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-19T14:58:13.000Z"><a href="/2014/08/19/Everything-about-javascript-function(3)-Instantiation/">Aug 19 2014</a></time>
+        <time datetime="2014-08-20T02:58:13.000Z"><a href="/2014/08/19/Everything-about-javascript-function(3)-Instantiation/">Aug 19 2014</a></time>
       
       
   
@@ -605,7 +523,7 @@ console.log( !ninjaB.swung); <span class="comment">//True. Make sure that the ni
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-17T14:03:00.000Z"><a href="/2014/08/17/Everything-about-Javascript-function(2)-Function-and-Object/">Aug 17 2014</a></time>
+        <time datetime="2014-08-18T02:03:00.000Z"><a href="/2014/08/17/Everything-about-Javascript-function(2)-Function-and-Object/">Aug 17 2014</a></time>
       
       
   
@@ -674,7 +592,7 @@ delete o<span class="preprocessor">.m</span><span class="comment">;    </span>
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-12T12:47:52.000Z"><a href="/2014/08/12/Everything-about-javascript-function(1)/">Aug 12 2014</a></time>
+        <time datetime="2014-08-13T00:47:52.000Z"><a href="/2014/08/12/Everything-about-javascript-function(1)/">Aug 12 2014</a></time>
       
       
   
@@ -738,7 +656,7 @@ console.log(<span class="keyword">typeof</span> myNinja === <span class="string"
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-04T02:38:30.000Z"><a href="/2014/08/04/Global-variable-in-javascript/">Aug 4 2014</a></time>
+        <time datetime="2014-08-04T14:38:30.000Z"><a href="/2014/08/04/Global-variable-in-javascript/">Aug 4 2014</a></time>
       
       
   
@@ -807,7 +725,7 @@ console.log(<span class="keyword">typeof</span> myNinja === <span class="string"
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-08-01T11:50:14.000Z"><a href="/2014/08/01/Github总结/">Aug 1 2014</a></time>
+        <time datetime="2014-08-01T23:50:14.000Z"><a href="/2014/08/01/Github总结/">Aug 1 2014</a></time>
       
       
   
@@ -851,6 +769,157 @@ console.log(<span class="keyword">typeof</span> myNinja === <span class="string"
 <li><p>创建空的分支：(执行命令之前记得先提交你当前分支的修改，否则会被强制删干净没得后悔)<br>$ git symbolic-ref HEAD refs/heads/[name]<br>$ rm .git/index<br>$ git clean -fdx    </p>
 </li>
 </ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-07-29T02:26:37.000Z"><a href="/2014/07/28/How-to-build-angular-directives/">Jul 28 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/28/How-to-build-angular-directives/">How to build angular directives</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="How_directives_are_born">How directives are born</h2>
+<p>When the DOM is done loading and the AngularJS process starts booting up, the first process that happens is the HTML is parsed by the browser as a DOM tree. This tree is then parsed using AngularJS’s $compile() method. $compile runs through the DOM tree and looks for directive declarations for the different DOM elements. Once all directive declarations are found for each DOM element and sorted (by priority, which we’ll get into shortly), the directive’s compile function is run and is expected to return a link() function. The $compile() function will return a linking function that wraps all of the containing DOM element’s directives’ linking functions.</p>
+<p>Finally, the linking function is invoked with the containing scope that attaches all of the associated directives to that scope. This is where we’ll do most of the work when building directives, as this is where we can register listeners, set up watches, and add functionality. The result of this process is why the live data-binding exists between the scope and the DOM tree. </p>
+<p>We’ll use the compile function to both manipulate the DOM before it’s rendered and return a link function (that will handle the linking for us). This also is the place to put any methods that need to be shared around with all of the instances of this directive.</p>
+<p>We’ll use the link function to <strong>register all listeners on a specific DOM element</strong> (that’s cloned from the template) and set up our bindings to the page.</p>
+<h2 id="Build_our_own_directive">Build our own directive</h2>
+<h3 id="Matching_Directives">Matching Directives</h3>
+<p>The normalization process is as follows:</p>
+<ul>
+<li><p>Strip x- and data- from the front of the element/attributes.</p>
+</li>
+<li><p>Convert the :, -, or _-delimited name to camelCase.</p>
+</li>
+</ul>
+<p>Here are some equivalent examples of elements that match <strong>ngBind</strong>:</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-controller</span>=<span class="value">"Controller"</span>&gt;</span>
+    Hello <span class="tag">&lt;<span class="title">input</span> <span class="attribute">ng-model</span>=<span class="value">'name'</span>&gt;</span> <span class="tag">&lt;<span class="title">hr</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">ng-bind</span>=<span class="value">"name"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">ng:bind</span>=<span class="value">"name"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">ng_bind</span>=<span class="value">"name"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">data-ng-bind</span>=<span class="value">"name"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">x-ng-bind</span>=<span class="value">"name"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>    
+</code></pre><h3 id="Restrict_option">Restrict option</h3>
+<p>he restrict option is used to specify how a directive can be invoked on the page.</p>
+<pre><code>'A' - <span class="tag">&lt;<span class="title">span</span> <span class="attribute">ng-sparkline</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> //Attribute
+'E' - <span class="tag">&lt;<span class="title">ng-sparkline</span>&gt;</span><span class="tag">&lt;/<span class="title">ng-sparkline</span>&gt;</span> //Element
+'C' - <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"ng-sparkline"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> //Class
+'M' - <span class="comment">&lt;!-- directive: ng-sparkline --&gt;</span> //Comment
+</code></pre><p>The restrict option can specify multiple options, as well. If you want to support more than one as an element or an attribute, simply make sure all are specified in the restrict keyword:</p>
+<pre><code><span class="attribute">restrict</span>: <span class="string">'EA'</span>
+</code></pre><h3 id="TemplateUrl">TemplateUrl</h3>
+<p>If you prefer to load a template over ajax, you can specify the templateUrl option, which will use ajax to pull the template.</p>
+<pre><code><span class="attribute">templateUrl</span>: <span class="string">'templates/ng-sparkline-template.html'        </span>
+</code></pre><h3 id="Require">Require</h3>
+<p>When a directive uses this option, $compile will throw an error unless the specified controller is found. The ^ prefix means that this directive searches for the controller on its parents (without the ^ prefix, the directive would look for the controller on just its own element).    </p>
+<pre><code>^ <span class="subst">--</span> Look for the controller <span class="keyword">on</span> <span class="keyword">parent</span> elements, <span class="literal">not</span> just <span class="keyword">on</span> the <span class="built_in">local</span> scope
+
+<span class="subst">?</span> <span class="subst">--</span> Don<span class="string">'t raise an error if the controller isn'</span>t found
+</code></pre><p>Use this option can <a href="https://docs.angularjs.org/guide/directive" target="_blank" rel="external">Creating directive that communicate</a></p>
+<h3 id="Scope">Scope</h3>
+<p>There are 3 types of binding options which are defined as prefixes in the scope property. The prefix is followed by the attribute name of HTML element. These types are as follows</p>
+<ol>
+<li>Text Binding (Prefix: @). Usually text</li>
+<li>One-way Binding (Prefix: &amp;). Usually function(Defined as functions).</li>
+<li>Two-way Binding (Prefix: =)</li>
+</ol>
+<p>Example:</p>
+<p><strong>HTML:</strong>    </p>
+<pre><code><span class="subst">&lt;</span>learn<span class="attribute">-directive</span> ng<span class="attribute">-model</span><span class="subst">=</span><span class="string">"city"</span> form<span class="attribute">-name</span><span class="subst">=</span><span class="string">"haha"</span> obj<span class="attribute">-in</span><span class="attribute">-controller</span><span class="subst">=</span><span class="string">"someObj"</span><span class="subst">&gt;&lt;</span>/learn<span class="attribute">-directive</span><span class="subst">&gt;</span>
+</code></pre><p><strong>Template:</strong></p>
+<pre><code><span class="tag">&lt;<span class="title">div</span>&gt;</span>this is the learnDirective directive<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="tag">&lt;<span class="title">h4</span>&gt;</span><span class="tag">&lt;/<span class="title">h4</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span> //data binding
+</code></pre><p><strong>Directive:</strong></p>
+<pre><code><span class="pi">'use strict'</span>;
+
+angular.module(<span class="string">'testApp'</span>)
+    .directive(<span class="string">'learnDirective'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">return</span> {
+            templateUrl: <span class="string">'app/learnDirective/learnDirective.html'</span>,
+            restrict: <span class="string">'EA'</span>,
+            scope:{
+                ngModel: <span class="string">'='</span>,
+                formName: <span class="string">'@'</span>,
+                obj: <span class="string">'&amp;objInController'</span>
+            },
+            link: <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attrs)</span> {</span>
+                console.log(scope.obj()); <span class="comment">//return the obj which defined in controller</span>
+            }
+        };
+    });        
+</code></pre><h3 id="Controller_option">Controller option</h3>
+<p>In a directive, when we set the controller option we are creating a controller for the directive. This controller is instantiated before the pre-linking phase. </p>
+<p>We are defining a controller function in our directive, so we don’t need to define either of these functions, but it is important to note that <strong>we cannot do DOM manipulations in our controller function</strong>.</p>
+<p>Example:</p>
+<pre><code><span class="pi">'use strict'</span>;
+
+angular.module(<span class="string">'testApp'</span>)
+    .directive(<span class="string">'learnDirective'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+
+        <span class="keyword">return</span> {
+            templateUrl: <span class="string">'app/learnDirective/learnDirective.html'</span>,
+            restrict: <span class="string">'EA'</span>,
+            scope:{
+                ngModel: <span class="string">'='</span>,
+                formName: <span class="string">'@'</span>,
+                obj: <span class="string">'&amp;objInController'</span>
+            },
+            controller: [<span class="string">'$scope'</span>, <span class="string">'$http'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope, $http)</span> {</span>
+                <span class="keyword">var</span> url = <span class="string">"http://api.openweathermap.org/data/2.5/weather?q=Beijing"</span>;
+                $scope.getTemp = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+                    $http({
+                        method: <span class="string">'get'</span>,
+                        url: url
+                    }).success(<span class="function"><span class="keyword">function</span><span class="params">(data)</span> {</span>
+                        $scope.weather = data.weather;
+                    });
+                };
+            }],
+            link: <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attrs)</span> {</span>
+                scope.getTemp();
+                scope.$watch(<span class="string">'weather'</span>, <span class="function"><span class="keyword">function</span><span class="params">(newValue)</span>{</span>
+                      <span class="keyword">if</span>(newValue) {
+                          console.log(newValue[<span class="number">0</span>]);
+                      }
+                })
+            }
+        };
+    });
+</code></pre><p>we’ll need to create a $watch on the weather object. Because we are fetching the weather data asynchronously, we cannot simply write the method expecting the data to be populated for us when the linking function runs. No matter, AngularJS makes this incredibly easy with the built-in function $watch.</p>
+<h3 id="Transclude">Transclude</h3>
+<p>Basicly this option allow you to inbed html code in your directive. There is a very good example: <a href="http://stackoverflow.com/questions/15296284/how-to-understand-the-transclude-of-directive-defination" target="_blank" rel="external">How to understand the <code>transclude</code> of directive defination?</a> </p>
+<h3 id="Replace">Replace</h3>
+<p>Replace the directive tag. <a href="http://stackoverflow.com/questions/22497706/angular-directive-replace-true" target="_blank" rel="external">replace option in angular.js</a></p>
+<h3 id="Difference_between_the_‘controller’,_‘link’_and_‘compile’_functions_when_defining_an_angular-js_directive">Difference between the ‘controller’, ‘link’ and ‘compile’ functions when defining an angular.js directive</h3>
+<p>compile function - use for template DOM manipulation (i.e., manipulation of tElement = template element), hence manipulations that apply to all DOM clones of the template associated with the directive. (If you also need a link function (or pre and post link functions), and you defined a compile function, the compile function must return the link function(s) because the ‘link’ attribute is ignored if the ‘compile’ attribute is defined.)</p>
+<p>link function - normally use for registering DOM listeners (i.e., $watch expressions on the scope) as well as updating the DOM (i.e., manipulation of iElement = individual instance element). It is executed after the template has been cloned — e.g., inside an <code>&lt;li ng-repeat...&gt;</code>, the link function is executed after the <code>&lt;li&gt;</code> template (tElement) has been cloned (into an iElement) for that particular <code>&lt;li&gt;</code> element. A $watch allows a directive to be notified of scope property changes (a scope is associated with each instance), which allows the directive to render an updated instance value to the DOM.</p>
+<p>controller function - must be used when another directive needs to interact with this directive. E.g., on the AngularJS home page, the pane directive needs to add itself to the scope maintained by the tabs directive, hence the tabs directive needs to define a controller method (think API) that the pane directive can access/call. </p>
+<p>For a more in-depth explanation of the tabs and pane directives, and why the tabs directive creates a function on its controller using this (rather than on $scope), please see <a href="http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers/14168699#14168699" target="_blank" rel="external">this vs $scope in AngularJS controllers.</a></p>
 
       
     </div>
