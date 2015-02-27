@@ -81,61 +81,7 @@
     <div class="entry">
       
         <p>今儿群里有人被盗号了，这次闲来无事第一次分析了下钓鱼网站<a href="http://www.xhagri.gov.cn/15.htm?M0Zpp" target="_blank" rel="external">链接</a>的代码。<br><img src="https://dn-cnode.qbox.me/FkjHaheOvyk_a0DdcdNe-H-1DTTW" alt="服务器地址"><br>whois一下发现服务器在HK。再看看里面代码发现也就是最最简单的表单提交：<br> <img src="https://dn-cnode.qbox.me/Fj7EKudx3aMgKn01bZojxGvi6Bts" alt="表单提交部分的代码"><br> 于是我就想恶心恶心这帮人，顺手写了个机器人注入僵尸用户。。</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-</pre></td><td class="code"><pre><span class="keyword">var</span> rest = <span class="built_in">require</span>(<span class="string">'restler'</span>);
-<span class="keyword">var</span> generatePassword = <span class="built_in">require</span>(<span class="string">'password-generator'</span>);
-
-<span class="keyword">var</span> minutes = <span class="number">0.05</span>,
-  the_interval = minutes * <span class="number">60</span> * <span class="number">1000</span>;
-
-setInterval(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-  <span class="keyword">var</span> id = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="built_in">Math</span>.pow(<span class="number">10</span>, <span class="number">8</span>));
-  <span class="keyword">var</span> pw = generatePassword(getRandomInt(<span class="number">6</span>, <span class="number">15</span>), <span class="literal">false</span>);
-  rest.post(<span class="string">'http://xn--a-oda8n.ifcru.org/admin/api.php'</span>, {
-    query: {
-      user: <span class="string">'M0Zpp'</span>
-    },
-    data: {
-      username: id,
-      password: pw
-    },
-  }).on(<span class="string">'complete'</span>, <span class="function"><span class="keyword">function</span><span class="params">(data, response)</span> {</span>
-    <span class="keyword">if</span> (response.statusCode == <span class="number">200</span>) {
-      console.log(<span class="string">'success'</span>);
-    }
-  });
-}, the_interval);
-
-<span class="function"><span class="keyword">function</span> <span class="title">getRandomInt</span><span class="params">(min, max)</span> {</span>
-  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min)) + min;
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> rest = <span class="built_in">require</span>(<span class="string">'restler'</span>);</div><div class="line"><span class="keyword">var</span> generatePassword = <span class="built_in">require</span>(<span class="string">'password-generator'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> minutes = <span class="number">0.05</span>,</div><div class="line">  the_interval = minutes * <span class="number">60</span> * <span class="number">1000</span>;</div><div class="line"></div><div class="line">setInterval(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">var</span> id = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="built_in">Math</span>.pow(<span class="number">10</span>, <span class="number">8</span>));</div><div class="line">  <span class="keyword">var</span> pw = generatePassword(getRandomInt(<span class="number">6</span>, <span class="number">15</span>), <span class="literal">false</span>);</div><div class="line">  rest.post(<span class="string">'http://xn--a-oda8n.ifcru.org/admin/api.php'</span>, {</div><div class="line">    query: {</div><div class="line">      user: <span class="string">'M0Zpp'</span></div><div class="line">    },</div><div class="line">    data: {</div><div class="line">      username: id,</div><div class="line">      password: pw</div><div class="line">    },</div><div class="line">  }).on(<span class="string">'complete'</span>, <span class="function"><span class="keyword">function</span><span class="params">(data, response)</span> </span>{</div><div class="line">    <span class="keyword">if</span> (response.statusCode == <span class="number">200</span>) {</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'success'</span>);</div><div class="line">    }</div><div class="line">  });</div><div class="line">}, the_interval);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandomInt</span><span class="params">(min, max)</span> </span>{</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min)) + min;</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>第一次写这种东西的代码，水平有限哈。。大家有没有神马更好的恶心人得办法？ 欢迎一起讨论！<br>PS: 目前已经五进程攻击一个晚上了，服务器IP还没换，估计快了~</p>
 
@@ -170,73 +116,16 @@ setInterval(<span class="function"><span class="keyword">function</span><span cl
     </header>
     <div class="entry">
       
-        <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-</pre></td><td class="code"><pre><span class="comment">/**
-   * Creates an array with all falsey values of `array` removed. The values
-   * `false`, `null`, `0`, `""`, `undefined` and `NaN` are all falsey.
-   *
-   * @static
-   * @memberOf _
-   * @category Arrays
-   * @param {Array} array The array to compact.
-   * @returns {Array} Returns a new filtered array.
-   * @example
-   *
-   * _.compact([0, 1, false, 2, '', 3]);
-   * // =&gt; [1, 2, 3]
-   */</span>
-  <span class="function"><span class="keyword">function</span> <span class="title">compact</span><span class="params">(array)</span> {</span>
-    <span class="keyword">var</span> index = -<span class="number">1</span>,
-        length = array ? array.length : <span class="number">0</span>,
-        result = [];
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">   * Creates an array with all falsey values of `array` removed. The values</div><div class="line">   * `false`, `null`, `0`, `""`, `undefined` and `NaN` are all falsey.</div><div class="line">   *</div><div class="line">   * @static</div><div class="line">   * @memberOf _</div><div class="line">   * @category Arrays</div><div class="line">   * @param {Array} array The array to compact.</div><div class="line">   * @returns {Array} Returns a new filtered array.</div><div class="line">   * @example</div><div class="line">   *</div><div class="line">   * _.compact([0, 1, false, 2, '', 3]);</div><div class="line">   * // =&gt; [1, 2, 3]</div><div class="line">   */</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">compact</span><span class="params">(array)</span> </span>{</div><div class="line">    <span class="keyword">var</span> index = -<span class="number">1</span>,</div><div class="line">        length = array ? array.length : <span class="number">0</span>,</div><div class="line">        result = [];</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (++index &lt; length) {</div><div class="line">      <span class="keyword">var</span> value = array[index];</div><div class="line">      <span class="keyword">if</span> (value) {</div><div class="line">        result.push(value);</div><div class="line">      }</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">  }</div></pre></td></tr></table></figure>
 
-    <span class="keyword">while</span> (++index &lt; length) {
-      <span class="keyword">var</span> value = array[index];
-      <span class="keyword">if</span> (value) {
-        result.push(value);
-      }
-    }
-    <span class="keyword">return</span> result;
-  }
-</pre></td></tr></table></figure>  
+
 
 <ol>
-<li>First we need to know if the input is an array. The code below <figure class="highlight length"><figcaption><span>= array ? array.length : 0``` detect if the input is not an array, than the length is set to 0 or undefined.</span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>
-<span class="number">2.</span> <span class="keyword">If</span> the input <span class="keyword">is</span> <span class="keyword">not</span> an <span class="keyword">array</span> <span class="keyword">or</span> <span class="keyword">is</span> an empty <span class="keyword">array</span>, this <span class="keyword">function</span> will <span class="keyword">return</span> an empty <span class="keyword">array</span>.
-
-<span class="number">3.</span> <span class="keyword">If</span> the input <span class="keyword">is</span> an unempty <span class="keyword">array</span>, than iterate the <span class="keyword">array</span> <span class="keyword">and</span> <span class="keyword">use</span> this code
-</pre></td></tr></table></figure>if (value){result.push(value);}<code>`` to put all unfalsey value into an empty array.</code>false<code>,</code>null<code>,</code>0<code>,</code>“”<code>,</code>undefined<code>and</code>NaN` are all falsey.</li>
+<li>First we need to know if the input is an array. The code below </li>
 </ol>
+<figure class="highlight length"><figcaption><span>= array ? array.length : 0``` detect if the input is not an array, than the length is set to 0 or undefined.</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="number">2.</span> <span class="keyword">If</span> the input <span class="keyword">is</span> <span class="keyword">not</span> an <span class="keyword">array</span> <span class="keyword">or</span> <span class="keyword">is</span> an empty <span class="keyword">array</span>, this <span class="keyword">function</span> will <span class="keyword">return</span> an empty <span class="keyword">array</span>.</div><div class="line"></div><div class="line"><span class="number">3.</span> <span class="keyword">If</span> the input <span class="keyword">is</span> an unempty <span class="keyword">array</span>, than iterate the <span class="keyword">array</span> <span class="keyword">and</span> <span class="keyword">use</span> this code</div></pre></td></tr></table></figure>
+
+<p>if (value){result.push(value);}<code>`` to put all unfalsey value into an empty array.</code>false<code>,</code>null<code>,</code>0<code>,</code>“”<code>,</code>undefined<code>and</code>NaN` are all falsey.</p>
 
       
     </div>
@@ -378,1150 +267,188 @@ setInterval(<span class="function"><span class="keyword">function</span><span cl
       
         <h2 id="Objects">Objects</h2>
 <ul>
-<li><p>Use the literal syntax for object creation.</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="keyword">var</span> item = <span class="keyword">new</span> <span class="built_in">Object</span>();
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> item = {};
-</pre></td></tr></table></figure>
-</li>
-<li><p>Don’t use <a href="http://es5.github.io/#x7.6.1" target="_blank" rel="external">reserved words</a> as keys. It won’t work in IE8. <a href="https://github.com/airbnb/javascript/issues/61" target="_blank" rel="external">More info</a></p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="keyword">var</span> superman = {
-  <span class="keyword">default</span>: { clark: <span class="string">'kent'</span> },
-  private: <span class="literal">true</span>
-};
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> superman = {
-  defaults: { clark: <span class="string">'kent'</span> },
-  hidden: <span class="literal">true</span>
-};
-</pre></td></tr></table></figure>
-</li>
-<li><p>Use readable synonyms in place of reserved words.</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="keyword">var</span> superman = {
-  <span class="keyword">class</span>: <span class="string">'alien'</span>
-};
-
-<span class="comment">// bad</span>
-<span class="keyword">var</span> superman = {
-  klass: <span class="string">'alien'</span>
-};
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> superman = {
-  type: <span class="string">'alien'</span>
-};
-</pre></td></tr></table></figure>
-
-</li>
+<li>Use the literal syntax for object creation.</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> item = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> item = {};</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Don’t use <a href="http://es5.github.io/#x7.6.1" target="_blank" rel="external">reserved words</a> as keys. It won’t work in IE8. <a href="https://github.com/airbnb/javascript/issues/61" target="_blank" rel="external">More info</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> superman = {</div><div class="line">  <span class="keyword">default</span>: { clark: <span class="string">'kent'</span> },</div><div class="line">  private: <span class="literal">true</span></div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> superman = {</div><div class="line">  defaults: { clark: <span class="string">'kent'</span> },</div><div class="line">  hidden: <span class="literal">true</span></div><div class="line">};</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Use readable synonyms in place of reserved words.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> superman = {</div><div class="line">  <span class="keyword">class</span>: <span class="string">'alien'</span></div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> superman = {</div><div class="line">  klass: <span class="string">'alien'</span></div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> superman = {</div><div class="line">  type: <span class="string">'alien'</span></div><div class="line">};</div></pre></td></tr></table></figure>
+
+
 <h2 id="Arrays">Arrays</h2>
 <ul>
-<li><p>Use the literal syntax for array creation</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="keyword">var</span> items = <span class="keyword">new</span> <span class="built_in">Array</span>();
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> items = [];
-</pre></td></tr></table></figure>
-</li>
-<li><p>If you don’t know array length use Array#push.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="keyword">var</span> someStack = [];
-
-
-<span class="comment">// bad</span>
-someStack[someStack.length] = <span class="string">'abracadabra'</span>;
-
-<span class="comment">// good</span>
-someStack.push(<span class="string">'abracadabra'</span>);
-</pre></td></tr></table></figure>
-</li>
-<li><p>When you need to copy an array use Array#slice. <a href="http://jsperf.com/converting-arguments-to-an-array/7" target="_blank" rel="external">jsPerf</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> len = items.length,
-    itemsCopy = [],
-    i;
-
-<span class="comment">// bad</span>
-<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) {
-  itemsCopy[i] = items[i];
-}
-
-<span class="comment">// good</span>
-itemsCopy = items.slice();
-</pre></td></tr></table></figure>
-</li>
-<li><p>To convert an array-like object to an array, use Array#slice.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">trigger</span><span class="params">()</span> {</span>
-  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);
-  ...
-}
-</pre></td></tr></table></figure>
-
-</li>
+<li>Use the literal syntax for array creation</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> items = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> items = [];</div></pre></td></tr></table></figure>
+
+<ul>
+<li>If you don’t know array length use Array#push.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> someStack = [];</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line">someStack[someStack.length] = <span class="string">'abracadabra'</span>;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">someStack.push(<span class="string">'abracadabra'</span>);</div></pre></td></tr></table></figure>
+
+<ul>
+<li>When you need to copy an array use Array#slice. <a href="http://jsperf.com/converting-arguments-to-an-array/7" target="_blank" rel="external">jsPerf</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> len = items.length,</div><div class="line">    itemsCopy = [],</div><div class="line">    i;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) {</div><div class="line">  itemsCopy[i] = items[i];</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">itemsCopy = items.slice();</div></pre></td></tr></table></figure>
+
+<ul>
+<li>To convert an array-like object to an array, use Array#slice.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">trigger</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">  ...</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
 <h2 id="Strings">Strings</h2>
 <ul>
-<li><p>Use single quotes <code>&#39;&#39;</code> for strings</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="keyword">var</span> name = <span class="string">"Bob Parr"</span>;
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> name = <span class="string">'Bob Parr'</span>;
-
-<span class="comment">// bad</span>
-<span class="keyword">var</span> fullName = <span class="string">"Bob "</span> + <span class="keyword">this</span>.lastName;
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> fullName = <span class="string">'Bob '</span> + <span class="keyword">this</span>.lastName;
-</pre></td></tr></table></figure>
-</li>
-<li><p>Strings longer than 80 characters should be written across multiple lines using string concatenation.</p>
-</li>
-<li><p>Note: If overused, long strings with concatenation could impact performance. <a href="http://jsperf.com/ya-string-concat" target="_blank" rel="external">jsPerf</a> &amp; <a href="https://github.com/airbnb/javascript/issues/40" target="_blank" rel="external">Discussion</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="keyword">var</span> errorMessage = <span class="string">'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.'</span>;
-
-<span class="comment">// bad</span>
-<span class="keyword">var</span> errorMessage = <span class="string">'This is a super long error that was thrown because \
-of Batman. When you stop to think about how Batman had anything to do \
-with this, you would get nowhere \
-fast.'</span>;
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> errorMessage = <span class="string">'This is a super long error that was thrown because '</span> +
-  <span class="string">'of Batman. When you stop to think about how Batman had anything to do '</span> +
-  <span class="string">'with this, you would get nowhere fast.'</span>;
-</pre></td></tr></table></figure>
-</li>
-<li><p>When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: <a href="http://jsperf.com/string-vs-array-concat/2" target="_blank" rel="external">jsPerf</a>. Document of join function: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join" target="_blank" rel="external">MDN</a>.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-</pre></td><td class="code"><pre><span class="keyword">var</span> items,
-    messages,
-    length,
-    i;
-
-messages = [{
-  state: <span class="string">'success'</span>,
-  message: <span class="string">'This one worked.'</span>
-}, {
-  state: <span class="string">'success'</span>,
-  message: <span class="string">'This one worked as well.'</span>
-}, {
-  state: <span class="string">'error'</span>,
-  message: <span class="string">'This one did not work.'</span>
-}];
-
-length = messages.length;
-
-<span class="comment">// bad</span>
-<span class="function"><span class="keyword">function</span> <span class="title">inbox</span><span class="params">(messages)</span> {</span>
-  items = <span class="string">'&lt;ul&gt;'</span>;
-
-  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; length; i++) {
-    items += <span class="string">'&lt;li&gt;'</span> + messages[i].message + <span class="string">'&lt;/li&gt;'</span>;
-  }
-
-  <span class="keyword">return</span> items + <span class="string">'&lt;/ul&gt;'</span>;
-}
-
-<span class="comment">// good</span>
-<span class="function"><span class="keyword">function</span> <span class="title">inbox</span><span class="params">(messages)</span> {</span>
-  items = [];
-
-  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; length; i++) {
-    items[i] = messages[i].message;
-  }
-
-  <span class="keyword">return</span> <span class="string">'&lt;ul&gt;&lt;li&gt;'</span> + items.join(<span class="string">'&lt;/li&gt;&lt;li&gt;'</span>) + <span class="string">'&lt;/li&gt;&lt;/ul&gt;'</span>;
-}
-</pre></td></tr></table></figure>
-
-</li>
+<li>Use single quotes <code>&#39;&#39;</code> for strings</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> name = <span class="string">"Bob Parr"</span>;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> name = <span class="string">'Bob Parr'</span>;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> fullName = <span class="string">"Bob "</span> + <span class="keyword">this</span>.lastName;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> fullName = <span class="string">'Bob '</span> + <span class="keyword">this</span>.lastName;</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Strings longer than 80 characters should be written across multiple lines using string concatenation.</li>
+<li>Note: If overused, long strings with concatenation could impact performance. <a href="http://jsperf.com/ya-string-concat" target="_blank" rel="external">jsPerf</a> &amp; <a href="https://github.com/airbnb/javascript/issues/40" target="_blank" rel="external">Discussion</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> errorMessage = <span class="string">'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.'</span>;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> errorMessage = <span class="string">'This is a super long error that was thrown because \</span></div><div class="line">of Batman. When you stop to think about how Batman had anything to do \</div><div class="line">with this, you would get nowhere \</div><div class="line">fast.';</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> errorMessage = <span class="string">'This is a super long error that was thrown because '</span> +</div><div class="line">  <span class="string">'of Batman. When you stop to think about how Batman had anything to do '</span> +</div><div class="line">  <span class="string">'with this, you would get nowhere fast.'</span>;</div></pre></td></tr></table></figure>
+
+<ul>
+<li>When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: <a href="http://jsperf.com/string-vs-array-concat/2" target="_blank" rel="external">jsPerf</a>. Document of join function: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join" target="_blank" rel="external">MDN</a>.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items,</div><div class="line">    messages,</div><div class="line">    length,</div><div class="line">    i;</div><div class="line"></div><div class="line">messages = [{</div><div class="line">  state: <span class="string">'success'</span>,</div><div class="line">  message: <span class="string">'This one worked.'</span></div><div class="line">}, {</div><div class="line">  state: <span class="string">'success'</span>,</div><div class="line">  message: <span class="string">'This one worked as well.'</span></div><div class="line">}, {</div><div class="line">  state: <span class="string">'error'</span>,</div><div class="line">  message: <span class="string">'This one did not work.'</span></div><div class="line">}];</div><div class="line"></div><div class="line">length = messages.length;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inbox</span><span class="params">(messages)</span> </span>{</div><div class="line">  items = <span class="string">'&lt;ul&gt;'</span>;</div><div class="line"></div><div class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; length; i++) {</div><div class="line">    items += <span class="string">'&lt;li&gt;'</span> + messages[i].message + <span class="string">'&lt;/li&gt;'</span>;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keyword">return</span> items + <span class="string">'&lt;/ul&gt;'</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inbox</span><span class="params">(messages)</span> </span>{</div><div class="line">  items = [];</div><div class="line"></div><div class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; length; i++) {</div><div class="line">    items[i] = messages[i].message;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="string">'&lt;ul&gt;&lt;li&gt;'</span> + items.join(<span class="string">'&lt;/li&gt;&lt;li&gt;'</span>) + <span class="string">'&lt;/li&gt;&lt;/ul&gt;'</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
 <h2 id="Variables">Variables</h2>
 <ul>
-<li><p>Use one <code>var</code> declaration for multiple variables and declare each variable on a newline.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="keyword">var</span> items = getItems();
-<span class="keyword">var</span> goSportsTeam = <span class="literal">true</span>;
-<span class="keyword">var</span> dragonball = <span class="string">'z'</span>;
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> items = getItems(),
-    goSportsTeam = <span class="literal">true</span>,
-    dragonball = <span class="string">'z'</span>;
-</pre></td></tr></table></figure>
-</li>
-<li><p>Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="keyword">var</span> i, len, dragonball,
-    items = getItems(),
-    goSportsTeam = <span class="literal">true</span>;
-
-<span class="comment">// bad</span>
-<span class="keyword">var</span> i, items = getItems(),
-    dragonball,
-    goSportsTeam = <span class="literal">true</span>,
-    len;
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> items = getItems(),
-    goSportsTeam = <span class="literal">true</span>,
-    dragonball,
-    length,
-    i;
-</pre></td></tr></table></figure>
-</li>
-<li><p>Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-  test();
-  console.log(<span class="string">'doing stuff..'</span>);
-
-  <span class="comment">//..other stuff..</span>
-
-  <span class="keyword">var</span> name = getName();
-
-  <span class="keyword">if</span> (name === <span class="string">'test'</span>) {
-    <span class="keyword">return</span> <span class="literal">false</span>;
-  }
-
-  <span class="keyword">return</span> name;
-}
-
-<span class="comment">// good</span>
-<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-  <span class="keyword">var</span> name = getName();
-
-  test();
-  console.log(<span class="string">'doing stuff..'</span>);
-
-  <span class="comment">//..other stuff..</span>
-
-  <span class="keyword">if</span> (name === <span class="string">'test'</span>) {
-    <span class="keyword">return</span> <span class="literal">false</span>;
-  }
-
-  <span class="keyword">return</span> name;
-}
-
-<span class="comment">// bad</span>
-<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-  <span class="keyword">var</span> name = getName();
-
-  <span class="keyword">if</span> (!<span class="built_in">arguments</span>.length) {
-    <span class="keyword">return</span> <span class="literal">false</span>;
-  }
-
-  <span class="keyword">return</span> <span class="literal">true</span>;
-}
-
-<span class="comment">// good</span>
-<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-  <span class="keyword">if</span> (!<span class="built_in">arguments</span>.length) {
-    <span class="keyword">return</span> <span class="literal">false</span>;
-  }
-
-  <span class="keyword">var</span> name = getName();
-
-  <span class="keyword">return</span> <span class="literal">true</span>;
-}
-</pre></td></tr></table></figure>
-
-</li>
+<li>Use one <code>var</code> declaration for multiple variables and declare each variable on a newline.</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> items = getItems();</div><div class="line"><span class="keyword">var</span> goSportsTeam = <span class="literal">true</span>;</div><div class="line"><span class="keyword">var</span> dragonball = <span class="string">'z'</span>;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> items = getItems(),</div><div class="line">    goSportsTeam = <span class="literal">true</span>,</div><div class="line">    dragonball = <span class="string">'z'</span>;</div></pre></td></tr></table></figure>
+
+
+<ul>
+<li>Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> i, len, dragonball,</div><div class="line">    items = getItems(),</div><div class="line">    goSportsTeam = <span class="literal">true</span>;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> i, items = getItems(),</div><div class="line">    dragonball,</div><div class="line">    goSportsTeam = <span class="literal">true</span>,</div><div class="line">    len;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> items = getItems(),</div><div class="line">    goSportsTeam = <span class="literal">true</span>,</div><div class="line">    dragonball,</div><div class="line">    length,</div><div class="line">    i;</div></pre></td></tr></table></figure>
+
+
+<ul>
+<li>Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">  test();</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'doing stuff..'</span>);</div><div class="line"></div><div class="line">  <span class="comment">//..other stuff..</span></div><div class="line"></div><div class="line">  <span class="keyword">var</span> name = getName();</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (name === <span class="string">'test'</span>) {</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keyword">return</span> name;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">var</span> name = getName();</div><div class="line"></div><div class="line">  test();</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'doing stuff..'</span>);</div><div class="line"></div><div class="line">  <span class="comment">//..other stuff..</span></div><div class="line"></div><div class="line">  <span class="keyword">if</span> (name === <span class="string">'test'</span>) {</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keyword">return</span> name;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">var</span> name = getName();</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (!<span class="built_in">arguments</span>.length) {</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">if</span> (!<span class="built_in">arguments</span>.length) {</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keyword">var</span> name = getName();</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
 <h2 id="Comments">Comments</h2>
 <ul>
-<li><p>Use <code>/** ... */</code> for multiline comments. Include a description, specify types and values for all parameters and return values.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="comment">// make() returns a new element</span>
-<span class="comment">// based on the passed in tag name</span>
-<span class="comment">//</span>
-<span class="comment">// @param &lt;String&gt; tag</span>
-<span class="comment">// @return &lt;Element&gt; element</span>
-<span class="function"><span class="keyword">function</span> <span class="title">make</span><span class="params">(tag)</span> {</span>
-
-  <span class="comment">// ...stuff...</span>
-
-  <span class="keyword">return</span> element;
-}
-
-<span class="comment">// good</span>
-<span class="comment">/**
- * make() returns a new element
- * based on the passed in tag name
- *
- * @param &lt;String&gt; tag
- * @return &lt;Element&gt; element
- */</span>
-<span class="function"><span class="keyword">function</span> <span class="title">make</span><span class="params">(tag)</span> {</span>
-
-  <span class="comment">// ...stuff...</span>
-
-  <span class="keyword">return</span> element;
-}
-</pre></td></tr></table></figure>
-</li>
-<li><p>Use <code>//</code> for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.</p>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="keyword">var</span> active = <span class="literal">true</span>;  <span class="comment">// is current tab</span>
-
-<span class="comment">// good</span>
-<span class="comment">// is current tab</span>
-<span class="keyword">var</span> active = <span class="literal">true</span>;
-
-<span class="comment">// bad</span>
-<span class="function"><span class="keyword">function</span> <span class="title">getType</span><span class="params">()</span> {</span>
-  console.log(<span class="string">'fetching type...'</span>);
-  <span class="comment">// set the default type to 'no type'</span>
-  <span class="keyword">var</span> type = <span class="keyword">this</span>._type || <span class="string">'no type'</span>;
-
-  <span class="keyword">return</span> type;
-}
-
-<span class="comment">// good</span>
-<span class="function"><span class="keyword">function</span> <span class="title">getType</span><span class="params">()</span> {</span>
-  console.log(<span class="string">'fetching type...'</span>);
-
-  <span class="comment">// set the default type to 'no type'</span>
-  <span class="keyword">var</span> type = <span class="keyword">this</span>._type || <span class="string">'no type'</span>;
-
-  <span class="keyword">return</span> type;
-}
-</pre></td></tr></table></figure></p>
-<h2 id="Whitespace">Whitespace</h2>
-</li>
-<li><p>Use indentation when making long method chains.</p>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-$(<span class="string">'#items'</span>).find(<span class="string">'.selected'</span>).highlight().end().find(<span class="string">'.open'</span>).updateCount();
-
-<span class="comment">// good</span>
-$(<span class="string">'#items'</span>)
-  .find(<span class="string">'.selected'</span>)
-    .highlight()
-    .end()
-  .find(<span class="string">'.open'</span>)
-    .updateCount();
-
-<span class="comment">// bad</span>
-<span class="keyword">var</span> leds = stage.selectAll(<span class="string">'.led'</span>).data(data).enter().append(<span class="string">'svg:svg'</span>).class(<span class="string">'led'</span>, <span class="literal">true</span>)
-    .attr(<span class="string">'width'</span>,  (radius + margin) * <span class="number">2</span>).append(<span class="string">'svg:g'</span>)
-    .attr(<span class="string">'transform'</span>, <span class="string">'translate('</span> + (radius + margin) + <span class="string">','</span> + (radius + margin) + <span class="string">')'</span>)
-    .call(tron.led);
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> leds = stage.selectAll(<span class="string">'.led'</span>)
-    .data(data)
-  .enter().append(<span class="string">'svg:svg'</span>)
-    .class(<span class="string">'led'</span>, <span class="literal">true</span>)
-    .attr(<span class="string">'width'</span>,  (radius + margin) * <span class="number">2</span>)
-  .append(<span class="string">'svg:g'</span>)
-    .attr(<span class="string">'transform'</span>, <span class="string">'translate('</span> + (radius + margin) + <span class="string">','</span> + (radius + margin) + <span class="string">')'</span>)
-    .call(tron.led);
-</pre></td></tr></table></figure></p>
-<h2 id="Type_Casting_&amp;_Coercion">Type Casting &amp; Coercion</h2>
-</li>
-<li><p>Perform type coercion at the beginning of the statement.</p>
-</li>
-<li><p>Strings:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="comment">//  =&gt; this.reviewScore = 9;</span>
-
-<span class="comment">// bad</span>
-<span class="keyword">var</span> totalScore = <span class="keyword">this</span>.reviewScore + <span class="string">''</span>;
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> totalScore = <span class="string">''</span> + <span class="keyword">this</span>.reviewScore;
-
-<span class="comment">// bad</span>
-<span class="keyword">var</span> totalScore = <span class="string">''</span> + <span class="keyword">this</span>.reviewScore + <span class="string">' total score'</span>;
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> totalScore = <span class="keyword">this</span>.reviewScore + <span class="string">' total score'</span>;
-</pre></td></tr></table></figure>
-</li>
-<li><p>Use <code>parseInt</code> for Numbers and always with a radix for type casting.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-</pre></td><td class="code"><pre><span class="keyword">var</span> inputValue = <span class="string">'4'</span>;
-
-<span class="comment">// bad</span>
-<span class="keyword">var</span> val = <span class="keyword">new</span> <span class="built_in">Number</span>(inputValue);
-
-<span class="comment">// bad</span>
-<span class="keyword">var</span> val = +inputValue;
-
-<span class="comment">// bad</span>
-<span class="keyword">var</span> val = inputValue &gt;&gt; <span class="number">0</span>;
-
-<span class="comment">// bad</span>
-<span class="keyword">var</span> val = <span class="built_in">parseInt</span>(inputValue);
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> val = <span class="built_in">Number</span>(inputValue);
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> val = <span class="built_in">parseInt</span>(inputValue, <span class="number">10</span>);
-</pre></td></tr></table></figure>
-</li>
-<li><p>If for whatever reason you are doing something wild and <code>parseInt</code> is your bottleneck and need to use Bitshift for <a href="http://jsperf.com/coercion-vs-casting/3" target="_blank" rel="external">performance reasons</a>, leave a comment explaining why and what you’re doing.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="comment">// good</span>
-<span class="comment">/**
- * parseInt was the reason my code was slow.
- * Bitshifting the String to coerce it to a
- * Number made it a lot faster.
- */</span>
-<span class="keyword">var</span> val = inputValue &gt;&gt; <span class="number">0</span>;
-</pre></td></tr></table></figure>
-</li>
-<li><p><strong>Note:</strong> Be careful when using bitshift operations. Numbers are represented as <a href="http://es5.github.io/#x4.3.19" target="_blank" rel="external">64-bit values</a>, but Bitshift operations always return a 32-bit integer (<a href="http://es5.github.io/#x11.7" target="_blank" rel="external">source</a>). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. <a href="https://github.com/airbnb/javascript/issues/109" target="_blank" rel="external">Discussion</a>. Largest signed 32-bit Int is 2,147,483,647:</p>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="number">2147483647</span> &gt;&gt; <span class="number">0</span> <span class="comment">//=&gt; 2147483647</span>
-<span class="number">2147483648</span> &gt;&gt; <span class="number">0</span> <span class="comment">//=&gt; -2147483648</span>
-<span class="number">2147483649</span> &gt;&gt; <span class="number">0</span> <span class="comment">//=&gt; -2147483647</span>
-</pre></td></tr></table></figure></p>
-<h2 id="Naming_Conventions">Naming Conventions</h2>
-</li>
-<li><p>Avoid single letter names. Be descriptive with your naming.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="function"><span class="keyword">function</span> <span class="title">q</span><span class="params">()</span> {</span>
-  <span class="comment">// ...stuff...</span>
-}
-
-<span class="comment">// good</span>
-<span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">()</span> {</span>
-  <span class="comment">// ..stuff..</span>
-}
-</pre></td></tr></table></figure>
-</li>
-<li><p>Use camelCase when naming objects, functions, and instances</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="keyword">var</span> OBJEcttsssss = {};
-<span class="keyword">var</span> this_is_my_object = {};
-<span class="function"><span class="keyword">function</span> <span class="title">c</span><span class="params">()</span> {</span>}
-<span class="keyword">var</span> u = <span class="keyword">new</span> user({
-  name: <span class="string">'Bob Parr'</span>
-});
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> thisIsMyObject = {};
-<span class="function"><span class="keyword">function</span> <span class="title">thisIsMyFunction</span><span class="params">()</span> {</span>}
-<span class="keyword">var</span> user = <span class="keyword">new</span> User({
-  name: <span class="string">'Bob Parr'</span>
-});
-</pre></td></tr></table></figure>
-</li>
-<li><p>Use PascalCase when naming constructors or classes</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="function"><span class="keyword">function</span> <span class="title">user</span><span class="params">(options)</span> {</span>
-  <span class="keyword">this</span>.name = options.name;
-}
-
-<span class="keyword">var</span> bad = <span class="keyword">new</span> user({
-  name: <span class="string">'nope'</span>
-});
-
-<span class="comment">// good</span>
-<span class="function"><span class="keyword">function</span> <span class="title">User</span><span class="params">(options)</span> {</span>
-  <span class="keyword">this</span>.name = options.name;
-}
-
-<span class="keyword">var</span> good = <span class="keyword">new</span> User({
-  name: <span class="string">'yup'</span>
-});
-</pre></td></tr></table></figure>
-</li>
-<li><p>Use a leading underscore <code>_</code> when naming private properties</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="keyword">this</span>.__firstName__ = <span class="string">'Panda'</span>;
-<span class="keyword">this</span>.firstName_ = <span class="string">'Panda'</span>;
-
-<span class="comment">// good</span>
-<span class="keyword">this</span>._firstName = <span class="string">'Panda'</span>;
-</pre></td></tr></table></figure>
-</li>
-<li><p>When saving a reference to <code>this</code> use <code>_this</code>.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-  <span class="keyword">var</span> self = <span class="keyword">this</span>;
-  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    console.log(self);
-  };
-}
-
-<span class="comment">// bad</span>
-<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-  <span class="keyword">var</span> that = <span class="keyword">this</span>;
-  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    console.log(that);
-  };
-}
-
-<span class="comment">// good</span>
-<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-  <span class="keyword">var</span> _this = <span class="keyword">this</span>;
-  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    console.log(_this);
-  };
-}
-</pre></td></tr></table></figure>
-</li>
-<li><p>Name your functions. This is helpful for stack traces.</p>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="keyword">var</span> log = <span class="function"><span class="keyword">function</span><span class="params">(msg)</span> {</span>
-  console.log(msg);
-};
-
-<span class="comment">// good</span>
-<span class="keyword">var</span> log = <span class="function"><span class="keyword">function</span> <span class="title">log</span><span class="params">(msg)</span> {</span>
-  console.log(msg);
-};
-</pre></td></tr></table></figure></p>
-<h2 id="Constructors">Constructors</h2>
-</li>
-<li><p>Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you’ll overwrite the base!</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">Jedi</span><span class="params">()</span> {</span>
-  console.log(<span class="string">'new jedi'</span>);
-}
-
-<span class="comment">// bad</span>
-Jedi.prototype = {
-  fight: <span class="function"><span class="keyword">function</span> <span class="title">fight</span><span class="params">()</span> {</span>
-    console.log(<span class="string">'fighting'</span>);
-  },
-
-  block: <span class="function"><span class="keyword">function</span> <span class="title">block</span><span class="params">()</span> {</span>
-    console.log(<span class="string">'blocking'</span>);
-  }
-};
-
-<span class="comment">// good</span>
-Jedi.prototype.fight = <span class="function"><span class="keyword">function</span> <span class="title">fight</span><span class="params">()</span> {</span>
-  console.log(<span class="string">'fighting'</span>);
-};
-
-Jedi.prototype.block = <span class="function"><span class="keyword">function</span> <span class="title">block</span><span class="params">()</span> {</span>
-  console.log(<span class="string">'blocking'</span>);
-};
-</pre></td></tr></table></figure>
-</li>
-<li><p>Methods can return <code>this</code> to help with method chaining.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-Jedi.prototype.jump = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-  <span class="keyword">this</span>.jumping = <span class="literal">true</span>;
-  <span class="keyword">return</span> <span class="literal">true</span>;
-};
-
-Jedi.prototype.setHeight = <span class="function"><span class="keyword">function</span><span class="params">(height)</span> {</span>
-  <span class="keyword">this</span>.height = height;
-};
-
-<span class="keyword">var</span> luke = <span class="keyword">new</span> Jedi();
-luke.jump(); <span class="comment">// =&gt; true</span>
-luke.setHeight(<span class="number">20</span>) <span class="comment">// =&gt; undefined</span>
-
-<span class="comment">// good</span>
-Jedi.prototype.jump = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-  <span class="keyword">this</span>.jumping = <span class="literal">true</span>;
-  <span class="keyword">return</span> <span class="keyword">this</span>;
-};
-
-Jedi.prototype.setHeight = <span class="function"><span class="keyword">function</span><span class="params">(height)</span> {</span>
-  <span class="keyword">this</span>.height = height;
-  <span class="keyword">return</span> <span class="keyword">this</span>;
-};
-
-<span class="keyword">var</span> luke = <span class="keyword">new</span> Jedi();
-
-luke.jump()
-  .setHeight(<span class="number">20</span>);
-</pre></td></tr></table></figure>
-
-
-</li>
+<li>Use <code>/** ... */</code> for multiline comments. Include a description, specify types and values for all parameters and return values.</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="comment">// make() returns a new element</span></div><div class="line"><span class="comment">// based on the passed in tag name</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// @param &lt;String&gt; tag</span></div><div class="line"><span class="comment">// @return &lt;Element&gt; element</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">make</span><span class="params">(tag)</span> </span>{</div><div class="line"></div><div class="line">  <span class="comment">// ...stuff...</span></div><div class="line"></div><div class="line">  <span class="keyword">return</span> element;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * make() returns a new element</div><div class="line"> * based on the passed in tag name</div><div class="line"> *</div><div class="line"> * @param &lt;String&gt; tag</div><div class="line"> * @return &lt;Element&gt; element</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">make</span><span class="params">(tag)</span> </span>{</div><div class="line"></div><div class="line">  <span class="comment">// ...stuff...</span></div><div class="line"></div><div class="line">  <span class="keyword">return</span> element;</div><div class="line">}</div></pre></td></tr></table></figure>
+
 <ul>
-<li><p>It’s okay to write a custom toString() method, just make sure it works successfully and causes no side effects.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">Jedi</span><span class="params">(options)</span> {</span>
-  options || (options = {});
-  <span class="keyword">this</span>.name = options.name || <span class="string">'no name'</span>;
-}
-
-Jedi.prototype.getName = <span class="function"><span class="keyword">function</span> <span class="title">getName</span><span class="params">()</span> {</span>
-  <span class="keyword">return</span> <span class="keyword">this</span>.name;
-};
-
-Jedi.prototype.toString = <span class="function"><span class="keyword">function</span> <span class="title">toString</span><span class="params">()</span> {</span>
-  <span class="keyword">return</span> <span class="string">'Jedi - '</span> + <span class="keyword">this</span>.getName();
-};
-</pre></td></tr></table></figure>
-
-</li>
+<li>Use <code>//</code> for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> active = <span class="literal">true</span>;  <span class="comment">// is current tab</span></div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="comment">// is current tab</span></div><div class="line"><span class="keyword">var</span> active = <span class="literal">true</span>;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getType</span><span class="params">()</span> </span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'fetching type...'</span>);</div><div class="line">  <span class="comment">// set the default type to 'no type'</span></div><div class="line">  <span class="keyword">var</span> type = <span class="keyword">this</span>._type || <span class="string">'no type'</span>;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> type;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getType</span><span class="params">()</span> </span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'fetching type...'</span>);</div><div class="line"></div><div class="line">  <span class="comment">// set the default type to 'no type'</span></div><div class="line">  <span class="keyword">var</span> type = <span class="keyword">this</span>._type || <span class="string">'no type'</span>;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> type;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="Whitespace">Whitespace</h2>
+<ul>
+<li>Use indentation when making long method chains.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">$(<span class="string">'#items'</span>).find(<span class="string">'.selected'</span>).highlight().end().find(<span class="string">'.open'</span>).updateCount();</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">$(<span class="string">'#items'</span>)</div><div class="line">  .find(<span class="string">'.selected'</span>)</div><div class="line">    .highlight()</div><div class="line">    .end()</div><div class="line">  .find(<span class="string">'.open'</span>)</div><div class="line">    .updateCount();</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> leds = stage.selectAll(<span class="string">'.led'</span>).data(data).enter().append(<span class="string">'svg:svg'</span>).class(<span class="string">'led'</span>, <span class="literal">true</span>)</div><div class="line">    .attr(<span class="string">'width'</span>,  (radius + margin) * <span class="number">2</span>).append(<span class="string">'svg:g'</span>)</div><div class="line">    .attr(<span class="string">'transform'</span>, <span class="string">'translate('</span> + (radius + margin) + <span class="string">','</span> + (radius + margin) + <span class="string">')'</span>)</div><div class="line">    .call(tron.led);</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> leds = stage.selectAll(<span class="string">'.led'</span>)</div><div class="line">    .data(data)</div><div class="line">  .enter().append(<span class="string">'svg:svg'</span>)</div><div class="line">    .class(<span class="string">'led'</span>, <span class="literal">true</span>)</div><div class="line">    .attr(<span class="string">'width'</span>,  (radius + margin) * <span class="number">2</span>)</div><div class="line">  .append(<span class="string">'svg:g'</span>)</div><div class="line">    .attr(<span class="string">'transform'</span>, <span class="string">'translate('</span> + (radius + margin) + <span class="string">','</span> + (radius + margin) + <span class="string">')'</span>)</div><div class="line">    .call(tron.led);</div></pre></td></tr></table></figure>
+
+<h2 id="Type_Casting_&amp;_Coercion">Type Casting &amp; Coercion</h2>
+<ul>
+<li>Perform type coercion at the beginning of the statement.</li>
+<li>Strings:</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  =&gt; this.reviewScore = 9;</span></div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> totalScore = <span class="keyword">this</span>.reviewScore + <span class="string">''</span>;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> totalScore = <span class="string">''</span> + <span class="keyword">this</span>.reviewScore;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> totalScore = <span class="string">''</span> + <span class="keyword">this</span>.reviewScore + <span class="string">' total score'</span>;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> totalScore = <span class="keyword">this</span>.reviewScore + <span class="string">' total score'</span>;</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Use <code>parseInt</code> for Numbers and always with a radix for type casting.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> inputValue = <span class="string">'4'</span>;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> val = <span class="keyword">new</span> <span class="built_in">Number</span>(inputValue);</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> val = +inputValue;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> val = inputValue &gt;&gt; <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> val = <span class="built_in">parseInt</span>(inputValue);</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> val = <span class="built_in">Number</span>(inputValue);</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> val = <span class="built_in">parseInt</span>(inputValue, <span class="number">10</span>);</div></pre></td></tr></table></figure>
+
+<ul>
+<li>If for whatever reason you are doing something wild and <code>parseInt</code> is your bottleneck and need to use Bitshift for <a href="http://jsperf.com/coercion-vs-casting/3" target="_blank" rel="external">performance reasons</a>, leave a comment explaining why and what you’re doing.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// good</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * parseInt was the reason my code was slow.</div><div class="line"> * Bitshifting the String to coerce it to a</div><div class="line"> * Number made it a lot faster.</div><div class="line"> */</div><div class="line"><span class="keyword">var</span> val = inputValue &gt;&gt; <span class="number">0</span>;</div></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>Note:</strong> Be careful when using bitshift operations. Numbers are represented as <a href="http://es5.github.io/#x4.3.19" target="_blank" rel="external">64-bit values</a>, but Bitshift operations always return a 32-bit integer (<a href="http://es5.github.io/#x11.7" target="_blank" rel="external">source</a>). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. <a href="https://github.com/airbnb/javascript/issues/109" target="_blank" rel="external">Discussion</a>. Largest signed 32-bit Int is 2,147,483,647:</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">2147483647</span> &gt;&gt; <span class="number">0</span> <span class="comment">//=&gt; 2147483647</span></div><div class="line"><span class="number">2147483648</span> &gt;&gt; <span class="number">0</span> <span class="comment">//=&gt; -2147483648</span></div><div class="line"><span class="number">2147483649</span> &gt;&gt; <span class="number">0</span> <span class="comment">//=&gt; -2147483647</span></div></pre></td></tr></table></figure>
+
+<h2 id="Naming_Conventions">Naming Conventions</h2>
+<ul>
+<li>Avoid single letter names. Be descriptive with your naming.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">q</span><span class="params">()</span> </span>{</div><div class="line">  <span class="comment">// ...stuff...</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">()</span> </span>{</div><div class="line">  <span class="comment">// ..stuff..</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Use camelCase when naming objects, functions, and instances</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> OBJEcttsssss = {};</div><div class="line"><span class="keyword">var</span> this_is_my_object = {};</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span><span class="params">()</span> </span>{}</div><div class="line"><span class="keyword">var</span> u = <span class="keyword">new</span> user({</div><div class="line">  name: <span class="string">'Bob Parr'</span></div><div class="line">});</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> thisIsMyObject = {};</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">thisIsMyFunction</span><span class="params">()</span> </span>{}</div><div class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> User({</div><div class="line">  name: <span class="string">'Bob Parr'</span></div><div class="line">});</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Use PascalCase when naming constructors or classes</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">user</span><span class="params">(options)</span> </span>{</div><div class="line">  <span class="keyword">this</span>.name = options.name;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">var</span> bad = <span class="keyword">new</span> user({</div><div class="line">  name: <span class="string">'nope'</span></div><div class="line">});</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">User</span><span class="params">(options)</span> </span>{</div><div class="line">  <span class="keyword">this</span>.name = options.name;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">var</span> good = <span class="keyword">new</span> User({</div><div class="line">  name: <span class="string">'yup'</span></div><div class="line">});</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Use a leading underscore <code>_</code> when naming private properties</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">this</span>.__firstName__ = <span class="string">'Panda'</span>;</div><div class="line"><span class="keyword">this</span>.firstName_ = <span class="string">'Panda'</span>;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">this</span>._firstName = <span class="string">'Panda'</span>;</div></pre></td></tr></table></figure>
+
+<ul>
+<li>When saving a reference to <code>this</code> use <code>_this</code>.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="built_in">console</span>.log(self);</div><div class="line">  };</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="built_in">console</span>.log(that);</div><div class="line">  };</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">var</span> _this = <span class="keyword">this</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="built_in">console</span>.log(_this);</div><div class="line">  };</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Name your functions. This is helpful for stack traces.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> log = <span class="function"><span class="keyword">function</span><span class="params">(msg)</span> </span>{</div><div class="line">  <span class="built_in">console</span>.log(msg);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> log = <span class="function"><span class="keyword">function</span> <span class="title">log</span><span class="params">(msg)</span> </span>{</div><div class="line">  <span class="built_in">console</span>.log(msg);</div><div class="line">};</div></pre></td></tr></table></figure>
+
+<h2 id="Constructors">Constructors</h2>
+<ul>
+<li>Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you’ll overwrite the base!</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Jedi</span><span class="params">()</span> </span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'new jedi'</span>);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line">Jedi.prototype = {</div><div class="line">  fight: <span class="function"><span class="keyword">function</span> <span class="title">fight</span><span class="params">()</span> </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'fighting'</span>);</div><div class="line">  },</div><div class="line"></div><div class="line">  block: <span class="function"><span class="keyword">function</span> <span class="title">block</span><span class="params">()</span> </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'blocking'</span>);</div><div class="line">  }</div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">Jedi.prototype.fight = <span class="function"><span class="keyword">function</span> <span class="title">fight</span><span class="params">()</span> </span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'fighting'</span>);</div><div class="line">};</div><div class="line"></div><div class="line">Jedi.prototype.block = <span class="function"><span class="keyword">function</span> <span class="title">block</span><span class="params">()</span> </span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'blocking'</span>);</div><div class="line">};</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Methods can return <code>this</code> to help with method chaining.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">Jedi.prototype.jump = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">this</span>.jumping = <span class="literal">true</span>;</div><div class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">};</div><div class="line"></div><div class="line">Jedi.prototype.setHeight = <span class="function"><span class="keyword">function</span><span class="params">(height)</span> </span>{</div><div class="line">  <span class="keyword">this</span>.height = height;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> luke = <span class="keyword">new</span> Jedi();</div><div class="line">luke.jump(); <span class="comment">// =&gt; true</span></div><div class="line">luke.setHeight(<span class="number">20</span>) <span class="comment">// =&gt; undefined</span></div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">Jedi.prototype.jump = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">this</span>.jumping = <span class="literal">true</span>;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">};</div><div class="line"></div><div class="line">Jedi.prototype.setHeight = <span class="function"><span class="keyword">function</span><span class="params">(height)</span> </span>{</div><div class="line">  <span class="keyword">this</span>.height = height;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> luke = <span class="keyword">new</span> Jedi();</div><div class="line"></div><div class="line">luke.jump()</div><div class="line">  .setHeight(<span class="number">20</span>);</div></pre></td></tr></table></figure>
+
+<ul>
+<li>It’s okay to write a custom toString() method, just make sure it works successfully and causes no side effects.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Jedi</span><span class="params">(options)</span> </span>{</div><div class="line">  options || (options = {});</div><div class="line">  <span class="keyword">this</span>.name = options.name || <span class="string">'no name'</span>;</div><div class="line">}</div><div class="line"></div><div class="line">Jedi.prototype.getName = <span class="function"><span class="keyword">function</span> <span class="title">getName</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">};</div><div class="line"></div><div class="line">Jedi.prototype.toString = <span class="function"><span class="keyword">function</span> <span class="title">toString</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">return</span> <span class="string">'Jedi - '</span> + <span class="keyword">this</span>.getName();</div><div class="line">};</div></pre></td></tr></table></figure>
+
 <h2 id="Events">Events</h2>
 <ul>
-<li><p>When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-$(<span class="keyword">this</span>).trigger(<span class="string">'listingUpdated'</span>, listing.id);
+<li>When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">$(<span class="keyword">this</span>).trigger(<span class="string">'listingUpdated'</span>, listing.id);</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">$(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e, listingId)</span> </span>{</div><div class="line">  <span class="comment">// do something with listingId</span></div><div class="line">});</div></pre></td></tr></table></figure>
 
-...
+<pre><code><span class="label">prefer:</span>
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// good</span></div><div class="line">$(<span class="keyword">this</span>).trigger(<span class="string">'listingUpdated'</span>, { listingId : listing.id });</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">$(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e, data)</span> </span>{</div><div class="line">  <span class="comment">// do something with data.listingId</span></div><div class="line">});</div></pre></td></tr></table></figure>
 
-$(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e, listingId)</span> {</span>
-  <span class="comment">// do something with listingId</span>
-});
-</pre></td></tr></table></figure>
-
-<p>prefer:</p>
-<p><figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="comment">// good</span>
-$(<span class="keyword">this</span>).trigger(<span class="string">'listingUpdated'</span>, { listingId : listing.id });
-
-...
-
-$(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e, data)</span> {</span>
-  <span class="comment">// do something with data.listingId</span>
-});
-</pre></td></tr></table></figure></p>
 <h2 id="jQuery">jQuery</h2>
-</li>
-<li><p>Prefix jQuery object variables with a <code>$</code>.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="keyword">var</span> sidebar = $(<span class="string">'.sidebar'</span>);
+<ul>
+<li>Prefix jQuery object variables with a <code>$</code>.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> sidebar = $(<span class="string">'.sidebar'</span>);</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> $sidebar = $(<span class="string">'.sidebar'</span>);</div></pre></td></tr></table></figure>
 
-<span class="comment">// good</span>
-<span class="keyword">var</span> $sidebar = $(<span class="string">'.sidebar'</span>);
-</pre></td></tr></table></figure>
-</li>
-<li><p>Cache jQuery lookups.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-</pre></td><td class="code"><pre><span class="comment">// bad</span>
-<span class="function"><span class="keyword">function</span> <span class="title">setSidebar</span><span class="params">()</span> {</span>
-  $(<span class="string">'.sidebar'</span>).hide();
+<ul>
+<li>Cache jQuery lookups.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setSidebar</span><span class="params">()</span> </span>{</div><div class="line">  $(<span class="string">'.sidebar'</span>).hide();</div><div class="line"></div><div class="line">  <span class="comment">// ...stuff...</span></div><div class="line"></div><div class="line">  $(<span class="string">'.sidebar'</span>).css({</div><div class="line">    <span class="string">'background-color'</span>: <span class="string">'pink'</span></div><div class="line">  });</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setSidebar</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">var</span> $sidebar = $(<span class="string">'.sidebar'</span>);</div><div class="line">  $sidebar.hide();</div><div class="line"></div><div class="line">  <span class="comment">// ...stuff...</span></div><div class="line"></div><div class="line">  $sidebar.css({</div><div class="line">    <span class="string">'background-color'</span>: <span class="string">'pink'</span></div><div class="line">  });</div><div class="line">}</div></pre></td></tr></table></figure>
 
-  <span class="comment">// ...stuff...</span>
-
-  $(<span class="string">'.sidebar'</span>).css({
-    <span class="string">'background-color'</span>: <span class="string">'pink'</span>
-  });
-}
-
-<span class="comment">// good</span>
-<span class="function"><span class="keyword">function</span> <span class="title">setSidebar</span><span class="params">()</span> {</span>
-  <span class="keyword">var</span> $sidebar = $(<span class="string">'.sidebar'</span>);
-  $sidebar.hide();
-
-  <span class="comment">// ...stuff...</span>
-
-  $sidebar.css({
-    <span class="string">'background-color'</span>: <span class="string">'pink'</span>
-  });
-}
-</pre></td></tr></table></figure>
-</li>
-<li><p>For DOM queries use Cascading <code>$(&#39;.sidebar ul&#39;)</code> or parent &gt; child <code>$(&#39;.sidebar &gt; ul&#39;)</code>. <a href="http://jsperf.com/jquery-find-vs-context-sel/16" target="_blank" rel="external">jsPerf</a></p>
-</li>
+<ul>
+<li>For DOM queries use Cascading <code>$(&#39;.sidebar ul&#39;)</code> or parent &gt; child <code>$(&#39;.sidebar &gt; ul&#39;)</code>. <a href="http://jsperf.com/jquery-find-vs-context-sel/16" target="_blank" rel="external">jsPerf</a></li>
 <li><p>Use <code>find</code> with scoped jQuery object queries.</p>
 <p>```javascript<br>// bad<br>$(‘ul’, ‘.sidebar’).hide();</p>
 <p>// bad<br>$(‘.sidebar’).find(‘ul’).hide();</p>
@@ -1566,9 +493,9 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
 <p>The process object is a global object and can be accessed from anywhere.</p>
 <ul>
 <li><p><strong>process.argv</strong>: An array containing the command line arguments. The first element will be ‘node’, the second element will be the name of the JavaScript file. The next elements will be any additional command line arguments.`</p>
-<pre><code>  <span class="comment">// print process.argv</span>
-  process.argv.<span class="keyword">forEach</span>(<span class="function"><span class="keyword">function</span><span class="params">(val, index, array)</span> {</span>
-    console.log(index + <span class="string">': '</span> + val);
+<pre><code>  // <span class="keyword">print</span> process.<span class="built_in">argv</span>
+  process.<span class="built_in">argv</span>.forEach(<span class="function"><span class="keyword">function</span><span class="params">(val, index, array)</span> {</span>
+    console.<span class="built_in">log</span>(<span class="built_in">index</span> + <span class="string">': '</span> + val);
   });
 </code></pre><p>This will generate:</p>
 <pre><code>  $ node <span class="built_in">process</span>-<span class="number">2.</span>js <span class="constant">one</span> <span class="constant">two</span>=<span class="constant">three</span> <span class="constant">four</span>
@@ -1586,13 +513,13 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
 </code></pre><p>Now you have the full fs module available in a variable named fs.<br>All synchronous (or blocking) filesystem methods in the fs module end with ‘Sync’. To read a file, you’ll need to use </p>
 <pre><code>  fs.readFileSync('/path/<span class="keyword">to</span>/<span class="keyword">file</span>') 
 </code></pre><p>This method will return a Buffer object containing the complete contents of the file.<br>Buffer objects are Node’s way of efficiently representing arbitrary arrays of data, whether it be ascii, binary or some other format. Buffer objects can be converted to strings by simply calling the toString() method on them. e.g. </p>
-<pre><code><span class="attribute">  var str </span>=<span class="string"> buf.toString().</span>
+<pre><code>  <span class="keyword">var</span> str = buf.<span class="built_in">toString</span>().
 </code></pre><p>An example of basic sync I\O operation: read a file and count the lines:</p>
-<pre><code>  <span class="reserved">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);
+<pre><code>  <span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);
 
-  <span class="reserved">var</span> buffer = fs.readFileSync(process.argv[<span class="number">2</span>]);
-  <span class="reserved">var</span> str = buffer.toString();
-  <span class="reserved">var</span> arr = str.split(<span class="string">'\n'</span>);
+  <span class="keyword">var</span> buffer = fs.readFileSync(process.argv[<span class="number">2</span>]);
+  <span class="keyword">var</span> str = buffer.toString();
+  <span class="keyword">var</span> arr = str.split(<span class="string">'\n'</span>);
 
   <span class="built_in">console</span>.log(arr.length - <span class="number">1</span>);        
 </code></pre></li>
@@ -1631,35 +558,35 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
       
         <h1 id="Some_basic_javascript_tricks">Some basic javascript tricks</h1>
 <ol>
-<li><p>Based on your brower you can use:          </p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>	document.documentElement
-</pre></td></tr></table></figure>
-
-<p> or</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>	document.body
-</pre></td></tr></table></figure><br> to select the body or html element. You can also write code like this:<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>	<span class="keyword">var</span> root = <span class="regexp">/firefox|tridenti.test(navigator.userAgent) ? document.documentElement : document.body</span>
-</pre></td></tr></table></figure>
-</li>
-<li><p>Gets or sets the number of pixels that the content of an element is scrolled upward.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>	root.scrollTop;
-</pre></td></tr></table></figure>
-</li>
-<li><p>Get text rectangle object    </p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>	rectObject = object.getBoundingClientRect();
-</pre></td></tr></table></figure>
-</li>
-<li><p>Get full height of the browser and get the height of the viewpoint.</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>	root.scrollHeight; <span class="comment">//full height of browser</span>
-	window.innerHeight; <span class="comment">//The height of the view point</span>
-</pre></td></tr></table></figure>    </li>
+<li>Based on your brower you can use:          </li>
 </ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.documentElement</div></pre></td></tr></table></figure>
+
+
+<pre><code><span class="built_in">or</span>
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body</div></pre></td></tr></table></figure>
+
+<pre><code><span class="built_in">to</span> select <span class="operator">the</span> body <span class="operator">or</span> html <span class="keyword">element</span>. You can also <span class="built_in">write</span> code like this: 
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> root = <span class="regexp">/firefox|tridenti.test(navigator.userAgent) ? document.documentElement : document.body</span></div></pre></td></tr></table></figure>
+
+
+<ol>
+<li>Gets or sets the number of pixels that the content of an element is scrolled upward.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root.scrollTop;</div></pre></td></tr></table></figure>
+
+
+<ol>
+<li>Get text rectangle object    </li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rectObject = object.getBoundingClientRect();</div></pre></td></tr></table></figure>
+
+
+<ol>
+<li>Get full height of the browser and get the height of the viewpoint.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">root.scrollHeight; <span class="comment">//full height of browser</span></div><div class="line"><span class="built_in">window</span>.innerHeight; <span class="comment">//The height of the view point</span></div></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -1720,30 +647,24 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
 </li>
 <li><p>include(), require()    [when error, halt the execution]</p>
 </li>
-<li><p>header($string) 必须写在html之前    </p>
-<ul>
-<li><p>header(“Location: login.php”); //used as redirect to new page.</p>
-<figure class="highlight <?php"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>		header(<span class="string">"Location: basic.html"</span>);
-		<span class="keyword">exit</span>; <span class="comment">//Prevent render html files</span>
-	    <span class="preprocessor">?&gt;</span>
-</pre></td></tr></table></figure>    
-
-</li>
+<li>header($string) 必须写在html之前    <ul>
+<li>header(“Location: login.php”); //used as redirect to new page.</li>
 </ul>
 </li>
 </ol>
+<figure class="highlight <?php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">header(<span class="string">"Location: basic.html"</span>);</div><div class="line"><span class="keyword">exit</span>; <span class="comment">//Prevent render html files</span></div><div class="line">   <span class="preprocessor">?&gt;</span></div></pre></td></tr></table></figure>
+
+
+
 <h1 id="Mysql">Mysql</h1>
 <ol>
 <li><p>basic command:</p>
 <ul>
 <li><p>login:</p>
-<pre><code>  mysql <span class="attribute">-u</span> root <span class="attribute">-p</span>
+<pre><code>  <span class="title">mysql</span> -u root -p
 </code></pre></li>
 <li><p>Show database:</p>
-<pre><code>  <span class="operator"><span class="keyword">SHOW</span> DATABASES;</span>            
+<pre><code>  <span class="operator"><span class="keyword">SHOW</span> <span class="keyword">DATABASES</span>;</span>            
 </code></pre></li>
 <li><p>Creat database:</p>
 <pre><code>  <span class="operator"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> &lt;name&gt;;</span>
@@ -1757,9 +678,9 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
 <li><p>Creat new dabase user </p>
 <pre><code>  <span class="operator"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> db_name.*
   <span class="keyword">TO</span> <span class="string">'username'</span>@<span class="string">'localhost'</span>
-  IDENTIFIED <span class="keyword">BY</span> <span class="string">'password'</span>;</span>
+  <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>;</span>
 
-  <span class="operator"><span class="keyword">SHOW</span> GRANTS <span class="keyword">FOR</span> <span class="string">'username'</span>@<span class="string">'localhost'</span>;</span>
+  <span class="operator"><span class="keyword">SHOW</span> <span class="keyword">GRANTS</span> <span class="keyword">FOR</span> <span class="string">'username'</span>@<span class="string">'localhost'</span>;</span>
 </code></pre></li>
 <li><p>TABLE:</p>
 <ul>
@@ -1773,13 +694,13 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
 </ul>
 </li>
 <li><p>SHOW tables:</p>
-<pre><code>  <span class="operator"><span class="keyword">SHOW</span> TABLES;</span>
+<pre><code>  <span class="operator"><span class="keyword">SHOW</span> <span class="keyword">TABLES</span>;</span>
 </code></pre></li>
 <li><p>Show database schema:</p>
-<pre><code>  <span class="operator"><span class="keyword">SHOW</span> COLUMNS <span class="keyword">FROM</span> &lt;<span class="keyword">table</span> name&gt;            </span>
+<pre><code>  <span class="operator"><span class="keyword">SHOW</span> <span class="keyword">COLUMNS</span> <span class="keyword">FROM</span> &lt;<span class="keyword">table</span> name&gt;            </span>
 </code></pre></li>
 <li><p>Creat tables:</p>
-<pre><code>  <span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> subjects (   id <span class="keyword">INT</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,    menu_name <span class="keyword">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,   position <span class="keyword">INT</span>(<span class="number">3</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>, visible TINYINT(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,   <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>(id));</span>
+<pre><code>  <span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> subjects (   id <span class="built_in">INT</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,    menu_name <span class="built_in">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,   <span class="keyword">position</span> <span class="built_in">INT</span>(<span class="number">3</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>, visible TINYINT(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,   <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>(id));</span>
 </code></pre></li>
 <li><p>Show columns:</p>
 <p>  SHOW COLUMNS FROM table_name;</p>
@@ -1827,29 +748,29 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
 <li><p>database query</p>
 <ul>
 <li><p>Read data:</p>
-<pre><code>  <span class="variable">$query</span> = <span class="string">"SELECT * FROM subjects"</span>;
-  <span class="variable">$result</span> = mysqli_query(<span class="variable">$connection</span>, <span class="variable">$query</span>);
-  <span class="keyword">if</span>(!<span class="variable">$result</span>) {
-      <span class="keyword">die</span>(<span class="string">"database query failed."</span>);
+<pre><code>  $query = <span class="string">"SELECT * FROM subjects"</span>;
+  $<span class="literal">result</span> = mysqli_query($connection, $query);
+  <span class="keyword">if</span>(!$<span class="literal">result</span>) {
+      die(<span class="string">"database query failed."</span>);
   }
 </code></pre></li>
 <li><p>Creat data(return true or false):                                </p>
-<pre><code>  <span class="variable">$query</span> = <span class="string">"INSERT INTO subjects ( mean_name, position, visible) VALUES ({<span class="variable">$menu_name</span>},{<span class="variable">$position</span>},{<span class="variable">$visible</span>})"</span>
-  <span class="variable">$result</span> = mysqli_query(<span class="variable">$connection</span>, <span class="variable">$query</span>);
+<pre><code>  $query = <span class="string">"INSERT INTO subjects ( mean_name, position, visible) VALUES ({$menu_name},{$position},{$visible})"</span>
+  $<span class="literal">result</span> = mysqli_query($connection, $query);
 </code></pre></li>
 </ul>
 </li>
 <li><p>Use returned data</p>
-<pre><code> <span class="keyword">while</span>(<span class="variable">$row</span> = mysqli_fetch_assoc(<span class="variable">$result</span>)) {
-     var_dump(<span class="variable">$row</span>);
-     <span class="built_in">echo</span> <span class="string">"&lt;hr /&gt;"</span>;
+<pre><code> <span class="keyword">while</span>($row = mysqli_fetch_assoc($<span class="literal">result</span>)) {
+     var_dump($row);
+     echo <span class="string">"&lt;hr /&gt;"</span>;
  }
 </code></pre></li>
 <li><p>Release returned data</p>
-<pre><code> mysqli_free_result(<span class="variable">$result</span>);
+<pre><code> mysqli_free_result($<span class="literal">result</span>);
 </code></pre></li>
 <li><p>close database</p>
-<pre><code> mysqli_close(<span class="variable">$connection</span>);        
+<pre><code> <span class="function">mysqli_close</span>(<span class="variable">$connection</span>);        
 </code></pre></li>
 </ol>
 <h1 id="Interview_questions">Interview questions</h1>
@@ -2014,7 +935,7 @@ $(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</s
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Angularjs/">Angular.js</a><small>2</small></li>
+    <li><a href="/categories/Angular-js/">Angular.js</a><small>2</small></li>
   
     <li><a href="/categories/Hacking/">Hacking</a><small>2</small></li>
   

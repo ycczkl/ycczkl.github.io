@@ -76,60 +76,60 @@
     <div class="entry">
       
         <h1 id="1-_Adding_a_prototyped_method_to_a_function">1. Adding a prototyped method to a function</h1>
-<pre><code><span class="reserved">function</span> Ninja(){}
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span></span>{}
 
-Ninja.prototype.swingSword = <span class="reserved">function</span>(){
+Ninja.prototype.swingSword = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
     <span class="keyword">return</span> <span class="literal">true</span>;
 };
 
-<span class="reserved">var</span> ninjaA = Ninja();
-<span class="built_in">console</span>.log( !ninjaA) <span class="regexp">//</span>True. Is <span class="literal">undefined</span>, <span class="keyword">not</span> an instance <span class="keyword">of</span> Ninja.
+<span class="keyword">var</span> ninjaA = Ninja();
+<span class="built_in">console</span>.log( !ninjaA) <span class="comment">//True. Is undefined, not an instance of Ninja.</span>
 
-<span class="reserved">var</span> ninjaB = <span class="keyword">new</span> Ninja();
-<span class="built_in">console</span>.log( ninjaB.swingSword()); <span class="regexp">//</span>True. Method exists <span class="keyword">and</span> <span class="keyword">is</span> callable.
+<span class="keyword">var</span> ninjaB = <span class="keyword">new</span> Ninja();
+<span class="built_in">console</span>.log( ninjaB.swingSword()); <span class="comment">//True. Method exists and is callable.</span>
 </code></pre><h1 id="2-_Properties_added_in_the_constructor_(or_later)_override_prototyped_properties-">2. Properties added in the constructor (or later) override prototyped properties.</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span>{</span>
-    <span class="keyword">this</span>.swingSword = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+<pre><code>function <span class="type">Ninja</span>(){
+    this.swingSword = function(){
         <span class="keyword">return</span> <span class="literal">true</span>;
     };
 }
 
-<span class="comment">// Should return false, but will be overridden</span>
-Ninja.prototype.swingSword = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+// <span class="type">Should</span> <span class="keyword">return</span> <span class="literal">false</span>, but will be overridden
+<span class="type">Ninja</span>.prototype.swingSword = function(){
     <span class="keyword">return</span> <span class="literal">false</span>;
 };
 
-<span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
-console.log( ninja.swingSword()); <span class="comment">//Calling the instance method, not the prototype method.</span>
+<span class="keyword">var</span> ninja = new <span class="type">Ninja</span>();
+console.log( ninja.swingSword()); //<span class="type">Calling</span> the instance <span class="keyword">method</span>, <span class="keyword">not</span> the prototype <span class="keyword">method</span>.
 </code></pre><h1 id="3-_The_chainable_method_must_return_this-">3. The chainable method must return this.</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span> {</span>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span> </span>{
     <span class="keyword">this</span>.swung = <span class="literal">true</span>;
 }
 
 <span class="keyword">var</span> ninjaA = <span class="keyword">new</span> Ninja();
 <span class="keyword">var</span> ninjaB = <span class="keyword">new</span> Ninja();
 
-Ninja.prototype.swing = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+Ninja.prototype.swing = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
     <span class="keyword">this</span>.swung = <span class="literal">false</span>;
     <span class="keyword">return</span> <span class="keyword">this</span>;
 };
 
-console.log(!ninjaA.swing().swung); <span class="comment">//True. Verify that the swing method exists and returns an instance.;</span>
-console.log(!ninjaB.swing().swung); <span class="comment">//True. and that it works on all Ninja instances. </span>
+<span class="built_in">console</span>.log(!ninjaA.swing().swung); <span class="comment">//True. Verify that the swing method exists and returns an instance.;</span>
+<span class="built_in">console</span>.log(!ninjaB.swing().swung); <span class="comment">//True. and that it works on all Ninja instances. </span>
 </code></pre><h1 id="4-_Examining_the_basic_of_an_object">4. Examining the basic of an object</h1>
 <p><code>typeof, instanceof, .constructor() is three important method to examing an object.</code></p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span>{</span>};
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span></span>{};
 
 <span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
 
-console.log(<span class="keyword">typeof</span> ninja, ninja <span class="keyword">instanceof</span> Ninja, ninja.constructor == Ninja);<span class="comment">// object, true ,true</span>
+<span class="built_in">console</span>.log(<span class="keyword">typeof</span> ninja, ninja <span class="keyword">instanceof</span> Ninja, ninja.constructor == Ninja);<span class="comment">// object, true ,true</span>
 </code></pre><h1 id="5-_Use_constructor_to_build_other_instances-">5. Use constructor to build other instances.</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span>{</span>};
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span></span>{};
 
 <span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
 <span class="keyword">var</span> ninjaB = <span class="keyword">new</span> ninja.constructor();
 
-console.log(ninjaB <span class="keyword">instanceof</span> Ninja);<span class="comment">// true</span>
+<span class="built_in">console</span>.log(ninjaB <span class="keyword">instanceof</span> Ninja);<span class="comment">// true</span>
 </code></pre>
       
     </div>
@@ -199,7 +199,7 @@ console.log(ninjaB <span class="keyword">instanceof</span> Ninja);<span class="c
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Angularjs/">Angular.js</a><small>2</small></li>
+    <li><a href="/categories/Angular-js/">Angular.js</a><small>2</small></li>
   
     <li><a href="/categories/Hacking/">Hacking</a><small>2</small></li>
   

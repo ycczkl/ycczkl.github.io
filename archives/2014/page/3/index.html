@@ -107,20 +107,20 @@
 <h4 id="Example:">Example:</h4>
 <p><strong>HTML:</strong></p>
 <pre><code>&lt;form <span class="keyword">method</span>=<span class="string">"post"</span> action=<span class="string">"/api/upload"</span>&gt;
-    input:&lt;input <span class="class"><span class="keyword">type</span>=</span><span class="string">"text"</span> name=<span class="string">"input"</span>/&gt;
-    &lt;button <span class="class"><span class="keyword">type</span>=</span><span class="string">"submit"</span> <span class="keyword">class</span>=<span class="string">"btn"</span>&gt;upload&lt;/button&gt;
+    input:&lt;input <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"input"</span>/&gt;
+    &lt;button <span class="keyword">type</span>=<span class="string">"submit"</span> class=<span class="string">"btn"</span>&gt;upload&lt;/button&gt;
 &lt;/form&gt;
 </code></pre><p><strong>Node.js:</strong></p>
 <pre><code><span class="pi">'use strict'</span>;
 
 <span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'lodash'</span>);
-    exports.index = <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> {</span>
-    console.log(req.get(<span class="string">'Content-Type'</span>));
-    console.log(req.body);    
+    exports.index = <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> </span>{
+    <span class="built_in">console</span>.log(req.get(<span class="string">'Content-Type'</span>));
+    <span class="built_in">console</span>.log(req.body);    
 };
 </code></pre><p>After we submmit the text we can get the input data from backend:</p>
 <pre><code>GET /api/things <span class="number">304</span> <span class="number">5</span>ms
-application/x<span class="attribute">-www</span><span class="attribute">-form</span><span class="attribute">-urlencoded</span>
+application/x-www-form-urlencoded
 { input: <span class="string">'123'</span> }
 </code></pre><p><strong>If we want to submit a form we must include name in input tag.</strong> All elements used to collect data in a form have a “name” attribute (name=””). That is the name of the variable that is assigned the value of the data collected by each input, select or textarea element.</p>
 
@@ -243,7 +243,7 @@ application/x<span class="attribute">-www</span><span class="attribute">-form</s
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Angularjs/">Angular.js</a><small>2</small></li>
+    <li><a href="/categories/Angular-js/">Angular.js</a><small>2</small></li>
   
     <li><a href="/categories/Hacking/">Hacking</a><small>2</small></li>
   

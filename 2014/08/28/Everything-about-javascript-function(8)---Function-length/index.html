@@ -76,17 +76,17 @@
     <div class="entry">
       
         <h1 id="1-_How_does_a_function’s_length_property_work?">1. How does a function’s length property work?</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">makeNinja</span>(<span class="title">name</span>){}             </span>
-<span class="function"><span class="keyword">function</span> <span class="title">makeSamurai</span>(<span class="title">name</span>, <span class="title">rank</span>){} </span>
-console.<span class="built_in">log</span>(makeNinja.<span class="built_in">length</span>)<span class="comment"> //1</span>
-console.<span class="built_in">log</span>(makeSamurai.<span class="built_in">length</span>)<span class="comment"> //2</span>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">makeNinja</span><span class="params">(name)</span></span>{}             
+<span class="function"><span class="keyword">function</span> <span class="title">makeSamurai</span><span class="params">(name, rank)</span></span>{} 
+<span class="built_in">console</span>.log(makeNinja.length) <span class="comment">//1</span>
+<span class="built_in">console</span>.log(makeSamurai.length) <span class="comment">//2</span>
 </code></pre><h1 id="2-_Use_it_to_implement_method_overloading-">2. Use it to implement method overloading.</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">addMethod</span><span class="params">(object, name, fn)</span>{</span>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">addMethod</span><span class="params">(object, name, fn)</span></span>{
     <span class="comment">// Save a reference to the old method</span>
     <span class="keyword">var</span> old = object[ name ];
 
     <span class="comment">// Overwrite the method with our new one</span>
-    object[ name ] = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    object[ name ] = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
         <span class="comment">// Check the number of incoming arguments,</span>
         <span class="comment">// compared to our overloaded function</span>
         <span class="keyword">if</span> ( fn.length == <span class="built_in">arguments</span>.length )
@@ -99,19 +99,19 @@ console.<span class="built_in">log</span>(makeSamurai.<span class="built_in">len
     };
 }
 
-<span class="function"><span class="keyword">function</span> <span class="title">Ninjas</span><span class="params">()</span>{</span>
+<span class="function"><span class="keyword">function</span> <span class="title">Ninjas</span><span class="params">()</span></span>{
     <span class="keyword">var</span> ninjas = [ <span class="string">"Dean Edwards"</span>, <span class="string">"Sam Stephenson"</span>, <span class="string">"Alex Russell"</span> ];
-    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
         <span class="keyword">return</span> ninjas;
     });
-    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">(name)</span>{</span>
+    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">(name)</span></span>{
         <span class="keyword">var</span> ret = [];
         <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; ninjas.length; i++ )
             <span class="keyword">if</span> ( ninjas[i].indexOf(name) == <span class="number">0</span> )
                 ret.push( ninjas[i] );
         <span class="keyword">return</span> ret;
     });
-    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">(first, last)</span>{</span>
+    addMethod(<span class="keyword">this</span>, <span class="string">"find"</span>, <span class="function"><span class="keyword">function</span><span class="params">(first, last)</span></span>{
         <span class="keyword">var</span> ret = [];
         <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; ninjas.length; i++ )
             <span class="keyword">if</span> ( ninjas[i] == (first + <span class="string">" "</span> + last) )
@@ -121,10 +121,10 @@ console.<span class="built_in">log</span>(makeSamurai.<span class="built_in">len
 }
 
 <span class="keyword">var</span> ninjas = <span class="keyword">new</span> Ninjas();
-console.log( ninjas.find().length == <span class="number">3</span>); <span class="comment">//true. Finds all ninjas</span>
-console.log( ninjas.find(<span class="string">"Sam"</span>).length == <span class="number">1</span>); <span class="comment">//true. Finds ninjas by first name</span>
-console.log( ninjas.find(<span class="string">"Dean"</span>, <span class="string">"Edwards"</span>).length == <span class="number">1</span>); <span class="comment">//true.Finds ninjas by first and last name</span>
-console.log( ninjas.find(<span class="string">"Alex"</span>, <span class="string">"X"</span>, <span class="string">"Russell"</span>) == <span class="literal">null</span>); <span class="comment">//true. Does nothing    </span>
+<span class="built_in">console</span>.log( ninjas.find().length == <span class="number">3</span>); <span class="comment">//true. Finds all ninjas</span>
+<span class="built_in">console</span>.log( ninjas.find(<span class="string">"Sam"</span>).length == <span class="number">1</span>); <span class="comment">//true. Finds ninjas by first name</span>
+<span class="built_in">console</span>.log( ninjas.find(<span class="string">"Dean"</span>, <span class="string">"Edwards"</span>).length == <span class="number">1</span>); <span class="comment">//true.Finds ninjas by first and last name</span>
+<span class="built_in">console</span>.log( ninjas.find(<span class="string">"Alex"</span>, <span class="string">"X"</span>, <span class="string">"Russell"</span>) == <span class="literal">null</span>); <span class="comment">//true. Does nothing    </span>
 </code></pre>
       
     </div>
@@ -194,7 +194,7 @@ console.log( ninjas.find(<span class="string">"Alex"</span>, <span class="string
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Angularjs/">Angular.js</a><small>2</small></li>
+    <li><a href="/categories/Angular-js/">Angular.js</a><small>2</small></li>
   
     <li><a href="/categories/Hacking/">Hacking</a><small>2</small></li>
   

@@ -79,9 +79,9 @@
 <p>The process object is a global object and can be accessed from anywhere.</p>
 <ul>
 <li><p><strong>process.argv</strong>: An array containing the command line arguments. The first element will be ‘node’, the second element will be the name of the JavaScript file. The next elements will be any additional command line arguments.`</p>
-<pre><code>  <span class="comment">// print process.argv</span>
-  process.argv.<span class="keyword">forEach</span>(<span class="function"><span class="keyword">function</span><span class="params">(val, index, array)</span> {</span>
-    console.log(index + <span class="string">': '</span> + val);
+<pre><code>  // <span class="keyword">print</span> process.<span class="built_in">argv</span>
+  process.<span class="built_in">argv</span>.forEach(<span class="function"><span class="keyword">function</span><span class="params">(val, index, array)</span> {</span>
+    console.<span class="built_in">log</span>(<span class="built_in">index</span> + <span class="string">': '</span> + val);
   });
 </code></pre><p>This will generate:</p>
 <pre><code>  $ node <span class="built_in">process</span>-<span class="number">2.</span>js <span class="constant">one</span> <span class="constant">two</span>=<span class="constant">three</span> <span class="constant">four</span>
@@ -99,13 +99,13 @@
 </code></pre><p>Now you have the full fs module available in a variable named fs.<br>All synchronous (or blocking) filesystem methods in the fs module end with ‘Sync’. To read a file, you’ll need to use </p>
 <pre><code>  fs.readFileSync('/path/<span class="keyword">to</span>/<span class="keyword">file</span>') 
 </code></pre><p>This method will return a Buffer object containing the complete contents of the file.<br>Buffer objects are Node’s way of efficiently representing arbitrary arrays of data, whether it be ascii, binary or some other format. Buffer objects can be converted to strings by simply calling the toString() method on them. e.g. </p>
-<pre><code><span class="attribute">  var str </span>=<span class="string"> buf.toString().</span>
+<pre><code>  <span class="keyword">var</span> str = buf.<span class="built_in">toString</span>().
 </code></pre><p>An example of basic sync I\O operation: read a file and count the lines:</p>
-<pre><code>  <span class="reserved">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);
+<pre><code>  <span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);
 
-  <span class="reserved">var</span> buffer = fs.readFileSync(process.argv[<span class="number">2</span>]);
-  <span class="reserved">var</span> str = buffer.toString();
-  <span class="reserved">var</span> arr = str.split(<span class="string">'\n'</span>);
+  <span class="keyword">var</span> buffer = fs.readFileSync(process.argv[<span class="number">2</span>]);
+  <span class="keyword">var</span> str = buffer.toString();
+  <span class="keyword">var</span> arr = str.split(<span class="string">'\n'</span>);
 
   <span class="built_in">console</span>.log(arr.length - <span class="number">1</span>);        
 </code></pre></li>
@@ -174,7 +174,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Angularjs/">Angular.js</a><small>2</small></li>
+    <li><a href="/categories/Angular-js/">Angular.js</a><small>2</small></li>
   
     <li><a href="/categories/Hacking/">Hacking</a><small>2</small></li>
   

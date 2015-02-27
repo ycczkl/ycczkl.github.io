@@ -105,10 +105,10 @@
 'C' - <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"ng-sparkline"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> //Class
 'M' - <span class="comment">&lt;!-- directive: ng-sparkline --&gt;</span> //Comment
 </code></pre><p>The restrict option can specify multiple options, as well. If you want to support more than one as an element or an attribute, simply make sure all are specified in the restrict keyword:</p>
-<pre><code><span class="attribute">restrict</span>: <span class="string">'EA'</span>
+<pre><code>restric<span class="variable">t:</span> <span class="string">'EA'</span>
 </code></pre><h3 id="TemplateUrl">TemplateUrl</h3>
 <p>If you prefer to load a template over ajax, you can specify the templateUrl option, which will use ajax to pull the template.</p>
-<pre><code><span class="attribute">templateUrl</span>: <span class="string">'templates/ng-sparkline-template.html'        </span>
+<pre><code>templateUrl: 'templates/ng-sparkline-<span class="keyword">template</span>.html'        
 </code></pre><h3 id="Require">Require</h3>
 <p>When a directive uses this option, $compile will throw an error unless the specified controller is found. The ^ prefix means that this directive searches for the controller on its parents (without the ^ prefix, the directive would look for the controller on just its own element).    </p>
 <pre><code>^ <span class="subst">--</span> Look for the controller <span class="keyword">on</span> <span class="keyword">parent</span> elements, <span class="literal">not</span> just <span class="keyword">on</span> the <span class="built_in">local</span> scope
@@ -124,7 +124,7 @@
 </ol>
 <p>Example:</p>
 <p><strong>HTML:</strong>    </p>
-<pre><code><span class="subst">&lt;</span>learn<span class="attribute">-directive</span> ng<span class="attribute">-model</span><span class="subst">=</span><span class="string">"city"</span> form<span class="attribute">-name</span><span class="subst">=</span><span class="string">"haha"</span> obj<span class="attribute">-in</span><span class="attribute">-controller</span><span class="subst">=</span><span class="string">"someObj"</span><span class="subst">&gt;&lt;</span>/learn<span class="attribute">-directive</span><span class="subst">&gt;</span>
+<pre><code>&lt;learn-directive <span class="variable">ng-model=</span><span class="string">"city"</span> <span class="variable">form-name=</span><span class="string">"haha"</span> <span class="variable">obj-in-controller=</span><span class="string">"someObj"</span>&gt;&lt;/learn-directive&gt;
 </code></pre><p><strong>Template:</strong></p>
 <pre><code><span class="tag">&lt;<span class="title">div</span>&gt;</span>this is the learnDirective directive<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 <span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="tag">&lt;<span class="title">h4</span>&gt;</span><span class="tag">&lt;/<span class="title">h4</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span> //data binding
@@ -132,7 +132,7 @@
 <pre><code><span class="pi">'use strict'</span>;
 
 angular.module(<span class="string">'testApp'</span>)
-    .directive(<span class="string">'learnDirective'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    .directive(<span class="string">'learnDirective'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
         <span class="keyword">return</span> {
             templateUrl: <span class="string">'app/learnDirective/learnDirective.html'</span>,
             restrict: <span class="string">'EA'</span>,
@@ -141,8 +141,8 @@ angular.module(<span class="string">'testApp'</span>)
                 formName: <span class="string">'@'</span>,
                 obj: <span class="string">'&amp;objInController'</span>
             },
-            link: <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attrs)</span> {</span>
-                console.log(scope.obj()); <span class="comment">//return the obj which defined in controller</span>
+            link: <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attrs)</span> </span>{
+                <span class="built_in">console</span>.log(scope.obj()); <span class="comment">//return the obj which defined in controller</span>
             }
         };
     });        
@@ -153,7 +153,7 @@ angular.module(<span class="string">'testApp'</span>)
 <pre><code><span class="pi">'use strict'</span>;
 
 angular.module(<span class="string">'testApp'</span>)
-    .directive(<span class="string">'learnDirective'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    .directive(<span class="string">'learnDirective'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
 
         <span class="keyword">return</span> {
             templateUrl: <span class="string">'app/learnDirective/learnDirective.html'</span>,
@@ -163,22 +163,22 @@ angular.module(<span class="string">'testApp'</span>)
                 formName: <span class="string">'@'</span>,
                 obj: <span class="string">'&amp;objInController'</span>
             },
-            controller: [<span class="string">'$scope'</span>, <span class="string">'$http'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope, $http)</span> {</span>
+            controller: [<span class="string">'$scope'</span>, <span class="string">'$http'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope, $http)</span> </span>{
                 <span class="keyword">var</span> url = <span class="string">"http://api.openweathermap.org/data/2.5/weather?q=Beijing"</span>;
-                $scope.getTemp = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+                $scope.getTemp = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
                     $http({
                         method: <span class="string">'get'</span>,
                         url: url
-                    }).success(<span class="function"><span class="keyword">function</span><span class="params">(data)</span> {</span>
+                    }).success(<span class="function"><span class="keyword">function</span><span class="params">(data)</span> </span>{
                         $scope.weather = data.weather;
                     });
                 };
             }],
-            link: <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attrs)</span> {</span>
+            link: <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attrs)</span> </span>{
                 scope.getTemp();
-                scope.$watch(<span class="string">'weather'</span>, <span class="function"><span class="keyword">function</span><span class="params">(newValue)</span>{</span>
+                scope.$watch(<span class="string">'weather'</span>, <span class="function"><span class="keyword">function</span><span class="params">(newValue)</span></span>{
                       <span class="keyword">if</span>(newValue) {
-                          console.log(newValue[<span class="number">0</span>]);
+                          <span class="built_in">console</span>.log(newValue[<span class="number">0</span>]);
                       }
                 })
             }
@@ -202,7 +202,7 @@ angular.module(<span class="string">'testApp'</span>)
         
   
   <div class="categories">
-    <a href="/categories/Angularjs/">Angular.js</a>
+    <a href="/categories/Angular-js/">Angular.js</a>
   </div>
 
         
@@ -268,7 +268,7 @@ angular.module(<span class="string">'testApp'</span>)
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Angularjs/">Angular.js</a><small>2</small></li>
+    <li><a href="/categories/Angular-js/">Angular.js</a><small>2</small></li>
   
     <li><a href="/categories/Hacking/">Hacking</a><small>2</small></li>
   

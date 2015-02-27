@@ -77,77 +77,77 @@
       
         <h1 id="1-_How_prototype_inheritance_works?">1. How prototype inheritance works?</h1>
 <p>We usually write constanted varibal in function, write object function use prototype.</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">()</span> {</span>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">()</span> </span>{
     <span class="keyword">this</span>.name = <span class="number">24</span>;
 }
-Person.prototype.dance = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>};
+Person.prototype.dance = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{};
 
-<span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span> {</span>}
+<span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span> </span>{}
 Ninja.prototype = <span class="keyword">new</span> Person();
 
 <span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
-console.log(ninja.name, <span class="keyword">typeof</span> ninja.dance); <span class="comment">//24, function</span>
-console.log(ninja <span class="keyword">instanceof</span> Person); <span class="comment">//true</span>
-console.log(ninja <span class="keyword">instanceof</span> Ninja); <span class="comment">//true</span>
-console.log(ninja <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span>
+<span class="built_in">console</span>.log(ninja.name, <span class="keyword">typeof</span> ninja.dance); <span class="comment">//24, function</span>
+<span class="built_in">console</span>.log(ninja <span class="keyword">instanceof</span> Person); <span class="comment">//true</span>
+<span class="built_in">console</span>.log(ninja <span class="keyword">instanceof</span> Ninja); <span class="comment">//true</span>
+<span class="built_in">console</span>.log(ninja <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span>
 </code></pre><h1 id="2-_What_happens_when_we_try_to_bind_an_object’s_method_to_a_click_handler?">2. What happens when we try to bind an object’s method to a click handler?</h1>
-<pre><code>var Button = {
-  click: function(){
-    this<span class="preprocessor">.clicked</span> = true<span class="comment">;</span>
-  }
-}<span class="comment">;</span>
-
-var elem = document<span class="preprocessor">.createElement</span>(<span class="string">"li"</span>)<span class="comment">;</span>
-elem<span class="preprocessor">.innerHTML</span> = <span class="string">"Click me!"</span><span class="comment">;</span>
-elem<span class="preprocessor">.onclick</span> = Button<span class="preprocessor">.click</span><span class="comment">; //elem copy the function so that when method called elem it's self is the 'this'.</span>
-document<span class="preprocessor">.getElementById</span>(<span class="string">"results"</span>)<span class="preprocessor">.appendChild</span>(elem)<span class="comment">;</span>
-
-elem<span class="preprocessor">.onclick</span>()<span class="comment">;    </span>
-console<span class="preprocessor">.log</span>(elem<span class="preprocessor">.clicked</span>)<span class="comment">; //true. The clicked property was accidentally set on the element.</span>
-</code></pre><p>We can use apply() to set clicked = true in Button object.</p>
 <pre><code><span class="keyword">var</span> Button = {
-  click: <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+  click: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
     <span class="keyword">this</span>.clicked = <span class="literal">true</span>;
   }
 };
 
-<span class="keyword">var</span> elem = document.createElement(<span class="string">"li"</span>);
+<span class="keyword">var</span> elem = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>);
 elem.innerHTML = <span class="string">"Click me!"</span>;
-elem.onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span><span class="keyword">return</span> Button.click.apply(Button)}; <span class="comment">//When method called this will point to Button.</span>
-document.getElementById(<span class="string">"results"</span>).appendChild(elem);
+elem.onclick = Button.click; <span class="comment">//elem copy the function so that when method called elem it's self is the 'this'.</span>
+<span class="built_in">document</span>.getElementById(<span class="string">"results"</span>).appendChild(elem);
 
 elem.onclick();    
-console.log(elem.clicked); <span class="comment">//Undefined</span>
+<span class="built_in">console</span>.log(elem.clicked); <span class="comment">//true. The clicked property was accidentally set on the element.</span>
+</code></pre><p>We can use apply() to set clicked = true in Button object.</p>
+<pre><code><span class="keyword">var</span> Button = {
+  click: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.clicked = <span class="literal">true</span>;
+  }
+};
+
+<span class="keyword">var</span> elem = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>);
+elem.innerHTML = <span class="string">"Click me!"</span>;
+elem.onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{<span class="keyword">return</span> Button.click.apply(Button)}; <span class="comment">//When method called this will point to Button.</span>
+<span class="built_in">document</span>.getElementById(<span class="string">"results"</span>).appendChild(elem);
+
+elem.onclick();    
+<span class="built_in">console</span>.log(elem.clicked); <span class="comment">//Undefined</span>
 </code></pre><h1 id="3-_Add_a_method_to_all_functions_to_allow_context_enforcement-">3. Add a method to all functions to allow context enforcement.</h1>
-<pre><code>Function<span class="preprocessor">.prototype</span><span class="preprocessor">.bind</span> = function() {
-    var fn = this,
-        object = Array<span class="preprocessor">.prototype</span><span class="preprocessor">.slice</span><span class="preprocessor">.apply</span>(arguments)<span class="preprocessor">.shift</span>()<span class="comment">;</span>
-    return fn<span class="preprocessor">.call</span>(object, arguments)<span class="comment">;</span>
-}<span class="comment">;</span>
-var Button = {
-    click: function(){
-        this<span class="preprocessor">.clicked</span> = true<span class="comment">;</span>
+<pre><code><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+    <span class="keyword">var</span> fn = <span class="keyword">this</span>,
+        object = <span class="built_in">Array</span>.prototype.slice.apply(<span class="built_in">arguments</span>).shift();
+    <span class="keyword">return</span> fn.call(object, <span class="built_in">arguments</span>);
+};
+<span class="keyword">var</span> Button = {
+    click: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+        <span class="keyword">this</span>.clicked = <span class="literal">true</span>;
     }
-}<span class="comment">;</span>
+};
 
-var elem = document<span class="preprocessor">.createElement</span>(<span class="string">"li"</span>)<span class="comment">;</span>
-elem<span class="preprocessor">.innerHTML</span> = <span class="string">"Click me!"</span><span class="comment">;</span>
-elem<span class="preprocessor">.onclick</span> = Button<span class="preprocessor">.click</span><span class="preprocessor">.bind</span>(Button)<span class="comment">; </span>
-document<span class="preprocessor">.getElementById</span>(<span class="string">"results"</span>)<span class="preprocessor">.appendChild</span>(elem)<span class="comment">;</span>
+<span class="keyword">var</span> elem = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>);
+elem.innerHTML = <span class="string">"Click me!"</span>;
+elem.onclick = Button.click.bind(Button); 
+<span class="built_in">document</span>.getElementById(<span class="string">"results"</span>).appendChild(elem);
 
-elem<span class="preprocessor">.click</span>()<span class="comment">;</span>
+elem.click();
 
-console<span class="preprocessor">.log</span>(elem<span class="preprocessor">.clicked</span>, Button<span class="preprocessor">.clicked</span>)<span class="comment">; //Undefined, true</span>
+<span class="built_in">console</span>.log(elem.clicked, Button.clicked); <span class="comment">//Undefined, true</span>
 </code></pre><h1 id="4-_When_to_use_apply()_or_call()?">4. When to use apply() or call()?</h1>
 <p>We can assume we have two object superman and child. superman has a fly method which child not. If child wants to use the fly method but also don’t want to write the code then child can use call() to use the method defined in superman.</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Superman</span><span class="params">()</span> {</span>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Superman</span><span class="params">()</span> </span>{
     <span class="keyword">this</span>.name = <span class="string">'superman'</span>;
 }
-Superman.prototype.fly = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    console.log(<span class="string">'My name is '</span> + <span class="keyword">this</span>.name);
+Superman.prototype.fly = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+    <span class="built_in">console</span>.log(<span class="string">'My name is '</span> + <span class="keyword">this</span>.name);
 };
 <span class="keyword">var</span> superman = <span class="keyword">new</span> Superman();
-console.log(superman.name); <span class="comment">//superman</span>
+<span class="built_in">console</span>.log(superman.name); <span class="comment">//superman</span>
 superman.fly(); <span class="comment">//My name is superman</span>
 
 <span class="keyword">var</span> child = {
@@ -223,7 +223,7 @@ superman.fly.call(child); <span class="comment">//My name is child            </
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Angularjs/">Angular.js</a><small>2</small></li>
+    <li><a href="/categories/Angular-js/">Angular.js</a><small>2</small></li>
   
     <li><a href="/categories/Hacking/">Hacking</a><small>2</small></li>
   

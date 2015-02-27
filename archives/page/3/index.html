@@ -110,10 +110,10 @@
 'C' - <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"ng-sparkline"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> //Class
 'M' - <span class="comment">&lt;!-- directive: ng-sparkline --&gt;</span> //Comment
 </code></pre><p>The restrict option can specify multiple options, as well. If you want to support more than one as an element or an attribute, simply make sure all are specified in the restrict keyword:</p>
-<pre><code><span class="attribute">restrict</span>: <span class="string">'EA'</span>
+<pre><code>restric<span class="variable">t:</span> <span class="string">'EA'</span>
 </code></pre><h3 id="TemplateUrl">TemplateUrl</h3>
 <p>If you prefer to load a template over ajax, you can specify the templateUrl option, which will use ajax to pull the template.</p>
-<pre><code><span class="attribute">templateUrl</span>: <span class="string">'templates/ng-sparkline-template.html'        </span>
+<pre><code>templateUrl: 'templates/ng-sparkline-<span class="keyword">template</span>.html'        
 </code></pre><h3 id="Require">Require</h3>
 <p>When a directive uses this option, $compile will throw an error unless the specified controller is found. The ^ prefix means that this directive searches for the controller on its parents (without the ^ prefix, the directive would look for the controller on just its own element).    </p>
 <pre><code>^ <span class="subst">--</span> Look for the controller <span class="keyword">on</span> <span class="keyword">parent</span> elements, <span class="literal">not</span> just <span class="keyword">on</span> the <span class="built_in">local</span> scope
@@ -129,7 +129,7 @@
 </ol>
 <p>Example:</p>
 <p><strong>HTML:</strong>    </p>
-<pre><code><span class="subst">&lt;</span>learn<span class="attribute">-directive</span> ng<span class="attribute">-model</span><span class="subst">=</span><span class="string">"city"</span> form<span class="attribute">-name</span><span class="subst">=</span><span class="string">"haha"</span> obj<span class="attribute">-in</span><span class="attribute">-controller</span><span class="subst">=</span><span class="string">"someObj"</span><span class="subst">&gt;&lt;</span>/learn<span class="attribute">-directive</span><span class="subst">&gt;</span>
+<pre><code>&lt;learn-directive <span class="variable">ng-model=</span><span class="string">"city"</span> <span class="variable">form-name=</span><span class="string">"haha"</span> <span class="variable">obj-in-controller=</span><span class="string">"someObj"</span>&gt;&lt;/learn-directive&gt;
 </code></pre><p><strong>Template:</strong></p>
 <pre><code><span class="tag">&lt;<span class="title">div</span>&gt;</span>this is the learnDirective directive<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 <span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="tag">&lt;<span class="title">h4</span>&gt;</span><span class="tag">&lt;/<span class="title">h4</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span> //data binding
@@ -137,7 +137,7 @@
 <pre><code><span class="pi">'use strict'</span>;
 
 angular.module(<span class="string">'testApp'</span>)
-    .directive(<span class="string">'learnDirective'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    .directive(<span class="string">'learnDirective'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
         <span class="keyword">return</span> {
             templateUrl: <span class="string">'app/learnDirective/learnDirective.html'</span>,
             restrict: <span class="string">'EA'</span>,
@@ -146,8 +146,8 @@ angular.module(<span class="string">'testApp'</span>)
                 formName: <span class="string">'@'</span>,
                 obj: <span class="string">'&amp;objInController'</span>
             },
-            link: <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attrs)</span> {</span>
-                console.log(scope.obj()); <span class="comment">//return the obj which defined in controller</span>
+            link: <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attrs)</span> </span>{
+                <span class="built_in">console</span>.log(scope.obj()); <span class="comment">//return the obj which defined in controller</span>
             }
         };
     });        
@@ -158,7 +158,7 @@ angular.module(<span class="string">'testApp'</span>)
 <pre><code><span class="pi">'use strict'</span>;
 
 angular.module(<span class="string">'testApp'</span>)
-    .directive(<span class="string">'learnDirective'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    .directive(<span class="string">'learnDirective'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
 
         <span class="keyword">return</span> {
             templateUrl: <span class="string">'app/learnDirective/learnDirective.html'</span>,
@@ -168,22 +168,22 @@ angular.module(<span class="string">'testApp'</span>)
                 formName: <span class="string">'@'</span>,
                 obj: <span class="string">'&amp;objInController'</span>
             },
-            controller: [<span class="string">'$scope'</span>, <span class="string">'$http'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope, $http)</span> {</span>
+            controller: [<span class="string">'$scope'</span>, <span class="string">'$http'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope, $http)</span> </span>{
                 <span class="keyword">var</span> url = <span class="string">"http://api.openweathermap.org/data/2.5/weather?q=Beijing"</span>;
-                $scope.getTemp = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+                $scope.getTemp = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
                     $http({
                         method: <span class="string">'get'</span>,
                         url: url
-                    }).success(<span class="function"><span class="keyword">function</span><span class="params">(data)</span> {</span>
+                    }).success(<span class="function"><span class="keyword">function</span><span class="params">(data)</span> </span>{
                         $scope.weather = data.weather;
                     });
                 };
             }],
-            link: <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attrs)</span> {</span>
+            link: <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attrs)</span> </span>{
                 scope.getTemp();
-                scope.$watch(<span class="string">'weather'</span>, <span class="function"><span class="keyword">function</span><span class="params">(newValue)</span>{</span>
+                scope.$watch(<span class="string">'weather'</span>, <span class="function"><span class="keyword">function</span><span class="params">(newValue)</span></span>{
                       <span class="keyword">if</span>(newValue) {
-                          console.log(newValue[<span class="number">0</span>]);
+                          <span class="built_in">console</span>.log(newValue[<span class="number">0</span>]);
                       }
                 })
             }
@@ -258,20 +258,20 @@ angular.module(<span class="string">'testApp'</span>)
 <h4 id="Example:">Example:</h4>
 <p><strong>HTML:</strong></p>
 <pre><code>&lt;form <span class="keyword">method</span>=<span class="string">"post"</span> action=<span class="string">"/api/upload"</span>&gt;
-    input:&lt;input <span class="class"><span class="keyword">type</span>=</span><span class="string">"text"</span> name=<span class="string">"input"</span>/&gt;
-    &lt;button <span class="class"><span class="keyword">type</span>=</span><span class="string">"submit"</span> <span class="keyword">class</span>=<span class="string">"btn"</span>&gt;upload&lt;/button&gt;
+    input:&lt;input <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"input"</span>/&gt;
+    &lt;button <span class="keyword">type</span>=<span class="string">"submit"</span> class=<span class="string">"btn"</span>&gt;upload&lt;/button&gt;
 &lt;/form&gt;
 </code></pre><p><strong>Node.js:</strong></p>
 <pre><code><span class="pi">'use strict'</span>;
 
 <span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'lodash'</span>);
-    exports.index = <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> {</span>
-    console.log(req.get(<span class="string">'Content-Type'</span>));
-    console.log(req.body);    
+    exports.index = <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> </span>{
+    <span class="built_in">console</span>.log(req.get(<span class="string">'Content-Type'</span>));
+    <span class="built_in">console</span>.log(req.body);    
 };
 </code></pre><p>After we submmit the text we can get the input data from backend:</p>
 <pre><code>GET /api/things <span class="number">304</span> <span class="number">5</span>ms
-application/x<span class="attribute">-www</span><span class="attribute">-form</span><span class="attribute">-urlencoded</span>
+application/x-www-form-urlencoded
 { input: <span class="string">'123'</span> }
 </code></pre><p><strong>If we want to submit a form we must include name in input tag.</strong> All elements used to collect data in a form have a “name” attribute (name=””). That is the name of the variable that is assigned the value of the data collected by each input, select or textarea element.</p>
 
@@ -394,7 +394,7 @@ application/x<span class="attribute">-www</span><span class="attribute">-form</s
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Angularjs/">Angular.js</a><small>2</small></li>
+    <li><a href="/categories/Angular-js/">Angular.js</a><small>2</small></li>
   
     <li><a href="/categories/Hacking/">Hacking</a><small>2</small></li>
   

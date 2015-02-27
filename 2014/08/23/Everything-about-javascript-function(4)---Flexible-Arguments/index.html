@@ -76,7 +76,7 @@
     <div class="entry">
       
         <h1 id="1-_Using_a_variable_number_of_arguments_to_our_advantage-">1. Using a variable number of arguments to our advantage.</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">flat</span><span class="params">(root)</span> {</span>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">flat</span><span class="params">(root)</span> </span>{
     <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) {
         <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> <span class="built_in">arguments</span>[i]) {
             root[key] = <span class="built_in">arguments</span>[i][key];
@@ -85,53 +85,53 @@
     <span class="keyword">return</span> root;
 }
 
-console.log(flat({<span class="string">'zkl'</span>:<span class="string">'great'</span>}, {<span class="string">'others'</span>: <span class="string">'?'</span>})); <span class="comment">//{ zkl: 'great', others: '?' }</span>
+<span class="built_in">console</span>.log(flat({<span class="string">'zkl'</span>:<span class="string">'great'</span>}, {<span class="string">'others'</span>: <span class="string">'?'</span>})); <span class="comment">//{ zkl: 'great', others: '?' }</span>
 </code></pre><h1 id="2-_Use_apply()_to_find_the_Min/Max_number_in_an_array-">2. Use apply() to find the Min/Max number in an array.</h1>
 <p>If you want to pass all values in array as parameter， you should use .apply().</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">findMax</span><span class="params">(array)</span> {</span>
-    console.log(<span class="built_in">Math</span>.max.apply(<span class="keyword">this</span>, array));
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">findMax</span><span class="params">(array)</span> </span>{
+    <span class="built_in">console</span>.log(<span class="built_in">Math</span>.max.apply(<span class="keyword">this</span>, array));
 }
-<span class="function"><span class="keyword">function</span> <span class="title">findMin</span><span class="params">(array)</span> {</span>
-    console.log(<span class="built_in">Math</span>.min.apply(<span class="keyword">this</span>, array));
+<span class="function"><span class="keyword">function</span> <span class="title">findMin</span><span class="params">(array)</span> </span>{
+    <span class="built_in">console</span>.log(<span class="built_in">Math</span>.min.apply(<span class="keyword">this</span>, array));
 }
 
 findMax([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">9</span>]); <span class="comment">// 9</span>
 findMin([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">9</span>]); <span class="comment">// 1 </span>
 </code></pre><p>There’s another way to do this: use arguments.</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">findMax2</span><span class="params">()</span> {</span>
-    console.log(<span class="built_in">Math</span>.max.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>));
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">findMax2</span><span class="params">()</span> </span>{
+    <span class="built_in">console</span>.log(<span class="built_in">Math</span>.max.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>));
 }
 
 findMax2(<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">9</span>); <span class="comment">//9      </span>
 </code></pre><p>arguments is similar to array but it’s not an array.     </p>
 <h1 id="3-_How_to_sort_an_array_using_arguments_?">3. How to sort an array using arguments ?</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">sortArguments</span><span class="params">()</span> {</span>
-    <span class="built_in">arguments</span>.sort(<span class="function"><span class="keyword">function</span><span class="params">(a ,b)</span> {</span>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">sortArguments</span><span class="params">()</span> </span>{
+    <span class="built_in">arguments</span>.sort(<span class="function"><span class="keyword">function</span><span class="params">(a ,b)</span> </span>{
         <span class="keyword">return</span> b - a;
     });
 }
 
-console.log(sortArguments(<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>)); <span class="comment">//error</span>
+<span class="built_in">console</span>.log(sortArguments(<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>)); <span class="comment">//error</span>
 </code></pre><p>There will be an error because arguments is not actually an array so it does’t have the sort() method.<br>So what we need to do is first convert this array-like object(arguments) to an array. This can be done using slice() method.</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">sortArguments</span><span class="params">()</span> {</span>
-    <span class="keyword">return</span> makeArray(<span class="built_in">arguments</span>).sort(<span class="function"><span class="keyword">function</span><span class="params">(a ,b)</span> {</span>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">sortArguments</span><span class="params">()</span> </span>{
+    <span class="keyword">return</span> makeArray(<span class="built_in">arguments</span>).sort(<span class="function"><span class="keyword">function</span><span class="params">(a ,b)</span> </span>{
         <span class="keyword">return</span> b - a;
     });
 }
 
-<span class="function"><span class="keyword">function</span> <span class="title">makeArray</span><span class="params">(array)</span> {</span>
+<span class="function"><span class="keyword">function</span> <span class="title">makeArray</span><span class="params">(array)</span> </span>{
     <span class="keyword">return</span> [].slice.call(array);<span class="comment">//1.Equals to Array.prototype.slice.call(arguments, 0) 2.This function returns an array</span>
 }
 
-console.log(sortArguments(<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>)); <span class="comment">//[ 7, 5, 3, 2, 1, 1 ]    </span>
+<span class="built_in">console</span>.log(sortArguments(<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>)); <span class="comment">//[ 7, 5, 3, 2, 1, 1 ]    </span>
 </code></pre><h1 id="4-_Implement_a_multiplication_function_(first_argument_by_largest_number)-">4. Implement a multiplication function (first argument by largest number).</h1>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">multiMax</span><span class="params">(multi)</span> {</span>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">multiMax</span><span class="params">(multi)</span> </span>{
     <span class="keyword">var</span> allButFirst = [].slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);
     <span class="keyword">var</span> largestAllButFirst = <span class="built_in">Math</span>.max.apply(<span class="keyword">this</span>, allButFirst);
     <span class="keyword">return</span> multi * largestAllButFirst;
 }
 
-console.log(multiMax(<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">21</span>,<span class="number">32</span>,<span class="number">654</span>,<span class="number">432</span>));    
+<span class="built_in">console</span>.log(multiMax(<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">21</span>,<span class="number">32</span>,<span class="number">654</span>,<span class="number">432</span>));    
 </code></pre>
       
     </div>
@@ -201,7 +201,7 @@ console.log(multiMax(<span class="number">1</span>,<span class="number">2</span>
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Angularjs/">Angular.js</a><small>2</small></li>
+    <li><a href="/categories/Angular-js/">Angular.js</a><small>2</small></li>
   
     <li><a href="/categories/Hacking/">Hacking</a><small>2</small></li>
   

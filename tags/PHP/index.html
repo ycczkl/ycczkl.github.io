@@ -108,30 +108,24 @@
 </li>
 <li><p>include(), require()    [when error, halt the execution]</p>
 </li>
-<li><p>header($string) 必须写在html之前    </p>
-<ul>
-<li><p>header(“Location: login.php”); //used as redirect to new page.</p>
-<figure class="highlight <?php"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>		header(<span class="string">"Location: basic.html"</span>);
-		<span class="keyword">exit</span>; <span class="comment">//Prevent render html files</span>
-	    <span class="preprocessor">?&gt;</span>
-</pre></td></tr></table></figure>    
-
-</li>
+<li>header($string) 必须写在html之前    <ul>
+<li>header(“Location: login.php”); //used as redirect to new page.</li>
 </ul>
 </li>
 </ol>
+<figure class="highlight <?php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">header(<span class="string">"Location: basic.html"</span>);</div><div class="line"><span class="keyword">exit</span>; <span class="comment">//Prevent render html files</span></div><div class="line">   <span class="preprocessor">?&gt;</span></div></pre></td></tr></table></figure>
+
+
+
 <h1 id="Mysql">Mysql</h1>
 <ol>
 <li><p>basic command:</p>
 <ul>
 <li><p>login:</p>
-<pre><code>  mysql <span class="attribute">-u</span> root <span class="attribute">-p</span>
+<pre><code>  <span class="title">mysql</span> -u root -p
 </code></pre></li>
 <li><p>Show database:</p>
-<pre><code>  <span class="operator"><span class="keyword">SHOW</span> DATABASES;</span>            
+<pre><code>  <span class="operator"><span class="keyword">SHOW</span> <span class="keyword">DATABASES</span>;</span>            
 </code></pre></li>
 <li><p>Creat database:</p>
 <pre><code>  <span class="operator"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> &lt;name&gt;;</span>
@@ -145,9 +139,9 @@
 <li><p>Creat new dabase user </p>
 <pre><code>  <span class="operator"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> db_name.*
   <span class="keyword">TO</span> <span class="string">'username'</span>@<span class="string">'localhost'</span>
-  IDENTIFIED <span class="keyword">BY</span> <span class="string">'password'</span>;</span>
+  <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>;</span>
 
-  <span class="operator"><span class="keyword">SHOW</span> GRANTS <span class="keyword">FOR</span> <span class="string">'username'</span>@<span class="string">'localhost'</span>;</span>
+  <span class="operator"><span class="keyword">SHOW</span> <span class="keyword">GRANTS</span> <span class="keyword">FOR</span> <span class="string">'username'</span>@<span class="string">'localhost'</span>;</span>
 </code></pre></li>
 <li><p>TABLE:</p>
 <ul>
@@ -161,13 +155,13 @@
 </ul>
 </li>
 <li><p>SHOW tables:</p>
-<pre><code>  <span class="operator"><span class="keyword">SHOW</span> TABLES;</span>
+<pre><code>  <span class="operator"><span class="keyword">SHOW</span> <span class="keyword">TABLES</span>;</span>
 </code></pre></li>
 <li><p>Show database schema:</p>
-<pre><code>  <span class="operator"><span class="keyword">SHOW</span> COLUMNS <span class="keyword">FROM</span> &lt;<span class="keyword">table</span> name&gt;            </span>
+<pre><code>  <span class="operator"><span class="keyword">SHOW</span> <span class="keyword">COLUMNS</span> <span class="keyword">FROM</span> &lt;<span class="keyword">table</span> name&gt;            </span>
 </code></pre></li>
 <li><p>Creat tables:</p>
-<pre><code>  <span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> subjects (   id <span class="keyword">INT</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,    menu_name <span class="keyword">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,   position <span class="keyword">INT</span>(<span class="number">3</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>, visible TINYINT(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,   <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>(id));</span>
+<pre><code>  <span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> subjects (   id <span class="built_in">INT</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,    menu_name <span class="built_in">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,   <span class="keyword">position</span> <span class="built_in">INT</span>(<span class="number">3</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>, visible TINYINT(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,   <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>(id));</span>
 </code></pre></li>
 <li><p>Show columns:</p>
 <p>  SHOW COLUMNS FROM table_name;</p>
@@ -215,29 +209,29 @@
 <li><p>database query</p>
 <ul>
 <li><p>Read data:</p>
-<pre><code>  <span class="variable">$query</span> = <span class="string">"SELECT * FROM subjects"</span>;
-  <span class="variable">$result</span> = mysqli_query(<span class="variable">$connection</span>, <span class="variable">$query</span>);
-  <span class="keyword">if</span>(!<span class="variable">$result</span>) {
-      <span class="keyword">die</span>(<span class="string">"database query failed."</span>);
+<pre><code>  $query = <span class="string">"SELECT * FROM subjects"</span>;
+  $<span class="literal">result</span> = mysqli_query($connection, $query);
+  <span class="keyword">if</span>(!$<span class="literal">result</span>) {
+      die(<span class="string">"database query failed."</span>);
   }
 </code></pre></li>
 <li><p>Creat data(return true or false):                                </p>
-<pre><code>  <span class="variable">$query</span> = <span class="string">"INSERT INTO subjects ( mean_name, position, visible) VALUES ({<span class="variable">$menu_name</span>},{<span class="variable">$position</span>},{<span class="variable">$visible</span>})"</span>
-  <span class="variable">$result</span> = mysqli_query(<span class="variable">$connection</span>, <span class="variable">$query</span>);
+<pre><code>  $query = <span class="string">"INSERT INTO subjects ( mean_name, position, visible) VALUES ({$menu_name},{$position},{$visible})"</span>
+  $<span class="literal">result</span> = mysqli_query($connection, $query);
 </code></pre></li>
 </ul>
 </li>
 <li><p>Use returned data</p>
-<pre><code> <span class="keyword">while</span>(<span class="variable">$row</span> = mysqli_fetch_assoc(<span class="variable">$result</span>)) {
-     var_dump(<span class="variable">$row</span>);
-     <span class="built_in">echo</span> <span class="string">"&lt;hr /&gt;"</span>;
+<pre><code> <span class="keyword">while</span>($row = mysqli_fetch_assoc($<span class="literal">result</span>)) {
+     var_dump($row);
+     echo <span class="string">"&lt;hr /&gt;"</span>;
  }
 </code></pre></li>
 <li><p>Release returned data</p>
-<pre><code> mysqli_free_result(<span class="variable">$result</span>);
+<pre><code> mysqli_free_result($<span class="literal">result</span>);
 </code></pre></li>
 <li><p>close database</p>
-<pre><code> mysqli_close(<span class="variable">$connection</span>);        
+<pre><code> <span class="function">mysqli_close</span>(<span class="variable">$connection</span>);        
 </code></pre></li>
 </ol>
 <h1 id="Interview_questions">Interview questions</h1>
@@ -301,7 +295,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Angularjs/">Angular.js</a><small>2</small></li>
+    <li><a href="/categories/Angular-js/">Angular.js</a><small>2</small></li>
   
     <li><a href="/categories/Hacking/">Hacking</a><small>2</small></li>
   

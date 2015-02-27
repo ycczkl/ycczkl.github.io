@@ -89,32 +89,32 @@
 <span class="built_in">console</span>.log(!ninja2); <span class="regexp">//</span><span class="literal">false</span>. ninja2 <span class="keyword">is</span> an instance <span class="keyword">of</span> Ninja
 </code></pre><h1 id="2-How_‘this’_worked_in_function?">2.How ‘this’ worked in function?</h1>
 <p>For more detail describtion: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="external">MDN: this</a></p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span>{</span>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span></span>{
     <span class="keyword">this</span>.swung = <span class="literal">false</span>;
 
     <span class="comment">// Should return true</span>
-    <span class="keyword">this</span>.swingSword = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">this</span>.swingSword = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
         <span class="keyword">this</span>.swung = !<span class="keyword">this</span>.swung; <span class="comment">//Use the property of closure</span>
         <span class="keyword">return</span> <span class="keyword">this</span>.swung;
     };
 }
 
 <span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();
-console.log( ninja.swingSword()); <span class="comment">//True. Calling the instance method.</span>
-console.log( ninja.swung); <span class="comment">//True. The ninja has swung the sword.</span>
+<span class="built_in">console</span>.log( ninja.swingSword()); <span class="comment">//True. Calling the instance method.</span>
+<span class="built_in">console</span>.log( ninja.swung); <span class="comment">//True. The ninja has swung the sword.</span>
 
 <span class="keyword">var</span> ninjaB = <span class="keyword">new</span> Ninja();
-console.log( !ninjaB.swung); <span class="comment">//True. Make sure that the ninja has not swung his sword.</span>
+<span class="built_in">console</span>.log( !ninjaB.swung); <span class="comment">//True. Make sure that the ninja has not swung his sword.</span>
 </code></pre><h1 id="3-What_will_happen_if_we_forget_to_use_new_operator?">3.What will happen if we forget to use new operator?</h1>
-<pre><code><span class="reserved">function</span> User(first, last) {
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">User</span><span class="params">(first, last)</span> </span>{
     <span class="keyword">this</span>.name = first + <span class="string">' '</span> + last;
 }
-<span class="reserved">var</span> name = <span class="string">'zkl'</span>;
-<span class="reserved">var</span> user = User(<span class="string">"John"</span>, <span class="string">"snow"</span>); <span class="regexp">//</span>This <span class="reserved">function</span> will be called <span class="keyword">when</span> assign it to a variable
-<span class="built_in">console</span>.log(<span class="keyword">typeof</span> user); <span class="regexp">//</span><span class="literal">undefined</span>
-<span class="built_in">console</span>.log(<span class="built_in">window</span>.name, name); <span class="regexp">//</span>John snow John snow. The name variable <span class="keyword">is</span> accidentally overridden.   
+<span class="keyword">var</span> name = <span class="string">'zkl'</span>;
+<span class="keyword">var</span> user = User(<span class="string">"John"</span>, <span class="string">"snow"</span>); <span class="comment">//This function will be called when assign it to a variable</span>
+<span class="built_in">console</span>.log(<span class="keyword">typeof</span> user); <span class="comment">//undefined</span>
+<span class="built_in">console</span>.log(<span class="built_in">window</span>.name, name); <span class="comment">//John snow John snow. The name variable is accidentally overridden.   </span>
 </code></pre><p>We need to prevent this happend, but how? Let’s see the code below:</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">User</span><span class="params">(first, last)</span>{</span> 
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">User</span><span class="params">(first, last)</span></span>{ 
   <span class="keyword">if</span> ( !(<span class="keyword">this</span> <span class="keyword">instanceof</span> User) ) 
        <span class="keyword">return</span> <span class="keyword">new</span> User(first, last); 
 
@@ -124,7 +124,7 @@ console.log( !ninjaB.swung); <span class="comment">//True. Make sure that the ni
 <span class="keyword">var</span> name = <span class="string">"Resig"</span>; 
 <span class="keyword">var</span> user = User(<span class="string">"John"</span>, name);
 </code></pre><p>We can also use arguments.callee:</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">User</span><span class="params">(first, last)</span>{</span> 
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">User</span><span class="params">(first, last)</span></span>{ 
   <span class="keyword">if</span> ( !(<span class="keyword">this</span> <span class="keyword">instanceof</span> <span class="built_in">arguments</span>.callee) ) 
     <span class="keyword">return</span> <span class="keyword">new</span> User(first, last); 
 
@@ -202,7 +202,7 @@ console.log( !ninjaB.swung); <span class="comment">//True. Make sure that the ni
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Angularjs/">Angular.js</a><small>2</small></li>
+    <li><a href="/categories/Angular-js/">Angular.js</a><small>2</small></li>
   
     <li><a href="/categories/Hacking/">Hacking</a><small>2</small></li>
   
