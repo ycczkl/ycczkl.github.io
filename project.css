@@ -1,0 +1,194 @@
+/* ============================================================
+   Connie Liu — Portfolio 2026 · Project 3: NSF Funding Search Engine
+   Pixel-faithful reproduction of Figma frame 846:219 (1440 × 6308)
+   ============================================================ */
+
+:root {
+  --bg:         #faf6ee;
+  --ink:        #1a1814;
+  --ink-strong: #15171a;
+  --blue:       #3d5afe;
+  --red:        #b3392f;
+  --green:      #108b2a;
+  --muted:      #6b665a;
+  --label:      #8a8474;
+  --label2:     #777d82;
+  --body:       #4a463c;
+  --sand:       #93907f;
+  --sand2:      #9a978e;
+  --chip-tx:    #5b594f;
+  --hair:       #d8d2c2;
+  --hair2:      #dcd6c6;
+  --hair5:      #e2e4e5;
+  --band:       #ede7d8;
+  --goal-bg:    #fbf8f1;
+  --pill-bg:    #f7f3ea;
+  --pill-bd:    #e2dbcb;
+  --tag-bg:     #f3efe5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  display: flex;
+  justify-content: center;
+}
+
+.stage4 {
+  position: relative;
+  width: 1440px;
+  height: 6308px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.abs { position: absolute; }
+.ff-plex { font-family: 'IBM Plex Mono', monospace; }
+.ff-serif { font-family: 'Instrument Serif', serif; font-weight: 400; }
+
+/* ---------- top bar ---------- */
+.nav4 {
+  position: absolute; left: 50%; transform: translateX(-50%); top: 48px;
+  display: flex; gap: 20px;
+  font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100;
+  font-size: 13px; line-height: normal;
+}
+.nav4 a { color: var(--muted); text-decoration: none; }
+.avail4 {
+  position: absolute; right: 48px; top: 48px; text-align: right;
+  font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100;
+  font-size: 13px; line-height: 14px; color: var(--muted); white-space: nowrap;
+}
+
+/* ---------- hero ---------- */
+.hero4 {
+  position: absolute; left: 48px; top: 147px; width: 1344px;
+  display: flex; flex-direction: column; align-items: center; gap: 72px;
+}
+.hero4 .head { width: 962px; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+.hero4 .eyebrow {
+  font-family: 'IBM Plex Mono', monospace; font-size: 13px;
+  letter-spacing: 2px; line-height: 18.75px; color: var(--label);
+}
+.hero4 .title {
+  height: 103px; display: flex; align-items: center; justify-content: center;
+  font-family: 'Instrument Serif', serif; font-weight: 400;
+  font-size: 98px; letter-spacing: -1.68px; color: var(--ink); white-space: nowrap;
+}
+.hero4 .sub { font-size: 21px; line-height: 31.5px; color: var(--body); }
+
+/* spec table */
+.spec4 {
+  width: 100%; border-top: 1px solid var(--ink-strong);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  text-align: left;
+}
+.spec4 .cell { padding: 20px 25px 24px 24px; border-right: 1px solid var(--hair5); }
+.spec4 .cell:first-child { padding-left: 0; }
+.spec4 .cell:last-child { padding-right: 0; border-right: none; }
+.spec4 .label { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.2px; color: var(--label2); }
+.spec4 .value { margin-top: 8px; font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 17px; color: var(--ink-strong); }
+
+/* ---------- hero browser mock ---------- */
+.b4-top  { position: absolute; left: 162px; top: 709px; width: 1115.104px; height: 61.054px; background: #fff; border: 1px solid var(--hair2); border-radius: 12px 12px 0 0; }
+.b4-bar  { position: absolute; left: 163.15px; top: 710.15px; width: 1112.801px; height: 59.902px; background: #efeadf; border-bottom: 1px solid var(--ink); border-radius: 11px 11px 0 0; }
+.b4-dot  { position: absolute; top: 734.34px; width: 12.672px; height: 12.672px; border-radius: 5.5px; background: var(--hair); }
+.b4-pill { position: absolute; left: 254.16px; top: 723.97px; width: 241.913px; height: 31.103px; background: var(--pill-bg); border: 1px solid var(--pill-bd); border-radius: 7px; }
+.b4-url  { position: absolute; left: 271.44px; top: 729.74px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 17.25px; color: var(--label); }
+.b4-view { position: absolute; left: 163.15px; top: 770.05px; width: 1112.801px; height: 787.946px; background: #efefef; border: 1px solid var(--hair); box-shadow: 5px 5px 24.6px 12px rgba(0,0,0,.05); }
+.b4-shot { position: absolute; left: 170.06px; top: 773.51px; width: 1100.734px; height: 775.66px; border-radius: 12px; overflow: hidden; }
+.b4-shot img { position: absolute; left: -20.46%; top: -4.23%; width: 143.78%; height: 125.91%; }
+.b4-cap {
+  position: absolute; left: 50%; transform: translateX(-50%); top: 1582px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 17.25px;
+  color: var(--sand); text-align: center; white-space: nowrap;
+}
+
+/* ---------- section headers ---------- */
+.eb4 { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.92px; line-height: 18px; color: var(--label); }
+.eb4-blue { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.68px; line-height: 18px; color: var(--blue); }
+.h4-48 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 58px; color: #000; }
+
+/* ---------- challenge problems ---------- */
+.prob4 { position: absolute; }
+.prob4 .num { font-family: 'Instrument Serif', serif; font-size: 30px; line-height: 45px; color: #000; }
+.prob4 .t { font-weight: 600; font-size: 16px; line-height: 24px; color: #000; }
+.prob4 .b { font-size: 14px; line-height: 23.1px; color: var(--muted); }
+
+/* ---------- goal box ---------- */
+.goal4 {
+  position: absolute; left: calc(50% - 22px); transform: translateX(-50%);
+  top: 2238px; width: 888px; height: 102px;
+  background: var(--goal-bg); border: 1px solid var(--hair2); border-radius: 10px;
+}
+.goal4-label {
+  position: absolute; left: calc(50% - 22px); transform: translateX(-50%); top: 2264px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.38px; line-height: 17.25px;
+  color: #000; text-align: center; white-space: nowrap;
+}
+.goal4-body {
+  position: absolute; left: calc(50% - 22px); transform: translateX(-50%); top: 2289px;
+  font-size: 16px; line-height: 24px; color: #2a261e; text-align: center; white-space: nowrap;
+}
+
+/* ---------- features ---------- */
+.ps-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.1px; line-height: 16.5px; }
+.ps-label.problem { color: var(--red); }
+.ps-label.solution { color: var(--green); }
+.ps-body { font-size: 16px; line-height: 26.35px; color: var(--body); margin-top: 6px; }
+
+.fchip {
+  position: absolute; height: 33px; border: 1px solid var(--hair2); border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 17.25px;
+  color: var(--chip-tx); white-space: nowrap;
+}
+
+/* before/after cards */
+.ba4 {
+  position: absolute; top: 3112px; width: 275px; height: 329px;
+  border: 1px solid var(--hair2); border-radius: 12px;
+  background: linear-gradient(50deg, #ede7d8 0%, #ede7d8 40%, #f6f1e5 85%);
+}
+.ba4-tag { position: absolute; height: 27px; background: var(--tag-bg); border-radius: 6px; }
+.ba4-tag-tx { position: absolute; font-family: 'IBM Plex Mono', monospace; font-size: 11px; line-height: 16.5px; white-space: nowrap; }
+
+/* ---------- looking ahead ---------- */
+.ahead-band { position: absolute; left: 50%; transform: translateX(-50%); top: 4216px; width: 1120px; height: 883px; background: var(--band); border-radius: 14px; }
+.ahead-copy { position: absolute; left: 370px; top: 4259px; width: 700px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+.ahead-copy .eb { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.92px; line-height: 18px; color: var(--sand2); }
+.ahead-copy .t { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 52.8px; color: #000; }
+.ahead-copy .b { font-size: 16px; line-height: 27.2px; color: var(--body); }
+.ahead-shot {
+  position: absolute; left: 50%; transform: translateX(-50%); top: 4460px; width: 844px; height: 539px;
+  border-radius: 20px; overflow: hidden; box-shadow: 0 0 20px 9px rgba(0,0,0,.05);
+}
+.ahead-shot img { position: absolute; left: 0; top: -19.25%; width: 100%; height: 539.05%; }
+
+/* ---------- outcomes ---------- */
+.oc4-title { position: absolute; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 26px; line-height: 39px; color: #000; }
+.oc4-body { position: absolute; font-size: 15px; line-height: 25.5px; color: var(--body); }
+.oc4-body b { font-weight: 700; }
+
+/* ---------- next project (Group 58) ---------- */
+.next4-line { position: absolute; left: 159px; top: 5735px; width: 1168px; border-top: 1px solid var(--hair2); }
+.next4-eb { position: absolute; left: 159px; top: 5764px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.38px; line-height: 17.25px; color: var(--label); }
+.next4-t { position: absolute; left: 159px; top: 5790px; width: 472px; font-family: 'Instrument Serif', serif; font-size: 48px; line-height: 72px; color: #000; }
+.next4-a { position: absolute; left: 1260.8px; top: 5771px; font-family: 'Instrument Serif', serif; font-size: 56px; line-height: 84px; color: #000; }
+
+/* ---------- footer ---------- */
+.footer4 { position: absolute; left: 47px; top: 5917px; width: 1344px; height: 149px; border-top: 1px solid var(--ink); font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
+.footer4 .talk { position: absolute; top: 60px; left: 0; font-family: 'Instrument Serif', serif; font-size: 40px; line-height: normal; color: var(--ink); white-space: nowrap; }
+.footer4 .talk .dash { font-style: italic; }
+.footer4 .talk a { color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--blue); padding-bottom: 1px; }
+.footer4 .links { position: absolute; top: 78px; left: 1136px; display: flex; gap: 24px; }
+.footer4 .links a { display: inline-flex; align-items: center; gap: 2px; font-size: 13px; color: var(--muted); text-decoration: none; }
+.footer4 .links .arrow { font-family: 'Source Sans 3', sans-serif; font-size: 8px; }
+
+/* generic hairline */
+.hr4 { position: absolute; height: 0; border-top: 1px solid var(--hair); }

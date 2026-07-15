@@ -1,0 +1,177 @@
+/* ============================================================
+   Connie Liu — Portfolio 2026 · Project 2: AI Grant Copilot
+   Pixel-faithful reproduction of Figma frame 846:394 (1440 × 6882)
+   Absolutely positioned stage using exact Figma coordinates.
+   ============================================================ */
+
+:root {
+  --bg:        #faf6ee;
+  --navy:      #162e51;
+  --ink:       #1a1814;
+  --ink2:      #111111;
+  --blue:      #3d5afe;
+  --blue2:     #1b3fd1;
+  --muted:     #6b665a;
+  --muted2:    #534f46;
+  --sand:      #8a8474;
+  --sand2:     #8d887d;
+  --sand3:     #93907f;
+  --sand4:     #aba493;
+  --body:      #4a463c;
+  --hair:      #d8d2c2;
+  --hair2:     #dcd6c6;
+  --hair3:     #d7cebb;
+  --hair4:     #dfd8c6;
+  --hair5:     #e2e4e5;
+  --card:      #efeadf;
+  --cardgray:  #efefef;
+  --pill:      #f7f3ea;
+  --pillbd:    #e2dbcb;
+  --amber:     #e8a33d;
+  --dotdim:    #d6ceb9;
+  --w50: rgba(255,255,255,.5);
+  --w45: rgba(255,255,255,.45);
+  --w15: rgba(255,255,255,.15);
+  --w12: rgba(255,255,255,.12);
+  --w10: rgba(255,255,255,.10);
+  --w08: rgba(255,255,255,.08);
+  --w06: rgba(255,255,255,.06);
+  --w04: rgba(255,255,255,.04);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  display: flex;
+  justify-content: center;
+}
+
+/* fixed canvas */
+.stage2 {
+  position: relative;
+  width: 1440px;
+  height: 6882px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* helpers */
+.abs { position: absolute; }
+.ff-plex   { font-family: 'IBM Plex Mono', monospace; }
+.ff-roboto { font-family: 'Roboto Mono', monospace; }
+.ff-inter  { font-family: 'Inter', sans-serif; }
+.ff-serif  { font-family: 'Instrument Serif', serif; font-weight: 400; }
+.ff-news   { font-family: 'Newsreader', serif; font-weight: 400; }
+.ff-grotesk{ font-family: 'Space Grotesk', sans-serif; font-weight: 500; }
+.ff-archivo{ font-family: 'Archivo', sans-serif; font-variation-settings:'wdth' 100; }
+.center { text-align: center; }
+
+/* ---------- Hero band (navy) ---------- */
+.hero-bg { position:absolute; left:0; top:0; width:1440px; height:725px; background:var(--navy); }
+
+.nav2 {
+  position:absolute; left:50%; transform:translateX(-50%); top:48px;
+  display:flex; gap:20px; font-family:'Archivo',sans-serif; font-size:13px; line-height:normal;
+}
+.nav2 a { color:#fff; text-decoration:none; }
+.avail2 {
+  position:absolute; right:48px; top:48px; text-align:right;
+  font-family:'Archivo',sans-serif; font-size:13px; line-height:normal; color:#fff; white-space:nowrap;
+}
+.avail2 p:first-child { margin-bottom:0; }
+
+.hero-col {
+  position:absolute; left:48px; top:170px; width:1344px;
+  display:flex; flex-direction:column; align-items:center; gap:72px;
+}
+.hero-head { width:631px; display:flex; flex-direction:column; align-items:center; gap:24px; text-align:center; color:#fff; }
+.hero-eyebrow { font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:2px; line-height:18.75px; }
+.hero-title { font-family:'Instrument Serif',serif; font-weight:400; font-size:98px; letter-spacing:-1.68px; line-height:103px; }
+.hero-sub { width:601px; font-family:'Inter',sans-serif; font-size:21px; line-height:31.5px; }
+
+/* spec table (white on navy) */
+.spec2 { width:100%; border-top:1px solid #fff; display:grid; grid-template-columns:repeat(4,1fr); }
+.spec2 .cell { padding:20px 25px 24px 24px; border-right:1px solid var(--hair5); }
+.spec2 .cell:first-child { padding-left:0; }
+.spec2 .cell:last-child  { padding-right:0; border-right:none; }
+.spec2 .label { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.2px; color:#fff; }
+.spec2 .value { margin-top:8px; font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:17px; letter-spacing:-0.3px; color:#fff; }
+
+/* ---------- Prototype / video mock ---------- */
+.proto-top    { position:absolute; left:160px; top:842px; width:1119.996px; height:56.524px; background:#fff; border:1px solid var(--hair2); border-radius:12px 12px 0 0; }
+.proto-bar    { position:absolute; left:161.16px; top:843.07px; width:1117.682px; height:55.457px; background:var(--card); border-bottom:1px solid var(--ink); border-radius:11px 11px 0 0; }
+.proto-dot    { position:absolute; top:865.46px; width:12.727px; height:11.731px; border-radius:5.5px; background:var(--hair); }
+.proto-view   { position:absolute; left:161.16px; top:898.52px; width:1117.682px; height:729.476px; background:var(--cardgray); border:1px solid var(--hair); box-shadow:5px 5px 24.6px 12px rgba(0,0,0,.05); }
+.proto-urlpill{ position:absolute; left:259px; top:858px; width:189px; height:31px; background:var(--pill); border:1px solid var(--pillbd); border-radius:7px; }
+.proto-urltxt { position:absolute; left:276px; top:865px; width:160px; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:17.25px; color:var(--sand); }
+.proto-note   { position:absolute; left:634px; top:1068px; width:154px; font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:17px; line-height:normal; color:#15171a; }
+
+/* ---------- generic dividers ---------- */
+.hline { position:absolute; height:0; border-top:1px solid var(--hair); }        /* Line 5/6/7 */
+.hline-black { position:absolute; height:0; border-top:1px solid #000; }
+.vline { position:absolute; width:0; border-left:1px solid var(--hair4); }        /* Line 4 pipeline */
+
+/* ---------- Challenge problems ---------- */
+.prob-num { font-family:'Instrument Serif',serif; font-size:30px; line-height:45px; color:#000; }
+.prob-t   { font-family:'Inter',sans-serif; font-weight:600; font-size:16px; line-height:24px; color:#000; }
+.prob-b   { font-family:'Inter',sans-serif; font-size:14px; line-height:23.1px; color:var(--muted); }
+
+/* ---------- Pipeline ---------- */
+.pdot  { position:absolute; width:10px; height:10px; border-radius:5px; box-sizing:border-box; }
+.step  { position:absolute; display:flex; flex-direction:column; gap:4px; }
+.step .n { font-family:'Roboto Mono',monospace; font-size:10px; letter-spacing:1.6px; text-transform:uppercase; color:var(--sand2); line-height:16px; }
+.step .t { font-family:'Inter',sans-serif; font-weight:700; font-size:16px; letter-spacing:-0.16px; line-height:24px; color:#000; }
+.step .s { font-family:'Inter',sans-serif; font-size:13px; line-height:19.5px; color:var(--sand2); }
+.step .b { font-family:'Inter',sans-serif; font-size:13px; line-height:20px; color:var(--ink2); }
+
+.pchip {
+  position:absolute; height:31px; display:inline-flex; align-items:center; justify-content:center;
+  padding:0 8px; border:1px solid var(--hair3); border-radius:30px;
+  font-family:'Roboto Mono',monospace; font-size:11px; letter-spacing:.42px; color:var(--muted2); white-space:nowrap;
+}
+.pimg { position:absolute; display:flex; flex-direction:column; align-items:center; gap:12px; }
+.pimg .frame { width:100%; aspect-ratio:914/540; border-radius:6px; box-shadow:0 10px 20px 4px rgba(0,0,0,.08); overflow:hidden; }
+.pimg .frame img { display:block; width:100%; height:100%; object-fit:cover; }
+.pimg .cap { width:100%; font-family:'Roboto Mono',monospace; font-size:8px; letter-spacing:.55px; line-height:17.6px; color:var(--sand4); text-align:center; }
+
+/* ---------- Signature Design Decision (navy) ---------- */
+.sig-bg { position:absolute; left:0; top:4190px; width:1439px; height:998px; background:var(--navy); }
+.sig-eyebrow { font-family:'Roboto Mono',monospace; font-weight:500; font-size:11px; letter-spacing:1.98px; text-transform:uppercase; color:var(--w50); line-height:17.6px; }
+.sig-title { font-family:'Newsreader',serif; font-weight:400; font-size:66px; letter-spacing:-1.65px; line-height:66px; color:#fff; }
+.sig-body { font-family:'Inter',sans-serif; font-size:16px; line-height:27.2px; color:var(--w50); }
+.card-label { position:absolute; font-family:'Roboto Mono',monospace; font-size:10px; letter-spacing:1.6px; text-transform:uppercase; color:var(--w50); line-height:16px; white-space:nowrap; }
+.nchip {
+  position:absolute; height:33px; display:inline-flex; align-items:center; padding:0 15px;
+  border:1px solid var(--w15); border-radius:30px;
+  font-family:'Roboto Mono',monospace; font-size:11px; letter-spacing:.42px; color:var(--w50); white-space:nowrap;
+}
+
+/* ---------- How it was built + Outcomes ---------- */
+.eb-plex   { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.92px; color:var(--sand); line-height:18px; }
+.h-serif48 { font-family:'Instrument Serif',serif; font-weight:400; font-size:48px; line-height:58px; color:#000; }
+.build-num { font-family:'Instrument Serif',serif; font-size:36px; line-height:45px; color:#000; }
+.build-tag { font-family:'Roboto Mono',monospace; font-size:11px; letter-spacing:1.1px; text-transform:uppercase; color:var(--blue2); line-height:17.6px; }
+.build-h   { font-family:'Newsreader',serif; font-weight:400; font-size:24px; line-height:24px; color:#000; }
+.build-b   { font-family:'Inter',sans-serif; font-size:14px; line-height:23.1px; color:#000; }
+.build-b b, .oc b { font-weight:600; }
+.oc-tag { font-family:'Roboto Mono',monospace; font-size:11px; letter-spacing:1.1px; text-transform:uppercase; color:var(--blue2); line-height:17.6px; }
+.arrow-serif { font-family:'Instrument Serif',serif; font-size:36px; line-height:84px; color:#a2a2a2; }
+
+/* ---------- Next project ---------- */
+.next-eyebrow { position:absolute; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.38px; color:var(--sand); line-height:17.25px; }
+.next-title   { position:absolute; font-family:'Instrument Serif',serif; font-size:48px; line-height:72px; color:#000; }
+.next-arrow   { position:absolute; font-family:'Instrument Serif',serif; font-size:56px; line-height:84px; color:#000; }
+
+/* ---------- Footer (shared) ---------- */
+.footer2 { position:absolute; left:48px; top:6644px; width:1344px; height:149px; border-top:1px solid var(--ink); }
+.footer2 .talk { position:absolute; top:60px; left:0; font-family:'Instrument Serif',serif; font-size:40px; line-height:normal; color:var(--ink); white-space:nowrap; }
+.footer2 .talk .dash { font-style:italic; }
+.footer2 .talk a { color:var(--blue); text-decoration:none; border-bottom:1px solid var(--blue); padding-bottom:1px; }
+.footer2 .links { position:absolute; top:78px; left:1136px; display:flex; gap:24px; }
+.footer2 .links a { display:inline-flex; align-items:center; gap:2px; font-family:'Archivo',sans-serif; font-size:13px; color:var(--muted); text-decoration:none; }
+.footer2 .links .arrow { font-family:'Source Sans 3',sans-serif; font-size:8px; }

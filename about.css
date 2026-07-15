@@ -1,0 +1,197 @@
+/* ============================================================
+   Connie Liu — Portfolio 2026 · About
+   Faithful static reproduction of Figma frame 980:647 (1440 × 1878)
+   ============================================================ */
+
+:root {
+  --bg:            #faf6ee;
+  --ink:           #1a1814;
+  --ink-strong:    #15171a;
+  --blue:          #3d5afe;
+  --blue-strong:   #1256d8;
+  --green:         #287f3a;
+  --muted:         #6b665a;
+  --body:          #4a463c;
+  --hairline:      #e2e4e5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  font-family: 'Archivo', sans-serif;
+  font-variation-settings: 'wdth' 100;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  display: flex;
+  justify-content: center;
+}
+
+.stage {
+  position: relative;
+  width: 1440px;
+  height: 1878px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* ---------- Top navigation (ABOUT active) ---------- */
+.nav {
+  position: absolute;
+  left: 650.5px;
+  top: 48px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 16px;
+}
+.nav a { text-decoration: none; color: var(--muted); }
+.nav .is-active {
+  color: var(--blue);
+  font-weight: 700;
+  border-bottom: 1px solid var(--blue-strong);
+  padding-bottom: 2px;
+}
+
+.availability {
+  position: absolute;
+  top: 45px;
+  right: 48px;
+  font-size: 13px;
+  line-height: 14px;
+  color: var(--muted);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ---------- Hero (shared with homepage) ---------- */
+.hero-name {
+  position: absolute;
+  left: 112px;
+  top: 150px;
+  width: 640px;
+  height: 158px;
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  font-size: 158px;
+  line-height: 161.28px;
+  letter-spacing: -1.68px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.hero-name .dot { color: var(--blue); }
+
+.intro {
+  position: absolute;
+  left: 764px;
+  top: 183px;
+  width: 565px;
+  font-size: 26px;
+  line-height: 36.4px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.intro .dot42 { font-family: '42dot Sans', sans-serif; }
+.intro em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--green);
+}
+
+/* ---------- Spec table (blue labels) ---------- */
+.spec {
+  position: absolute;
+  left: 80px;
+  top: 381px;
+  width: 1280px;
+  border-top: 1px solid var(--ink-strong);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.spec .cell { padding: 20px 25px 24px 24px; border-right: 1px solid var(--hairline); }
+.spec .cell:first-child { padding-left: 0; }
+.spec .cell:last-child  { padding-right: 0; border-right: none; }
+.spec .label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  color: var(--blue);
+}
+.spec .value {
+  margin-top: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  color: var(--ink-strong);
+}
+.spec .value.w-focus { max-width: 274px; }
+.spec .value.w-now   { max-width: 255px; }
+
+/* ---------- Bio ---------- */
+.hi {
+  position: absolute;
+  left: 80px;
+  top: 535px;
+  width: 352px;
+  height: 73px;
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 95.88px;
+  letter-spacing: -1.53px;
+  color: var(--blue);
+}
+.bio {
+  position: absolute;
+  left: 81px;
+  top: 638px;
+  width: 727px;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  line-height: 43px;
+  letter-spacing: -0.32px;
+  color: var(--body);
+}
+.bio p { margin: 0; }
+.bio p.gap { height: 43px; }
+.bio b { font-weight: 600; }
+
+.photo {
+  position: absolute;
+  left: 872px;
+  top: 638px;
+  width: 432px;
+  height: 429px;
+  border-radius: 214.5px;
+  overflow: hidden;
+}
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ---------- Footer ---------- */
+.footer {
+  position: absolute;
+  left: 48px;
+  top: 1684px;
+  width: 1344px;
+  height: 149px;
+  border-top: 1px solid var(--ink);
+}
+.footer .talk {
+  position: absolute;
+  top: 60px;
+  left: 52px;
+  font-family: 'Instrument Serif', serif;
+  font-size: 40px;
+  line-height: normal;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.footer .talk .dash { font-style: italic; }
+.footer .talk a { color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--blue); padding-bottom: 1px; }
+.footer .links { position: absolute; top: 78px; left: 1099px; display: flex; gap: 24px; }
+.footer .links a { display: inline-flex; align-items: center; gap: 2px; font-size: 13px; color: var(--muted); text-decoration: none; }
+.footer .links .arrow { font-family: 'Source Sans 3', sans-serif; font-size: 8px; }
