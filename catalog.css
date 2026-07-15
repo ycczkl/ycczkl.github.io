@@ -133,7 +133,13 @@ body {
   border-radius: 20px;
   overflow: hidden;
 }
-.card .win img { position: absolute; }
+.card .win img {
+  position: absolute;
+  /* native image-drag swallows the click if the mouse moves 1px mid-press */
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
 .card .meta { margin-top: 32px; }
 .card .trow {
   display: flex;
