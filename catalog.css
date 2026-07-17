@@ -75,8 +75,8 @@ body {
 /* ---------- Header ---------- */
 .cat-head {
   position: absolute;
-  left: 156px;
-  top: 157px;
+  left: 226px;
+  top: 166px;
   width: 242px;
   display: flex;
   flex-direction: column;
@@ -99,9 +99,9 @@ body {
 }
 .cat-blurb {
   position: absolute;
-  left: 666px;
-  top: 186px;
-  width: 440px;
+  left: 667px;
+  top: 203px;
+  width: 657px;
   font-size: 18px;
   line-height: 28.8px;
   color: var(--body);
