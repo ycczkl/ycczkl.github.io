@@ -38,7 +38,13 @@ body {
   width: 1200px;
   height: 3659px;
   background: var(--bg);
-  overflow: hidden;
+  /* visible so the full-bleed Catalog band can escape the 1200px column */
+  overflow: visible;
+}
+/* the 100vw band includes the scrollbar gutter; clip that sliver on
+   viewports wide enough to show the full 1200px content */
+@media (min-width: 1200px) {
+  html, body { overflow-x: clip; }
 }
 
 /* ---------- Top navigation ---------- */
@@ -214,11 +220,19 @@ body {
    ============================================================ */
 .cat-band {
   position: absolute;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   top: 2500px;
-  width: 1200px;
+  /* background bleeds across the full viewport; content stays at 1200 */
+  width: max(100vw, 1200px);
   height: 709px;
   background: var(--band);
+}
+.cat-band .inner {
+  position: relative;
+  width: 1200px;
+  height: 709px;
+  margin: 0 auto;
 }
 .cat-band .head {
   position: absolute;

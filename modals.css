@@ -1,0 +1,107 @@
+/* ============================================================
+   Shared experiment modals (used by homepage + catalog)
+   Figma: 959:115 scrim / 936:1855 card template
+   ============================================================ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  padding: 100px 0 100px;
+  z-index: 10;
+}
+.overlay.open { display: flex; }
+
+.modal {
+  position: relative;
+  width: 800px;
+  min-height: 1000px;
+  background: var(--modal-bg);
+  border-radius: 24px;
+  box-shadow: 0 40px 100px 0 rgba(26,24,20,0.4);
+  flex-shrink: 0;
+  display: none;
+}
+.modal.open { display: block; }
+
+.m-head {
+  position: absolute;
+  left: calc(50% - 0.5px);
+  transform: translateX(-50%);
+  top: 48px;
+  width: 467px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+.m-eyebrow {
+  padding: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2.2px;
+  line-height: 16.5px;
+  color: var(--label);
+  white-space: nowrap;
+}
+.m-titleblock { width: 443px; height: 127px; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.m-title {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 82.72px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.m-desc { font-size: 14px; line-height: 21px; color: var(--muted); }
+.m-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+}
+.m-btn .arrow { font-family: 'Source Sans 3', sans-serif; font-size: 14px; letter-spacing: -0.8px; }
+
+.m-win {
+  position: absolute;
+  left: 145px;
+  top: 323px;
+  width: 520px;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.m-win img { position: absolute; }
+
+.m-body {
+  padding: 655px 56px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.m-sec { display: flex; flex-direction: column; gap: 6px; }
+.m-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.76px;
+  line-height: 16.5px;
+  color: var(--label);
+}
+.m-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.28px;
+  color: var(--tag-tx);
+}
+.m-text p { margin: 0; }
