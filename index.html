@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=42dot+Sans:wght@400&family=Archivo:wght@400;600;700&family=IBM+Plex+Mono&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@500;700&family=Source+Sans+3&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="modals.css">
 </head>
 <body>
   <div class="stage">
@@ -90,35 +89,35 @@
         <button class="pw-nav next" data-dir="1" aria-label="Next">&rarr;</button>
 
         <div class="pw-rail" id="pwRail">
-          <a class="pw-card" data-modal="m-market" href="catalog/#m-market">
+          <a class="pw-card" href="catalog/#m-market">
             <img src="assets/carousel-market.png" alt="Market Valuation &amp; Sentiment Hub dashboard">
             <span class="cap light"><span class="t">Market Valuation &amp; Sentiment Hub</span><span class="g">DATA VIZ · FINTECH</span></span>
           </a>
-          <a class="pw-card" data-modal="m-nsfhome" href="catalog/#m-nsfhome">
+          <a class="pw-card" href="catalog/#m-nsfhome">
             <img src="assets/cat-nsfhome.png" alt="NSF.gov homepage redesign">
             <span class="cap"><span class="t">NSF Homepage</span><span class="g">HOMEPAGE • DESIGN SYSTEM</span></span>
           </a>
-          <a class="pw-card" data-modal="m-news" href="catalog/#m-news">
+          <a class="pw-card" href="catalog/#m-news">
             <img src="assets/cat-news1.png" alt="NSF News &amp; Events layouts">
             <span class="cap"><span class="t">NSF News &amp; Events</span><span class="g">GOV · CONTENT</span></span>
           </a>
-          <a class="pw-card" data-modal="m-yihu" href="catalog/#m-yihu">
+          <a class="pw-card" href="catalog/#m-yihu">
             <img src="assets/cat-yihu.png" alt="Yihu global platform">
             <span class="cap"><span class="t">Yihu Global Platform</span><span class="g">E-COMMERCE</span></span>
           </a>
-          <a class="pw-card" data-modal="m-staff" href="catalog/#m-staff">
+          <a class="pw-card" href="catalog/#m-staff">
             <img src="assets/cat-staff.png" alt="NSF staff directory redesign">
             <span class="cap"><span class="t">Staff Directory Redesign</span><span class="g">ENTERPRISE</span></span>
           </a>
-          <a class="pw-card" data-modal="m-google" href="catalog/#m-google">
+          <a class="pw-card" href="catalog/#m-google">
             <img src="assets/cat-googlenews.png" alt="Google News feature designs">
             <span class="cap"><span class="t">Google News</span><span class="g">CONSUMER</span></span>
           </a>
-          <a class="pw-card" data-modal="m-smug" href="catalog/#m-smug">
+          <a class="pw-card" href="catalog/#m-smug">
             <img src="assets/cat-smug.png" alt="sMug app screens">
             <span class="cap"><span class="t">sMug</span><span class="g">IOT · MOBILE</span></span>
           </a>
-          <a class="pw-card" data-modal="m-zeit" href="catalog/#m-zeit">
+          <a class="pw-card" href="catalog/#m-zeit">
             <img src="assets/cat-zeit.png" alt="Zeit e-commerce concept">
             <span class="cap"><span class="t">Zeit</span><span class="g">E-COMMERCE</span></span>
           </a>
@@ -196,6 +195,5 @@
       rail.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
     })();
   </script>
-  <script src="modals.js" defer></script>
 </body>
 </html>
