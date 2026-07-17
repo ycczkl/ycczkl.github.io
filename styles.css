@@ -1,6 +1,6 @@
 /* ============================================================
    Connie Liu — Portfolio 2026 · Homepage
-   Faithful static reproduction of Figma frame 962:402 (1440 × 3646)
+   Faithful static reproduction of Figma frame 962:402 (1200 × 3659)
    ============================================================ */
 
 :root {
@@ -9,12 +9,13 @@
   --ink-strong:    #15171a;
   --blue:          #3d5afe;
   --blue-strong:   #1256d8;
-  --green:         #287f3a; /* hero intro accents */
+  --green:         #33a04a; /* hero intro accents */
   --muted:         #6b665a;
   --label:         #8a8474;
   --body:          #4a463c;
   --hairline:      #e2e4e5;
   --hairline-cream:#d8d2c2;
+  --band:          #ede7d8;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,8 +35,8 @@ body {
 
 .stage {
   position: relative;
-  width: 1440px;
-  height: 3646px;
+  width: 1200px;
+  height: 3659px;
   background: var(--bg);
   overflow: hidden;
 }
@@ -43,7 +44,8 @@ body {
 /* ---------- Top navigation ---------- */
 .nav {
   position: absolute;
-  left: 651px;
+  left: 50%;
+  transform: translateX(calc(-50% + 25px));
   top: 48px;
   display: flex;
   gap: 20px;
@@ -56,46 +58,35 @@ body {
   color: var(--blue);
   font-weight: 700;
   border-bottom: 1px solid var(--blue-strong);
-  padding-bottom: 0;
-}
-
-/* ---------- Availability ---------- */
-.availability {
-  position: absolute;
-  top: 45px;
-  right: 48px;
-  font-size: 13px;
-  line-height: 14px;
-  color: var(--muted);
-  text-align: right;
-  white-space: nowrap;
+  padding-bottom: 2px;
 }
 
 /* ---------- Hero name ---------- */
 .hero-name {
   position: absolute;
-  left: 112px;
-  top: 150px;
-  width: 640px;
-  height: 158px;
+  left: 120px;
+  top: 140px;
+  width: 440px;
+  height: 148px;
+  display: flex;
+  align-items: center;
   font-family: 'Instrument Serif', serif;
   font-weight: 400;
-  font-size: 158px;
-  line-height: 161.28px;
+  font-size: 108px;
   letter-spacing: -1.68px;
   color: var(--ink);
   white-space: nowrap;
 }
 .hero-name .dot { color: var(--blue); }
 
-/* ---------- Intro paragraph (mixed fonts per Figma) ---------- */
+/* ---------- Intro paragraph ---------- */
 .intro {
   position: absolute;
-  left: 764px;
-  top: 183px;
-  width: 565px;
-  font-size: 26px;
-  line-height: 36.4px;
+  left: 584px;
+  top: 173px;
+  width: 496px;
+  font-size: 22px;
+  line-height: 27px;
   color: var(--ink);
   white-space: nowrap;
 }
@@ -104,15 +95,17 @@ body {
   font-family: 'Instrument Serif', serif;
   font-style: italic;
   font-weight: 400;
-  color: var(--green);
+  font-size: 26px;
+  letter-spacing: 0.78px;
 }
+.intro em.green { color: var(--green); }
 
 /* ---------- Spec table (blue labels) ---------- */
 .spec {
   position: absolute;
   left: 80px;
-  top: 381px;
-  width: 1280px;
+  top: 333px;
+  width: 1040px;
   border-top: 1px solid var(--ink-strong);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -139,12 +132,12 @@ body {
 .spec .value.w-focus { max-width: 274px; }
 .spec .value.w-now   { max-width: 255px; }
 
-/* ---------- Selected work index (large cards) ---------- */
+/* ---------- Selected work index ---------- */
 .work {
   position: absolute;
   left: 0;
-  top: 532px;
-  width: 1360px;
+  top: 506px;
+  width: 1200px;
   padding-left: 80px;
   padding-right: 48px;
 }
@@ -165,6 +158,7 @@ body {
   text-decoration: none;
   color: inherit;
 }
+.work-row:last-child { border-bottom: none; }
 .work-row:hover .title { color: var(--blue); }
 .work-row .title {
   font-family: 'Instrument Serif', serif;
@@ -193,17 +187,16 @@ body {
 .work-row .shot {
   position: relative;
   margin-top: 24px;
-  height: 600px;
   border-radius: 20px;
   overflow: hidden;
 }
 .work-row .shot img { position: absolute; }
-.shot-nutriwatch { width: 998px; }
-.shot-nutriwatch img { left: 0; top: -9px; width: 998px; height: 783px; }
-.shot-grant { width: 1000px; }
-.shot-grant img { left: -19px; top: -6px; width: 1015px; height: 761px; }
-.shot-nsf { width: 1000px; }
-.shot-nsf img { left: -36px; top: -215px; width: 1056px; height: 842px; }
+.shot-nutriwatch { width: 620px; height: 362px; }
+.shot-nutriwatch img { left: 4.185px; top: -8.672px; width: 610.137px; height: 479.087px; }
+.shot-grant { width: 620px; height: 389.4px; }
+.shot-grant img { left: -19.06px; top: -4px; width: 644.156px; height: 482.499px; }
+.shot-nsf { width: 601px; height: 360.6px; }
+.shot-nsf img { left: -21.64px; top: -129.21px; width: 634.794px; height: 505.932px; }
 
 /* floating index number over row 1 */
 .row-num {
@@ -216,12 +209,174 @@ body {
   color: var(--muted);
 }
 
-/* ---------- Capabilities (blue labels) ---------- */
-.caps {
+/* ============================================================
+   The Catalog — carousel band (Figma 1042:1108 region)
+   ============================================================ */
+.cat-band {
+  position: absolute;
+  left: 0;
+  top: 2500px;
+  width: 1200px;
+  height: 709px;
+  background: var(--band);
+}
+.cat-band .head {
   position: absolute;
   left: 80px;
-  top: 3211px;
-  width: 1232px;
+  top: 86px;
+  width: 773px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.cat-band .head h2 {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 48px;
+  color: var(--ink);
+}
+.cat-band .head p {
+  font-size: 14px;
+  line-height: 22.4px;
+  color: var(--body);
+}
+
+/* rail */
+.pw-rail {
+  position: absolute;
+  left: 0;
+  top: 276px;
+  width: 1200px;
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0 57px 6px;
+  cursor: grab;
+  scrollbar-width: none;
+}
+.pw-rail::-webkit-scrollbar { display: none; }
+.pw-rail.is-dragging { cursor: grabbing; scroll-behavior: auto; }
+
+.pw-card {
+  position: relative;
+  flex: 0 0 300px;
+  height: 225px;
+  border-radius: 30px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: linear-gradient(152deg, #e8e3d6 0%, #d6cdb8 72%);
+}
+.pw-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+  transition: transform .5s cubic-bezier(.2,.6,.2,1);
+}
+.pw-card:hover img { transform: scale(1.05); }
+.pw-card .cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60.75px;
+  border-radius: 0 0 30px 30px;
+  background: linear-gradient(to right, rgba(26,24,20,0.88), rgba(0,0,0,0));
+  padding: 6px 0 0 18px;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.pw-card .cap.light {
+  background: linear-gradient(to right, #ffffff, rgba(153,153,153,0.4));
+}
+.pw-card .cap .t {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 28.5px;
+  letter-spacing: -0.19px;
+  color: #fff;
+  white-space: nowrap;
+}
+.pw-card .cap .g {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.6px;
+  line-height: 15px;
+  color: #e7e2d4;
+  white-space: nowrap;
+}
+.pw-card .cap.light .t { color: var(--ink); }
+.pw-card .cap.light .g { color: var(--ink); }
+
+/* arrows */
+.pw-nav {
+  position: absolute;
+  top: 355px;
+  width: 42px;
+  height: 42px;
+  border-radius: 21px;
+  background: var(--band);
+  border: 1px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  line-height: 25.5px;
+  color: var(--ink);
+  cursor: pointer;
+  z-index: 2;
+  transition: background .2s, color .2s, opacity .2s;
+}
+.pw-nav:hover { background: var(--ink); color: var(--band); }
+.pw-nav[disabled] { opacity: .25; pointer-events: none; }
+.pw-nav.prev { left: 36px; }
+.pw-nav.next { left: 1126px; }
+
+/* CTA */
+.pw-cta {
+  position: absolute;
+  left: 57px;
+  top: 561px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: #17150f;
+  text-decoration: none;
+}
+.pw-cta .tx {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #f3f1ea;
+  white-space: nowrap;
+}
+.pw-cta .arrow {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 24px;
+  letter-spacing: -0.8px;
+  color: #fff;
+}
+
+/* ---------- Capabilities ---------- */
+.caps {
+  position: absolute;
+  left: 67px;
+  top: 3269px;
+  width: 1067px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 48px;
@@ -240,21 +395,22 @@ body {
   color: var(--body);
 }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer (compact, centered 1086) ---------- */
 .footer {
   position: absolute;
-  left: 48px;
-  top: 3413px;
-  width: 1344px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 3462px;
+  width: 1086px;
   height: 149px;
   border-top: 1px solid var(--ink);
 }
 .footer .talk {
   position: absolute;
-  top: 60px;
+  top: 59px;
   left: 52px;
   font-family: 'Instrument Serif', serif;
-  font-size: 40px;
+  font-size: 32px;
   line-height: normal;
   color: var(--ink);
   white-space: nowrap;
@@ -269,7 +425,7 @@ body {
 .footer .links {
   position: absolute;
   top: 78px;
-  left: 1099px;
+  left: 851px;
   display: flex;
   gap: 24px;
 }

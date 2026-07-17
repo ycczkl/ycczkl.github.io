@@ -42,9 +42,11 @@ body {
 .stage4 {
   position: relative;
   width: 1440px;
-  height: 6308px;
+  height: 6199px;
   background: var(--bg);
   overflow: hidden;
+  /* site max-width is 1200px — scale the 1440 design down proportionally */
+  zoom: 0.833333;
 }
 
 .abs { position: absolute; }
@@ -159,7 +161,7 @@ body {
 .ba4-tag-tx { position: absolute; font-family: 'IBM Plex Mono', monospace; font-size: 11px; line-height: 16.5px; white-space: nowrap; }
 
 /* ---------- looking ahead ---------- */
-.ahead-band { position: absolute; left: 50%; transform: translateX(-50%); top: 4216px; width: 1120px; height: 883px; background: var(--band); border-radius: 14px; }
+.ahead-band { position: absolute; left: 0; top: 4216px; width: 1440px; height: 883px; background: var(--band); }
 .ahead-copy { position: absolute; left: 370px; top: 4259px; width: 700px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
 .ahead-copy .eb { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.92px; line-height: 18px; color: var(--sand2); }
 .ahead-copy .t { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 52.8px; color: #000; }
@@ -175,18 +177,18 @@ body {
 .oc4-body { position: absolute; font-size: 15px; line-height: 25.5px; color: var(--body); }
 .oc4-body b { font-weight: 700; }
 
-/* ---------- next project (Group 58) ---------- */
-.next4-line { position: absolute; left: 159px; top: 5735px; width: 1168px; border-top: 1px solid var(--hair2); }
-.next4-eb { position: absolute; left: 159px; top: 5764px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.38px; line-height: 17.25px; color: var(--label); }
-.next4-t { position: absolute; left: 159px; top: 5790px; width: 472px; font-family: 'Instrument Serif', serif; font-size: 48px; line-height: 72px; color: #000; }
-.next4-a { position: absolute; left: 1260.8px; top: 5771px; font-family: 'Instrument Serif', serif; font-size: 56px; line-height: 84px; color: #000; }
+/* ---------- next project (Group 89) ---------- */
+.next4-line { position: absolute; left: 48px; top: 5726px; width: 1344px; border-top: 1px solid var(--hair); }
+.next4-eb { position: absolute; left: 50px; top: 5762px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.38px; line-height: 18px; color: var(--label); }
+.next4-t { position: absolute; left: 50px; top: 5780px; font-family: 'Instrument Serif', serif; font-size: 36px; line-height: 72px; color: #000; }
+.next4-a { position: absolute; left: 197px; top: 5768px; font-family: 'Instrument Serif', serif; font-size: 56px; line-height: 84px; color: #000; }
 
-/* ---------- footer ---------- */
-.footer4 { position: absolute; left: 47px; top: 5917px; width: 1344px; height: 149px; border-top: 1px solid var(--ink); font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
-.footer4 .talk { position: absolute; top: 60px; left: 0; font-family: 'Instrument Serif', serif; font-size: 40px; line-height: normal; color: var(--ink); white-space: nowrap; }
+/* ---------- footer (compact) ---------- */
+.footer4 { position: absolute; left: 48px; top: 5888px; width: 1344px; height: 149px; border-top: 1px solid var(--ink); font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
+.footer4 .talk { position: absolute; top: 60px; left: 52px; font-family: 'Instrument Serif', serif; font-size: 32px; line-height: normal; color: var(--ink); white-space: nowrap; }
 .footer4 .talk .dash { font-style: italic; }
 .footer4 .talk a { color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--blue); padding-bottom: 1px; }
-.footer4 .links { position: absolute; top: 78px; left: 1136px; display: flex; gap: 24px; }
+.footer4 .links { position: absolute; top: 79px; left: 851px; display: flex; gap: 24px; }
 .footer4 .links a { display: inline-flex; align-items: center; gap: 2px; font-size: 13px; color: var(--muted); text-decoration: none; }
 .footer4 .links .arrow { font-family: 'Source Sans 3', sans-serif; font-size: 8px; }
 

@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=1440">
+  <meta name="viewport" content="width=1200">
   <title>Connie Liu — Product Designer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=42dot+Sans:wght@400&family=Archivo:wght@400;700&family=IBM+Plex+Mono&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@500&family=Source+Sans+3&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=42dot+Sans:wght@400&family=Archivo:wght@400;600;700&family=IBM+Plex+Mono&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@500;700&family=Source+Sans+3&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,11 +15,10 @@
     <!-- Top bar -->
     <header class="topbar">
       <nav class="nav" aria-label="Primary">
-        <a href="#" class="is-active" aria-current="page">WORK</a>
+        <a href="#" class="is-active" aria-current="page">HOME</a>
         <a href="catalog/">CATALOG</a>
         <a href="about/">ABOUT</a>
       </nav>
-      <p class="availability">Open to new roles<br>2026</p>
     </header>
 
     <main>
@@ -28,7 +27,7 @@
       <h1 class="hero-name">Connie Liu<span class="dot">.</span></h1>
 
       <!-- Intro paragraph -->
-      <p class="intro">A Product Designer <span class="dot42">shaping large-scale</span><br><span class="dot42">platforms </span>with a deep practice in <em>design systems</em>,<br><em>AI-powered experiences</em>, and complex workflows.</p>
+      <p class="intro">A Product Designer <span class="dot42">shaping large-scale</span><br><span class="dot42">platforms </span>with a deep practice in <em class="green">design systems</em><em>, </em><br><em class="green">AI-powered experiences</em>, and complex workflows.</p>
 
       <!-- Spec table -->
       <section class="spec" aria-label="Profile">
@@ -78,6 +77,54 @@
 
       <p class="row-num">01</p>
 
+      <!-- The Catalog carousel band -->
+      <section class="cat-band" aria-label="The Catalog — side projects">
+        <div class="head">
+          <h2>The Catalog</h2>
+          <p>A collection of digital products and strategic redesigns. From modernizing legacy government ecosystems to structuring complex financial data, these case studies showcase versatile problem-solving and systemic design thinking.</p>
+        </div>
+
+        <button class="pw-nav prev" data-dir="-1" aria-label="Previous">&larr;</button>
+        <button class="pw-nav next" data-dir="1" aria-label="Next">&rarr;</button>
+
+        <div class="pw-rail" id="pwRail">
+          <a class="pw-card" href="catalog/#m-market">
+            <img src="assets/carousel-market.png" alt="Market Valuation &amp; Sentiment Hub dashboard">
+            <span class="cap light"><span class="t">Market Valuation &amp; Sentiment Hub</span><span class="g">DATA VIZ · FINTECH</span></span>
+          </a>
+          <a class="pw-card" href="catalog/#m-nsfhome">
+            <img src="assets/cat-nsfhome.png" alt="NSF.gov homepage redesign">
+            <span class="cap"><span class="t">NSF Homepage</span><span class="g">HOMEPAGE • DESIGN SYSTEM</span></span>
+          </a>
+          <a class="pw-card" href="catalog/#m-news">
+            <img src="assets/cat-news1.png" alt="NSF News &amp; Events layouts">
+            <span class="cap"><span class="t">NSF News &amp; Events</span><span class="g">GOV · CONTENT</span></span>
+          </a>
+          <a class="pw-card" href="catalog/#m-yihu">
+            <img src="assets/cat-yihu.png" alt="Yihu global platform">
+            <span class="cap"><span class="t">Yihu Global Platform</span><span class="g">E-COMMERCE</span></span>
+          </a>
+          <a class="pw-card" href="catalog/#m-staff">
+            <img src="assets/cat-staff.png" alt="NSF staff directory redesign">
+            <span class="cap"><span class="t">Staff Directory Redesign</span><span class="g">ENTERPRISE</span></span>
+          </a>
+          <a class="pw-card" href="catalog/#m-google">
+            <img src="assets/cat-googlenews.png" alt="Google News feature designs">
+            <span class="cap"><span class="t">Google News</span><span class="g">CONSUMER</span></span>
+          </a>
+          <a class="pw-card" href="catalog/#m-smug">
+            <img src="assets/cat-smug.png" alt="sMug app screens">
+            <span class="cap"><span class="t">sMug</span><span class="g">IOT · MOBILE</span></span>
+          </a>
+          <a class="pw-card" href="catalog/#m-zeit">
+            <img src="assets/cat-zeit.png" alt="Zeit e-commerce concept">
+            <span class="cap"><span class="t">Zeit</span><span class="g">E-COMMERCE</span></span>
+          </a>
+        </div>
+
+        <a class="pw-cta" href="catalog/"><span class="tx">Browse Full Catalog </span><span class="arrow" aria-hidden="true">&#8599;</span></a>
+      </section>
+
       <!-- Capabilities -->
       <section class="caps" aria-label="Capabilities">
         <div class="cap">
@@ -106,5 +153,45 @@
     </footer>
 
   </div>
+
+  <script>
+    (function () {
+      var rail = document.getElementById('pwRail');
+      var prev = document.querySelector('.pw-nav.prev');
+      var next = document.querySelector('.pw-nav.next');
+
+      document.querySelectorAll('.pw-nav').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          rail.scrollBy({ left: Number(btn.dataset.dir) * rail.clientWidth * 0.75, behavior: 'smooth' });
+        });
+      });
+
+      function updateArrows() {
+        var max = rail.scrollWidth - rail.clientWidth - 1;
+        prev.toggleAttribute('disabled', rail.scrollLeft <= 0);
+        next.toggleAttribute('disabled', rail.scrollLeft >= max);
+      }
+      rail.addEventListener('scroll', updateArrows);
+      window.addEventListener('resize', updateArrows);
+      updateArrows();
+
+      /* click-and-drag to scroll (suppress click if it was a drag) */
+      var down = false, moved = false, startX = 0, startScroll = 0;
+      rail.addEventListener('mousedown', function (e) {
+        down = true; moved = false; startX = e.pageX; startScroll = rail.scrollLeft;
+        rail.classList.add('is-dragging');
+      });
+      rail.addEventListener('mousemove', function (e) {
+        if (!down) return;
+        var dx = e.pageX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        rail.scrollLeft = startScroll - dx;
+      });
+      function endDrag() { down = false; rail.classList.remove('is-dragging'); }
+      rail.addEventListener('mouseup', endDrag);
+      rail.addEventListener('mouseleave', endDrag);
+      rail.addEventListener('click', function (e) { if (moved) { e.preventDefault(); moved = false; } }, true);
+    })();
+  </script>
 </body>
 </html>

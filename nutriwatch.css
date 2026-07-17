@@ -56,6 +56,8 @@ body {
   height: 5699px;
   background: var(--bg);
   overflow: hidden;
+  /* site max-width is 1200px — scale the 1440 design down proportionally */
+  zoom: 0.833333;
 }
 
 .abs { position: absolute; }

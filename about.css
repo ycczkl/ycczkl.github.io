@@ -1,6 +1,6 @@
 /* ============================================================
    Connie Liu — Portfolio 2026 · About
-   Faithful static reproduction of Figma frame 980:647 (1440 × 1878)
+   Faithful static reproduction of Figma frame 980:647 (1200 × 1614)
    ============================================================ */
 
 :root {
@@ -9,7 +9,7 @@
   --ink-strong:    #15171a;
   --blue:          #3d5afe;
   --blue-strong:   #1256d8;
-  --green:         #287f3a;
+  --green:         #33a04a;
   --muted:         #6b665a;
   --body:          #4a463c;
   --hairline:      #e2e4e5;
@@ -30,16 +30,17 @@ body {
 
 .stage {
   position: relative;
-  width: 1440px;
-  height: 1878px;
+  width: 1200px;
+  height: 1614px;
   background: var(--bg);
   overflow: hidden;
 }
 
-/* ---------- Top navigation (ABOUT active) ---------- */
+/* ---------- Top navigation ---------- */
 .nav {
   position: absolute;
-  left: 650.5px;
+  left: 50%;
+  transform: translateX(calc(-50% + 25px));
   top: 48px;
   display: flex;
   gap: 20px;
@@ -55,28 +56,18 @@ body {
   padding-bottom: 2px;
 }
 
-.availability {
-  position: absolute;
-  top: 45px;
-  right: 48px;
-  font-size: 13px;
-  line-height: 14px;
-  color: var(--muted);
-  text-align: right;
-  white-space: nowrap;
-}
-
 /* ---------- Hero (shared with homepage) ---------- */
 .hero-name {
   position: absolute;
-  left: 112px;
-  top: 150px;
-  width: 640px;
-  height: 158px;
+  left: 120px;
+  top: 140px;
+  width: 440px;
+  height: 148px;
+  display: flex;
+  align-items: center;
   font-family: 'Instrument Serif', serif;
   font-weight: 400;
-  font-size: 158px;
-  line-height: 161.28px;
+  font-size: 108px;
   letter-spacing: -1.68px;
   color: var(--ink);
   white-space: nowrap;
@@ -85,11 +76,11 @@ body {
 
 .intro {
   position: absolute;
-  left: 764px;
-  top: 183px;
-  width: 565px;
-  font-size: 26px;
-  line-height: 36.4px;
+  left: 584px;
+  top: 173px;
+  width: 496px;
+  font-size: 22px;
+  line-height: 27px;
   color: var(--ink);
   white-space: nowrap;
 }
@@ -98,15 +89,17 @@ body {
   font-family: 'Instrument Serif', serif;
   font-style: italic;
   font-weight: 400;
-  color: var(--green);
+  font-size: 26px;
+  letter-spacing: 0.78px;
 }
+.intro em.green { color: var(--green); }
 
-/* ---------- Spec table (blue labels) ---------- */
+/* ---------- Spec table ---------- */
 .spec {
   position: absolute;
   left: 80px;
-  top: 381px;
-  width: 1280px;
+  top: 333px;
+  width: 1040px;
   border-top: 1px solid var(--ink-strong);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -134,7 +127,7 @@ body {
 .hi {
   position: absolute;
   left: 80px;
-  top: 535px;
+  top: 478px;
   width: 352px;
   height: 73px;
   font-family: 'Instrument Serif', serif;
@@ -148,50 +141,51 @@ body {
 .bio {
   position: absolute;
   left: 81px;
-  top: 638px;
-  width: 727px;
+  top: 581px;
+  width: 604px;
   font-family: 'Inter', sans-serif;
-  font-size: 24px;
-  line-height: 43px;
-  letter-spacing: -0.32px;
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: -0.44px;
   color: var(--body);
 }
 .bio p { margin: 0; }
-.bio p.gap { height: 43px; }
+.bio p.gap { height: 32px; }
 .bio b { font-weight: 600; }
 
 .photo {
   position: absolute;
-  left: 872px;
-  top: 638px;
-  width: 432px;
-  height: 429px;
+  left: 768px;
+  top: 581px;
+  width: 300px;
+  height: 298px;
   border-radius: 214.5px;
   overflow: hidden;
 }
 .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer (compact, centered 1086) ---------- */
 .footer {
   position: absolute;
-  left: 48px;
-  top: 1684px;
-  width: 1344px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1417px;
+  width: 1086px;
   height: 149px;
   border-top: 1px solid var(--ink);
 }
 .footer .talk {
   position: absolute;
-  top: 60px;
+  top: 59px;
   left: 52px;
   font-family: 'Instrument Serif', serif;
-  font-size: 40px;
+  font-size: 32px;
   line-height: normal;
   color: var(--ink);
   white-space: nowrap;
 }
 .footer .talk .dash { font-style: italic; }
 .footer .talk a { color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--blue); padding-bottom: 1px; }
-.footer .links { position: absolute; top: 78px; left: 1099px; display: flex; gap: 24px; }
+.footer .links { position: absolute; top: 78px; left: 851px; display: flex; gap: 24px; }
 .footer .links a { display: inline-flex; align-items: center; gap: 2px; font-size: 13px; color: var(--muted); text-decoration: none; }
 .footer .links .arrow { font-family: 'Source Sans 3', sans-serif; font-size: 8px; }

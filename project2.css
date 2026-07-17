@@ -58,6 +58,8 @@ body {
   height: 6882px;
   background: var(--bg);
   overflow: hidden;
+  /* site max-width is 1200px — scale the 1440 design down proportionally */
+  zoom: 0.833333;
 }
 
 /* helpers */
