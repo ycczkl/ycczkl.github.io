@@ -42,7 +42,7 @@ body {
 .stage4 {
   position: relative;
   width: 1440px;
-  height: 6199px;
+  height: 6131px;
   background: var(--bg);
   overflow: hidden;
   /* site max-width is 1200px — scale the 1440 design down proportionally */
@@ -97,16 +97,16 @@ body {
 .spec4 .value { margin-top: 8px; font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 17px; color: var(--ink-strong); }
 
 /* ---------- hero browser mock ---------- */
-.b4-top  { position: absolute; left: 162px; top: 709px; width: 1115.104px; height: 61.054px; background: #fff; border: 1px solid var(--hair2); border-radius: 12px 12px 0 0; }
-.b4-bar  { position: absolute; left: 163.15px; top: 710.15px; width: 1112.801px; height: 59.902px; background: #efeadf; border-bottom: 1px solid var(--ink); border-radius: 11px 11px 0 0; }
-.b4-dot  { position: absolute; top: 734.34px; width: 12.672px; height: 12.672px; border-radius: 5.5px; background: var(--hair); }
-.b4-pill { position: absolute; left: 254.16px; top: 723.97px; width: 241.913px; height: 31.103px; background: var(--pill-bg); border: 1px solid var(--pill-bd); border-radius: 7px; }
-.b4-url  { position: absolute; left: 271.44px; top: 729.74px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 17.25px; color: var(--label); }
-.b4-view { position: absolute; left: 163.15px; top: 770.05px; width: 1112.801px; height: 787.946px; background: #efefef; border: 1px solid var(--hair); box-shadow: 5px 5px 24.6px 12px rgba(0,0,0,.05); }
-.b4-shot { position: absolute; left: 170.06px; top: 773.51px; width: 1100.734px; height: 775.66px; border-radius: 12px; overflow: hidden; }
+.b4-top  { position: absolute; left: 162px; top: 636px; width: 1115.104px; height: 61.054px; background: #fff; border: 1px solid var(--hair2); border-radius: 12px 12px 0 0; }
+.b4-bar  { position: absolute; left: 163.15px; top: 637.15px; width: 1112.801px; height: 59.902px; background: #efeadf; border-bottom: 1px solid var(--ink); border-radius: 11px 11px 0 0; }
+.b4-dot  { position: absolute; top: 661.34px; width: 12.672px; height: 12.672px; border-radius: 5.5px; background: var(--hair); }
+.b4-pill { position: absolute; left: 254.16px; top: 650.97px; width: 241.913px; height: 31.103px; background: var(--pill-bg); border: 1px solid var(--pill-bd); border-radius: 7px; }
+.b4-url  { position: absolute; left: 271.44px; top: 656.74px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 17.25px; color: var(--label); }
+.b4-view { position: absolute; left: 163.15px; top: 697.05px; width: 1112.801px; height: 787.946px; background: #efefef; border: 1px solid var(--hair); box-shadow: 5px 5px 24.6px 12px rgba(0,0,0,.05); }
+.b4-shot { position: absolute; left: 170.06px; top: 700.51px; width: 1100.734px; height: 775.66px; border-radius: 12px; overflow: hidden; }
 .b4-shot img { position: absolute; left: -20.46%; top: -4.23%; width: 143.78%; height: 125.91%; }
 .b4-cap {
-  position: absolute; left: 50%; transform: translateX(-50%); top: 1582px;
+  position: absolute; left: 50%; transform: translateX(-50%); top: 1509px;
   font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 17.25px;
   color: var(--sand); text-align: center; white-space: nowrap;
 }
@@ -167,24 +167,27 @@ body {
 .ahead-copy .t { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 52.8px; color: #000; }
 .ahead-copy .b { font-size: 16px; line-height: 27.2px; color: var(--body); }
 .ahead-shot {
-  position: absolute; left: 50%; transform: translateX(-50%); top: 4460px; width: 844px; height: 539px;
+  position: absolute; left: 50%; transform: translateX(-50%); top: 4466px; width: 887px; height: 566px;
   border-radius: 20px; overflow: hidden; box-shadow: 0 0 20px 9px rgba(0,0,0,.05);
 }
 .ahead-shot img { position: absolute; left: 0; top: -19.25%; width: 100%; height: 539.05%; }
 
 /* ---------- outcomes ---------- */
 .oc4-title { position: absolute; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 26px; line-height: 39px; color: #000; }
+.cta4 { position: absolute; left: 623px; top: 1575px; display: inline-flex; align-items: center; gap: 12px; padding: 12px 24px; border-radius: 999px; background: #17150f; text-decoration: none; }
+.cta4 .tx { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: #f3f1ea; white-space: nowrap; }
+.cta4 .arrow { font-family: 'Source Sans 3', sans-serif; font-size: 24px; letter-spacing: -0.8px; color: #fff; }
 .oc4-body { position: absolute; font-size: 15px; line-height: 25.5px; color: var(--body); }
 .oc4-body b { font-weight: 700; }
 
 /* ---------- next project (Group 89) ---------- */
-.next4-line { position: absolute; left: 48px; top: 5726px; width: 1344px; border-top: 1px solid var(--hair); }
-.next4-eb { position: absolute; left: 50px; top: 5762px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.38px; line-height: 18px; color: var(--label); }
-.next4-t { position: absolute; left: 50px; top: 5780px; font-family: 'Instrument Serif', serif; font-size: 36px; line-height: 72px; color: #000; }
-.next4-a { position: absolute; left: 197px; top: 5768px; font-family: 'Instrument Serif', serif; font-size: 56px; line-height: 84px; color: #000; }
+.next4-line { position: absolute; left: 48px; top: 5698px; width: 1344px; border-top: 1px solid var(--hair); }
+.next4-eb { position: absolute; left: 50px; top: 5734px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.38px; line-height: 18px; color: var(--label); }
+.next4-t { position: absolute; left: 50px; top: 5752px; font-family: 'Instrument Serif', serif; font-size: 36px; line-height: 72px; color: #000; }
+.next4-a { position: absolute; left: 197px; top: 5740px; font-family: 'Instrument Serif', serif; font-size: 56px; line-height: 84px; color: #000; }
 
 /* ---------- footer (compact) ---------- */
-.footer4 { position: absolute; left: 48px; top: 5888px; width: 1344px; height: 149px; border-top: 1px solid var(--ink); font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
+.footer4 { position: absolute; left: 48px; top: 5860px; width: 1344px; height: 149px; border-top: 1px solid var(--ink); font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
 .footer4 .talk { position: absolute; top: 60px; left: 52px; font-family: 'Instrument Serif', serif; font-size: 32px; line-height: normal; color: var(--ink); white-space: nowrap; }
 .footer4 .talk .dash { font-style: italic; }
 .footer4 .talk a { color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--blue); padding-bottom: 1px; }

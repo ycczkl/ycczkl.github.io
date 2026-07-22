@@ -31,7 +31,7 @@ body {
 .stage {
   position: relative;
   width: 1200px;
-  height: 1614px;
+  height: 1454px;
   background: var(--bg);
   overflow: hidden;
 }
@@ -59,7 +59,7 @@ body {
 /* ---------- Hero (shared with homepage) ---------- */
 .hero-name {
   position: absolute;
-  left: 120px;
+  left: 91px;
   top: 140px;
   width: 440px;
   height: 148px;
@@ -117,16 +117,15 @@ body {
   margin-top: 8px;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 500;
-  font-size: 17px;
+  font-size: 14px;
   color: var(--ink-strong);
 }
-.spec .value.w-focus { max-width: 274px; }
-.spec .value.w-now   { max-width: 255px; }
+.spec .value.w-focus { max-width: 208px; }
 
 /* ---------- Bio ---------- */
 .hi {
   position: absolute;
-  left: 80px;
+  left: 161px;
   top: 478px;
   width: 352px;
   height: 73px;
@@ -140,25 +139,24 @@ body {
 }
 .bio {
   position: absolute;
-  left: 81px;
-  top: 581px;
-  width: 604px;
+  left: 162px;
+  top: 576px;
+  width: 543px;
   font-family: 'Inter', sans-serif;
-  font-size: 22px;
+  font-size: 16px;
   line-height: 32px;
-  letter-spacing: -0.44px;
+  letter-spacing: -0.32px;
   color: var(--body);
 }
 .bio p { margin: 0; }
-.bio p.gap { height: 32px; }
 .bio b { font-weight: 600; }
 
 .photo {
   position: absolute;
-  left: 768px;
-  top: 581px;
-  width: 300px;
-  height: 298px;
+  left: 810px;
+  top: 542px;
+  width: 228px;
+  height: 226px;
   border-radius: 214.5px;
   overflow: hidden;
 }
@@ -169,7 +167,7 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 1417px;
+  top: 1257px;
   width: 1086px;
   height: 149px;
   border-top: 1px solid var(--ink);

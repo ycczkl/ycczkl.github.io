@@ -36,7 +36,7 @@ body {
 .stage {
   position: relative;
   width: 1200px;
-  height: 3659px;
+  height: 3130px;
   background: var(--bg);
   /* visible so the full-bleed Catalog band can escape the 1200px column */
   overflow: visible;
@@ -46,6 +46,16 @@ body {
 @media (min-width: 1200px) {
   html, body { overflow-x: clip; }
 }
+
+/* ---------- Logo (1088:1388) ---------- */
+.logo {
+  position: absolute;
+  left: 36px;
+  top: 36px;
+  width: 136px;
+  height: 23px;
+}
+.logo img { display: block; width: 100%; height: 100%; }
 
 /* ---------- Top navigation ---------- */
 .nav {
@@ -70,7 +80,7 @@ body {
 /* ---------- Hero name ---------- */
 .hero-name {
   position: absolute;
-  left: 120px;
+  left: 91px;
   top: 140px;
   width: 440px;
   height: 148px;
@@ -132,11 +142,10 @@ body {
   margin-top: 8px;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 500;
-  font-size: 17px;
+  font-size: 14px;
   color: var(--ink-strong);
 }
-.spec .value.w-focus { max-width: 274px; }
-.spec .value.w-now   { max-width: 255px; }
+.spec .value.w-focus { max-width: 208px; }
 
 /* ---------- Selected work index ---------- */
 .work {
@@ -158,12 +167,15 @@ body {
   white-space: nowrap;
 }
 .work-row {
-  display: block;
+  display: flex;
+  gap: 24px;
+  align-items: center;
   padding: 48px 0;
   border-bottom: 1px solid var(--hairline-cream);
   text-decoration: none;
   color: inherit;
 }
+.work-row .copy { flex: 1; min-width: 0; }
 .work-row:last-child { border-bottom: none; }
 .work-row:hover .title { color: var(--blue); }
 .work-row .title {
@@ -185,14 +197,13 @@ body {
 }
 .work-row .desc {
   margin-top: 16px;
-  width: 601px;
   font-size: 14px;
   line-height: 22.4px;
   color: var(--body);
 }
 .work-row .shot {
   position: relative;
-  margin-top: 24px;
+  flex-shrink: 0;
   border-radius: 20px;
   overflow: hidden;
 }
@@ -204,17 +215,6 @@ body {
 .shot-nsf { width: 601px; height: 360.6px; }
 .shot-nsf img { left: -21.64px; top: -129.21px; width: 634.794px; height: 505.932px; }
 
-/* floating index number over row 1 */
-.row-num {
-  position: absolute;
-  left: 228px;
-  top: 981.5px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 13px;
-  line-height: 17px;
-  color: var(--muted);
-}
-
 /* ============================================================
    The Catalog — carousel band (Figma 1042:1108 region)
    ============================================================ */
@@ -222,22 +222,22 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 2500px;
+  top: 1996px;
   /* background bleeds across the full viewport; content stays at 1200 */
   width: max(100vw, 1200px);
-  height: 709px;
+  height: 637px;
   background: var(--band);
 }
 .cat-band .inner {
   position: relative;
   width: 1200px;
-  height: 709px;
+  height: 637px;
   margin: 0 auto;
 }
 .cat-band .head {
   position: absolute;
-  left: 80px;
-  top: 86px;
+  left: 79px;
+  top: 61px;
   width: 773px;
   display: flex;
   flex-direction: column;
@@ -260,13 +260,13 @@ body {
 .pw-rail {
   position: absolute;
   left: 0;
-  top: 276px;
+  top: 251px;
   width: 1200px;
   display: flex;
   gap: 24px;
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 0 57px 6px;
+  padding: 0 56px 6px;
   cursor: grab;
   scrollbar-width: none;
 }
@@ -335,7 +335,7 @@ body {
 /* arrows */
 .pw-nav {
   position: absolute;
-  top: 355px;
+  top: 330px;
   width: 42px;
   height: 42px;
   border-radius: 21px;
@@ -354,14 +354,14 @@ body {
 }
 .pw-nav:hover { background: var(--ink); color: var(--band); }
 .pw-nav[disabled] { opacity: .25; pointer-events: none; }
-.pw-nav.prev { left: 36px; }
-.pw-nav.next { left: 1126px; }
+.pw-nav.prev { left: 35px; }
+.pw-nav.next { left: 1125px; }
 
 /* CTA */
 .pw-cta {
   position: absolute;
-  left: 57px;
-  top: 561px;
+  left: 56px;
+  top: 536px;
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -388,8 +388,8 @@ body {
 /* ---------- Capabilities ---------- */
 .caps {
   position: absolute;
-  left: 67px;
-  top: 3269px;
+  left: 66px;
+  top: 2726px;
   width: 1067px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -412,9 +412,9 @@ body {
 /* ---------- Footer (compact, centered 1086) ---------- */
 .footer {
   position: absolute;
-  left: 50%;
+  left: calc(50% - 1px);
   transform: translateX(-50%);
-  top: 3462px;
+  top: 2933px;
   width: 1086px;
   height: 149px;
   border-top: 1px solid var(--ink);
