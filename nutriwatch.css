@@ -223,10 +223,11 @@ body {
 .oc3-body { position: absolute; font-size: 15px; line-height: 23.2px; color: #4a4a40; }
 
 /* ---------- next project ---------- */
-.next3-line { position: absolute; left: 160px; top: 5203px; width: 1168px; border-top: 1px solid var(--hair2); }
-.next3-eb { position: absolute; left: 160px; top: 5232px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.38px; line-height: 17.25px; color: var(--label); }
-.next3-t { position: absolute; left: 160px; top: 5258px; width: 472px; font-family: 'Instrument Serif', serif; font-size: 48px; line-height: 72px; color: #000; }
-.next3-a { position: absolute; left: 1261.8px; top: 5239px; font-family: 'Instrument Serif', serif; font-size: 56px; line-height: 84px; color: #000; }
+.next3-line { position: absolute; left: 48px; top: 5223px; width: 1344px; border-top: 1px solid var(--hair); }
+.next3-eb { position: absolute; left: 50px; top: 5259px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.38px; line-height: 18px; color: var(--label); }
+.next3-row { position: absolute; left: 50px; top: 5277px; display: flex; align-items: center; gap: 26px; }
+.next3-t { font-family: 'Instrument Serif', serif; font-size: 36px; line-height: 72px; color: #000; white-space: nowrap; }
+.next3-a { font-family: 'Instrument Serif', serif; font-size: 56px; line-height: 84px; color: #000; }
 
 /* ---------- footer (shared) ---------- */
 .footer3 { position: absolute; left: 50%; transform: translateX(-50%); top: 5385px; width: 1303.2px; height: 178.8px; border-top: 1.2px solid #1a1814; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }

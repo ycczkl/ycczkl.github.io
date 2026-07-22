@@ -165,9 +165,10 @@ body {
 .arrow-serif { font-family:'Instrument Serif',serif; font-size:36px; line-height:84px; color:#a2a2a2; }
 
 /* ---------- Next project ---------- */
-.next-eyebrow { position:absolute; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.38px; color:var(--sand); line-height:17.25px; }
-.next-title   { position:absolute; font-family:'Instrument Serif',serif; font-size:48px; line-height:72px; color:#000; }
-.next-arrow   { position:absolute; font-family:'Instrument Serif',serif; font-size:56px; line-height:84px; color:#000; }
+.next-eyebrow { position:absolute; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.38px; color:var(--sand); line-height:18px; }
+.next-row { position:absolute; display:flex; align-items:center; gap:26px; }
+.next-title { font-family:'Instrument Serif',serif; font-size:36px; line-height:72px; color:#000; white-space:nowrap; }
+.next-arrow { font-family:'Instrument Serif',serif; font-size:56px; line-height:84px; color:#000; }
 
 /* ---------- Footer (shared) ---------- */
 .footer2 { position: absolute; left: 50%; transform: translateX(-50%); top: 6644px; width: 1303.2px; height: 178.8px; border-top: 1.2px solid #1a1814; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
