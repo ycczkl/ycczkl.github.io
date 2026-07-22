@@ -78,7 +78,7 @@ body {
 
 .nav2 {
   position:absolute; left:50%; transform:translateX(-50%); top:48px;
-  display:flex; gap:20px; font-family:'Archivo',sans-serif; font-size:13px; line-height:normal;
+  display:flex; gap: 24px; font-family:'Archivo',sans-serif; font-size:15.6px; line-height:normal;
 }
 .nav2 a { color:#fff; text-decoration:none; }
 .avail2 {
@@ -101,7 +101,7 @@ body {
 .spec2 .cell { padding:20px 25px 24px 24px; border-right:1px solid var(--hair5); }
 .spec2 .cell:first-child { padding-left:0; }
 .spec2 .cell:last-child  { padding-right:0; border-right:none; }
-.spec2 .label { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.2px; color:#fff; }
+.spec2 .label { font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; letter-spacing:1.2px; color:#fff; }
 .spec2 .value { margin-top:8px; font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:17px; letter-spacing:-0.3px; color:#fff; }
 
 /* ---------- Prototype / video mock ---------- */
@@ -170,10 +170,10 @@ body {
 .next-arrow   { position:absolute; font-family:'Instrument Serif',serif; font-size:56px; line-height:84px; color:#000; }
 
 /* ---------- Footer (shared) ---------- */
-.footer2 { position:absolute; left:48px; top:6644px; width:1344px; height:149px; border-top:1px solid var(--ink); }
-.footer2 .talk { position:absolute; top:60px; left:0; font-family:'Instrument Serif',serif; font-size:40px; line-height:normal; color:var(--ink); white-space:nowrap; }
-.footer2 .talk .dash { font-style:italic; }
-.footer2 .talk a { color:var(--blue); text-decoration:none; border-bottom:1px solid var(--blue); padding-bottom:1px; }
-.footer2 .links { position:absolute; top:78px; left:1136px; display:flex; gap:24px; }
-.footer2 .links a { display:inline-flex; align-items:center; gap:2px; font-family:'Archivo',sans-serif; font-size:13px; color:var(--muted); text-decoration:none; }
-.footer2 .links .arrow { font-family:'Source Sans 3',sans-serif; font-size:8px; }
+.footer2 { position: absolute; left: 50%; transform: translateX(-50%); top: 6644px; width: 1303.2px; height: 178.8px; border-top: 1.2px solid #1a1814; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
+.footer2 .talk { position: absolute; top: 70.8px; left: 62.4px; font-family: 'Instrument Serif', serif; font-size: 38.4px; line-height: normal; color: #1a1814; white-space: nowrap; }
+.footer2 .talk .dash { font-style: italic; }
+.footer2 .talk a { color: #3d5afe; text-decoration: none; border-bottom: 1.2px solid #3d5afe; padding-bottom: 1.2px; }
+.footer2 .links { position: absolute; top: 93.6px; left: 1021.2px; display: flex; gap: 28.8px; }
+.footer2 .links a { display: inline-flex; align-items: center; gap: 2.4px; font-size: 15.6px; color: #6b665a; text-decoration: none; }
+.footer2 .links .arrow { font-family: 'Source Sans 3', sans-serif; font-size: 9.6px; }
