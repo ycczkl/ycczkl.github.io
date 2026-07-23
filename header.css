@@ -1,8 +1,8 @@
 /* ============================================================
    Connie Liu — Portfolio 2026 · Shared header (all pages)
    Visual spec everywhere: nav top 48 · 13px Archivo · gap 20 ·
-   +25px optical offset (centers the middle item) · avail tag
-   top-right 48/48.
+   +25px optical offset (centers the middle item) ·
+   avail tag top-right on every page (Figma has it on all frames).
    --z variants: values ×1.2 for the 1440px stages that are
    scaled by zoom 0.833333, so the rendered result is identical.
    .on-dark: white links for dark heroes (AI Grant Copilot).
@@ -32,7 +32,7 @@
 
 .site-avail {
   position: absolute;
-  right: 48px;
+  right: 40px;
   top: 48px;
   text-align: right;
   font-family: 'Archivo', sans-serif;
@@ -44,6 +44,7 @@
 }
 .site-avail.on-dark { color: #fff; }
 
+
 /* ---- inside a zoom(0.833333) stage: ×1.2 ---- */
 .site-nav--z {
   top: 57.6px;
@@ -54,6 +55,7 @@
 }
 .site-nav--z a.is-active { border-bottom-width: 1.2px; padding-bottom: 2.4px; }
 .site-avail--z {
+  right: 48px;
   top: 57.6px;
   font-size: 15.6px;
   line-height: 16.8px;
