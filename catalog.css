@@ -43,34 +43,6 @@ body {
 }
 
 /* ---------- Top bar (CATALOG active) ---------- */
-.nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(calc(-50% + 0.5px));
-  top: 48px;
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-  font-size: 15.6px;
-  line-height: 16px;
-}
-.nav a { text-decoration: none; color: var(--muted); }
-.nav .is-active {
-  color: var(--blue);
-  font-weight: 700;
-  border-bottom: 1px solid var(--blue-strong);
-  padding-bottom: 2px;
-}
-.availability {
-  position: absolute;
-  top: 48px;
-  right: 48px;
-  font-size: 13px;
-  line-height: 14px;
-  color: var(--muted);
-  text-align: right;
-  white-space: nowrap;
-}
 
 /* ---------- Header ---------- */
 .cat-head {

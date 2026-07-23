@@ -48,24 +48,6 @@ body {
 }
 
 /* ---------- Top navigation ---------- */
-.nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(calc(-50% + 25px));
-  top: 48px;
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  font-size: 13px;
-  line-height: 16px;
-}
-.nav a { text-decoration: none; color: var(--muted); }
-.nav .is-active {
-  color: var(--blue);
-  font-weight: 700;
-  border-bottom: 1px solid var(--blue-strong);
-  padding-bottom: 2px;
-}
 
 /* ---------- Hero name ---------- */
 .hero-name {

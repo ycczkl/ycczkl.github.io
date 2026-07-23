@@ -1,0 +1,60 @@
+/* ============================================================
+   Connie Liu — Portfolio 2026 · Shared header (all pages)
+   Visual spec everywhere: nav top 48 · 13px Archivo · gap 20 ·
+   +25px optical offset (centers the middle item) · avail tag
+   top-right 48/48.
+   --z variants: values ×1.2 for the 1440px stages that are
+   scaled by zoom 0.833333, so the rendered result is identical.
+   .on-dark: white links for dark heroes (AI Grant Copilot).
+   ============================================================ */
+
+.site-nav {
+  position: absolute;
+  left: 50%;
+  top: 48px;
+  transform: translateX(calc(-50% + 25px));
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  font-family: 'Archivo', sans-serif;
+  font-variation-settings: 'wdth' 100;
+  font-size: 13px;
+  line-height: 16px;
+}
+.site-nav a { text-decoration: none; color: #6b665a; }
+.site-nav a.is-active {
+  color: #3d5afe;
+  font-weight: 700;
+  border-bottom: 1px solid #1256d8;
+  padding-bottom: 2px;
+}
+.site-nav.on-dark a { color: #fff; }
+
+.site-avail {
+  position: absolute;
+  right: 48px;
+  top: 48px;
+  text-align: right;
+  font-family: 'Archivo', sans-serif;
+  font-variation-settings: 'wdth' 100;
+  font-size: 13px;
+  line-height: 14px;
+  color: #6b665a;
+  white-space: nowrap;
+}
+.site-avail.on-dark { color: #fff; }
+
+/* ---- inside a zoom(0.833333) stage: ×1.2 ---- */
+.site-nav--z {
+  top: 57.6px;
+  gap: 24px;
+  font-size: 15.6px;
+  line-height: 19.2px;
+  transform: translateX(calc(-50% + 30px));
+}
+.site-nav--z a.is-active { border-bottom-width: 1.2px; padding-bottom: 2.4px; }
+.site-avail--z {
+  top: 57.6px;
+  font-size: 15.6px;
+  line-height: 16.8px;
+}

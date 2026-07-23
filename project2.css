@@ -76,16 +76,6 @@ body {
 /* ---------- Hero band (navy) ---------- */
 .hero-bg { position:absolute; left:0; top:0; width:1440px; height:725px; background:var(--navy); }
 
-.nav2 {
-  position:absolute; left:50%; transform:translateX(-50%); top:48px;
-  display:flex; gap: 24px; font-family:'Archivo',sans-serif; font-size:15.6px; line-height:normal;
-}
-.nav2 a { color:#fff; text-decoration:none; }
-.avail2 {
-  position:absolute; right:48px; top:48px; text-align:right;
-  font-family:'Archivo',sans-serif; font-size:13px; line-height:normal; color:#fff; white-space:nowrap;
-}
-.avail2 p:first-child { margin-bottom:0; }
 
 .hero-col {
   position:absolute; left:48px; top:170px; width:1344px;
