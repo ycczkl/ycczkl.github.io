@@ -21,7 +21,23 @@
   font-size: 13px;
   line-height: 16px;
 }
-.site-nav a { text-decoration: none; color: #6b665a; }
+.site-nav a {
+  text-decoration: none;
+  color: #6b665a;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* invisible bold ghost reserves the bold width, so the group's total
+   width — and thus its centered position — is identical no matter
+   which link is the bold active one (kills the 1px cross-page shift) */
+.site-nav a::after {
+  content: attr(data-label);
+  font-weight: 700;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
 .site-nav a.is-active {
   color: #3d5afe;
   font-weight: 700;
