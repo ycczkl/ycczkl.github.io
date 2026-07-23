@@ -230,11 +230,11 @@ body {
 .next3-a { font-family: 'Instrument Serif', serif; font-size: 56px; line-height: 84px; color: #000; }
 
 /* ---------- footer (shared) ---------- */
-.footer3 { position: absolute; left: 50%; transform: translateX(-50%); top: 5385px; width: 1303.2px; height: 178.8px; border-top: 1.2px solid #1a1814; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
-.footer3 .talk { position: absolute; top: 70.8px; left: 62.4px; font-family: 'Instrument Serif', serif; font-size: 38.4px; line-height: normal; color: #1a1814; white-space: nowrap; }
+.footer3 { position: absolute; left: 48px; top: 5385px; width: 1344px; height: 178.8px; border-top: 1.2px solid #1a1814; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
+.footer3 .talk { position: absolute; top: 70.8px; left: 82.8px; font-family: 'Instrument Serif', serif; font-size: 38.4px; line-height: normal; color: #1a1814; white-space: nowrap; }
 .footer3 .talk .dash { font-style: italic; }
 .footer3 .talk a { color: #3d5afe; text-decoration: none; border-bottom: 1.2px solid #3d5afe; padding-bottom: 1.2px; }
-.footer3 .links { position: absolute; top: 93.6px; left: 1021.2px; display: flex; gap: 28.8px; }
+.footer3 .links { position: absolute; top: 93.6px; left: 1041.6px; display: flex; gap: 28.8px; }
 .footer3 .links a { display: inline-flex; align-items: center; gap: 2.4px; font-size: 15.6px; color: #6b665a; text-decoration: none; }
 .footer3 .links .arrow { font-family: 'Source Sans 3', sans-serif; font-size: 9.6px; }
 
