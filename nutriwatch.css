@@ -175,9 +175,9 @@ body {
   display: flex; align-items: center; justify-content: center;
   font-family: 'IBM Plex Mono', monospace;
 }
-.pnode.in  { background: #faf6ed; border: 2px solid #c3bca9; color: var(--mono-warm2); font-size: 12px; line-height: 18px; }
-.pnode.step { background: var(--green-dark); color: #fff; font-size: 13px; line-height: 19.5px; }
-.pnode.out { background: var(--green); color: #fff; font-size: 12px; line-height: 18px; }
+.pnode.in  { background: #faf6ed; border: 2px solid #c3bca9; color: var(--mono-warm2); font-size: 14.4px; line-height: 21.6px; }
+.pnode.step { background: var(--green-dark); color: #fff; font-size: 15.6px; line-height: 23.4px; }
+.pnode.out { background: var(--green); color: #fff; font-size: 14.4px; line-height: 21.6px; }
 
 .pstep { position: absolute; left: 144px; display: flex; flex-direction: column; gap: 12px; }
 .pstep .inner { display: flex; flex-direction: column; gap: 8px; }
