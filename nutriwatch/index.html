@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&family=Hanken+Grotesk:wght@300&family=IBM+Plex+Mono:wght@400;700&family=Inter:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Source+Sans+3&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;700&family=Inter:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Source+Sans+3&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../nutriwatch.css">
 </head>
 <body>
@@ -97,9 +97,9 @@
     <div class="pipe-line"></div>
     <div class="pnode in" style="top:2741px">IN</div>
     <div class="pnode step" style="top:2830px">01</div>
-    <div class="pnode step" style="top:3102px">02</div>
-    <div class="pnode step" style="top:3388px">03</div>
-    <div class="pnode out" style="top:3631px">OUT</div>
+    <div class="pnode step" style="top:3337px">02</div>
+    <div class="pnode step" style="top:3731px">03</div>
+    <div class="pnode out" style="top:4051px">OUT</div>
 
     <!-- IN label -->
     <div class="abs" style="left:144px;top:2741px;width:281px;display:flex;flex-direction:column;gap:2px">
@@ -120,21 +120,33 @@
         <span class="iochip out">structured label · 7 ingredients</span>
       </div>
     </div>
-    <!-- Scan demo card -->
-    <div class="dcard" style="top:2830px;height:193px">
-      <div class="abs" style="left:1px;top:1px;width:298px;height:41px;border-bottom:1px solid #1a1a17"></div>
-      <p class="dhead abs" style="left:15px;top:11px">Scan</p>
-      <span class="abs" style="left:280px;top:19px;width:5px;height:5px;border-radius:2.5px;background:var(--green);opacity:.35"></span>
-      <div class="abs" style="left:1px;top:42px;width:298px;height:150px;background:linear-gradient(153deg,#f6f8f8 0%,#f6f8f8 53%,#eef2f0 77%,#eef2f0 100%)"></div>
-      <span class="abs" style="left:13px;top:54px;width:20px;height:20px;border-left:2px solid var(--green);border-top:2px solid var(--green);border-top-left-radius:5px"></span>
-      <span class="abs" style="left:267px;top:54px;width:20px;height:20px;border-right:2px solid var(--green);border-top:2px solid var(--green);border-top-right-radius:5px"></span>
-      <span class="abs" style="left:13px;top:160px;width:20px;height:20px;border-left:2px solid #1a1a17;border-bottom:2px solid #1a1a17;border-bottom-left-radius:5px"></span>
-      <span class="abs" style="left:267px;top:160px;width:20px;height:20px;border-right:2px solid #1a1a17;border-bottom:2px solid #1a1a17;border-bottom-right-radius:5px"></span>
-      <span class="abs" style="left:13px;top:117px;width:274px;height:2px;background:var(--green);box-shadow:0 0 10px 0 var(--green)"></span>
+    <!-- Scan demo card (v2) -->
+    <div class="v2wrap abs" style="left:856px;top:2830px">
+      <div data-dc-tpl="138" style="width: 288px; background: rgb(250, 251, 252); border: 1px solid rgb(231, 225, 211); border-radius: 22px; overflow: hidden; box-shadow: rgba(15, 42, 31, 0.3) 0px 22px 48px -30px;">
+          <div data-dc-tpl="139" style="padding: 22px 18px;">
+            <div data-dc-tpl="140" style="display: flex; align-items: center; justify-content: space-between;"><span data-dc-tpl="141" style="font-size: 15px; font-weight: 600; color: rgb(31, 38, 41);">Scan</span><span data-dc-tpl="142" style="font-family: &quot;IBM Plex Mono&quot;; font-size: 10px; color: rgb(47, 158, 110); display: flex; align-items: center; gap: 5px;"><span data-dc-tpl="143" style="width: 6px; height: 6px; border-radius: 50%; background: rgb(47, 158, 110); animation: 1.4s ease 0s infinite normal none running nwPulse;"></span>camera live</span></div>
+            <div data-dc-tpl="144" style="position: relative; margin-top: 14px; height: 238px; border-radius: 18px; overflow: hidden; background: repeating-linear-gradient(135deg, rgb(238, 242, 240), rgb(238, 242, 240) 8px, rgb(246, 248, 248) 8px, rgb(246, 248, 248) 16px);">
+              <div data-dc-tpl="145" style="position: absolute; inset: 16px; pointer-events: none;">
+                <span data-dc-tpl="146" style="position: absolute; top: 0px; left: 0px; width: 28px; height: 28px; border-top: 2px solid rgb(47, 158, 110); border-left: 2px solid rgb(47, 158, 110); border-radius: 6px 0px 0px;"></span>
+                <span data-dc-tpl="147" style="position: absolute; top: 0px; right: 0px; width: 28px; height: 28px; border-top: 2px solid rgb(47, 158, 110); border-right: 2px solid rgb(47, 158, 110); border-radius: 0px 6px 0px 0px;"></span>
+                <span data-dc-tpl="148" style="position: absolute; bottom: 0px; left: 0px; width: 28px; height: 28px; border-bottom: 2px solid rgb(47, 158, 110); border-left: 2px solid rgb(47, 158, 110); border-radius: 0px 0px 0px 6px;"></span>
+                <span data-dc-tpl="149" style="position: absolute; bottom: 0px; right: 0px; width: 28px; height: 28px; border-bottom: 2px solid rgb(47, 158, 110); border-right: 2px solid rgb(47, 158, 110); border-radius: 0px 0px 6px;"></span>
+              </div>
+              <div data-dc-tpl="150" style="position: absolute; left: 16px; right: 16px; top: 50%; height: 2px; background: rgb(47, 158, 110); box-shadow: rgb(47, 158, 110) 0px 0px 12px; animation: 2.6s ease-in-out 0s infinite normal none running nwScan;"></div>
+              <div data-dc-tpl="151" style="position: absolute; left: 0px; right: 0px; bottom: 16px; text-align: center; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 10px; color: rgb(28, 93, 68); font-weight: 500;">Honey Almond Granola · ready</div>
+            </div>
+            <div data-dc-tpl="152" style="display: flex; align-items: center; justify-content: center; gap: 30px; margin-top: 26px;">
+              <span data-dc-tpl="153" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 10px; color: rgb(154, 160, 166);">upload</span>
+              <span data-dc-tpl="154" style="width: 60px; height: 60px; border-radius: 50%; background: rgb(28, 93, 68); box-shadow: rgba(47, 158, 110, 0.2) 0px 0px 0px 4px; display: flex; align-items: center; justify-content: center;"><span data-dc-tpl="155" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid rgb(250, 251, 252);"></span></span>
+              <span data-dc-tpl="156" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 10px; color: rgb(154, 160, 166);">flash</span>
+            </div>
+            <div data-dc-tpl="157" style="text-align: center; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 10px; color: rgb(154, 160, 166); margin-top: 12px;">tap to analyze</div>
+          </div>
+      </div>
     </div>
 
     <!-- STEP 02 · Cross-Reference -->
-    <div class="pstep" style="top:3102px;width:499px">
+    <div class="pstep" style="top:3337px;width:499px">
       <div class="inner">
         <p class="peb">CROSS-REFERENCE</p>
         <p class="pt">Check every additive against the real record.</p>
@@ -146,26 +158,24 @@
         <span class="iochip out">2 flags · 5 sources</span>
       </div>
     </div>
-    <!-- Analyzing demo card -->
-    <div class="dcard" style="top:3063px;height:184px">
-      <p class="dhead abs" style="left:17px;top:18px">Analyzing</p>
-      <span class="abs" style="left:257px;top:17px;width:26px;height:20px;border:1px solid #d6e0db;border-radius:5px"></span>
-      <p class="abs ff-plex" style="left:264px;top:20px;font-size:9px;line-height:13.5px;color:var(--green)">2/3</p>
-      <span class="abs" style="left:30px;top:59px;width:2px;height:100px;background:#dfe4e3"></span>
-      <span class="abs" style="left:17px;top:51px;width:28px;height:28px;border-radius:14px;background:var(--green)"></span>
-      <p class="abs" style="left:27px;top:57px;font-size:11px;line-height:16.5px;color:#fff">✓</p>
-      <p class="abs" style="left:56px;top:56px;font-weight:600;font-size:12px;line-height:18px;color:var(--ink2)">Vision Extract</p>
-      <span class="abs" style="left:17px;top:91px;width:28px;height:28px;border-radius:14px;background:var(--card);border:2px solid var(--green);opacity:.35"></span>
-      <p class="abs ff-plex" style="left:29px;top:98px;font-size:9px;line-height:13.5px;color:var(--green)">··</p>
-      <p class="abs" style="left:56px;top:95px;font-weight:600;font-size:12px;line-height:18px;color:var(--ink2)">Cross-Reference</p>
-      <p class="abs" style="left:56px;top:113px;font-size:10px;line-height:14.25px;color:var(--green)">FDA · EFSA · WHO…</p>
-      <span class="abs" style="left:17px;top:139px;width:28px;height:28px;border-radius:14px;background:var(--band)"></span>
-      <p class="abs ff-plex" style="left:26px;top:145px;font-size:10px;line-height:15px;color:var(--gold)">03</p>
-      <p class="abs" style="left:56px;top:144px;font-weight:600;font-size:12px;line-height:18px;color:var(--gold)">Score &amp; Cite</p>
+    <!-- Analyzing demo card (v2) -->
+    <div class="v2wrap abs" style="left:856px;top:3298px">
+      <div data-dc-tpl="168" style="width: 288px; background: rgb(250, 251, 252); border: 1px solid rgb(231, 225, 211); border-radius: 22px; overflow: hidden; box-shadow: rgba(15, 42, 31, 0.3) 0px 22px 48px -30px;">
+          <div data-dc-tpl="169" style="padding: 22px 18px;">
+            <div data-dc-tpl="170" style="display: flex; align-items: center; justify-content: space-between;"><span data-dc-tpl="171" style="font-size: 15px; font-weight: 600; color: rgb(31, 38, 41);">Analyzing</span><span data-dc-tpl="172" style="font-family: &quot;IBM Plex Mono&quot;; font-size: 10px; color: rgb(47, 158, 110); border: 1px solid rgb(207, 230, 220); border-radius: 6px; padding: 3px 7px;">2 / 3</span></div>
+            <div data-dc-tpl="173" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 10px; color: rgb(154, 160, 166); margin-top: 4px;">RUN · 42E0 · 9.1s</div>
+            <div data-dc-tpl="174" style="margin-top: 22px; position: relative;">
+              <div data-dc-tpl="175" style="position: absolute; left: 15px; top: 12px; bottom: 16px; width: 2px; background: linear-gradient(rgb(47, 158, 110), rgb(231, 235, 233));"></div>
+              <div data-dc-tpl="176" style="display: flex; gap: 12px; margin-bottom: 18px;"><span data-dc-tpl="177" style="position: relative; z-index: 2; width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; background: rgb(47, 158, 110); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 12px;">✓</span><div data-dc-tpl="178" style="flex: 1 1 0%; padding-top: 2px;"><div data-dc-tpl="179" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="180" style="font-size: 13.5px; font-weight: 600; color: rgb(31, 38, 41);">Vision Extract</span><span data-dc-tpl="181" style="font-family: &quot;IBM Plex Mono&quot;; font-size: 9px; color: rgb(154, 160, 166);">6.9s</span></div><div data-dc-tpl="182" style="font-size: 11px; color: rgb(107, 113, 119); margin-top: 3px;">Parsed product &amp; ingredients</div><span data-dc-tpl="183" style="display: inline-block; margin-top: 6px; font-family: &quot;IBM Plex Mono&quot;; font-size: 9px; color: rgb(92, 108, 102); background: rgb(238, 243, 240); border-radius: 5px; padding: 3px 7px;">7 ingredients found</span></div></div>
+              <div data-dc-tpl="184" style="display: flex; gap: 12px; margin-bottom: 18px;"><span data-dc-tpl="185" style="position: relative; z-index: 2; width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; background: rgb(250, 251, 252); border: 2px solid rgb(47, 158, 110); color: rgb(47, 158, 110); display: flex; align-items: center; justify-content: center; font-family: &quot;IBM Plex Mono&quot;; font-size: 10px; animation: 1.5s ease 0s infinite normal none running nwPulse;">··</span><div data-dc-tpl="186" style="flex: 1 1 0%; padding-top: 2px;"><div data-dc-tpl="187" style="font-size: 13.5px; font-weight: 600; color: rgb(31, 38, 41);">Cross-Reference</div><div data-dc-tpl="188" style="font-size: 11px; color: rgb(47, 158, 110); margin-top: 3px;">Matching FDA · EFSA · WHO…</div><div data-dc-tpl="189" style="margin-top: 8px; height: 5px; border-radius: 3px; background: rgb(231, 235, 233); overflow: hidden;"><div data-dc-tpl="190" style="width: 64%; height: 100%; background: rgb(47, 158, 110); border-radius: 3px;"></div></div></div></div>
+              <div data-dc-tpl="191" style="display: flex; gap: 12px;"><span data-dc-tpl="192" style="position: relative; z-index: 2; width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; background: rgb(241, 236, 224); color: rgb(181, 172, 151); display: flex; align-items: center; justify-content: center; font-family: &quot;IBM Plex Mono&quot;; font-size: 11px;">03</span><div data-dc-tpl="193" style="padding-top: 6px;"><div data-dc-tpl="194" style="font-size: 13.5px; font-weight: 600; color: rgb(181, 172, 151);">Score &amp; Cite</div><div data-dc-tpl="195" style="font-size: 11px; color: rgb(196, 188, 168); margin-top: 2px;">queued</div></div></div>
+            </div>
+          </div>
+      </div>
     </div>
 
     <!-- STEP 03 · Score & Cite -->
-    <div class="pstep" style="top:3388px;width:412px">
+    <div class="pstep" style="top:3731px;width:412px">
       <div class="inner">
         <p class="peb">SCORE &amp; CITE</p>
         <p class="pt">A verdict you can open up.</p>
@@ -177,28 +187,32 @@
         <span class="iochip out">index + citations</span>
       </div>
     </div>
-    <!-- Verdict demo card -->
-    <div class="dcard" style="top:3307px;height:138px">
-      <p class="abs" style="left:32px;top:30px;font-weight:600;font-size:17px;line-height:25.5px;color:var(--ink2)">B+</p>
-      <p class="abs ff-plex" style="left:81px;top:21px;font-size:9px;line-height:13.5px;color:#9aa0a6">HEALTH INDEX</p>
-      <p class="abs" style="left:81px;top:35px;font-weight:300;font-size:20px;line-height:30px;color:var(--ink2)">78</p>
-      <span class="cdot" style="left:17px;top:82px;background:var(--clay-bg)"></span>
-      <p class="cmark" style="left:23px;top:82px;color:var(--clay)">!</p>
-      <p class="abs" style="left:39px;top:81px;font-size:11px;line-height:16.5px;color:var(--ink2)">High added sugar</p>
-      <p class="csrc" style="left:254px;top:83px;color:var(--clay)">WHO ↗</p>
-      <span class="cdot" style="left:17px;top:105px;background:var(--green-mist)"></span>
-      <p class="cmark" style="left:21px;top:106px;color:var(--green)">✓</p>
-      <p class="abs" style="left:39px;top:104px;font-size:11px;line-height:16.5px;color:var(--ink2)">Whole grains &amp; fiber</p>
-      <p class="csrc" style="left:257px;top:107px;color:var(--green)">FDA ↗</p>
+    <!-- Verdict demo card (v2) -->
+    <div class="v2wrap abs" style="left:856px;top:3650px">
+      <div data-dc-tpl="206" style="width: 288px; background: rgb(250, 251, 252); border: 1px solid rgb(231, 225, 211); border-radius: 22px; overflow: hidden; box-shadow: rgba(15, 42, 31, 0.3) 0px 22px 48px -30px;">
+          <div data-dc-tpl="207" style="padding: 22px 18px;">
+            <div data-dc-tpl="208" style="display: flex; align-items: center; justify-content: space-between;"><span data-dc-tpl="209" style="font-size: 15px; font-weight: 600; color: rgb(31, 38, 41);">Verdict</span><span data-dc-tpl="210" style="font-family: &quot;IBM Plex Mono&quot;; font-size: 10px; color: rgb(154, 160, 166);">Honey Almond Granola</span></div>
+            <div data-dc-tpl="211" style="margin-top: 16px; display: flex; align-items: center; gap: 14px; background: rgb(238, 243, 240); border-radius: 16px; padding: 16px;">
+              <div data-dc-tpl="212" style="width: 64px; height: 64px; flex: 0 0 64px; border-radius: 50%; background: conic-gradient(rgb(47, 158, 110) 0deg, rgb(47, 158, 110) 78%, rgb(231, 235, 233) 78%, rgb(231, 235, 233) 100%); display: flex; align-items: center; justify-content: center;"><div data-dc-tpl="213" style="width: 50px; height: 50px; border-radius: 50%; background: rgb(238, 243, 240); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 600; color: rgb(31, 38, 41);">B+</div></div>
+              <div data-dc-tpl="214"><div data-dc-tpl="215" style="font-family: &quot;IBM Plex Mono&quot;; font-size: 9px; color: rgb(154, 160, 166); letter-spacing: 0.08em;">HEALTH INDEX</div><div data-dc-tpl="216" style="font-size: 26px; font-weight: 300; color: rgb(31, 38, 41); line-height: 1.1;">78<span data-dc-tpl="217" style="font-size: 12px; color: rgb(154, 160, 166);">/100</span></div><div data-dc-tpl="218" style="font-size: 11px; color: rgb(47, 158, 110); font-weight: 600;">Good choice</div></div>
+            </div>
+            <div data-dc-tpl="219" style="font-family: &quot;IBM Plex Mono&quot;; font-size: 9px; color: rgb(154, 160, 166); letter-spacing: 0.1em; margin-top: 18px;">FLAGGED · TAP FOR SOURCE</div>
+            <div data-dc-tpl="220" style="margin-top: 10px; display: flex; flex-direction: column; gap: 9px;">
+              <div data-dc-tpl="221" style="display: flex; align-items: center; gap: 9px; border: 1px solid rgb(240, 226, 216); border-radius: 10px; padding: 10px 12px;"><span data-dc-tpl="222" style="width: 20px; height: 20px; flex: 0 0 20px; border-radius: 50%; background: rgb(251, 231, 218); color: rgb(217, 72, 15); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700;">!</span><span data-dc-tpl="223" style="font-size: 12.5px; color: rgb(31, 38, 41);">High added sugar</span><span data-dc-tpl="224" style="margin-left: auto; font-family: &quot;IBM Plex Mono&quot;; font-size: 9px; color: rgb(217, 72, 15);">WHO ↗</span></div>
+              <div data-dc-tpl="225" style="display: flex; align-items: center; gap: 9px; border: 1px solid rgb(240, 226, 216); border-radius: 10px; padding: 10px 12px;"><span data-dc-tpl="226" style="width: 20px; height: 20px; flex: 0 0 20px; border-radius: 50%; background: rgb(251, 231, 218); color: rgb(217, 72, 15); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700;">!</span><span data-dc-tpl="227" style="font-size: 12.5px; color: rgb(31, 38, 41);">Contains palm oil</span><span data-dc-tpl="228" style="margin-left: auto; font-family: &quot;IBM Plex Mono&quot;; font-size: 9px; color: rgb(217, 72, 15);">EFSA ↗</span></div>
+              <div data-dc-tpl="229" style="display: flex; align-items: center; gap: 9px; border: 1px solid rgb(217, 236, 225); border-radius: 10px; padding: 10px 12px;"><span data-dc-tpl="230" style="width: 20px; height: 20px; flex: 0 0 20px; border-radius: 50%; background: rgb(238, 246, 241); color: rgb(47, 158, 110); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700;">✓</span><span data-dc-tpl="231" style="font-size: 12.5px; color: rgb(31, 38, 41);">Whole grains &amp; fiber</span><span data-dc-tpl="232" style="margin-left: auto; font-family: &quot;IBM Plex Mono&quot;; font-size: 9px; color: rgb(47, 158, 110);">FDA ↗</span></div>
+            </div>
+          </div>
+      </div>
     </div>
 
     <!-- OUT label -->
-    <p class="abs" style="left:144px;top:3640px;font-size:15px;line-height:22.5px;color:#3a382f;white-space:nowrap"><b style="font-weight:600">A cited health verdict - </b>headline grade, flagged concerns, and a source behind every one.</p>
+    <p class="abs" style="left:144px;top:4060px;font-size:15px;line-height:22.5px;color:#3a382f;white-space:nowrap"><b style="font-weight:600">A cited health verdict - </b>headline grade, flagged concerns, and a source behind every one.</p>
 
-    <div class="hr3" style="left:48px;top:3729px;width:1344px"></div>
+    <div class="hr3" style="left:48px;top:4149px;width:1344px"></div>
 
     <!-- ===================== THE DECISION ===================== -->
-    <div class="sect" style="left:80px;top:3782px;width:556px">
+    <div class="sect" style="left:80px;top:4202px;width:556px">
       <p class="eb-192">THE DECISION THAT DEFINED IT</p>
       <h2 class="stitle">A score means nothing until you can see the receipts.</h2>
       <p class="sbody21">The first prototype showed a clean grade and hid the evidence one tap away. In testing, people didn't trust it — an AI number with no visible source is just an opinion. So I inverted the hierarchy: the reasoning became the product, and the score its headline.</p>
@@ -209,66 +223,69 @@
       </div>
     </div>
 
-    <!-- BEFORE card -->
-    <p class="ba-label" style="left:742px;top:3891px;color:#b0a891">BEFORE · SCORE ONLY</p>
-    <div class="ba-card" style="left:742px;top:3916px;background:var(--band)">
-      <p class="abs" style="left:21px;top:21px;font-family:'Hanken Grotesk',sans-serif;font-weight:300;font-size:44px;line-height:66px;color:var(--ink2)">B+</p>
-      <p class="abs" style="left:21px;top:91px;font-size:13px;line-height:19.5px;color:var(--mono-warm2)">78 / 100</p>
-      <p class="abs" style="left:21px;top:128px;width:221px;font-size:12px;line-height:16.1px;color:#a5987e">"Why? Where's this from?" — 6 of 8 testers asked before acting.</p>
+    <!-- BEFORE / AFTER (v2) -->
+    <div class="v2wrap abs" style="left:742px;top:4311px;width:553px">
+      <div data-dc-tpl="248" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div data-dc-tpl="249">
+        <div data-dc-tpl="250" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 10px; color: rgb(176, 168, 145); letter-spacing: 0.1em;">BEFORE · SCORE ONLY</div>
+        <div data-dc-tpl="251" style="margin-top: 10px; background: rgb(241, 236, 224); border: 1px solid rgb(224, 218, 203); border-radius: 12px; padding: 20px; min-height: 180px; display: flex; flex-direction: column; justify-content: center;">
+          <div data-dc-tpl="252" style="font-family: &quot;Hanken Grotesk&quot;; font-size: 44px; font-weight: 300; color: rgb(31, 38, 41);">B+</div>
+          <div data-dc-tpl="253" style="font-size: 13px; color: rgb(138, 133, 120); margin-top: 4px;">78 / 100</div>
+          <div data-dc-tpl="254" style="margin-top: 16px; font-size: 11.5px; color: rgb(165, 152, 126); font-style: italic; line-height: 1.4;">"Why? Where's this from?" — 6 of 8 testers asked before acting.</div>
+        </div>
+      </div>
+      <div data-dc-tpl="255">
+        <div data-dc-tpl="256" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 10px; color: rgb(47, 158, 110); letter-spacing: 0.1em;">AFTER · EVERY CLAIM CITED</div>
+        <div data-dc-tpl="257" style="margin-top: 10px; background: rgb(250, 251, 252); border: 1px solid rgb(224, 218, 203); border-radius: 12px; padding: 18px; min-height: 180px;">
+          <div data-dc-tpl="258" style="display: flex; align-items: center; gap: 10px;">
+            <div data-dc-tpl="259" style="width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%; background: conic-gradient(rgb(47, 158, 110) 0deg, rgb(47, 158, 110) 78%, rgb(231, 235, 233) 78%, rgb(231, 235, 233) 100%); display: flex; align-items: center; justify-content: center;"><div data-dc-tpl="260" style="width: 31px; height: 31px; border-radius: 50%; background: rgb(250, 251, 252); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: rgb(31, 38, 41);">B+</div></div>
+            <div data-dc-tpl="261"><div data-dc-tpl="262" style="font-size: 12.5px; font-weight: 600; color: rgb(31, 38, 41);">78 / 100</div><div data-dc-tpl="263" style="font-size: 10.5px; color: rgb(138, 133, 120);">Good choice</div></div>
+          </div>
+          <div data-dc-tpl="264" style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+            <div data-dc-tpl="265" style="display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: rgb(31, 38, 41);"><span data-dc-tpl="266" style="width: 15px; height: 15px; border-radius: 50%; background: rgb(251, 231, 218); color: rgb(217, 72, 15); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700;">!</span>High added sugar<span data-dc-tpl="267" style="margin-left: auto; font-family: &quot;IBM Plex Mono&quot;; font-size: 8px; color: rgb(217, 72, 15);">WHO ↗</span></div>
+            <div data-dc-tpl="268" style="display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: rgb(31, 38, 41);"><span data-dc-tpl="269" style="width: 15px; height: 15px; border-radius: 50%; background: rgb(251, 231, 218); color: rgb(217, 72, 15); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700;">!</span>Contains palm oil<span data-dc-tpl="270" style="margin-left: auto; font-family: &quot;IBM Plex Mono&quot;; font-size: 8px; color: rgb(217, 72, 15);">EFSA ↗</span></div>
+            <div data-dc-tpl="271" style="display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: rgb(31, 38, 41);"><span data-dc-tpl="272" style="width: 15px; height: 15px; border-radius: 50%; background: rgb(238, 246, 241); color: rgb(47, 158, 110); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700;">✓</span>Whole grains &amp; fiber<span data-dc-tpl="273" style="margin-left: auto; font-family: &quot;IBM Plex Mono&quot;; font-size: 8px; color: rgb(47, 158, 110);">FDA ↗</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
 
-    <!-- AFTER card -->
-    <p class="ba-label" style="left:1030px;top:3891px;color:var(--green)">AFTER · EVERY CLAIM CITED</p>
-    <div class="ba-card" style="left:1030px;top:3916px;background:var(--card)">
-      <p class="abs" style="left:30px;top:29px;font-weight:600;font-size:14px;line-height:21px;color:var(--ink2)">B+</p>
-      <p class="abs" style="left:71px;top:22px;font-weight:600;font-size:13px;line-height:18.75px;color:var(--ink2)">78 / 100</p>
-      <p class="abs" style="left:71px;top:41px;font-size:11px;line-height:15.75px;color:var(--mono-warm2)">Good choice</p>
-      <span class="cdot" style="left:19px;top:75px;background:var(--clay-bg)"></span>
-      <p class="cmark" style="left:25px;top:76px;color:var(--clay)">!</p>
-      <p class="csrc" style="left:223px;top:76px;color:var(--clay)">WHO ↗</p>
-      <span class="cdot" style="left:19px;top:98px;background:var(--clay-bg)"></span>
-      <p class="cmark" style="left:25px;top:99px;color:var(--clay)">!</p>
-      <p class="csrc" style="left:223px;top:99px;color:var(--clay)">EFSA ↗</p>
-      <span class="cdot" style="left:19px;top:121px;background:var(--green-mist)"></span>
-      <p class="cmark" style="left:23px;top:122px;color:var(--green)">✓</p>
-      <p class="csrc" style="left:226px;top:122px;color:var(--green)">FDA ↗</p>
-    </div>
-
-    <div class="hr3" style="left:48px;top:4249px;width:1344px"></div>
+    <div class="hr3" style="left:48px;top:4669px;width:1344px"></div>
 
     <!-- ===================== HOW IT WAS BUILT ===================== -->
-    <div class="sect" style="left:80px;top:4304px;width:556px">
+    <div class="sect" style="left:80px;top:4724px;width:556px">
       <p class="eb-192">HOW IT WAS BUILT</p>
       <h2 class="stitle">Designed and shipped with an <em>AI co-pilot</em>.</h2>
       <p class="sbody21">Designing an agentic product with an agentic workflow - from architecture to a live, coded prototype, without leaving the loop.</p>
     </div>
 
     <!-- built rows -->
-    <p class="built-row-num" style="left:737px;top:4326px">01</p>
-    <p class="built-row-t" style="left:764px;top:4325px">Agent-first blueprinting</p>
-    <p class="built-row-b" style="left:764px;top:4357px;width:496px">Mapped the three agents, their I/O and the hand-off UI before a single screen - architecture drove layout.</p>
-    <div class="hr3" style="left:720px;top:4418px;width:610px;border-top-color:var(--tan)"></div>
-    <p class="built-row-num" style="left:737px;top:4440px">02</p>
-    <p class="built-row-t" style="left:764px;top:4439px">Prompt-driven prototyping</p>
-    <p class="built-row-b" style="left:764px;top:4470px;width:559px">Turned design intent into a working front-end with real components and live pipeline states, not static mocks.</p>
-    <div class="hr3" style="left:720px;top:4531px;width:610px;border-top-color:var(--tan)"></div>
-    <p class="built-row-num" style="left:737px;top:4553px">03</p>
-    <p class="built-row-t" style="left:764px;top:4552px">Faster iteration loops</p>
-    <p class="built-row-b" style="left:764px;top:4584px;width:565px">Pressure-tested edge cases - a &lt;60 score, zero concerns, a failed scan - in the browser, collapsing weeks into days.</p>
+    <p class="built-row-num" style="left:737px;top:4746px">01</p>
+    <p class="built-row-t" style="left:764px;top:4745px">Agent-first blueprinting</p>
+    <p class="built-row-b" style="left:764px;top:4777px;width:496px">Mapped the three agents, their I/O and the hand-off UI before a single screen - architecture drove layout.</p>
+    <div class="hr3" style="left:720px;top:4838px;width:610px;border-top-color:var(--tan)"></div>
+    <p class="built-row-num" style="left:737px;top:4860px">02</p>
+    <p class="built-row-t" style="left:764px;top:4859px">Prompt-driven prototyping</p>
+    <p class="built-row-b" style="left:764px;top:4890px;width:559px">Turned design intent into a working front-end with real components and live pipeline states, not static mocks.</p>
+    <div class="hr3" style="left:720px;top:4951px;width:610px;border-top-color:var(--tan)"></div>
+    <p class="built-row-num" style="left:737px;top:4973px">03</p>
+    <p class="built-row-t" style="left:764px;top:4972px">Faster iteration loops</p>
+    <p class="built-row-b" style="left:764px;top:5004px;width:565px">Pressure-tested edge cases - a &lt;60 score, zero concerns, a failed scan - in the browser, collapsing weeks into days.</p>
 
     <!-- pull quote -->
-    <p class="abs ff-play" style="left:80px;top:4745px;width:1136px;font-weight:500;font-size:48px;line-height:57.6px;letter-spacing:-0.48px;color:#000">The best design decision wasn't the score. It was making the machine <em style="font-weight:400;color:var(--green)">show its work</em>.</p>
+    <p class="abs ff-play" style="left:80px;top:5165px;width:1136px;font-weight:500;font-size:48px;line-height:57.6px;letter-spacing:-0.48px;color:#000">The best design decision wasn't the score. It was making the machine <em style="font-weight:400;color:var(--green)">show its work</em>.</p>
 
     <!-- ===================== OUTCOMES ===================== -->
-    <div class="abs" style="left:80px;top:4891px;width:1280px;height:212px;border-top:1px solid #000"></div>
-    <p class="oc3-title" style="left:80px;top:4920px">Impact</p>
-    <p class="oc3-body" style="left:80px;top:4977px;width:390px">Reframed a generic "health scanner" into a trustworthy, cited system - a three-agent pipeline where a verdict arrives with its evidence attached, in ~14 seconds.</p>
-    <div class="abs" style="left:506.67px;top:4892px;height:211px;border-left:1px solid var(--ink)"></div>
-    <p class="oc3-title" style="left:544px;top:4920px">Process</p>
-    <p class="oc3-body" style="left:544px;top:4977px;width:352px">Owned it end-to-end - brand, product design, agentic UX and a coded, interactive prototype - designing an AI product with an AI-native workflow.</p>
-    <div class="abs" style="left:933.33px;top:4892px;height:211px;border-left:1px solid var(--ink)"></div>
-    <p class="oc3-title" style="left:970.67px;top:4920px">What I learned</p>
-    <p class="oc3-body" style="left:970.67px;top:4977px;width:352px;color:var(--body);line-height:25.5px">With AI features, transparency is the interface. Designing the visible reasoning mattered more than styling the final answer.</p>
+    <div class="abs" style="left:80px;top:5311px;width:1280px;height:212px;border-top:1px solid #000"></div>
+    <p class="oc3-title" style="left:80px;top:5340px">Impact</p>
+    <p class="oc3-body" style="left:80px;top:5397px;width:390px">Reframed a generic "health scanner" into a trustworthy, cited system - a three-agent pipeline where a verdict arrives with its evidence attached, in ~14 seconds.</p>
+    <div class="abs" style="left:506.67px;top:5312px;height:211px;border-left:1px solid var(--ink)"></div>
+    <p class="oc3-title" style="left:544px;top:5340px">Process</p>
+    <p class="oc3-body" style="left:544px;top:5397px;width:352px">Owned it end-to-end - brand, product design, agentic UX and a coded, interactive prototype - designing an AI product with an AI-native workflow.</p>
+    <div class="abs" style="left:933.33px;top:5312px;height:211px;border-left:1px solid var(--ink)"></div>
+    <p class="oc3-title" style="left:970.67px;top:5340px">What I learned</p>
+    <p class="oc3-body" style="left:970.67px;top:5397px;width:352px;color:var(--body);line-height:25.5px">With AI features, transparency is the interface. Designing the visible reasoning mattered more than styling the final answer.</p>
 
     <!-- ===================== NEXT PROJECT ===================== -->
     <div class="next3-line"></div>

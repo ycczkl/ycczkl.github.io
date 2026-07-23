@@ -53,7 +53,7 @@ body {
 .stage3 {
   position: relative;
   width: 1440px;
-  height: 5699px;
+  height: 6119px;
   background: var(--bg);
   overflow: hidden;
   /* site max-width is 1200px — scale the 1440 design down proportionally */
@@ -169,7 +169,7 @@ body {
 .sect .sbody17 { font-size: 17px; line-height: 26.4px; color: var(--body2); }
 
 /* ---------- pipeline ---------- */
-.pipe-line { position: absolute; left: 99px; top: 2751px; width: 2px; height: 829px; background: var(--tan2); }
+.pipe-line { position: absolute; left: 99px; top: 2751px; width: 2px; height: 1249px; background: var(--tan2); }
 .pnode {
   position: absolute; left: 80px; width: 40px; height: 40px; border-radius: 20px;
   display: flex; align-items: center; justify-content: center;
@@ -223,14 +223,14 @@ body {
 .oc3-body { position: absolute; font-size: 15px; line-height: 23.2px; color: #4a4a40; }
 
 /* ---------- next project ---------- */
-.next3-line { position: absolute; left: 48px; top: 5223px; width: 1344px; border-top: 1px solid var(--hair); }
-.next3-eb { position: absolute; left: 50px; top: 5259px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.38px; line-height: 18px; color: var(--label); }
-.next3-row { position: absolute; left: 50px; top: 5277px; display: flex; align-items: center; gap: 26px; }
+.next3-line { position: absolute; left: 48px; top: 5643px; width: 1344px; border-top: 1px solid var(--hair); }
+.next3-eb { position: absolute; left: 50px; top: 5679px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.38px; line-height: 18px; color: var(--label); }
+.next3-row { position: absolute; left: 50px; top: 5697px; display: flex; align-items: center; gap: 26px; }
 .next3-t { font-family: 'Instrument Serif', serif; font-size: 36px; line-height: 72px; color: #000; white-space: nowrap; }
 .next3-a { font-family: 'Instrument Serif', serif; font-size: 56px; line-height: 84px; color: #000; }
 
 /* ---------- footer (shared) ---------- */
-.footer3 { position: absolute; left: 48px; top: 5385px; width: 1344px; height: 178.8px; border-top: 1.2px solid #1a1814; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
+.footer3 { position: absolute; left: 48px; top: 5805px; width: 1344px; height: 178.8px; border-top: 1.2px solid #1a1814; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
 .footer3 .talk { position: absolute; top: 70.8px; left: 82.8px; font-family: 'Instrument Serif', serif; font-size: 38.4px; line-height: normal; color: #1a1814; white-space: nowrap; }
 .footer3 .talk .dash { font-style: italic; }
 .footer3 .talk a { color: #3d5afe; text-decoration: none; border-bottom: 1.2px solid #3d5afe; padding-bottom: 1.2px; }
@@ -240,3 +240,9 @@ body {
 
 /* generic hairline */
 .hr3 { position: absolute; height: 0; border-top: 1px solid var(--hair); }
+
+/* ---------- v2 demo components (imported from case-study v2, self-contained inline styles) ---------- */
+.v2wrap { font-family: 'Hanken Grotesk', sans-serif; font-size: 16px; line-height: normal; color: #1a1a17; }
+.v2wrap, .v2wrap * { box-sizing: content-box; }
+@keyframes nwScan { 0% { transform: translateY(-26px); } 50% { transform: translateY(26px); } 100% { transform: translateY(-26px); } }
+@keyframes nwPulse { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
