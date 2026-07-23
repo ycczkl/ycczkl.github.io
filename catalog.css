@@ -35,7 +35,7 @@ body {
 .stage {
   position: relative;
   width: 1440px;
-  height: 2931px;
+  height: 2934px;
   background: var(--bg);
   overflow: hidden;
   /* site max-width is 1200px — scale the 1440 design down proportionally */

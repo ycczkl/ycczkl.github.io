@@ -53,7 +53,7 @@ body {
 .stage3 {
   position: relative;
   width: 1440px;
-  height: 6657px;
+  height: 6579px;
   background: var(--bg);
   overflow: hidden;
   /* site max-width is 1200px — scale the 1440 design down proportionally */
@@ -107,7 +107,7 @@ body {
 .spec3 .cell { padding: 20px 25px 24px 24px; border-right: 1px solid var(--hair5); }
 .spec3 .cell:first-child { padding-left: 0; }
 .spec3 .cell:last-child { padding-right: 0; border-right: none; }
-.spec3 .label { font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 12px; letter-spacing: 1.2px; color: var(--label2); }
+.spec3 .label { font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 14.4px; letter-spacing: 1.44px; color: var(--label2); }
 .spec3 .value { margin-top: 8px; font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 17px; color: var(--ink-strong); }
 
 /* ---------- prototype browser mock ---------- */

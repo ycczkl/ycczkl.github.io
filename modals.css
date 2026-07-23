@@ -18,6 +18,8 @@
 
 .modal {
   position: relative;
+  /* values transcribed from the 1440 Figma canvas; scale to site 1200 */
+  zoom: 0.833333;
   width: 800px;
   min-height: 1000px;
   background: var(--modal-bg);

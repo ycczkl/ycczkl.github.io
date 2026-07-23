@@ -127,7 +127,7 @@ body {
   top: 506px;
   width: 1200px;
   padding-left: 80px;
-  padding-right: 48px;
+  padding-right: 80px;
 }
 .work-head {
   padding-bottom: 17px;
@@ -391,7 +391,7 @@ body {
 /* ---------- Footer (compact, centered 1086) ---------- */
 .footer {
   position: absolute;
-  left: calc(50% - 1px);
+  left: 50%;
   transform: translateX(-50%);
   top: 2933px;
   width: 1086px;

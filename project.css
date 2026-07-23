@@ -42,7 +42,7 @@ body {
 .stage4 {
   position: relative;
   width: 1440px;
-  height: 6131px;
+  height: 6096px;
   background: var(--bg);
   overflow: hidden;
   /* site max-width is 1200px — scale the 1440 design down proportionally */
@@ -81,7 +81,7 @@ body {
 .spec4 .cell { padding: 20px 25px 24px 24px; border-right: 1px solid var(--hair5); }
 .spec4 .cell:first-child { padding-left: 0; }
 .spec4 .cell:last-child { padding-right: 0; border-right: none; }
-.spec4 .label { font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 12px; letter-spacing: 1.2px; color: var(--label2); }
+.spec4 .label { font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 14.4px; letter-spacing: 1.44px; color: var(--label2); }
 .spec4 .value { margin-top: 8px; font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 17px; color: var(--ink-strong); }
 
 /* ---------- hero browser mock ---------- */
@@ -171,8 +171,9 @@ body {
 /* ---------- next project (Group 89) ---------- */
 .next4-line { position: absolute; left: 48px; top: 5698px; width: 1344px; border-top: 1px solid var(--hair); }
 .next4-eb { position: absolute; left: 50px; top: 5734px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.38px; line-height: 18px; color: var(--label); }
-.next4-t { position: absolute; left: 50px; top: 5752px; font-family: 'Instrument Serif', serif; font-size: 36px; line-height: 72px; color: #000; }
-.next4-a { position: absolute; left: 197px; top: 5740px; font-family: 'Instrument Serif', serif; font-size: 56px; line-height: 84px; color: #000; }
+.next4-row { position: absolute; left: 50px; top: 5752px; display: flex; align-items: center; gap: 26px; }
+.next4-t { font-family: 'Instrument Serif', serif; font-size: 36px; line-height: 72px; color: #000; white-space: nowrap; }
+.next4-a { font-family: 'Instrument Serif', serif; font-size: 56px; line-height: 84px; color: #000; }
 
 /* ---------- footer (compact) ---------- */
 .footer4 { position: absolute; left: 48px; top: 5860px; width: 1344px; height: 178.8px; border-top: 1.2px solid #1a1814; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
