@@ -55,7 +55,7 @@ body {
 .stage2 {
   position: relative;
   width: 1440px;
-  height: 8968px;
+  height: 9068px;
   background: var(--bg);
   overflow: hidden;
   /* site max-width is 1200px — scale the 1440 design down proportionally */
@@ -132,7 +132,7 @@ body {
 .pimg .cap { width:100%; font-family:'Roboto Mono',monospace; font-size:8px; letter-spacing:.55px; line-height:17.6px; color:var(--sand4); text-align:center; }
 
 /* ---------- Signature Design Decision (navy) ---------- */
-.sig-bg { position:absolute; left:0; top:6278px; width:1439px; height:998px; background:var(--navy); }
+.sig-bg { position:absolute; left:0; top:6378px; width:1439px; height:998px; background:var(--navy); }
 .sig-eyebrow { font-family:'Roboto Mono',monospace; font-weight:500; font-size:11px; letter-spacing:1.98px; text-transform:uppercase; color:var(--w50); line-height:17.6px; }
 .sig-title { font-family:'Newsreader',serif; font-weight:400; font-size:66px; letter-spacing:-1.65px; line-height:66px; color:#fff; }
 .sig-body { font-family:'Inter',sans-serif; font-size:16px; line-height:27.2px; color:var(--w50); }
@@ -161,7 +161,7 @@ body {
 .next-arrow { font-family:'Instrument Serif',serif; font-size:56px; line-height:84px; color:#000; }
 
 /* ---------- Footer (shared) ---------- */
-.footer2 { position: absolute; left: 48px; top: 8732px; width: 1344px; height: 178.8px; border-top: 1.2px solid #1a1814; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
+.footer2 { position: absolute; left: 48px; top: 8832px; width: 1344px; height: 178.8px; border-top: 1.2px solid #1a1814; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
 .footer2 .talk { position: absolute; top: 70.8px; left: 82.8px; font-family: 'Instrument Serif', serif; font-size: 38.4px; line-height: normal; color: #1a1814; white-space: nowrap; }
 .footer2 .talk .dash { font-style: italic; }
 .footer2 .talk a { color: #3d5afe; text-decoration: none; border-bottom: 1.2px solid #3d5afe; padding-bottom: 1.2px; }
@@ -187,7 +187,7 @@ body {
 /* ---------- pipeline rail (IN → 01..04 → OUT) ---------- */
 html { scroll-behavior:smooth; }
 .stepx { scroll-margin-top:24px; }
-.railline { position:absolute; left:99px; top:2620px; width:2px; height:3565px; background:var(--hair3); }
+.railline { position:absolute; left:99px; top:2632px; width:2px; height:3660px; background:var(--hair3); }
 .rnode { position:absolute; display:flex; align-items:center; justify-content:center; border-radius:50%;
   font-family:'IBM Plex Mono',monospace; font-weight:700; text-decoration:none; box-sizing:border-box; }
 .rnode.step { left:72px; width:56px; height:56px; background:var(--navy); color:#fff; font-size:20px; letter-spacing:1px; box-shadow:0 0 0 8px var(--bg); }
@@ -196,7 +196,7 @@ a.rnode.step:hover { box-shadow:0 0 0 8px var(--bg), 0 0 0 9.5px var(--navy); }
 .rlabel { position:absolute; left:160px; }
 .rlabel .a { font-family:'Inter',sans-serif; font-weight:600; font-size:15px; line-height:22px; color:var(--ink2); }
 .rlabel .m { margin-top:2px; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:18px; color:var(--sand2); }
-.gate-tag { position:absolute; left:48px; top:4521px; width:104px; text-align:center;
+.gate-tag { position:absolute; left:48px; top:4569px; width:104px; text-align:center;
   font-family:'Roboto Mono',monospace; font-weight:500; font-size:9px; letter-spacing:1.35px; text-transform:uppercase; color:var(--navy); }
 .stepx .io { display:flex; gap:8px; align-items:center; margin-top:4px; }
 .stepx .ic { height:27px; display:inline-flex; align-items:center; padding:0 10px; border:1px solid var(--hair3); border-radius:6px;
