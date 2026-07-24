@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&family=IBM+Plex+Mono:wght@400;700&family=Inter:ital,wght@0,400;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Newsreader:wght@400&family=Roboto+Mono:wght@400;500&family=Source+Sans+3&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../project2.css?v=6">
+  <link rel="stylesheet" href="../project2.css?v=7">
   <link rel="stylesheet" href="../header.css?v=3">
 </head>
 <body>
@@ -77,13 +77,25 @@
       <p class="ff-serif" style="font-size:48px;line-height:58px;color:#000">A four-step pipeline that makes a complex application legible.</p>
     </div>
 
+    <!-- pipeline rail: IN → 01..04 → OUT -->
+    <div class="railline"></div>
+    <div class="rnode end" style="top:2600px;border:2px solid var(--navy);background:var(--bg);color:var(--navy)">IN</div>
+    <div class="rlabel" style="top:2598px;width:520px"><p class="a">Pitch in</p><p class="m">one raw research pitch · PDF or DOCX</p></div>
+    <a class="rnode step" href="#step-1" style="top:2675px" aria-label="Step 1 of 4 — Intake">01</a>
+    <a class="rnode step" href="#step-2" style="top:3565px" aria-label="Step 2 of 4 — Match">02</a>
+    <a class="rnode step" href="#step-3" style="top:4455px" aria-label="Step 3 of 4 — Eligibility">03</a>
+    <p class="gate-tag">HUMAN GATE</p>
+    <a class="rnode step" href="#step-4" style="top:5345px" aria-label="Step 4 of 4 — Package">04</a>
+    <div class="rnode end" style="top:6165px;background:var(--blue);color:#fff;font-size:11px">OUT</div>
+    <div class="rlabel" style="top:6163px;width:640px"><p class="a">Package out</p><p class="m">one submission-ready application ✓ · human-approved, exported</p></div>
+
     <!-- step 01 · Intake (full-width showcase) -->
-    <div class="stepx" style="top:2688px">
+    <div class="stepx" id="step-1" style="top:2688px">
       <div class="head">
         <div class="left">
-          <p class="n">STEP 01</p>
           <p class="t">Intake</p>
-          <p class="s">Upload pitch. Agent extracts intent.</p>
+          <p class="s">Upload your pitch — the agent plans before it executes.</p>
+          <div class="io"><span class="ic">pitch.pdf</span><span class="ar">→</span><span class="ic out">agent plan</span></div>
         </div>
         <div class="right">
           <p class="b">I replaced a 15-field search form with a single document upload. The agent reads the applicant’s intent, then outlines the steps it plans to take before it executes, so automation begins with a shared plan, not a black box.</p>
@@ -91,16 +103,16 @@
         </div>
       </div>
       <div class="shot"><video src="../assets/agc-step-1.mp4" poster="../assets/agc-poster-1.jpg" autoplay muted loop playsinline aria-label="Intake demo — the agent proposes its plan"></video></div>
-      <p class="cap">Upload → the agent proposes its plan and asks to proceed.</p>
+      <p class="cap"><span class="k">STEP 01 / 04 · INTAKE</span> — Upload → the agent proposes its plan and asks to proceed.</p>
     </div>
 
     <!-- step 02 · Match (full-width showcase) -->
-    <div class="stepx" style="top:3578px">
+    <div class="stepx" id="step-2" style="top:3578px">
       <div class="head">
         <div class="left">
-          <p class="n">STEP 02</p>
           <p class="t">Match</p>
-          <p class="s">Translating AI output into trust.</p>
+          <p class="s">Review ranked matches — and see why each one fits.</p>
+          <div class="io"><span class="ic">agent plan</span><span class="ar">→</span><span class="ic out">ranked matches</span></div>
         </div>
         <div class="right">
           <p class="b">Dense model analysis and cross-referenced institutional data become clear, ranked, actionable matches - communicating why each one fits, not just that it does</p>
@@ -108,16 +120,16 @@
         </div>
       </div>
       <div class="shot"><video src="../assets/agc-step-2.mp4" poster="../assets/agc-poster-2.jpg" autoplay muted loop playsinline aria-label="Match demo — ranked matches with fit scores"></video></div>
-      <p class="cap">Ranked matches, each with a fit score and the reason behind it.</p>
+      <p class="cap"><span class="k">STEP 02 / 04 · MATCH</span> — Ranked matches, each with a fit score and the reason behind it.</p>
     </div>
 
     <!-- step 03 · Eligibility (full-width showcase) -->
-    <div class="stepx" style="top:4468px">
+    <div class="stepx" id="step-3" style="top:4468px">
       <div class="head">
         <div class="left">
-          <p class="n">STEP 03</p>
           <p class="t" style="color:var(--navy)">Eligibility</p>
-          <p class="s">A human gate at every high-stakes step.</p>
+          <p class="s">Verify eligibility yourself — the agent only flags.</p>
+          <div class="io"><span class="ic">ranked matches</span><span class="ar">→</span><span class="ic out">verified match</span></div>
         </div>
         <div class="right">
           <p class="b">Compliance documents and applicant status are verified with a human review gate at every high-stakes step.</p>
@@ -125,16 +137,16 @@
         </div>
       </div>
       <div class="shot"><video src="../assets/agc-step-3.mp4" poster="../assets/agc-poster-3.jpg" autoplay muted loop playsinline aria-label="Eligibility demo — the agent flags what is missing"></video></div>
-      <p class="cap">The agent flags what’s missing — you stay the one who verifies.</p>
+      <p class="cap"><span class="k">STEP 03 / 04 · ELIGIBILITY</span> — The agent flags what’s missing — you stay the one who verifies.</p>
     </div>
 
     <!-- step 04 · Package (full-width showcase) -->
-    <div class="stepx" style="top:5358px">
+    <div class="stepx" id="step-4" style="top:5358px">
       <div class="head">
         <div class="left">
-          <p class="n">STEP 04</p>
           <p class="t">Package</p>
-          <p class="s">From scattered docs to one package.</p>
+          <p class="s">Assemble, approve, export — as one package.</p>
+          <div class="io"><span class="ic">verified match</span><span class="ar">→</span><span class="ic out">submission package</span></div>
         </div>
         <div class="right">
           <p class="b">Every section is assembled, reviewed, and exported as one submission-ready package.</p>
@@ -142,7 +154,7 @@
         </div>
       </div>
       <div class="shot"><video src="../assets/agc-step-4.mp4" poster="../assets/agc-poster-4.jpg" autoplay muted loop playsinline aria-label="Package demo — live readiness meter"></video></div>
-      <p class="cap">A live readiness meter — each section approved before the package can export.</p>
+      <p class="cap"><span class="k">STEP 04 / 04 · PACKAGE</span> — A live readiness meter — each section approved before the package can export.</p>
     </div>
 
     <!-- ===================== SIGNATURE DESIGN DECISION (navy) ===================== -->
@@ -248,5 +260,16 @@
     </footer>
 
   </div>
+  <script>
+    /* Chrome skips hash-scroll for targets inside a zoomed stage — scroll manually */
+    document.querySelectorAll('a.rnode.step').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var t = document.querySelector(a.getAttribute('href'));
+        window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 24, behavior: 'smooth' });
+        history.replaceState(null, '', a.getAttribute('href'));
+      });
+    });
+  </script>
 </body>
 </html>

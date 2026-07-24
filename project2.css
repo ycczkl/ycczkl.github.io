@@ -171,15 +171,36 @@ body {
 
 /* ---------- THE SYSTEM · full-width step showcases ---------- */
 .stepx { position:absolute; left:160px; width:1120px; display:flex; flex-direction:column; }
-.stepx .head { display:flex; justify-content:space-between; align-items:flex-end; gap:48px; margin-bottom:24px; }
+.stepx .head { display:flex; justify-content:space-between; align-items:flex-start; gap:48px; margin-bottom:24px; }
 .stepx .head .left { width:430px; display:flex; flex-direction:column; gap:6px; }
 .stepx .n { font-family:'Roboto Mono',monospace; font-size:11px; letter-spacing:1.76px; text-transform:uppercase; color:var(--sand2); line-height:16px; }
 .stepx .t { font-family:'Inter',sans-serif; font-weight:700; font-size:24px; letter-spacing:-0.24px; line-height:30px; color:#000; }
 .stepx .s { font-family:'Inter',sans-serif; font-size:15px; line-height:22px; color:var(--sand2); }
-.stepx .head .right { width:540px; display:flex; flex-direction:column; gap:14px; padding-bottom:4px; }
+.stepx .head .right { width:540px; display:flex; flex-direction:column; gap:14px; padding-top:5px; }
 .stepx .b { font-family:'Inter',sans-serif; font-size:13.5px; line-height:21px; color:var(--ink2); }
 .stepx .chips { display:flex; gap:8px; }
 .stepx .chips span { height:31px; display:inline-flex; align-items:center; padding:0 12px; border:1px solid var(--hair3); border-radius:30px; font-family:'Roboto Mono',monospace; font-size:11px; letter-spacing:.42px; color:var(--muted2); white-space:nowrap; }
 .stepx .shot { width:1120px; height:630px; border-radius:10px; overflow:hidden; box-shadow:0 18px 44px 8px rgba(0,0,0,.10); background:var(--cardgray); }
 .stepx .shot video { display:block; width:100%; height:100%; object-fit:cover; }
 .stepx .cap { margin-top:14px; width:100%; text-align:center; font-family:'Roboto Mono',monospace; font-size:10px; letter-spacing:.6px; line-height:16px; color:var(--sand4); }
+
+/* ---------- pipeline rail (IN → 01..04 → OUT) ---------- */
+html { scroll-behavior:smooth; }
+.stepx { scroll-margin-top:24px; }
+.railline { position:absolute; left:99px; top:2620px; width:2px; height:3565px; background:var(--hair3); }
+.rnode { position:absolute; display:flex; align-items:center; justify-content:center; border-radius:50%;
+  font-family:'IBM Plex Mono',monospace; font-weight:700; text-decoration:none; box-sizing:border-box; }
+.rnode.step { left:72px; width:56px; height:56px; background:var(--navy); color:#fff; font-size:20px; letter-spacing:1px; box-shadow:0 0 0 8px var(--bg); }
+a.rnode.step:hover { box-shadow:0 0 0 8px var(--bg), 0 0 0 9.5px var(--navy); }
+.rnode.end { left:80px; width:40px; height:40px; font-size:12px; letter-spacing:1.2px; box-shadow:0 0 0 6px var(--bg); }
+.rlabel { position:absolute; left:160px; }
+.rlabel .a { font-family:'Inter',sans-serif; font-weight:600; font-size:15px; line-height:22px; color:var(--ink2); }
+.rlabel .m { margin-top:2px; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:18px; color:var(--sand2); }
+.gate-tag { position:absolute; left:48px; top:4521px; width:104px; text-align:center;
+  font-family:'Roboto Mono',monospace; font-weight:500; font-size:9px; letter-spacing:1.35px; text-transform:uppercase; color:var(--navy); }
+.stepx .io { display:flex; gap:8px; align-items:center; margin-top:4px; }
+.stepx .ic { height:27px; display:inline-flex; align-items:center; padding:0 10px; border:1px solid var(--hair3); border-radius:6px;
+  font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted2); white-space:nowrap; }
+.stepx .ic.out { border-color:rgba(22,46,81,.35); color:var(--navy); background:rgba(22,46,81,.04); }
+.stepx .ar { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--sand2); }
+.stepx .cap .k { color:var(--navy); font-weight:500; }
