@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&family=IBM+Plex+Mono:wght@400;700&family=Inter:ital,wght@0,400;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Newsreader:wght@400&family=Roboto+Mono:wght@400;500&family=Source+Sans+3&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../project2.css?v=5">
+  <link rel="stylesheet" href="../project2.css?v=6">
   <link rel="stylesheet" href="../header.css?v=3">
 </head>
 <body>
@@ -77,157 +77,166 @@
       <p class="ff-serif" style="font-size:48px;line-height:58px;color:#000">A four-step pipeline that makes a complex application legible.</p>
     </div>
 
-    <!-- pipeline connector + dots -->
-    <div class="vline" style="left:222px;top:2645px;height:1154px"></div>
-    <div class="pdot" style="left:217px;top:2635px;background:var(--navy);border:2px solid var(--dotdim)"></div>
-    <div class="pdot" style="left:217px;top:2999px;background:var(--dotdim);border:2px solid var(--dotdim)"></div>
-    <div class="pdot" style="left:217px;top:3386px;background:var(--dotdim);border:2px solid var(--dotdim)"></div>
-    <div class="pdot" style="left:217px;top:3794px;background:var(--dotdim);border:2px solid var(--dotdim)"></div>
-
-    <!-- step 01 Intake -->
-    <div class="step" style="left:251px;top:2632px;width:272px">
-      <p class="n">01</p><p class="t">Intake</p>
-      <p class="s">Upload pitch. Agent extracts intent.</p>
-      <p class="b">I replaced a 15-field search form with a single document upload. The agent reads the applicant’s intent, then outlines the steps it plans to take before it executes, so automation begins with a shared plan, not a black box.</p>
-    </div>
-    <div class="pchip" style="left:251px;top:2854px;width:116px">Intent-driven</div>
-    <div class="pchip" style="left:375px;top:2854px;width:156px">Plan before execute</div>
-    <div class="pimg" style="left:686px;top:2594px;width:480px">
-      <div class="frame"><video src="../assets/agc-step-1.mp4" poster="../assets/agc-01-intake.png" autoplay muted loop playsinline aria-label="Intake demo — the agent proposes its plan"></video></div>
+    <!-- step 01 · Intake (full-width showcase) -->
+    <div class="stepx" style="top:2688px">
+      <div class="head">
+        <div class="left">
+          <p class="n">STEP 01</p>
+          <p class="t">Intake</p>
+          <p class="s">Upload pitch. Agent extracts intent.</p>
+        </div>
+        <div class="right">
+          <p class="b">I replaced a 15-field search form with a single document upload. The agent reads the applicant’s intent, then outlines the steps it plans to take before it executes, so automation begins with a shared plan, not a black box.</p>
+          <div class="chips"><span>Intent-driven</span><span>Plan before execute</span></div>
+        </div>
+      </div>
+      <div class="shot"><video src="../assets/agc-step-1.mp4" poster="../assets/agc-poster-1.jpg" autoplay muted loop playsinline aria-label="Intake demo — the agent proposes its plan"></video></div>
       <p class="cap">Upload → the agent proposes its plan and asks to proceed.</p>
     </div>
 
-    <!-- step 02 Match -->
-    <div class="step" style="left:251px;top:2995px;width:304px">
-      <p class="n">02</p><p class="t">Match</p>
-      <p class="s">Translating AI output into trust.</p>
-      <p class="b">Dense model analysis and cross-referenced institutional data become clear, ranked, actionable matches - communicating why each one fits, not just that it does</p>
-    </div>
-    <div class="pchip" style="left:251px;top:3153px;width:156px">Explainable matches</div>
-    <div class="pchip" style="left:415px;top:3153px;width:102px">Fit scoring</div>
-    <div class="pimg" style="left:686px;top:2966px;width:488px">
-      <div class="frame"><video src="../assets/agc-step-2.mp4" poster="../assets/agc-02-match.png" autoplay muted loop playsinline aria-label="Match demo — ranked matches with fit scores"></video></div>
+    <!-- step 02 · Match (full-width showcase) -->
+    <div class="stepx" style="top:3578px">
+      <div class="head">
+        <div class="left">
+          <p class="n">STEP 02</p>
+          <p class="t">Match</p>
+          <p class="s">Translating AI output into trust.</p>
+        </div>
+        <div class="right">
+          <p class="b">Dense model analysis and cross-referenced institutional data become clear, ranked, actionable matches - communicating why each one fits, not just that it does</p>
+          <div class="chips"><span>Explainable matches</span><span>Fit scoring</span></div>
+        </div>
+      </div>
+      <div class="shot"><video src="../assets/agc-step-2.mp4" poster="../assets/agc-poster-2.jpg" autoplay muted loop playsinline aria-label="Match demo — ranked matches with fit scores"></video></div>
       <p class="cap">Ranked matches, each with a fit score and the reason behind it.</p>
     </div>
 
-    <!-- step 03 Eligibility -->
-    <div class="step" style="left:251px;top:3382px;width:279px">
-      <p class="n">03</p><p class="t" style="color:var(--navy)">Eligibility</p>
-      <p class="s">A human gate at every high-stakes step.</p>
-      <p class="b">Compliance documents and applicant status are verified with a human review gate at every high-stakes step.</p>
-    </div>
-    <div class="pchip" style="left:251px;top:3540px;width:147px">Human review gate</div>
-    <div class="pchip" style="left:415px;top:3540px;width:138px">Compliance check</div>
-    <div class="pimg" style="left:686px;top:3355px;width:489px">
-      <div class="frame"><video src="../assets/agc-step-3.mp4" poster="../assets/agc-03-eligibility.png" autoplay muted loop playsinline aria-label="Eligibility demo — the agent flags what is missing"></video></div>
+    <!-- step 03 · Eligibility (full-width showcase) -->
+    <div class="stepx" style="top:4468px">
+      <div class="head">
+        <div class="left">
+          <p class="n">STEP 03</p>
+          <p class="t" style="color:var(--navy)">Eligibility</p>
+          <p class="s">A human gate at every high-stakes step.</p>
+        </div>
+        <div class="right">
+          <p class="b">Compliance documents and applicant status are verified with a human review gate at every high-stakes step.</p>
+          <div class="chips"><span>Human review gate</span><span>Compliance check</span></div>
+        </div>
+      </div>
+      <div class="shot"><video src="../assets/agc-step-3.mp4" poster="../assets/agc-poster-3.jpg" autoplay muted loop playsinline aria-label="Eligibility demo — the agent flags what is missing"></video></div>
       <p class="cap">The agent flags what’s missing — you stay the one who verifies.</p>
     </div>
 
-    <!-- step 04 Package -->
-    <div class="step" style="left:251px;top:3786px;width:272px">
-      <p class="n">04</p><p class="t">Package</p>
-      <p class="s">From scattered docs to one package.</p>
-      <p class="b">Every section is assembled, reviewed, and exported as one submission-ready package.</p>
-    </div>
-    <div class="pchip" style="left:251px;top:3944px;width:156px">One-click assembly</div>
-    <div class="pchip" style="left:415px;top:3944px;width:108px">Export-ready</div>
-    <div class="pimg" style="left:686px;top:3769px;width:489px">
-      <div class="frame"><video src="../assets/agc-step-4.mp4" poster="../assets/agc-06-package.png" autoplay muted loop playsinline aria-label="Package demo — live readiness meter"></video></div>
+    <!-- step 04 · Package (full-width showcase) -->
+    <div class="stepx" style="top:5358px">
+      <div class="head">
+        <div class="left">
+          <p class="n">STEP 04</p>
+          <p class="t">Package</p>
+          <p class="s">From scattered docs to one package.</p>
+        </div>
+        <div class="right">
+          <p class="b">Every section is assembled, reviewed, and exported as one submission-ready package.</p>
+          <div class="chips"><span>One-click assembly</span><span>Export-ready</span></div>
+        </div>
+      </div>
+      <div class="shot"><video src="../assets/agc-step-4.mp4" poster="../assets/agc-poster-4.jpg" autoplay muted loop playsinline aria-label="Package demo — live readiness meter"></video></div>
       <p class="cap">A live readiness meter — each section approved before the package can export.</p>
     </div>
 
     <!-- ===================== SIGNATURE DESIGN DECISION (navy) ===================== -->
     <div class="sig-bg"></div>
-    <div class="abs" style="left:138px;top:4273px;width:757px;display:flex;flex-direction:column;gap:12px">
+    <div class="abs" style="left:138px;top:6361px;width:757px;display:flex;flex-direction:column;gap:12px">
       <p class="sig-eyebrow">The Signature Design Decision</p>
       <p class="sig-title">Review before you Confirm</p>
     </div>
-    <p class="sig-body abs" style="left:138px;top:4381px;width:679px">The first build had a single “Confirm” button that asked applicants to certify a compliance document they’d never seen. One critique named the problem precisely: “Confirm is a terminal verb - it implies you’ve already reviewed.” The fix wasn’t a label change. It was a structural rethink.</p>
+    <p class="sig-body abs" style="left:138px;top:6469px;width:679px">The first build had a single “Confirm” button that asked applicants to certify a compliance document they’d never seen. One critique named the problem precisely: “Confirm is a terminal verb - it implies you’ve already reviewed.” The fix wasn’t a label change. It was a structural rethink.</p>
 
     <!-- BEFORE (v1) -->
-    <p class="card-label" style="left:138px;top:4547px">Before — v1 · One-click confirm</p>
-    <div class="abs" style="left:138px;top:4581px;width:526px;height:319px;background:var(--w04);border:1px solid var(--w10);border-radius:9px"></div>
-    <div class="abs" style="left:167px;top:4610px;width:468px;height:57px;background:var(--w06);border-radius:6px"></div>
-    <p class="abs ff-roboto" style="left:183px;top:4629px;font-size:11px;line-height:17.6px;white-space:nowrap"><span style="color:var(--w50)">Current &amp; Pending Support · </span><span style="color:var(--amber)">Action Needed</span></p>
-    <div class="abs" style="left:543px;top:4622px;width:76px;height:33px;background:var(--w12);border:1px solid var(--w15);border-radius:5px"></div>
-    <p class="abs ff-inter" style="left:558px;top:4628px;font-weight:600;font-size:12px;line-height:19.2px;color:var(--w50);white-space:nowrap">Confirm</p>
-    <div class="abs" style="left:168px;top:4687px;width:16px;height:16px;background:rgba(229,103,92,.6);border-radius:8px"></div>
-    <p class="abs ff-inter" style="left:193px;top:4685px;width:419px;font-style:italic;font-size:13px;line-height:20.15px;color:var(--w50)">The user is asked to certify a disclosure without seeing its contents. One click marks it “Ready.” Nothing to inspect. Nothing to dispute. The mental model: trust us, it’s fine.</p>
-    <div class="abs" style="left:167px;top:4767px;width:468px;height:0;border-top:1px solid var(--w08)"></div>
-    <p class="abs ff-roboto" style="left:167px;top:4788px;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--w50);line-height:16px;white-space:nowrap">What goes wrong</p>
-    <p class="abs ff-inter" style="left:167px;top:4817px;width:466px;font-size:13px;line-height:20.8px;color:var(--w50)">An applicant certifies that an award is still “Pending” — but it was funded two months ago. The reviewer flags the misrepresentation. The submission is voided.</p>
-    <div class="nchip" style="left:138px;top:4919px;width:178px">Certify without seeing</div>
-    <div class="nchip" style="left:325px;top:4919px;width:138px">No disagree path</div>
-    <div class="nchip" style="left:472px;top:4919px;width:104px">Trust smell</div>
+    <p class="card-label" style="left:138px;top:6635px">Before — v1 · One-click confirm</p>
+    <div class="abs" style="left:138px;top:6669px;width:526px;height:319px;background:var(--w04);border:1px solid var(--w10);border-radius:9px"></div>
+    <div class="abs" style="left:167px;top:6698px;width:468px;height:57px;background:var(--w06);border-radius:6px"></div>
+    <p class="abs ff-roboto" style="left:183px;top:6717px;font-size:11px;line-height:17.6px;white-space:nowrap"><span style="color:var(--w50)">Current &amp; Pending Support · </span><span style="color:var(--amber)">Action Needed</span></p>
+    <div class="abs" style="left:543px;top:6710px;width:76px;height:33px;background:var(--w12);border:1px solid var(--w15);border-radius:5px"></div>
+    <p class="abs ff-inter" style="left:558px;top:6716px;font-weight:600;font-size:12px;line-height:19.2px;color:var(--w50);white-space:nowrap">Confirm</p>
+    <div class="abs" style="left:168px;top:6775px;width:16px;height:16px;background:rgba(229,103,92,.6);border-radius:8px"></div>
+    <p class="abs ff-inter" style="left:193px;top:6773px;width:419px;font-style:italic;font-size:13px;line-height:20.15px;color:var(--w50)">The user is asked to certify a disclosure without seeing its contents. One click marks it “Ready.” Nothing to inspect. Nothing to dispute. The mental model: trust us, it’s fine.</p>
+    <div class="abs" style="left:167px;top:6855px;width:468px;height:0;border-top:1px solid var(--w08)"></div>
+    <p class="abs ff-roboto" style="left:167px;top:6876px;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--w50);line-height:16px;white-space:nowrap">What goes wrong</p>
+    <p class="abs ff-inter" style="left:167px;top:6905px;width:466px;font-size:13px;line-height:20.8px;color:var(--w50)">An applicant certifies that an award is still “Pending” — but it was funded two months ago. The reviewer flags the misrepresentation. The submission is voided.</p>
+    <div class="nchip" style="left:138px;top:7007px;width:178px">Certify without seeing</div>
+    <div class="nchip" style="left:325px;top:7007px;width:138px">No disagree path</div>
+    <div class="nchip" style="left:472px;top:7007px;width:104px">Trust smell</div>
 
     <!-- AFTER (v2) -->
-    <p class="card-label" style="left:740px;top:4547px">After — v2 · Review → Confirm loop</p>
-    <div class="abs" style="left:740px;top:4581px;width:526px;height:353px;border:1px solid var(--w12);border-radius:9px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.3))"></div>
-    <div class="abs" style="left:741px;top:4582px;width:524px;height:39px;background:#1c3551;border-radius:8px 8px 0 0"></div>
-    <div class="abs" style="left:757px;top:4595px;width:10px;height:10px;border-radius:5px;background:#e5675c"></div>
-    <div class="abs" style="left:773px;top:4595px;width:10px;height:10px;border-radius:5px;background:#e4b53d"></div>
-    <div class="abs" style="left:789px;top:4595px;width:10px;height:10px;border-radius:5px;background:#56c152"></div>
-    <p class="abs ff-roboto center" style="left:741px;top:4591px;width:524px;font-size:11px;line-height:17.6px;color:var(--w50)">grant-copilot / review</p>
-    <div class="abs" style="left:741px;top:4621px;width:524px;height:309px;border-radius:6px;overflow:hidden"><img src="../assets/agc-04-review-drawer.png" alt="Review drawer — compiled disclosure visible before confirming" style="display:block;width:100%;height:100%;object-fit:cover"></div>
-    <p class="abs ff-roboto" style="left:740px;top:4967px;width:524px;font-size:11px;line-height:17.6px;letter-spacing:.66px;color:var(--w50)">The compiled disclosure is visible before any decision. Confirm &amp; attach is irreversible — it lives inside the drawer so the verb is honest. Request changes gives disagreement a first-class, low-friction path.</p>
-    <div class="nchip" style="left:740px;top:5051px;width:165px">Review opens content</div>
-    <div class="nchip" style="left:914px;top:5051px;width:165px">Confirm lives inside</div>
-    <div class="nchip" style="left:1088px;top:5051px;width:165px">First-class disagree</div>
-    <div class="nchip" style="left:740px;top:5093px;width:151px">Revise &amp; re-review</div>
+    <p class="card-label" style="left:740px;top:6635px">After — v2 · Review → Confirm loop</p>
+    <div class="abs" style="left:740px;top:6669px;width:526px;height:353px;border:1px solid var(--w12);border-radius:9px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.3))"></div>
+    <div class="abs" style="left:741px;top:6670px;width:524px;height:39px;background:#1c3551;border-radius:8px 8px 0 0"></div>
+    <div class="abs" style="left:757px;top:6683px;width:10px;height:10px;border-radius:5px;background:#e5675c"></div>
+    <div class="abs" style="left:773px;top:6683px;width:10px;height:10px;border-radius:5px;background:#e4b53d"></div>
+    <div class="abs" style="left:789px;top:6683px;width:10px;height:10px;border-radius:5px;background:#56c152"></div>
+    <p class="abs ff-roboto center" style="left:741px;top:6679px;width:524px;font-size:11px;line-height:17.6px;color:var(--w50)">grant-copilot / review</p>
+    <div class="abs" style="left:741px;top:6709px;width:524px;height:309px;border-radius:6px;overflow:hidden"><img src="../assets/agc-04-review-drawer.png" alt="Review drawer — compiled disclosure visible before confirming" style="display:block;width:100%;height:100%;object-fit:cover"></div>
+    <p class="abs ff-roboto" style="left:740px;top:7055px;width:524px;font-size:11px;line-height:17.6px;letter-spacing:.66px;color:var(--w50)">The compiled disclosure is visible before any decision. Confirm &amp; attach is irreversible — it lives inside the drawer so the verb is honest. Request changes gives disagreement a first-class, low-friction path.</p>
+    <div class="nchip" style="left:740px;top:7139px;width:165px">Review opens content</div>
+    <div class="nchip" style="left:914px;top:7139px;width:165px">Confirm lives inside</div>
+    <div class="nchip" style="left:1088px;top:7139px;width:165px">First-class disagree</div>
+    <div class="nchip" style="left:740px;top:7181px;width:151px">Revise &amp; re-review</div>
 
     <!-- ===================== HOW IT WAS BUILT ===================== -->
-    <div class="abs" style="left:167px;top:5329px;width:668px;display:flex;flex-direction:column;gap:12px">
+    <div class="abs" style="left:167px;top:7417px;width:668px;display:flex;flex-direction:column;gap:12px">
       <p class="eb-plex">HOW IT WAS BUILT</p>
       <p class="h-serif48" style="width:501px">Designed and shipped with an AI co-pilot.</p>
       <p class="ff-inter" style="font-size:16px;line-height:26.88px;color:var(--muted2)">This wasn’t just a design about AI — it was designed with AI. I ran an AI-assisted design-engineering workflow end to end, from system architecture to a coded, interactive prototype.</p>
     </div>
 
-    <div class="abs" style="left:167px;top:5605px;width:275px;display:flex;flex-direction:column;gap:16px">
+    <div class="abs" style="left:167px;top:7693px;width:275px;display:flex;flex-direction:column;gap:16px">
       <p class="build-num">01</p><p class="build-tag">Figma</p>
       <p class="build-h">Strategic Blueprinting</p>
       <p class="build-b">Architected an AI-native design system and accessible component tokens - structured deliberately so each component was <b>directly consumable by an AI coding agent.</b></p>
     </div>
-    <p class="arrow-serif abs" style="left:502px;top:5605px">→</p>
-    <div class="abs" style="left:564px;top:5605px;width:319px;display:flex;flex-direction:column;gap:16px">
+    <p class="arrow-serif abs" style="left:502px;top:7693px">→</p>
+    <div class="abs" style="left:564px;top:7693px;width:319px;display:flex;flex-direction:column;gap:16px">
       <p class="build-num">02</p><p class="build-tag">CLAUDe</p>
       <p class="build-h">Prompt-Driven Prototyping</p>
       <p class="build-b">Fed structural parameters and design intent into an AI co-pilot to <b>rapidly translate static design into a functional HTML/React front end</b> - real components, real state.</p>
     </div>
-    <p class="arrow-serif abs" style="left:921px;top:5605px">→</p>
-    <div class="abs" style="left:974px;top:5605px;width:319px;display:flex;flex-direction:column;gap:16px">
+    <p class="arrow-serif abs" style="left:921px;top:7693px">→</p>
+    <div class="abs" style="left:974px;top:7693px;width:319px;display:flex;flex-direction:column;gap:16px">
       <p class="build-num">03</p><p class="build-tag">the roi</p>
       <p class="build-h">10× Faster Iteration</p>
       <p class="build-b">Tested real interactive states and edge <b>cases directly in the browser</b>, collapsing the concept-to-delivery loop from weeks to days.</p>
     </div>
 
-    <div class="hline" style="left:48px;top:5888px;width:1344px"></div>
+    <div class="hline" style="left:48px;top:7976px;width:1344px"></div>
 
     <!-- ===================== OUTCOMES & TAKEAWAYS ===================== -->
-    <div class="abs" style="left:160px;top:5951px;width:385px;display:flex;flex-direction:column;gap:12px">
+    <div class="abs" style="left:160px;top:8039px;width:385px;display:flex;flex-direction:column;gap:12px">
       <p class="eb-plex">OUTCOMES &amp; TAKEAWAYS</p>
       <p class="ff-serif" style="font-size:48px;line-height:58px;letter-spacing:-0.92px;color:#000">On high-accountability products, the best design decision was <span style="color:var(--blue)">adding </span>a step, not removing one.</p>
     </div>
 
-    <div class="abs" style="left:678px;top:5942px;width:562px;display:flex;flex-direction:column;gap:6px">
+    <div class="abs" style="left:678px;top:8030px;width:562px;display:flex;flex-direction:column;gap:6px">
       <p class="oc-tag">impact</p>
       <p class="ff-inter" style="font-size:15px;line-height:25.5px;color:var(--body)">A fragmented, multi-portal ordeal became a single guided pipeline where an AI agent does the labor and the user keeps the decisions with zero blind certifications by design.</p>
     </div>
-    <div class="hline" style="left:678px;top:6059px;width:650px"></div>
-    <div class="abs" style="left:678px;top:6075px;width:562px;display:flex;flex-direction:column;gap:6px">
+    <div class="hline" style="left:678px;top:8147px;width:650px"></div>
+    <div class="abs" style="left:678px;top:8163px;width:562px;display:flex;flex-direction:column;gap:6px">
       <p class="oc-tag">Process</p>
       <p class="ff-inter" style="font-size:14px;line-height:23.1px;color:var(--muted)">I mapped the real workflow before touching UI, iterated through a one-click first draft, caught its trust gap in critique, and rebuilt around a Review → Confirm loop - later systematized into one reusable component.</p>
     </div>
-    <div class="hline" style="left:678px;top:6185px;width:650px"></div>
-    <div class="abs" style="left:678px;top:6201px;width:562px;display:flex;flex-direction:column;gap:6px">
+    <div class="hline" style="left:678px;top:8273px;width:650px"></div>
+    <div class="abs" style="left:678px;top:8289px;width:562px;display:flex;flex-direction:column;gap:6px">
       <p class="oc-tag">What I learned</p>
       <p class="ff-inter" style="font-size:15px;line-height:25.5px;color:var(--body)">Owning both the design system and the coded prototype let me design for an AI agent and partner with one to build - proof that hard constraints don’t limit good design, they tell it exactly where to put the human.</p>
     </div>
 
     <!-- ===================== NEXT PROJECT (Group 58) ===================== -->
-    <div class="hline" style="left:48px;top:6482px;width:1344px"></div>
+    <div class="hline" style="left:48px;top:8570px;width:1344px"></div>
     <a href="../nsf-funding/" style="text-decoration:none">
-      <p class="next-eyebrow" style="left:50px;top:6518px">NEXT PROJECT</p>
-      <div class="next-row" style="left:50px;top:6536px"><p class="next-title">NSF Funding Search Engine</p><p class="next-arrow">→</p></div>
+      <p class="next-eyebrow" style="left:50px;top:8606px">NEXT PROJECT</p>
+      <div class="next-row" style="left:50px;top:8624px"><p class="next-title">NSF Funding Search Engine</p><p class="next-arrow">→</p></div>
     </a>
 
     <!-- ===================== FOOTER ===================== -->
