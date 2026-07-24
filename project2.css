@@ -95,13 +95,13 @@ body {
 .spec2 .value { margin-top:8px; font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:17px; letter-spacing:-0.3px; color:#fff; }
 
 /* ---------- Prototype / video mock ---------- */
-.proto-top    { position:absolute; left:160px; top:842px; width:1119.996px; height:56.524px; background:#fff; border:1px solid var(--hair2); border-radius:12px 12px 0 0; }
-.proto-bar    { position:absolute; left:161.16px; top:843.07px; width:1117.682px; height:55.457px; background:var(--card); border-bottom:1px solid var(--ink); border-radius:11px 11px 0 0; }
-.proto-dot    { position:absolute; top:865.46px; width:12.727px; height:11.731px; border-radius:5.5px; background:var(--hair); }
-.proto-view   { position:absolute; left:161.16px; top:898.52px; width:1117.682px; height:729.476px; background:var(--cardgray); border:1px solid var(--hair); box-shadow:5px 5px 24.6px 12px rgba(0,0,0,.05); }
+.proto-top    { position:absolute; left:160px; top:842px; width:1119.996px; height:60.119px; background:#fff; border:1px solid var(--hair2); border-radius:12px 12px 0 0; }
+.proto-bar    { position:absolute; left:161.16px; top:843.13px; width:1117.682px; height:58.985px; background:var(--card); border-bottom:1px solid var(--ink); border-radius:11px 11px 0 0; }
+.proto-dot    { position:absolute; top:866.96px; width:12.727px; height:12.478px; border-radius:5.5px; background:var(--hair); }
+.proto-view   { position:absolute; left:161.16px; top:902.12px; width:1117.682px; height:775.881px; background:var(--cardgray); border:1px solid var(--hair); box-shadow:5px 5px 24.6px 12px rgba(0,0,0,.05); }
 .proto-urlpill{ position:absolute; left:259px; top:858px; width:189px; height:31px; background:var(--pill); border:1px solid var(--pillbd); border-radius:7px; }
 .proto-urltxt { position:absolute; left:276px; top:865px; width:160px; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:17.25px; color:var(--sand); }
-.proto-note   { position:absolute; left:634px; top:1068px; width:154px; font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:17px; line-height:normal; color:#15171a; }
+.proto-shot   { position:absolute; left:177px; top:908px; width:1087px; height:760px; border-radius:20px; object-fit:cover; }
 
 /* ---------- generic dividers ---------- */
 .hline { position:absolute; height:0; border-top:1px solid var(--hair); }        /* Line 5/6/7 */
