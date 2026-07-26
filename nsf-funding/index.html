@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&family=IBM+Plex+Mono:wght@400;700&family=Inter:ital,wght@0,400;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Newsreader:wght@400&family=Source+Sans+3&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../project.css?v=4">
+  <link rel="stylesheet" href="../project.css?v=5">
   <link rel="stylesheet" href="../header.css?v=4">
 </head>
 <body>
@@ -79,8 +79,14 @@
 
     <div class="hr4" style="left:48px;top:2408px;width:1344px"></div>
 
+    <!-- feature rail: numbered nodes -->
+    <div class="frail"></div>
+    <a class="fnode" href="#feat-1" style="top:2492px" aria-label="Feature 1 of 3">01</a>
+    <a class="fnode" href="#feat-2" style="top:3624px" aria-label="Feature 2 of 3">02</a>
+    <a class="fnode" href="#feat-3" style="top:4756px" aria-label="Feature 3 of 3">03</a>
+
     <!-- ===================== KEY FEATURE 01 ===================== -->
-    <div class="featx" style="top:2461px">
+    <div class="featx" id="feat-1" style="top:2461px">
       <div class="head">
         <div class="left">
           <p class="eb4-blue">KEY FEATURE 01</p>
@@ -93,11 +99,10 @@
         </div>
       </div>
       <div class="shot"><video src="../assets/nsf-feature-1.mp4" poster="../assets/nsf-feature-1.jpg" autoplay muted loop playsinline aria-label="Filter system demo — searchable, visible filters"></video></div>
-      <p class="fcap">In-filter search — type to find any option, reset everything in one tap.</p>
+      <p class="fcap"><span class="k">FEATURE 01 / 03</span> — In-filter search: type to find any option, reset everything in one tap.</p>
     </div>
-    <div class="hr4" style="left:48px;top:3540px;width:1344px"></div>
     <!-- ===================== KEY FEATURE 02 ===================== -->
-    <div class="featx" style="top:3593px">
+    <div class="featx" id="feat-2" style="top:3593px">
       <div class="head">
         <div class="left">
           <p class="eb4-blue">KEY FEATURE 02</p>
@@ -110,11 +115,10 @@
         </div>
       </div>
       <div class="shot"><video src="../assets/nsf-feature-2.mp4" poster="../assets/nsf-feature-2.jpg" autoplay muted loop playsinline aria-label="Result card demo — structured, scannable grant data"></video></div>
-      <p class="fcap">Result list — from wall of text to structured, scannable card.</p>
+      <p class="fcap"><span class="k">FEATURE 02 / 03</span> — Result list: from wall of text to structured, scannable card.</p>
     </div>
-    <div class="hr4" style="left:48px;top:4672px;width:1344px"></div>
     <!-- ===================== KEY FEATURE 03 ===================== -->
-    <div class="featx" style="top:4725px">
+    <div class="featx" id="feat-3" style="top:4725px">
       <div class="head">
         <div class="left">
           <p class="eb4-blue">KEY FEATURE 03</p>
@@ -127,7 +131,7 @@
         </div>
       </div>
       <div class="shot"><video src="../assets/nsf-feature-3.mp4" poster="../assets/nsf-feature-3.jpg" autoplay muted loop playsinline aria-label="Component library demo — documented states and breakpoints"></video></div>
-      <p class="fcap">The component library — every state and breakpoint documented.</p>
+      <p class="fcap"><span class="k">FEATURE 03 / 03</span> — The component library: every state and breakpoint documented.</p>
     </div>
 
     <!-- ===================== LOOKING AHEAD ===================== -->
@@ -177,6 +181,16 @@
       var onScroll = function () { pill.classList.toggle('show', window.scrollY > 400); };
       addEventListener('scroll', onScroll, { passive: true }); onScroll();
     })();
+  </script>
+  <script>
+    document.querySelectorAll('a.fnode').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var t = document.querySelector(a.getAttribute('href'));
+        window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 24, behavior: 'smooth' });
+        history.replaceState(null, '', a.getAttribute('href'));
+      });
+    });
   </script>
 </body>
 </html>
