@@ -111,18 +111,18 @@ body {
 .spec3 .value { margin-top: 8px; font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 17px; color: var(--ink-strong); }
 
 /* ---------- prototype browser mock ---------- */
-.proto3-top  { position: absolute; left: 160px; top: 554px; width: 1119.996px; height: 56.524px; background: #fff; border: 1px solid var(--hair2); border-radius: 12px 12px 0 0; }
-.proto3-bar  { position: absolute; left: 161.16px; top: 555.07px; width: 1117.682px; height: 55.457px; background: #efeadf; border-bottom: 1px solid var(--ink); border-radius: 11px 11px 0 0; }
-.proto3-dot  { position: absolute; top: 577.46px; width: 12.727px; height: 11.731px; border-radius: 5.5px; background: var(--hair); }
-.proto3-view { position: absolute; left: 161.16px; top: 610.52px; width: 1117.682px; height: 729.476px; background: #efefef; border: 1px solid var(--hair); box-shadow: 5px 5px 24.6px 12px rgba(0,0,0,.05); }
-.proto3-note {
-  position: absolute; left: 634px; top: 785px; width: 154px;
-  font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 17px; line-height: normal; color: var(--ink-strong);
-}
+.proto3-top  { position: absolute; left: 202px; top: 509px; width: 1036px; height: 56.876px; background: #fff; border: 1px solid var(--hair2); border-radius: 12px 12px 0 0; }
+.proto3-bar  { position: absolute; left: 203.07px; top: 510.07px; width: 1033.859px; height: 55.803px; background: #efeadf; border-bottom: 1px solid var(--ink); border-radius: 11px 11px 0 0; }
+.proto3-dot  { position: absolute; top: 532.61px; width: 11.773px; height: 11.805px; border-radius: 5.5px; background: var(--hair); }
+.proto3-view { position: absolute; left: 203.07px; top: 565.88px; width: 1033.859px; height: 734.027px; background: #efefef; border: 1px solid var(--hair); box-shadow: 5px 5px 24.6px 12px rgba(0,0,0,.05); }
+.proto3-shot { position: absolute; left: 223px; top: 575px; width: 995px; height: 711px; border-radius: 20px; object-fit: cover; }
+.cta3 { position: absolute; left: 619px; top: 1342px; display: inline-flex; align-items: center; gap: 12px; padding: 12px 24px; border-radius: 999px; background: #17150f; text-decoration: none; }
+.cta3 .tx { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: #f3f1ea; white-space: nowrap; }
+.cta3 .arrow { font-family: 'Source Sans 3', sans-serif; font-size: 24px; letter-spacing: -0.8px; color: #fff; }
 
 /* ---------- THE PRODUCT band ---------- */
-.product-band { position: absolute; left: 48px; top: 1472px; width: 1344px; height: 393px; background: var(--band); border-radius: 16px; }
-.product-copy { position: absolute; left: 160px; top: 1514px; width: 409px; display: flex; flex-direction: column; gap: 16px; }
+.product-band { position: absolute; left: 48px; top: 1464px; width: 1344px; height: 393px; background: var(--band); border-radius: 16px; }
+.product-copy { position: absolute; left: 160px; top: 1506px; width: 409px; display: flex; flex-direction: column; gap: 16px; }
 .eb { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 2.2px; line-height: 16.5px; color: var(--mono-warm); }
 .eb-192 { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.92px; line-height: 18px; color: var(--label); }
 .product-copy .ptitle {
@@ -136,7 +136,7 @@ body {
 .stats .l { position: absolute; top: 50px; font-size: 12px; line-height: 18px; color: var(--mono-warm2); white-space: nowrap; }
 .stats .sep { position: absolute; top: 0; width: 1px; height: 68px; background: var(--tan); }
 .phone {
-  position: absolute; left: 758px; top: 1514px; width: 423px; height: 351px;
+  position: absolute; left: 758px; top: 1506px; width: 423px; height: 351px;
   border-radius: 53px 55px 0 0; overflow: hidden;
   box-shadow: 0 -16px 61.6px 0 rgba(104,104,104,.2);
 }
