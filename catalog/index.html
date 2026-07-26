@@ -10,9 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&family=IBM+Plex+Mono:wght@400;700&family=Inter:wght@400;600&family=Instrument+Serif:ital@0;1&family=Source+Sans+3&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../catalog.css?v=4">
   <link rel="stylesheet" href="../modals.css?v=3">
-  <link rel="stylesheet" href="../header.css?v=3">
+  <link rel="stylesheet" href="../header.css?v=4">
 </head>
 <body>
+  <a class="home-pill" href="../" aria-label="Back to home">&#8592; HOME</a>
   <div class="stage">
 
     <!-- Top bar -->
@@ -143,5 +144,12 @@
   </div>
 
   <script src="../modals.js" defer></script>
+  <script>
+    (function () {
+      var pill = document.querySelector('.home-pill');
+      var onScroll = function () { pill.classList.toggle('show', window.scrollY > 400); };
+      addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    })();
+  </script>
 </body>
 </html>

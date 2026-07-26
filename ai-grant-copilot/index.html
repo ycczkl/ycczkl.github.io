@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&family=IBM+Plex+Mono:wght@400;700&family=Inter:ital,wght@0,400;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Newsreader:wght@400&family=Roboto+Mono:wght@400;500&family=Source+Sans+3&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../project2.css?v=8">
-  <link rel="stylesheet" href="../header.css?v=3">
+  <link rel="stylesheet" href="../header.css?v=4">
 </head>
 <body>
+  <a class="home-pill" href="../" aria-label="Back to home">&#8592; HOME</a>
   <div class="stage2">
 
     <!-- ===================== HERO (navy) ===================== -->
@@ -270,6 +271,13 @@
         history.replaceState(null, '', a.getAttribute('href'));
       });
     });
+  </script>
+  <script>
+    (function () {
+      var pill = document.querySelector('.home-pill');
+      var onScroll = function () { pill.classList.toggle('show', window.scrollY > 400); };
+      addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    })();
   </script>
 </body>
 </html>

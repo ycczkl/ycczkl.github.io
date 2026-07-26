@@ -76,3 +76,23 @@
   font-size: 15.6px;
   line-height: 16.8px;
 }
+
+/* ---------- floating "back home" pill (long content pages) ----------
+   Hidden at the top (the nav's HOME is visible there); fades in once
+   the reader scrolls past the header zone. Fixed = viewport px, so it
+   is unaffected by the stages' zoom. */
+.home-pill {
+  position: fixed; left: 24px; top: 24px; z-index: 90;
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 40px; padding: 0 18px; border-radius: 999px;
+  background: rgba(250,246,238,.82);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border: 1px solid rgba(26,24,20,.14);
+  box-shadow: 0 4px 16px rgba(26,24,20,.10);
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1px;
+  color: #1a1814; text-decoration: none;
+  opacity: 0; transform: translateY(-10px); pointer-events: none;
+  transition: opacity .3s ease, transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
+.home-pill.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.home-pill:hover { box-shadow: 0 6px 20px rgba(26,24,20,.18); background: rgba(250,246,238,.96); }
