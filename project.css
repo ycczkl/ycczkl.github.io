@@ -203,7 +203,7 @@ body {
 .featx .fcap { margin-top: 14px; width: 100%; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .55px; line-height: 16.5px; color: var(--sand); }
 
 /* ---------- feature rail (numbered nodes, AGC grammar in NSF blue) ---------- */
-.frail { position: absolute; left: 99px; top: 2520px; width: 2px; height: 2264px; background: var(--hair2); }
+.frail { position: absolute; left: 99px; top: 2517px; width: 2px; height: 2264px; background: var(--hair2); }
 .fnode {
   position: absolute; left: 72px; width: 56px; height: 56px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
@@ -214,3 +214,4 @@ body {
 a.fnode:hover { box-shadow: 0 0 0 8px var(--bg), 0 0 0 9.5px var(--blue); }
 .featx { scroll-margin-top: 24px; }
 .featx .fcap .k { color: var(--blue); font-weight: 700; }
+.featx .h4-48 { font-size: 43px; line-height: 52px; }
