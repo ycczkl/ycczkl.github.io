@@ -73,6 +73,7 @@
   text-decoration: none;
 }
 .m-btn .arrow { font-family: 'Source Sans 3', sans-serif; font-size: 14px; letter-spacing: -0.8px; }
+.m-btnrow { display: flex; gap: 12px; justify-content: center; }
 
 .m-win {
   position: absolute;
