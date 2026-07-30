@@ -31,7 +31,7 @@ body {
 .stage {
   position: relative;
   width: 1200px;
-  height: 1454px;
+  height: 1600px;
   background: var(--bg);
   overflow: hidden;
 }
@@ -150,7 +150,7 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 1257px;
+  top: 1403px;
   width: 1086px;
   height: 149px;
   border-top: 1px solid var(--ink);
