@@ -35,7 +35,7 @@ body {
 .stage {
   position: relative;
   width: 1440px;
-  height: 2934px;
+  height: 3505px;
   background: var(--bg);
   overflow: hidden;
   /* site max-width is 1200px — scale the 1440 design down proportionally */
@@ -172,7 +172,7 @@ body {
 }
 
 /* ---------- Footer ---------- */
-.footer { position: absolute; left: 48px; top: 2698px; width: 1344px; height: 178.8px; border-top: 1.2px solid #1a1814; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
+.footer { position: absolute; left: 48px; top: 3269px; width: 1344px; height: 178.8px; border-top: 1.2px solid #1a1814; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 100; }
 .footer .talk { position: absolute; top: 70.8px; left: 82.8px; font-family: 'Instrument Serif', serif; font-size: 38.4px; line-height: normal; color: #1a1814; white-space: nowrap; }
 .footer .talk .dash { font-style: italic; }
 .footer .talk a { color: #3d5afe; text-decoration: none; border-bottom: 1.2px solid #3d5afe; padding-bottom: 1.2px; }
